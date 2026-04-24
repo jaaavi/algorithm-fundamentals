@@ -17,7 +17,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-slate-900 dark:text-white hover:opacity-80 transition-opacity">
           <BookOpen className="w-5 h-5 text-primary-600" />
-          <span>Algorithm Fundamentals</span>
+          <span>FAL Study</span>
         </Link>
 
         <nav className="flex items-center gap-1">

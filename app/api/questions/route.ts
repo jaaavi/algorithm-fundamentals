@@ -4,7 +4,7 @@ import path from 'path';
 import type { Question } from '@/types';
 import { getTopicKey, parseCorrectAnswer } from '@/lib/questions';
 
-const JSON_DIR = path.join(process.cwd(), 'json');
+const JSON_DIR = path.join(process.cwd(), '..', 'json');
 
 export async function GET() {
   try {
