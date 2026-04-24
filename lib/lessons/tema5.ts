@@ -49,6 +49,16 @@ export const tema5: Lesson = {
           titulo: 'DyV vs. recursión simple',
           contenido: 'En DyV el tamaño del problema se DIVIDE (reduce por factor > 1), no solo se resta. Esto es lo que le da la eficiencia logarítmica o n·log(n). La diferencia con recursión simple: en DyV siempre se divide por al menos 2.',
         },
+        {
+          tipo: 'alerta',
+          nivel: 'tip',
+          titulo: 'Divide y vencerás en acción: búsqueda binaria',
+          contenido: 'La búsqueda binaria es el ejemplo canónico de DyV: divide el espacio de búsqueda por 2 en cada paso. Observa cómo se descartan mitades enteras del vector.',
+        },
+        {
+          tipo: 'visualizacion',
+          vizId: 'bs-basic',
+        },
       ],
     },
     {

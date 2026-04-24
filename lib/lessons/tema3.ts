@@ -45,6 +45,16 @@ export const tema3: Lesson = {
           tipo: 'texto',
           contenido: 'En este tema usamos la semántica axiomática de Hoare: un sistema de reglas que nos permite razonar sobre instrucciones C++ sin ejecutarlas.',
         },
+        {
+          tipo: 'alerta',
+          nivel: 'tip',
+          titulo: 'Ejemplo: búsqueda lineal iterativa',
+          contenido: 'El siguiente visualizador muestra cómo funciona un bucle de búsqueda paso a paso. Observa cómo el invariante "todos los elementos anteriores al índice i no son el buscado" se mantiene en cada iteración.',
+        },
+        {
+          tipo: 'visualizacion',
+          vizId: 'vs-basic',
+        },
       ],
     },
     {

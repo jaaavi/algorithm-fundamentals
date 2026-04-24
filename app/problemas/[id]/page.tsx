@@ -6,6 +6,8 @@ import { useParams } from 'next/navigation';
 import { useProblem } from '@/hooks/useProblems';
 import { useProblemStore } from '@/store/useProblemStore';
 import { CodeBlock } from '@/components/CodeBlock';
+import { AlgorithmVisualizer } from '@/components/visualizers/AlgorithmVisualizer';
+import { getVisualizationForProblem } from '@/lib/visualizations';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
@@ -16,7 +18,7 @@ import { cn } from '@/lib/cn';
 import {
   ArrowLeft, Lightbulb, Eye, EyeOff, CheckCircle2, ChevronDown,
   Zap, BookOpen, AlertTriangle, Target, Code2, ArrowRight,
-  List,
+  List, PlayCircle,
 } from 'lucide-react';
 
 function Section({ title, icon, children, defaultOpen = true }: {
@@ -57,10 +59,11 @@ export default function ProblemDetailPage() {
   const [showTemplate,   setShowTemplate]   = useState(false);
   const [solConfirmed,   setSolConfirmed]   = useState(false);
 
-  const prog       = progress[id] ?? { status: 'unseen', intentos: 0, vistaSolucion: false, lastSeen: 0 };
-  const lessonId   = problem ? TEMA_TO_LESSON_ID[problem.tema] : null;
-  const gradColor  = problem ? (TEMA_COLOR[problem.tema] ?? 'from-slate-400 to-slate-500') : '';
-  const difColor   = problem ? (DIFICULTAD_COLOR[problem.dificultad] ?? '') : '';
+  const prog        = progress[id] ?? { status: 'unseen', intentos: 0, vistaSolucion: false, lastSeen: 0 };
+  const lessonId    = problem ? TEMA_TO_LESSON_ID[problem.tema] : null;
+  const gradColor   = problem ? (TEMA_COLOR[problem.tema] ?? 'from-slate-400 to-slate-500') : '';
+  const difColor    = problem ? (DIFICULTAD_COLOR[problem.dificultad] ?? '') : '';
+  const vizConfig   = problem ? getVisualizationForProblem(problem.tema, problem.subtipo) : null;
 
   function handleShowNextHint() {
     if (!problem) return;
@@ -192,6 +195,22 @@ export default function ProblemDetailPage() {
             )}
           </div>
         </Card>
+      )}
+
+      {/* Visualización interactiva */}
+      {vizConfig && (
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <PlayCircle className="w-4 h-4 text-blue-500" />
+            <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+              Visualización del algoritmo
+            </h3>
+            <span className="text-xs text-slate-400 dark:text-slate-500 ml-1">
+              relacionado con este problema
+            </span>
+          </div>
+          <AlgorithmVisualizer config={vizConfig} />
+        </div>
       )}
 
       {/* Cómo reconocerlo + idea clave */}

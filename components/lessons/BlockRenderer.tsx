@@ -3,6 +3,8 @@
 import type { ContentBlock, AlertLevel } from '@/types/lessons';
 import { CodeBlock } from '@/components/CodeBlock';
 import { FormattedText } from '@/components/FormattedText';
+import { AlgorithmVisualizer } from '@/components/visualizers/AlgorithmVisualizer';
+import { getVisualization } from '@/lib/visualizations';
 import { cn } from '@/lib/cn';
 import {
   Lightbulb, AlertTriangle, Info, CheckCircle, XCircle,
@@ -197,6 +199,15 @@ export function Block({ block }: { block: ContentBlock }) {
     case 'tip':            return <AlertaBlock nivel="tip" titulo={block.titulo} contenido={block.contenido} />;
     case 'error-frecuente': return <ErrorFrecuenteBlock titulo={block.titulo} malo={block.malo} bien={block.bien} explicacion={block.explicacion} />;
     case 'ejemplo':        return <EjemploBlock titulo={block.titulo} bloques={block.bloques} />;
+    case 'visualizacion': {
+      const config = getVisualization(block.vizId);
+      if (!config) return (
+        <div className="text-xs text-slate-400 italic border border-dashed border-slate-300 dark:border-slate-600 rounded-lg p-4 text-center">
+          Visualización no encontrada: {block.vizId}
+        </div>
+      );
+      return <AlgorithmVisualizer config={config} />;
+    }
     default:               return null;
   }
 }

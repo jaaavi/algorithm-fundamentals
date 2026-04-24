@@ -52,6 +52,10 @@ export const tema6: Lesson = {
           contenido: 'En Backtracking, la solución es una tupla ⟨x₀, x₁, ..., xₙ⟩ donde cada xᵢ ∈ Sᵢ. Se construye progresivamente: en cada nivel k elegimos un valor para xₖ y comprobamos si podemos continuar.',
         },
         {
+          tipo: 'visualizacion',
+          vizId: 'bt-binary-strings',
+        },
+        {
           tipo: 'codigo',
           titulo: 'Esquema básico — encontrar todas las soluciones',
           lenguaje: 'cpp',

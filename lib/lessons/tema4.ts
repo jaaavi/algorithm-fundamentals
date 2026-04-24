@@ -73,6 +73,14 @@ int factorial(const int n)  /* dev y */ {
           explicacion: 'No final porque después de factorial(n-1) hay que multiplicar por n. La pila de llamadas crece hasta n.',
         },
         {
+          tipo: 'visualizacion',
+          vizId: 'rec-factorial',
+        },
+        {
+          tipo: 'visualizacion',
+          vizId: 'rec-fibonacci',
+        },
+        {
           tipo: 'codigo',
           titulo: 'Recursión lineal FINAL — euclides',
           lenguaje: 'cpp',

@@ -148,6 +148,16 @@ export const tema1: Lesson = {
           titulo: '¿Cuándo un algoritmo es "preferible"?',
           contenido: 'Un algoritmo de coste O(1) SIEMPRE es preferible a uno O(n²) si el tamaño de los datos es suficientemente grande. Para tamaños pequeños, el constante podría no serlo. En los tests preguntan esto con frecuencia.',
         },
+        {
+          tipo: 'alerta',
+          nivel: 'tip',
+          titulo: 'Visualización interactiva de complejidades',
+          contenido: 'El siguiente gráfico muestra cómo crecen las distintas complejidades algorítmicas con el tamaño de entrada. Usa los controles para explorar cada clase de complejidad con ejemplos concretos.',
+        },
+        {
+          tipo: 'visualizacion',
+          vizId: 'cost-comparison',
+        },
       ],
     },
     {

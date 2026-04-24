@@ -4,7 +4,12 @@ import path from 'path';
 import type { Question } from '@/types';
 import { getTopicKey, parseCorrectAnswer } from '@/lib/questions';
 
-const JSON_DIR = path.join(process.cwd(), '..', 'json');
+// Try inside the app first (production/Vercel), fall back to sibling dir (local dev)
+const JSON_DIR = (() => {
+  const inside = path.join(process.cwd(), 'json');
+  if (fs.existsSync(inside)) return inside;
+  return path.join(process.cwd(), '..', 'json');
+})();
 
 export async function GET() {
   try {

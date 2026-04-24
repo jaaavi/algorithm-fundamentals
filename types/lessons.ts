@@ -12,7 +12,8 @@ export type BlockType =
   | 'comparacion'
   | 'tip'
   | 'error-frecuente'
-  | 'ejemplo';
+  | 'ejemplo'
+  | 'visualizacion';
 
 export type AlertLevel = 'info' | 'warning' | 'tip' | 'danger' | 'success';
 
@@ -27,12 +28,14 @@ export interface FormulaBlock    { tipo: 'formula';          contenido: string; 
 export interface ComparacionBlock { tipo: 'comparacion';     lado1: { titulo: string; items: string[] }; lado2: { titulo: string; items: string[] } }
 export interface TipBlock        { tipo: 'tip';              titulo?: string; contenido: string }
 export interface ErrorBlock      { tipo: 'error-frecuente'; titulo: string; malo: string; bien: string; explicacion: string }
-export interface EjemploBlock    { tipo: 'ejemplo';          titulo: string; bloques: ContentBlock[] }
+export interface EjemploBlock      { tipo: 'ejemplo';       titulo: string; bloques: ContentBlock[] }
+export interface VisualizacionBlock { tipo: 'visualizacion'; vizId: string; titulo?: string }
 
 export type ContentBlock =
   | TextoBlock | SubtituloBlock | AlertaBlock | CodigoBlock
   | ListaBlock | ListaNumBlock  | TablaBlock  | FormulaBlock
-  | ComparacionBlock | TipBlock | ErrorBlock  | EjemploBlock;
+  | ComparacionBlock | TipBlock | ErrorBlock  | EjemploBlock
+  | VisualizacionBlock;
 
 // ─── Section ──────────────────────────────────────────────────────────────────
 

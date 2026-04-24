@@ -1,8 +1,1 @@
-{
-  "/page": "app/page.js",
-  "/formacion/page": "app/formacion/page.js",
-  "/api/questions/route": "app/api/questions/route.js",
-  "/problemas/page": "app/problemas/page.js",
-  "/stats/page": "app/stats/page.js",
-  "/api/problems/route": "app/api/problems/route.js"
-}
+{}
