@@ -10,8 +10,8 @@ test.js
 imgs/
 
 # PDFs originales — no subir al repositorio
-problems/
-lessons/
+/problems/
+/lessons/
 
 # Variables de entorno — nunca subir API keys
 .env
