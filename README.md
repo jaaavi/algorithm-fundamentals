@@ -1,88 +1,81 @@
 <div align="center">
-  <h1>🧠 Algorithms Mastery & Training Workbench</h1>
-  <p><i>Un repositorio open-source completo para estudiar computación, complejidad algorítmica y estructuras de datos de forma progresiva.</i></p>
+  <h1>🧠 Fundamentos de los Algoritmos & Plataforma de Entrenamiento</h1>
+  <p><i>Un ecosistema open-source completo para estudiar computación, complejidad algorítmica, y estructuras de datos con un entorno de entrenamiento interactivo.</i></p>
+
+  <a href="https://algorithm-fundamentals.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Acceso_a_la_Plataforma-algorithm--fundamentals.vercel.app-blue?style=for-the-badge&logo=vercel" alt="Probar la Aplicación Web en Vivo" />
+  </a>
 </div>
 
----
+<br />
 
 ## 💡 Sobre el Proyecto
 
-Este repositorio es una recopilación estructurada y abierta para aprender, probar y consolidar conceptos avanzados del diseño de algoritmos. Está enfocado al perfeccionamiento técnico e incluye un exhaustivo entorno de evaluación de conocimientos. 
+Este repositorio es una recopilación estructurada y abierta para aprender, probar y consolidar conceptos avanzados del diseño de algoritmos (Fundamentos de los Algoritmos / Algoritmia). Está enfocado al perfeccionamiento técnico e incluye un exhaustivo entorno de evaluación de conocimientos.
 
-El proyecto se divide en diferentes **módulos prácticos** implementados con C++, así como una poderosa herramienta de extracción automatizada de tests alimentada por Inteligencia Artificial para medir el desempeño de forma dinámica.
-
----
-
-## 🗂️ Estructura del Repositorio
-
-El aprendizaje se divide en diferentes lecciones lógicas que acompañan al estudiante desde el entendimiento de la complejidad de los programas, hasta las resoluciones más abstractas como la recursividad o el *backtracking*:
-
-- **`lessons/`** — Implementaciones en C++:
-  - **`1 /`** Análisis de Costes y Búsquedas (`busquedas.cpp`).
-  - **`2 /`** Especificación Algorítmica y Abstracción.
-  - **`3 /`** Diseño robusto de algoritmos iterativos.
-  - **`4 /`** Recursión y saltos generativos.
-  - **`5 /`** Divide y Vencerás (*Divide & Conquer*), algoritmos de ordenación (`ordenaciones.cpp`).
-  - **`6 /`** Vuelta Atrás (*Backtracking*) para optimización de caminos (`papanoel_draft.cpp`, `matricula.cpp`).
-
-- **`/imagenes`** — Colección de capturas correspondientes a cuestionarios y evaluaciones teóricas de todos los módulos.
-- **`/json`** — Repositorio procesado de los test. Preguntas de evaluación teórica digitalizadas nativamente y almacenadas como *arrays* de datos estructurados para su fácil consulta.
-- **`extract.js`** — Herramienta interna de OCR que procesa los tests y los integra al repositorio automáticamente usando visión computacional.
+La plataforma destaca por combinar una **base teórica sólida en C++** con una **herramienta web interactiva en Next.js** para practicar problemas, realizar tests teóricos y visualizar tu progreso. Además, integra una potente herramienta de extracción automatizada OCR alimentada por Inteligencia Artificial para digitalizar exámenes y problemas físicos.
 
 ---
 
-## 🤖 Sistema Híbrido de Extracción (OCR Automático)
+## 🚀 La Plataforma Interactiva (Next.js)
 
-Para convertir el material visual de evaluación teórica al esquema estructurado de `/json`, este repositorio integra el script especializado de Node.js: `extract.js`. 
+Para facilitar el estudio práctico, este repositorio incluye una **aplicación web moderna construida con Next.js y React** orientada al rendimiento y la experiencia de usuario (UI/UX). 
 
-Este módulo nativo **corta y adapta digitalmente** cualquier imagen enorme gracias a la librearía `sharp` y emplea **Visión-Lenguaje Multimodal avanzada (GPT-4o)** para asegurar extracciones estructurales perfectas y evitar la degradación de texto. 
+Puedes probar la versión en vivo alojada en Vercel aquí: **[🔗 algorithm-fundamentals.vercel.app](https://algorithm-fundamentals.vercel.app)**
 
-### ▶️ Uso del módulo de extracción:
+### Características Principales:
+- **Práctica de Tests y Problemas:** Motor de evaluación para preguntas tipo test y problemas de desarrollo.
+- **Lecciones Teóricas:** Resúmenes y esquemas de los principales temas (Análisis de Costes, Diseño Iterativo, Recursión, Divide y Vencerás, Backtracking).
+- **Repetición Espaciada y Estadísticas:** Un dashboard integrado (usando Zustand) para guardar tu progreso, fallos recurrentes y medir tu rendimiento de cara a exámenes.
+- **Diseño Moderno y Responsivo:** Tailwind CSS, modo oscuro optimizado y diseño fluido para repasar en móvil o PC.
 
-Añade los archivos en la carpeta `/imagenes`. Puedes correr la canalización así para exportar automáticamente al repositorio de los JSON limpios sin duplicados:
+> **¿Quieres desplegar tu propia copia?**  
+> Es 100% compatible con [Vercel](https://vercel.com). Solo necesitas conectar tu repositorio de GitHub a Vercel y se desplegará automáticamente (Zero-config).
+
+---
+
+## 🗂️ Estructura del Repositorio (Código y Datos)
+
+El aprendizaje se divide en diferentes bloques lógicos, cubriendo desde la complejidad de los programas hasta las resoluciones más abstractas:
+
+- **`app/` y `components/`** — Código fuente de la plataforma interactiva (Next.js, React, Tailwind).
+- **`lessons/`** — Implementaciones en código nativo (C++) de algoritmos de búsqueda, ordenación, y esquemas de diseño algorítmico.
+- **`/json` y `/problems-json`** — Repositorios estructurados de conocimiento. Preguntas teóricas y problemas digitalizados nativamente y almacenados en formato JSON.
+- **`extract.js` / `extract-problems.js`** — Herramientas internas de OCR (Visión Computacional) que procesan tests o PDFs en imágenes y extraen información estructurada.
+
+---
+
+## 🤖 Sistema Híbrido de Extracción (OCR con IA)
+
+Para convertir el material visual (PDFs y capturas de test) al esquema JSON, este repositorio integra scripts especializados en Node.js que emplean modelos fundacionales como **GPT-4o**.
+
+El módulo segmenta digitalmente imágenes de gran formato (usando la librería `sharp` para retener la resolución HD) y emplea un prompt multimodal para asegurar transcripciones perfectas, evadiendo errores tradicionales de OCR.
+
+### ▶️ Uso del módulo de extracción en local:
+
+1. Añade tus imágenes a la carpeta `imgs/` o PDFs a `problems/`.
+2. Configura tu API Key en un archivo `.env` en la raíz de la app (`OPENAI_API_KEY=tu-clave`).
+3. Ejecuta los scripts:
 
 ```bash
-# Configura tu API key
-export OPENAI_API_KEY="sk-tu-api-key"
-
 # Instala dependencias necesarias
-npm install sharp
+npm install
 
-# Inicia la extracción
-node extract.js
+# Inicia la extracción de test teóricos (imágenes)
+npm run extract
+
+# Inicia la extracción y clasificación de problemas (PDFs)
+npm run extract-problems
 ```
 
 ---
 
-## 🌐 Aplicación Web Interactiva & GitHub Pages
+## 🛠 Entorno y Stack Tecnológico
 
-Para facilitar el estudio, el repositorio incluye nativamente una **Web App Single-Page** diseñada con técnicas "Glassmorphism" y modo oscuro optimizado. Esta interfaz consume la base de datos `db.json` compilada por el extractor y permite a los alumnos realizar test interactivos sin bajarse los archivos ni leer código.
-
-### ¿Cómo alojarla en GitHub Pages (Gratis)?
-El repositorio está configurado estructuralmente para funcionar out-of-the-box (de fábrica) en la Web.
-1. Sube tu repositorio a GitHub.
-2. Ve a los ajustes de tu repositorio > **Pages**.
-3. En la sección "Build and Deployment", bajo *Source*, selecciona "Deploy from a branch" y elige la rama `main`, carpeta de raíz (`/root`).
-4. Haz clic en "Save". ¡En menos de 1 minuto tendrás un enlace público a tu propia aplicación de simulación interactiva!
+- **Frontend & Web App:** Next.js 14, React 18, Tailwind CSS, Zustand, Recharts, Lucide Icons.
+- **Procesamiento de Datos:** Node.js (LTS), Sharp (Manipulación gráfica), Poppler (PDFs a Imágenes), APIs de Visión-Lenguaje.
+- **Algoritmia Pura:** C++11 / C++17.
 
 ---
 
-## 🚀 Cómo Empezar a Entrenar
-
-1. Clona este repositorio localmente.
-2. Navega al directorio `/lessons` correspondientemente según el contenido que te interese consolidar (p.ej.: `cd lessons/5/`).
-3. Compila el algoritmo C++ de pruebas en tu máquina o sistema usando GCC (o tu compilador C++ favorito):
-   \`g++ -o app ordenaciones.cpp\` y ejecútalo con \`./app\`.
-4. Complementa el aprendizaje con las evaluaciones teóricas mapeando las preguntas guardadas en `/json/Tema X.json`.
-
----
-
-## 🛠 Entorno y Tecnología recomendada
-
-* **C++11/C++17** para las lógicas de algoritmos.
-* **Node.js (LTS)** entorno de OCR y parseo.
-* **Sharp** manipulación gráfica desatendida.
-
----
-
-> **Aviso:** El material compilado aquí pretende potenciar la cultura general de estructuras de datos orientada a mejorar las habilidades lógicas y preparaciones avanzadas en programación o entrevistas técnicas.
+> **Aviso SEO:** El material compilado aquí pretende potenciar la cultura general de estructuras de datos orientada a mejorar las habilidades lógicas, análisis asintótico y preparaciones avanzadas en programación o entrevistas técnicas. Está fuertemente ligado al currículo de *Fundamentos de los Algoritmos*.
