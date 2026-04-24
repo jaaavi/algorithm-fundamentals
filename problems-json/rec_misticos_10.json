@@ -1,0 +1,37 @@
+{
+  "id": "rec_misticos_10",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 4,
+
+  "enunciado": "La rareza de un número\n¿Qué hace que un número sea más raro que otro? Los matemáticos han estudiado los números desde muchos puntos de vista pero hoy, por qué no, vamos a hacer casos a los numerólogos. Para ellos la rareza de un número se basa en la cantidad de dígitos místicos que tenga el número.\nPara que un dígito sea místico necesitamos también un grado cabalístico. En concreto, un dígito de un número natural n se dice que es místico con grado g si es igual al producto, módulo 10, de todos aquellos dígitos con valores menores o iguales que g que son más significativos que él. Además, el dígito más significativo es místico únicamente si coincide con el grado g.\nLa rareza de un número se mide por la cantidad de dígitos místicos que tengan.\nPor ejemplo, en el número 224796 y el grado 6, la rareza es 3 ya que hay tres dígitos místicos con grado 6: el segundo 2 = 2 mod 10, el 4 = 2 ∗2 mod 10 y el 6 = (2 ∗2 ∗4) mod 10.\nSe pide:\n1. (7.5 puntos) Escribe un algoritmo recursivo eficiente que permita resolver el problema para un número n y un grado d dado. No está permitido almacenar en un vector auxiliar o una variable string los dígitos del número.\n2. (2.5 puntos) Escribe la recurrencia que corresponde al coste de la función recursiva utilizando el número de dígitos de n como tamaño del problema. Indica también a qué orden de complejidad asintótica pertenece dicho coste.\nEntrada\nLa entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de consta de un número n y un grado g. El valor del número está garantizado que cabe en una variable entera, mientras que el grado cumple 1 ≤g ≤9.\nSalida\nPara cada caso de prueba el programa escribirá la rareza del número n dado.",
+  "entrada": "Un número de casos de prueba seguido de pares de valores: un número n y un grado g.",
+  "salida": "La rareza del número n para cada caso de prueba.",
+  "restricciones": "El número n cabe en una variable entera. 1 ≤ g ≤ 9.",
+
+  "ejemplo": {
+    "input": "5\n224796 6\n111 2\n20210 9\n322 3\n4621 5",
+    "output": "3\n2\n1\n1\n0"
+  },
+
+  "tags": ["recursión", "dígitos", "módulo", "números", "grado místico"],
+
+  "como_reconocerlo": "El problema requiere calcular propiedades de dígitos de un número usando recursión sin estructuras auxiliares.",
+  "idea_clave": "Usar recursión para procesar los dígitos del número de manera eficiente sin almacenarlos en estructuras auxiliares.",
+
+  "estrategia": [
+    "Definir una función recursiva que procese cada dígito del número.",
+    "Calcular el producto de los dígitos más significativos que cumplen la condición.",
+    "Determinar si el dígito actual es místico y acumular el conteo.",
+    "Llamar recursivamente para el siguiente dígito menos significativo."
+  ],
+
+  "plantilla_codigo": "int calcularRareza(int n, int g) {\n    // Caso base: si n es 0, devolver 0\n    // Obtener el dígito menos significativo\n    // Calcular el producto de dígitos más significativos\n    // Verificar si el dígito es místico\n    // Llamada recursiva para el resto del número\n    return 0; // Cambiar por el cálculo correcto\n}",
+
+  "pistas": ["Considera cómo puedes procesar los dígitos de un número sin almacenarlos.", "Piensa en cómo calcular el producto de dígitos más significativos usando recursión."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre los dígitos del número de manera recursiva, calculando el producto de los dígitos más significativos que cumplen la condición de ser menores o iguales al grado. Si un dígito cumple la condición de ser místico, se incrementa el conteo. La complejidad temporal es O(d), donde d es el número de dígitos del número.",
+  
+  "errores_comunes": ["Intentar almacenar los dígitos en un vector o string, lo cual está prohibido.", "No manejar correctamente el caso base de la recursión."]
+}

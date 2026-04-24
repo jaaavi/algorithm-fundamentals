@@ -1,0 +1,43 @@
+{
+  "id": "it_xorvectores_3",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "XOR es una conectiva lógica denominada disyunción exclusiva. Produce un valor cierto cuando uno de los valores es cierto y el otro falso, siendo falso cuando ambos valores son ciertos o cuando ambos son falsos. En este problema vamos a aplicar este operador a dos colecciones de valores enteros. Si un valor está en una colección y no está en la otra, aparecerá en la colección final. Por el contrario, si el valor está en las dos colecciones o no está en ninguna no aparecerá en la colección final.\n\nRequisitos de implementación. El problema debe resolverse con una función que recibe dos vectores cada uno con una colección de elementos. El resultado de la función es otro vector con los elementos que se obtienen al hacer la disyunción exclusiva de los dos vectores de entrada. El vector de salida se devolverá como parámetro por referencia para evitar realizar la copia del vector en el valor de retorno. No se pueden utilizar más vectores que los tres que se indican en el enunciado: dos para la entrada de datos y uno para la salida.\n\nEntrada La entrada comienza con el número de casos de prueba que hay a continuación. Cada caso de prueba consta de dos líneas. En la primera línea se muestran ordenados de menor a mayor los valores de la primera colección de valores, y en la segunda línea los valores ordenados de menor a mayor de la segunda colección de elementos. Los elementos de cada colección son enteros positivos todos diferentes. Cada colección de valores acaba con un valor 0 que no debe procesarse. El número de valores de cada colección es mayor o igual que cero y menor que 100.000.\n\nSalida Para cada caso de prueba se escriben en una línea los valores resultantes de realizar la disyunción exclusiva de los valores de la entrada. Los valores se deben mostrar ordenados de menor a mayor.",
+  "entrada": "Dos vectores de enteros positivos, cada uno terminado con un 0 que no se procesa.",
+  "salida": "Un vector con los elementos resultantes de la disyunción exclusiva, ordenados de menor a mayor.",
+  "restricciones": "El número de valores de cada colección es mayor o igual que cero y menor que 100.000.",
+
+  "ejemplo": {
+    "input": "4\n5 7 8 10 14 0\n3 4 5 8 0\n10 20 0\n0\n1 2 3 0\n1 2 3 0\n1 2 3 0\n4 5 6 7 0",
+    "output": "3 4 7 10 14\n10 20\n1 2 3 4 5 6 7\n1"
+  },
+
+  "tags": ["vector", "acumulador", "disyunción exclusiva", "ordenación", "iteración"],
+
+  "como_reconocerlo": "El problema requiere combinar dos colecciones de datos aplicando una operación lógica específica.",
+  "idea_clave": "Usar un acumulador para construir el resultado aplicando la operación XOR entre dos vectores ordenados.",
+
+  "estrategia": [
+    "Inicializar un vector de salida vacío.",
+    "Recorrer ambos vectores de entrada simultáneamente.",
+    "Comparar elementos de ambos vectores y añadir al vector de salida aquellos que solo están en uno de los dos.",
+    "Ordenar el vector de salida antes de devolverlo."
+  ],
+
+  "plantilla_codigo": "void disyuncionExclusiva(const vector<int>& v1, const vector<int>& v2, vector<int>& resultado) {\n    // Inicializar índices para recorrer ambos vectores\n    int i = 0, j = 0;\n    // Mientras haya elementos en ambos vectores\n    while (i < v1.size() && j < v2.size()) {\n        // Comparar elementos y añadir al resultado según la lógica XOR\n        // Incrementar índices según corresponda\n    }\n    // Añadir elementos restantes de v1 o v2 si los hay\n    // Ordenar el vector resultado\n}",
+
+  "pistas": [
+    "Recuerda que los vectores están ordenados, lo que permite un recorrido eficiente.",
+    "Asegúrate de manejar correctamente el caso en que un vector se agota antes que el otro."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre ambos vectores de entrada simultáneamente, comparando elementos y añadiendo al vector de salida aquellos que solo están en uno de los dos vectores. Esto se logra utilizando dos índices para recorrer los vectores, aprovechando que están ordenados para realizar la operación de manera eficiente. La complejidad temporal es O(n + m), donde n y m son los tamaños de los dos vectores de entrada.",
+
+  "errores_comunes": [
+    "No manejar correctamente el caso en que un vector se agota antes que el otro.",
+    "Olvidar ordenar el vector de salida antes de devolverlo."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "va_travesiacanoa_3",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Un grupo de M amigos se ha propuesto descender en canoa el río Cares/Deva. La agencia de alquiler dispone de N canoas, todas ellas de las mismas características. Cada canoa puede transportar una, dos o tres personas, siempre y cuando no se superen k kilos. Se conocen los pesos (en kilos) de cada miembro del grupo de amigos. Para ahorrar costes, se quiere alquilar el número mínimo de canoas, pero además del peso limitado hay otro problema: las rencillas establecidas entre los amigos. Dos amigos enemistados (las enemistades son mutuas) no pueden compartir canoa. a) Define el espacio de soluciones e indica cómo es el árbol de exploración. b) Implementa un algoritmo de vuelta atrás que resuelva el problema. Explica claramente los marcadores que has utilizado. c) Plantea al menos una función de poda de optimalidad e impleméntala en tu algoritmo.",
+  "entrada": "El número de casos de prueba. Para cada caso: el número de amigos M, de canoas N y del peso máximo que soporta una canoa k, seguido de una fila con los M pesos de los amigos y finalmente M filas que indican mediante 0s y 1s si dos amigos están o no enemistados.",
+  "salida": "La cantidad mínima de canoas necesarias para realizar el descenso del río, respetando las restricciones indicadas, o IMPOSIBLE si no se puede establecer un reparto de canoas adecuado.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "3\n5 4 100\n50 20 50 10 60\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n0 0 0 0 0\n5 4 100\n50 20 50 10 60\n0 1 1 1 0\n1 0 0 0 0\n1 0 0 1 1\n1 0 1 0 0\n0 0 1 0 0\n5 4 100\n50 20 50 10 60\n0 1 1 1 1\n1 0 1 1 1\n1 1 0 1 1\n1 1 1 0 1\n1 1 1 1 0",
+    "output": "2\n3\nIMPOSIBLE"
+  },
+
+  "tags": ["backtracking", "restricciones", "poda", "combinaciones", "optimización"],
+
+  "como_reconocerlo": "El problema implica asignar elementos a grupos bajo restricciones específicas.",
+  "idea_clave": "Utilizar backtracking para explorar combinaciones de asignaciones de amigos a canoas, aplicando poda para reducir el espacio de búsqueda.",
+  
+  "estrategia": [
+    "Definir el espacio de soluciones como combinaciones de amigos en canoas.",
+    "Implementar un algoritmo de backtracking para explorar estas combinaciones.",
+    "Aplicar poda para descartar combinaciones inviables o subóptimas.",
+    "Registrar la mejor solución encontrada."
+  ],
+
+  "plantilla_codigo": "void resolverCanoas(int M, int N, int k, vector<int>& pesos, vector<vector<int>>& enemistades) {\n  // Inicializar variables necesarias\n  // Función recursiva de backtracking\n  // Aplicar poda\n  // Actualizar mejor solución\n}",
+
+  "pistas": ["Considera cómo las restricciones de peso y enemistad afectan las combinaciones posibles.", "Implementa poda para evitar explorar combinaciones que ya son subóptimas."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de asignaciones de amigos a canoas, respetando las restricciones de peso y enemistad. La poda se aplica para evitar explorar combinaciones que no pueden mejorar la solución actual. La complejidad temporal es alta debido al número de combinaciones posibles, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": ["No considerar todas las restricciones al generar combinaciones.", "No aplicar poda de manera efectiva, lo que lleva a un tiempo de ejecución excesivo."]
+}

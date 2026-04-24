@@ -1,0 +1,43 @@
+{
+  "id": "it_terror_ene26",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 4,
+
+  "enunciado": "Fermín Alonso López (FAL, para sus conocidos) es un joven extremeño que adora el cine de terror y acaba de recibir la oportunidad de su vida: el prestigioso estudio A! va a distribuir su ópera prima. Sólo han puesto una condición: no quieren que el joven caiga en recursos facilones para asustar al público, como es el de subir el volumen de la música para provocar un jumpscare. Un comité de expertos, entre los que se incluyen los directores Ti West y Robert Eggers, ha visto la cinta y ha apuntado la tensión que cada escena provocaba. Además, los editores de sonido han apuntado el volumen de la música para cada escena. Lo que pide A! al joven FAL es que se asegure de que la película tiene al menos un tramo de escenas consecutivas en las que la suma de las tensiones sea al menos de T y en la que el volumen no suba más de V veces. Sólo les interesa saber dónde empieza el primer tramo que cumpla la condición. Por ejemplo, dados los valores de tensión t = [2,2,0,6,2], los decibelios musicales d = [2,3,4,4,1], la tensión mínima T = 7 y permitiendo que el volumen suba V = 1 vez, el tramo que empieza en la posición # es el tramo buscado ya que cumple que la suma de tensión (2 + 0 + 6 = 8) es mayor o igual que 7 y el volumen sólo sube una vez en ese tramo (d[1] < d[2] y en resto del tramo no vuelve a subir).",
+  "entrada": "La entrada está compuesta por varios casos de prueba. Cada caso de prueba consta de tres líneas. La primera contendrá el número de elementos de los dos vectores n (0 < n ≤ 10^9), el número mínimo de tensión T (0 ≤ T ≤ 10^9) y el número máximo de subidas de volumen V (0 ≤ V ≤ 10^9), la segunda los elementos del vector de tensión t (todos valores mayores o iguales que 0) y la tercera línea el número de elementos del vector de decibelios d (todos valores mayores o iguales que 0).",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con SI seguido del comienzo del primer tramo buscado (en caso de que exista); o con NO en caso de no existir ningún tramo.",
+  "restricciones": "0 < n ≤ 10^9, 0 ≤ T ≤ 10^9, 0 ≤ V ≤ 10^9",
+
+  "ejemplo": {
+    "input": "5 7 1\n2 2 0 6 2\n2 3 4 4 1\n5 7 1\n2 2 0 5 2\n2 3 4 5 1\n4 5 0\n1 2 3 4\n1 2 3 4\n5 6 1\n3 1 0 0 10\n0 0 1 2 3",
+    "output": "SI 1\nSI 2\nNO\nSI 3"
+  },
+
+  "tags": ["ventana", "vector", "acumulador", "subidas", "tensión"],
+
+  "como_reconocerlo": "El problema busca un tramo consecutivo en un vector que cumpla ciertas condiciones acumulativas.",
+  "idea_clave": "Usar una técnica de ventana deslizante para encontrar el primer tramo que cumpla las condiciones de tensión y subidas de volumen.",
+
+  "estrategia": [
+    "Inicializar dos punteros para definir el inicio y fin del tramo.",
+    "Calcular la suma de tensiones y el número de subidas de volumen en el tramo actual.",
+    "Desplazar el tramo hacia adelante mientras se verifica si cumple las condiciones.",
+    "Detenerse al encontrar el primer tramo que cumpla las condiciones o al llegar al final del vector."
+  ],
+
+  "plantilla_codigo": "bool encontrarTramo(const vector<int>& t, const vector<int>& d, int T, int V, int& inicio) {\n  int n = t.size();\n  int sumaTension = 0;\n  int subidas = 0;\n  int inicioTramo = 0;\n  for (int finTramo = 0; finTramo < n; ++finTramo) {\n    // Actualizar sumaTension y subidas\n    // Comprobar si el tramo actual cumple las condiciones\n    // Ajustar inicioTramo si es necesario\n  }\n  return false; // o true si se encuentra un tramo válido\n}",
+
+  "pistas": [
+    "Considera cómo podrías usar dos punteros para mantener un tramo de escenas consecutivas.",
+    "Piensa en cómo actualizar la suma de tensiones y el conteo de subidas de volumen al mover los punteros."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una técnica de ventana deslizante para encontrar el primer tramo de escenas consecutivas que cumpla con las condiciones de tensión mínima y subidas de volumen permitidas. La complejidad temporal es O(n) en el peor caso, ya que cada elemento del vector se procesa una vez.",
+  
+  "errores_comunes": [
+    "No actualizar correctamente la suma de tensiones al mover el inicio del tramo.",
+    "No contar adecuadamente las subidas de volumen al mover los punteros."
+  ]
+}

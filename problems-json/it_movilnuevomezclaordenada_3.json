@@ -1,0 +1,44 @@
+{
+  "id": "it_movilnuevomezclaordenada_3",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 3,
+
+  "enunciado": "Queremos cambiar de móvil y hemos buscado los precios de los teléfonos que ofrecen un par de marcas. Tenemos una lista con los precios que figuran en el catálogo de la marca A y otra lista con los precios de los teléfonos de la marca B. Ambas listas están ordenadas por precio de menor a mayor y en la misma lista no hay precios repetidos. Para hacernos una idea de la variedad de precios que hay, queremos obtener una lista con todos los precios de una u otra lista ordenados de menor a mayor precio. Si un precio figura en las dos listas lo pondremos una única vez en nuestra lista final. El problema debe resolverse con una función que recibe dos vectores con los precios que ofrecen las dos marcas de teléfonos. El resultado de la función es otro vector con los precios de ambas listas ordenados. La función debe tener un coste lineal en el número de elementos de las dos listas. Para ello solo se puede acceder a cada dato del vector una vez.",
+  "entrada": "La entrada comienza con un valor entero que indica el número de casos de prueba. Cada caso de prueba consta de tres líneas. La primera línea tiene dos valores que indican el número de precios de cada una de las listas. Las dos líneas siguientes tienen los precios de cada una de las listas.",
+  "salida": "Para cada caso de prueba se escribe en una línea la lista de precios resultante ordenada de menor a mayor y sin repetidos.",
+  "restricciones": "El número de precios de cada lista es mayor o igual que cero y menor que 100.000. Los precios son enteros positivos.",
+
+  "ejemplo": {
+    "input": "3\n4 5\n3 6 10 20\n1 2 10 15 20\n0 2\n5 10\n3 3\n1 2 3\n4 5 6",
+    "output": "1 2 3 6 10 15 20\n5 10\n1 2 3 4 5 6"
+  },
+
+  "tags": ["vector", "ordenación", "fusión", "ventana", "únicos"],
+
+  "como_reconocerlo": "El problema requiere fusionar dos listas ordenadas eliminando duplicados.",
+  "idea_clave": "Utilizar dos punteros para recorrer ambas listas simultáneamente y fusionarlas en una sola lista ordenada sin duplicados.",
+
+  "estrategia": [
+    "Inicializar dos punteros, uno para cada lista.",
+    "Comparar los elementos actuales de ambas listas.",
+    "Añadir el menor a la lista resultante y avanzar el puntero correspondiente.",
+    "Si los elementos son iguales, añadir uno y avanzar ambos punteros.",
+    "Repetir hasta recorrer ambas listas completamente."
+  ],
+
+  "plantilla_codigo": "void fusionarListas(const vector<int>& listaA, const vector<int>& listaB, vector<int>& resultado) {\n    int i = 0, j = 0;\n    // Mientras haya elementos en ambas listas\n    while (i < listaA.size() && j < listaB.size()) {\n        // Comparar elementos y añadir el menor a resultado\n        // Avanzar puntero(s) correspondiente(s)\n    }\n    // Añadir los elementos restantes de listaA\n    // Añadir los elementos restantes de listaB\n}",
+
+  "pistas": [
+    "Usa dos punteros para recorrer ambas listas simultáneamente.",
+    "Asegúrate de manejar correctamente los duplicados al comparar elementos."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo fusiona dos listas ordenadas en una sola lista ordenada sin duplicados usando dos punteros. Funciona en tiempo lineal porque cada elemento de ambas listas se procesa una sola vez. La complejidad temporal es O(n + m), donde n y m son los tamaños de las listas de entrada.",
+
+  "errores_comunes": [
+    "No manejar correctamente los duplicados al fusionar las listas.",
+    "Olvidar añadir los elementos restantes de una lista si la otra se agota primero."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "va_torrescolores_4",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Laura quiere construir una torre con piezas de colores. En su juego de construcciones hay piezas azules, rojas y verdes, de cada una de las cuales tiene un determinado número disponible, respectivamente a, r y v. Quiere construir una torre que contenga n >= 2 piezas en total cada una encima de la anterior. No le gusta el color verde, asi que nunca coloca dos piezas verdes juntas, ni permite que el número de piezas verdes supere al de piezas azules en ningún momento mientras se va construyendo la torre. Además, como el color rojo es su favorito, las torres que construye siempre tienen en la parte inferior una pieza roja, y en la torre final el número de piezas rojas debe ser mayor que la suma de las piezas azules y verdes. Implementar un algoritmo que muestre todas las formas posibles que tiene de construir una torre de la altura deseada cumpliendo con las restricciones mencionadas. El objetivo del problema es practicar el esquema de vuelta atrás, por lo tanto se pueden representar los colores con valores enteros. No es necesario utilizar tipos enumerados. Para comprobar las condiciones sobre el número de piezas debes guardar en tres variables (o en un vector de 3 posiciones) el número de piezas de cada color que se han puesto en la solución que se está construyendo. Las condiciones que se deben cumplir mientras se está construyendo la torre se deben comprobar en todas las llamdas recursivas (función esValida). En cambio las condiciones que debe cumplir la torre final solo se deben comprobar cuando ya se tiene una solución completa. La salida se pide ordenada en orden lexicográfico. Para ello piensa en que orden debe el algoritmo ir probando los tres valores, de forma que las permutaciones se generen en el orden que se pide en la salida.",
+  "entrada": "Una serie de casos de prueba que termina con una línea con cuatro ceros. Cada caso consta de 4 enteros: la altura de la torre y los cubos de color azul, rojo y verde respectivamente.",
+  "salida": "Todas las posibles torres ordenadas lexicográficamente, una en cada línea. Si no se puede construir la torre, se escribirá SIN SOLUCION.",
+  "restricciones": "n >= 2; a, r, v >= 0; el número de piezas verdes no puede superar al de piezas azules; la torre debe comenzar con una pieza roja; el número de piezas rojas debe ser mayor que la suma de las piezas azules y verdes en la torre final.",
+
+  "ejemplo": {
+    "input": "4 4 4 4\n5 2 2 2\n5 3 3 1\n2 1 2 1\n0 0 0 0",
+    "output": "rojo azul rojo rojo\nrojo rojo azul rojo\nrojo rojo rojo azul\nrojo rojo rojo rojo\nSIN SOLUCION\nrojo azul azul rojo rojo\nrojo azul rojo azul rojo\nrojo azul rojo rojo azul\nrojo azul rojo rojo verde\nrojo azul rojo verde rojo\nrojo azul verde rojo rojo\nrojo rojo azul azul rojo\nrojo rojo azul rojo azul\nrojo rojo azul rojo verde\nrojo rojo azul verde rojo\nrojo rojo rojo azul azul\nrojo rojo rojo azul verde\nrojo rojo"
+  },
+
+  "tags": ["backtracking", "restricciones", "torres", "colores", "lexicográfico", "recursión"],
+
+  "como_reconocerlo": "El problema implica construir combinaciones de elementos bajo restricciones específicas.",
+  "idea_clave": "Usar backtracking para explorar todas las combinaciones posibles mientras se verifican las restricciones en cada paso.",
+
+  "estrategia": [
+    "Inicializar las variables de conteo de piezas.",
+    "Comenzar la torre con una pieza roja.",
+    "Usar backtracking para añadir piezas, verificando restricciones en cada paso.",
+    "Al completar una torre, verificar las condiciones finales y almacenar la solución si es válida.",
+    "Ordenar las soluciones lexicográficamente antes de imprimir."
+  ],
+
+  "plantilla_codigo": "void construirTorre(int n, int a, int r, int v) {\n  // Variables para contar piezas usadas\n  // Función recursiva para construir la torre\n  // Comprobar restricciones en cada llamada\n  // Al completar, verificar condiciones finales\n  // Imprimir soluciones en orden lexicográfico\n}",
+
+  "pistas": [
+    "Piensa en cómo representar los colores con enteros para simplificar el manejo.",
+    "Asegúrate de verificar las restricciones en cada paso de la recursión."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de piezas, verificando restricciones en cada paso. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero se optimiza al podar ramas no válidas del árbol de búsqueda. Las soluciones se generan en orden lexicográfico al probar los colores en un orden específico.",
+  
+  "errores_comunes": [
+    "No verificar las restricciones en cada paso de la recursión puede llevar a soluciones incorrectas.",
+    "Olvidar ordenar las soluciones lexicográficamente antes de imprimir."
+  ]
+}

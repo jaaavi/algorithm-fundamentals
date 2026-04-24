@@ -1,0 +1,120 @@
+[
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica a qué orden de complejidad pertenece T(n) definida por la recurrencia: T(n) = c₀ si n ≤ 1 T(n) = T(n − 1) + T(n − 2) + c₁ si n > 1 Seleccione una:",
+    "opciones": {
+      "a": "T(n) ∈ O(n log n)",
+      "b": "T(n) ∈ O(2ⁿ)",
+      "c": "T(n) ∈ O(n²)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Falso. Puesto que T(n) = T(n − 1) + T(n − 2) + c₁ ≤ 2T(n − 1) + c₁, aplicando el teorema de la división con a=2, b=1, k=0, tenemos que T(n) ∈ O(2ⁿ). Análogamente, T(n) = T(n − 1) + T(n − 2) + c₁ y aplicando el teorema de la división con a=2, b=2, k=0, tenemos que T(n) ∈ Ω(2ⁿ). Por tanto T(n)∈θ(2ⁿ)."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica cuál de las siguientes es una función de cota para este bucle: int i=0; bool encontrado=false; while (i<n && !encontrado){ if (v[i]>0) {encontrado=true;} else {i=i+1;} } Seleccione una:",
+    "opciones": {
+      "a": "i + 1",
+      "b": "n − i − 1",
+      "c": "n − i + 1",
+      "d": "Ninguna de ellas."
+    },
+    "correcta": "d",
+    "explicacion": "Correcta. Puesto que la variable i no se incrementa cuando la variable booleana se hace cierta, una función de cota podría ser: n − i + (encontrado?0:1). Dicha función decrece estrictamente en aquellas vueltas en las que i se incrementa en 1. También decrece estrictamente cuando i no crece, ya que en ese caso encontrado se hace cierto y la función pasa de valer n − i + 1 a n − i."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica si la siguiente igualdad es verdadera o falsa: O((n + 1)!) = O(n!) Seleccione una:",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. Puesto que (n + 1)! = (n + 1) · n! se cumple que lim n→∞ n!/(n + 1)! = 0 y por el teorema del límite O((n + 1)!) ⊄ O(n!)."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica qué afirmación es correcta sobre este predicado, siendo u un vector de enteros: ∃i:0 < i < u.size():u[i − 1] < u[i] Seleccione una:",
+    "opciones": {
+      "a": "Equivale al predicado true.",
+      "b": "Si es cierto, sabemos que u tiene al menos dos elementos y no está ordenado de forma decreciente",
+      "c": "Equivale al predicado false.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Para que el predicado sea cierto u.size() debe ser al menos 2 y debe haber dos posiciones consecutivas que crecen estrictamente, pero el resto pueden ser de cualquier forma. Así que con seguridad sabemos que el vector no es decreciente."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Dada la siguiente especificación {v.size() > 0} fun primerMaximo(vector v) dev (int i) {0 ≤ i < v.size() ∧ (∀k:0 ≤ k < v.size():v[k] ≤ v[i]) ∧ (∀t:0 ≤ t<i:v[t] < v[i])} y el siguiente algoritmo como cuerpo de la función i=0; int j=1; while (j < v.size()) { if (v[j]>v[i]) {i=j;} j=j+1; } return i; indica si el algoritmo es correcto con respecto a la especificación y en tal caso cuál es el invariante que permite demostrar la corrección del bucle. Seleccione una:",
+    "opciones": {
+      "a": "El algoritmo no es correcto con respecto a la especificación.",
+      "b": "Es correcto con invariante 0 ≤ i < j ≤ v.size() ∧ (∀k:0 ≤ k < j:v[k] ≤ v[i]).",
+      "c": "Es correcto con invariante 0 ≤ i < j ≤ v.size() ∧ (∀k:0 ≤ k < j:v[k] ≤ v[i]) ∧ (∀t:0 ≤ t<i:v[t] < v[i]).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "¿Cuáles de los siguientes es caso peor para el algoritmo de la búsqueda binaria vista en clase? Seleccione una o más de una:",
+    "opciones": {
+      "a": "El elemento buscado está en la última posición del vector.",
+      "b": "El elemento buscado está en el punto medio.",
+      "c": "Todos los elementos del vector son iguales al elemento buscado.",
+      "d": "El elemento buscado está en el punto medio de la segunda mitad."
+    },
+    "correcta": "a, b, c, d",
+    "explicacion": "Correcta. El algoritmo de búsqueda binaria visto en clase continúa haciendo llamadas recursivas hasta llegar al caso vacío, por lo que todos los casos tienen el mismo coste del Θ(log n) siendo n el número de elementos del vector."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica la complejidad del siguiente algoritmo int b = 0; for (int i = 0, j = -10; (i < n) || (j < m); ++i, ++j) b++; Seleccione una:",
+    "opciones": {
+      "a": "θ(1)",
+      "b": "θ(min(n,m))",
+      "c": "θ(max(n,m))",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. Del bucle se sale en cuanto las dos condiciones se cumplen, por lo que el número de vueltas del bucle es proporcional a max(n,m) y el cuerpo del bucle es de coste constante."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(a)} fun producto(int a[], int n) dev (int p) {p = Πi:0 ≤ i < n:a[i]} y el siguiente invariante {0 ≤ k ≤ n ∧ p = Πi:k ≤ i < n:a[i]} indica qué expresión colocar en lugar de ? para que el siguiente algoritmo sea correcto con respecto a la especificación dada y el bucle tenga como invariante el indicado: p=1; int k=n; while (k>0){ p=p*a[?]; k=k-1; } return p; Seleccione una:",
+    "opciones": {
+      "a": "i-1",
+      "b": "n-1",
+      "c": "i",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Correcta. La respuesta correcta es: k-1"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "La recurrencia que representa el caso mejor del algoritmo quicksort que usa el primer elemento del segmento como pivote y la fase de partición reparte los elementos en menores o iguales y mayores o iguales, es: Seleccione una:",
+    "opciones": {
+      "a": "T(0) = c, T(n) = 2T(n/2) + c'n si n > 0",
+      "b": "T(0) = c, T(n) = T(n/2) + c'n si n > 0",
+      "c": "T(0) = c, T(n) = T(n − 1) + c'n si n > 0",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. El caso mejor se da cuando en cada llamada recursiva, el primer elemento que se usa como pivote queda colocado en la mitad del segmento después de la partición generando dos llamadas recursivas de la mitad de tamaño, y eso sucede cuando es la mediana del segmento."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Dada la siguiente especificación { 0 < n <= longitud(v) } fun xxx (int v[], int n) dev int r { r = max u: 0 <= u < n ∧ u mod 2 = 0 : v[u]} y teniendo en cuenta que estamos considerando los n primeros elementos del vector, indica qué afirmación es correcta con respecto a ella. Seleccione una:",
+    "opciones": {
+      "a": "El valor de r es el máximo de los elementos pares del vector.",
+      "b": "La postcondición está mal definida cuando n=longitud(v).",
+      "c": "El valor de r es la posición más a la derecha que contiene un elemento par.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: El valor de r es el máximo de los elementos del vector que se encuentran en posiciones pares."
+  }
+]

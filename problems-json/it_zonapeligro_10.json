@@ -1,0 +1,43 @@
+{
+  "id": "it_zonapeligro_10",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 4,
+
+  "enunciado": "Zona de peligro\nLa pequeña empresa Comput-IA aspira a hacerse un nombre importante en el sector del análisis de datos masivos. Afortunadamente les ha llegado una gran oportunidad, ya que la multinacional PEAR ha encontrado un bug en las antenas de sus nuevos móviles y necesitan un análisis eficiente de sus millones de datos.\nPEAR ha descubierto que el bug tiene que ver con la demanda de uso de datos en la señal móvil. Saben que cuando el consumo de datos se mantiene fijo durante, al menos, un periodo t de tiempo y, justo después de este periodo el consumo baja repentinamente, es cuando puede ocurrir el error. A esta situación se le ha empezado a conocer en la empresa como zona de peligro\nComput-IA recibe los datos de consumo de una señal de antena en un vector de enteros cuyos valores indican si el consumo en la zona sube o baja; así como el mínimo periodo de tiempo t en el que se estima que puede darse la zona de peligro si el consumo se mantiene fijo. Por ejemplo, dados los datos d = −1,3,3,2,9 y el periodo t = 2, encontraríamos una zona de peligro en el instante 1: consumo fijo de longitud al menos 2 (3,3) y justo después una bajada de consumo (3 > 2).\nSe pide:\n1. (1 punto) Define un predicado zona_peligro(v, a, b) que reciba un vector y dos puntos, y que se evalúe a cierto si, y solo si, entre las posiciones a (incluida) y b (excluida) el consumo de datos es constante y, además, el consumo en b es estrictamente menor que los anteriores.\n2. (2 puntos) Utilizando el predicado auxiliar zona_peligro(v, a, b), especifica una función que dado un vector de valores enteros v y un valor t ≥1, devuelva si existe alguna zona de peligro.\n3. (6 puntos) Diseña e implementa un algoritmo iterativo eficiente que resuelva el problema propuesto. Importante: debes evitar que el algoritmo compruebe todos los datos una vez que se tiene clara una respuesta.\n4. (1 punto) Indica y justifica adecuadamente el coste asintótico en el caso peor.\n1.5 puntos adicionales\nEscribe el invariante del bucle que permite demostrar la corrección del algoritmo y proporciona una función de cota.",
+  "entrada": "La entrada consta de varios casos de prueba. Cada uno de ellos ocupa dos líneas. La primera línea indica la cantidad N de los datos de consumo (1 ≤N ≤108) y el valor t (1 ≤t ≤N) con el mínimo periodo de tiempo necesario para que haya una zona de peligro. La segunda línea contiene los N valores de consumo, todos ellos valores enteros. La entrada termina con 0 0.",
+  "salida": "Para cada caso de prueba debe escribirse una línea indicando SI, si es que hay una zona de peligro; y NO en caso contrario.",
+  "restricciones": "1 ≤ N ≤ 108, 1 ≤ t ≤ N",
+
+  "ejemplo": {
+    "input": "5 2\n-1 3 3 2 9\n3 1\n2 2 2\n6 2\n7 -1 1 1 1 -1\n5 1\n5 5 5 6 1\n0 0",
+    "output": "SI\nNO\nSI\nSI"
+  },
+
+  "tags": ["vector", "ventana", "iteración", "consumo", "análisis de datos"],
+
+  "como_reconocerlo": "El problema busca detectar un patrón específico en una secuencia de datos, utilizando una ventana deslizante.",
+  "idea_clave": "Utilizar una ventana deslizante para identificar un segmento constante seguido de una disminución en el consumo.",
+
+  "estrategia": [
+    "Leer los valores de N y t.",
+    "Iterar sobre el vector de consumo con una ventana de tamaño t.",
+    "Verificar si los valores en la ventana son constantes y si el siguiente valor es menor.",
+    "Detener la búsqueda al encontrar la primera zona de peligro."
+  ],
+
+  "plantilla_codigo": "bool zona_peligro(const vector<int>& v, int a, int b) {\n  // Verificar si los valores entre a y b son constantes\n  // y si el valor en b es menor que los anteriores\n}\n\nbool existe_zona_peligro(const vector<int>& v, int t) {\n  // Iterar sobre el vector con una ventana de tamaño t\n  // Usar zona_peligro para verificar cada ventana\n  // Retornar true si se encuentra una zona de peligro\n}\n\nint main() {\n  // Leer casos de prueba\n  // Llamar a existe_zona_peligro para cada caso\n  // Imprimir SI o NO según el resultado\n}",
+
+  "pistas": [
+    "Considera cómo podrías usar una ventana deslizante para verificar segmentos constantes.",
+    "Piensa en cómo podrías detener la búsqueda tan pronto como encuentres una zona de peligro."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una ventana deslizante para verificar segmentos de consumo constante seguidos de una disminución. Funciona porque solo necesita recorrer el vector una vez, verificando cada ventana de tamaño t. La complejidad temporal es O(N) en el peor caso, ya que cada elemento del vector se procesa una vez.",
+
+  "errores_comunes": [
+    "No verificar correctamente si todos los elementos en la ventana son iguales.",
+    "No detener la búsqueda al encontrar la primera zona de peligro."
+  ]
+}

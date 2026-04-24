@@ -1,0 +1,43 @@
+{
+  "id": "va_legadorobe_ene26",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "El legado de Robe (! puntos) La asociación cultural Maestros de la contradicción quiere organizar una exposición sonora itinerante dedicada a la obra de Robe Iniesta y de Extremoduro. Las asociación cuenta con un catálogo de n de las canciones de Robe y de Extremoduro. Además, se han apuntado para participar en la exposición m salas. En cada una de las salas se quiere reproducir exactamente una canción. Cada reproducción en cada sala tiene un coste asociado. El objetivo de la asociación es diseñar la exposición con el menor coste total posible, respetando las siguientes restricciones artísticas y técnicas. Para evitar que todas las salas programen So payaso, cada canción se puede reproducir a lo sumo t veces. No puede sonar la misma canción en dos salas consecutivas. Para intentar recuperar clásicos más desconocidos como Volando solo o Tu corazón, al menos una sala del circuito debe programar una canción de las llamadas esenciales. Se pide lo siguiente: !. De\"ne el espacio de soluciones e indica cómo es el árbol de exploración. #. Implementa un algoritmo de vuelta atrás que resuelva el problema. Explica claramente los marcadores que has utilizado. $. Explica e implementa al menos una función de poda de optimalidad.",
+  "entrada": "La entrada comienza con el número de casos de prueba. Cada caso de prueba comienza con una línea que contiene el número de canciones disponibles, n > 0, el número de salas m > 0 y el tope t > 0. A continuación aparece la matriz coste, con n \"las y m columnas, de forma que coste[i][j] →0 es el coste de reproducir la canción i en la sala j. En la siguiente \"la se indica el número de canciones esenciales (→0) y en la última la lista de canciones esenciales.",
+  "salida": "Para cada caso de prueba se escribe en una línea el mínimo coste encontrado en caso de que se haya podido encontrar una solución que cumpla las restricciones; o bien NO en caso contrario.",
+  "restricciones": "n > 0, m > 0, t > 0",
+
+  "ejemplo": {
+    "input": "3\n6 3 2\n3 5 2\n6 8 4\n5 8 3\n9 4 2\n6 8 7\n8 8 8\n3\n0 1 2\n6 4 3\n3 5 2 1\n6 8 4 4\n5 8 3 2\n9 4 2 8\n6 8 7 5\n8 8 8 1\n3\n3 4 5\n2 5 1\n2 3\n1 0\n1 1\n3 5\n1 1\n1\n1",
+    "output": "9\n10\nNO"
+  },
+
+  "tags": ["backtracking", "restricciones", "optimización", "poda", "canciones"],
+
+  "como_reconocerlo": "El problema implica asignar elementos a posiciones con restricciones específicas y optimizar un coste.",
+  "idea_clave": "Utilizar backtracking para explorar todas las combinaciones posibles de asignaciones de canciones a salas, aplicando poda para reducir el espacio de búsqueda.",
+  
+  "estrategia": [
+    "Definir el espacio de soluciones como todas las posibles asignaciones de canciones a salas.",
+    "Implementar un algoritmo de backtracking que explore las asignaciones posibles.",
+    "Aplicar restricciones durante la exploración: no repetir canciones consecutivas, respetar el límite de reproducciones, incluir al menos una canción esencial.",
+    "Utilizar poda para descartar soluciones parciales que no pueden mejorar la mejor solución encontrada."
+  ],
+
+  "plantilla_codigo": "void asignarCanciones(int caso) {\n  // Leer datos de entrada\n  // Inicializar estructuras de datos\n  // Llamar a la función de backtracking\n}\n\nbool backtracking(int sala, int costoActual) {\n  // Si se han asignado todas las salas, verificar restricciones finales\n  // Intentar asignar cada canción a la sala actual\n  // Aplicar restricciones y poda\n  // Llamar recursivamente para la siguiente sala\n  // Deshacer la asignación\n}",
+
+  "pistas": [
+    "Considera cómo podrías representar el estado actual de la asignación de canciones a salas.",
+    "Piensa en cómo podrías implementar la poda para evitar explorar caminos que no pueden llevar a una solución óptima."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las posibles asignaciones de canciones a salas, aplicando restricciones para asegurar que las soluciones sean válidas. La poda se utiliza para evitar explorar caminos que no pueden mejorar la solución actual. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": [
+    "No aplicar correctamente las restricciones, lo que lleva a soluciones inválidas.",
+    "No implementar poda, resultando en tiempos de ejecución excesivos."
+  ]
+}

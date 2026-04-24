@@ -1,0 +1,43 @@
+{
+  "id": "it_caminandovoy_6",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "Con la llegada del buen tiempo, el grupo de senderistas Caminando voy quiere preparar una serie de excursiones por la Sierra de Madrid. Las excursiones deben ser aptas para todos los socios (hay un numeroso grupo de jubilados y otro de niños de corta edad). En concreto, se requiere que las cuestas arriba no se hagan demasiado penosas. Para ello, para cada excursión se ha confeccionado un perfil de desniveles, consistente en una secuencia de cotas de altura (valores enteros no negativos). Las cuestas arriba se corresponden con segmentos estrictamente crecientes, y el desnivel de una cuesta será la diferencia entre su cota más alta y su cota más baja. Una excursión se considerará apta si en todas las cuestas arriba el desnivel no supera un cierto valor estipulado D ≥0. Por ejemplo, suponiendo D = 300, una excursión con el perfil de la izquierda sería apta, mientras que una con el perfil de la derecha no. Ahora necesitan un programa que clasifique todas las excursiones que tienen programadas.",
+  "entrada": "La entrada consta de una serie de casos de prueba, cada uno correspondiente a una excursión. Cada caso ocupa dos líneas. En la primera aparecen dos números separados por un espacio: el desnivel máximo permitido D (entre 0 y 1.000.000) y el número N (entre 1 y 200.000) de cotas de altura que forman la excursión. En la segunda línea aparecen las N cotas (números entre 0 y 1.000.000), separadas por espacios.",
+  "salida": "Para cada caso de prueba, el programa escribirá APTA si la excursión es apta para el desnivel máximo permitido, y NO APTA en caso contrario.",
+  "restricciones": "D entre 0 y 1.000.000, N entre 1 y 200.000, cotas entre 0 y 1.000.000",
+
+  "ejemplo": {
+    "input": "300 11\n1200 1250 1350 1400 1300 1600 1600 1600 1700 1500 1300\n300 10\n1200 1250 1350 1400 1550 1550 1550 1700 1500 1300\n0 4\n10 10 10 10",
+    "output": "APTA\nNO APTA\nAPTA"
+  },
+
+  "tags": ["vector", "acumulador", "desnivel", "iteración", "comparación"],
+
+  "como_reconocerlo": "El problema se centra en evaluar segmentos crecientes en una secuencia de números.",
+  "idea_clave": "Identificar y evaluar cada segmento creciente para verificar si su desnivel supera el límite permitido.",
+
+  "estrategia": [
+    "Leer el valor de D y el número de cotas N.",
+    "Iterar sobre las cotas para identificar segmentos crecientes.",
+    "Calcular el desnivel de cada segmento creciente.",
+    "Comparar el desnivel con D y determinar si la excursión es apta."
+  ],
+
+  "plantilla_codigo": "void clasificarExcursiones(int D, int N, vector<int> cotas) {\n  // Inicializar variables para el cálculo del desnivel\n  for (int i = 0; i < N - 1; ++i) {\n    // Identificar segmentos crecientes\n    // Calcular el desnivel\n    // Comparar con D\n  }\n  // Imprimir 'APTA' o 'NO APTA'\n}",
+
+  "pistas": [
+    "Busca segmentos donde las cotas aumentan consecutivamente.",
+    "Calcula la diferencia entre el valor máximo y mínimo de cada segmento creciente."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre la lista de cotas, identificando segmentos donde las cotas aumentan. Para cada segmento creciente, calcula el desnivel y lo compara con el valor máximo permitido D. Si algún desnivel supera D, la excursión no es apta. La complejidad temporal es O(N) por cada caso de prueba, donde N es el número de cotas.",
+
+  "errores_comunes": [
+    "No reiniciar el cálculo del desnivel al final de un segmento creciente.",
+    "No considerar correctamente los segmentos que no son estrictamente crecientes."
+  ]
+}

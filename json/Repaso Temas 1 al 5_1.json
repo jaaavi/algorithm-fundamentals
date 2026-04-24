@@ -1,0 +1,120 @@
+[
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Indica si la siguiente afirmación es verdadera o falsa: 2^n + n^10 ∈ Ω(n^10)",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "a",
+    "explicacion": "Verdadero. Usando la regla de la suma Ω(2^n + n^10) = Ω(2^n) y como Ω(2^n) ⊂ Ω(n^10), se cumple que 2^n + n^10 ∈ Ω(n^10). La respuesta correcta es: Verdadero"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Indica cuáles son casos peores del algoritmo quicksort que usa el primer elemento del segmento como pivote y que en la fase de partición reparte los elementos en menores, iguales y mayores:",
+    "opciones": {
+      "a": "El último elemento es la mediana del array.",
+      "b": "Todos los elementos son iguales.",
+      "c": "Los elementos ya están ordenados de forma estricta.",
+      "d": "El primer elemento es la mediana del array."
+    },
+    "correcta": "c",
+    "explicacion": "Correcta. El caso en que los elementos están ordenados a la inversa y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n^2), siendo n el número de elementos del array. La respuesta correcta es: Los elementos ya están ordenados de forma estricta."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dada la siguiente especificación { 0 < n <= longitud(v) } fun xxx (int v[], int n) dev int r { r = max u : 0 <= u < n ∧ u mod 2 = 0 : v[u] } indica cuál afirmación es correcta acerca de la precondición.",
+    "opciones": {
+      "a": "La precondición debería exigir que los elementos del vector sean positivos.",
+      "b": "La precondición exige n>0 porque en caso contrario la postcondición está mal definida.",
+      "c": "La precondición podría ser igualmente 0<=n<=longitud(v).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Si n=0, la postcondición está mal definida porque el máximo es una operación parcial. La respuesta correcta es: La precondición exige n>0 porque en caso contrario la postcondición está mal definida."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dada la siguiente recurrencia, indica la respuesta correcta: T(n) = 3n^2 si n ≤ 1 T(n) = 3T(n/2) + n^2 si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ Θ(log n)",
+      "b": "T(n) ∈ Θ(n^2 log n)",
+      "c": "T(n) ∈ Θ(n^log_3 2)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: T(n) ∈ Θ(n^2). La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(u) ∧ ∀z:0 ≤ z < n:u[z] ≥ 0} fun parejasParImpar(int v[], int n) dev int p {p = #i. j:0 ≤ i < j < n: (u[i]%2 = 0 ∧ u[j]%2 = 1)} se ha decidido diseñar un bucle con coste O(n) para resolverlo usando el siguiente invariante { 0 ≤ k ≤ n ∧ p = (#i. j:0 ≤ i < j < k:u[i]%2 = 0 ∧ u[j]%2 = 1) ∧ npares = #i:0 ≤ l < k:u[l]%2 = 0} Indica cuáles de los siguientes bucles es correcto con respecto a la especificación y tiene dicho invariante 1. int npares = 0, k=0; p=0; while (k<n) { if (v[k]%2==0) {npares = npares+1;} else {p = p + npares;} k=k+1; } return p; 2. int npares = 0, k=0; p=0; while (k<n) { k=k+1; if (v[k-1]%2==0) {npares = npares+1;} else {p = p + npares;} } return p; 3. int npares = 0, k=0; p=0; while (k<n) { if (v[k]%2==0) {npares = npares+1;} p = p + npares; k=k+1; } return p;",
+    "opciones": {
+      "a": "Solamente 1 y 3.",
+      "b": "Solamente 1 y 2.",
+      "c": "Solamente 2.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Los algoritmos 1 y 2 son correctos y su invariante es el indicado, aunque el cuerpo de los bucles es distinto porque se restablecen las variables en distinto orden. El algoritmo 3 no es correcto: por ejemplo si el vector tuviese los valores [6,2] , el algoritmo devolvería 3 cuando debería devolver 0, ya que no hay ningún impar. La respuesta correcta es: Solamente 1 y 2."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dada la siguiente especificación: {0 < n ≤ longitud(a)} fun maximo(int a[], int n) dev (int m) {m = max i:0 ≤ i < n:a[i]} y el siguiente invariante: {0 ≤ k < n ∧ m = max i:k ≤ i < n:a[i] } indica qué expresiones colocar en lugar de los ? para que el siguiente algoritmo sea correcto con respecto a la especificación dada y el bucle tenga como invariante el indicado: k=? ; m=? ; while (?) { if (m<a[k-1]) {m=a[k-1];} k=k-1; }",
+    "opciones": {
+      "a": "Inicialización: k=n-1;m=a[n-1]; Condición del while: (k>0)",
+      "b": "Inicialización: k=n;m=a[n]; Condición del while: (k>0)",
+      "c": "Inicialización: k=n;m=a[n]; Condición del while: (k>=0)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Si k vale n−1 inicialmente, el máximo está bien definido, siendo i = n−1 el único índice en el rango, por lo que m ha de valer a[n−1]. La respuesta correcta es: Inicialización: k=n-1;m=a[n-1]; Condición del while: (k>0)"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dado un vector a de n enteros, ¿cuáles de los siguientes predicados son equivalentes? 1. ∀u:1 ≤ u < n:a[u−1] ≤ a[u] 2. ∀u:0 ≤ u < n−1:a[u] ≤ a[u+1] 3. ∀i, j:0 ≤ i < j < n:a[i] ≤ a[j] 4. ∀i, j:0 ≤ i ≤ j < n:a[i] ≤ a[j]",
+    "opciones": {
+      "a": "Solo 1, 2 y 3.",
+      "b": "No hay dos equivalentes.",
+      "c": "Solo 1 y 2.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Todos son equivalentes. Por las propiedades reflexiva y transitiva de la relación de orden ≤ . La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dado el siguiente algoritmo que calcula la raiz cuadrada entera de un número dado x: {x ≥ 0} r=0; while ((r+1)*(r+1)<=x) { r=r+1; } { y ≥ 0 ∧ r*r ≤ x < (r+1)*(r+1) } indica cuales de las siguientes funciones de cota permite demostrar la terminación del bucle:",
+    "opciones": {
+      "a": "x−r*(r+1)",
+      "b": "r",
+      "c": "x−r*r",
+      "d": "x−r"
+    },
+    "correcta": "a",
+    "explicacion": "Correcta. Si se cumple la condición del bucle (r+1)*(r+1) ≤ x entonces se garantiza que al entrar al bucle x−(r+1)*(r+1) ≥ 0 y por tanto x−r*(r+1) ≥ 0. En cada vuelta r se incrementa en 1 por lo que x−r*(r+1) decrece al menos en 2. Las respuestas correctas son: x−r*(r+1), x−r*r, x−r"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "¿Cuál afirmación es correcta respecto al coste de un algoritmo divide y vencerás cuya recurrencia es la siguiente? T(n) = c_0 si n ≤ n_0 T(n) = a · T(n/b) + c_1 · n^k si n > n_0",
+    "opciones": {
+      "a": "T(n) ∈ Θ(n^k) si a > b^k",
+      "b": "T(n) ∈ Θ(n^k) si a = b^k",
+      "c": "T(n) ∈ Θ(n^k log n) si a < b^k",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: T(n) ∈ Θ(n^k log n) si a = b^k. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Indica la complejidad del siguiente algoritmo int a = 0; for (int i = 1; i < n; i *= 2) ++a;",
+    "opciones": {
+      "a": "Θ(log n)",
+      "b": "Θ(n log n)",
+      "c": "Θ(n^2)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. El número de vueltas del bucle es proporcional a log n y el coste de cada vuelta es constante. La respuesta correcta es: Θ(log n)"
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "id": "it_exen24_efi_ej1",
+  "tema": "Iterativos",
+  "subtipo": "conteo",
+  "dificultad": 3,
+
+  "enunciado": "Dado un vector v de n ≥1 enteros y un entero l ≥1, se desea contar el número de segmentos de longitud mayor o igual que l que tienen todos sus elementos iguales. Se puede suponer que n ≥l. Ten en cuenta que los segmentos se pueden superponer. Por ejemplo, el vector [8, 8, 8] contiene 6 segmentos de longitud mayor o igual que uno con todos sus elementos iguales (3 segmentos de longitud uno, 2 segmentos de longitud dos, y 1 segmento de longitud tres).",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá el valor de l ≥1 y el número de elementos del vector n ≥l (n ≤40.000), y a continuación los elementos del vector.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con el número de segmentos solicitado en el enunciado.",
+  "restricciones": "n ≤40.000, n ≥l, l ≥1",
+
+  "ejemplo": {
+    "input": "5\n1 1\n-5\n2 2\n7 7\n1 3\n8 8 8\n3 10\n2 2 -1 -1 -1 -1 -1 2 2 2\n1 10\n0 1 2 3 4 5 6 7 8 9",
+    "output": "1\n1\n6\n7\n10"
+  },
+
+  "tags": ["vector", "conteo", "segmentos", "iteración"],
+
+  "como_reconocerlo": "El problema pide contar segmentos de un vector que cumplan una condición específica.",
+  "idea_clave": "Recorrer el vector y verificar segmentos de longitud variable para contar aquellos que cumplen la condición de igualdad de elementos.",
+
+  "estrategia": [
+    "Definir una función auxiliar que verifique si todos los elementos de un segmento son iguales.",
+    "Iterar sobre el vector para cada posible inicio de segmento.",
+    "Para cada inicio, verificar todos los segmentos posibles de longitud mayor o igual a l.",
+    "Contar los segmentos que cumplen la condición de igualdad."
+  ],
+
+  "plantilla_codigo": "int contarSegmentos(const vector<int>& v, int l) {\n    int n = v.size();\n    int contador = 0;\n    // Iterar sobre cada posible inicio de segmento\n    for (int inicio = 0; inicio <= n - l; ++inicio) {\n        // Verificar segmentos de longitud >= l\n        for (int longitud = l; inicio + longitud <= n; ++longitud) {\n            // Comprobar si todos los elementos son iguales\n            // Incrementar contador si es cierto\n        }\n    }\n    return contador;\n}",
+
+  "pistas": ["Considera cómo verificar si todos los elementos de un segmento son iguales.", "Piensa en cómo optimizar la verificación de igualdad para evitar comprobaciones innecesarias."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector y verifica cada posible segmento de longitud mayor o igual a l para contar aquellos donde todos los elementos son iguales. Funciona porque explora todas las combinaciones posibles de segmentos y utiliza una función auxiliar para verificar la igualdad. La complejidad temporal es O(n^2) en el peor caso debido a la verificación de segmentos superpuestos.",
+
+  "errores_comunes": ["No verificar correctamente los límites del segmento al comprobar igualdad.", "Olvidar considerar segmentos superpuestos al contar."]
+}

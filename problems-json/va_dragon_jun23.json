@@ -1,0 +1,38 @@
+{
+  "id": "va_dragon_jun23",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "La prosperidad del reino de Aliahan está basada en una serie de cristales con mágicas propiedades. Tan valiosos son que el malvado Baramos ha invocado un poderoso dragón contra el pequeño reino para hacerse con los cristales. La única esperanza del reino es recurrir a un grupo de valientes héroes y usar el poder de los cristales contra el dragón. Los cristales permiten aumentar los puntos de ataque de sus portadores, además no es necesario que cada héroe use un único cristal sino que con un cristal se pueden beneficiar hasta héroes. Contamos con H héroes, cada uno con un nivel, clase y puntos de ataque. El reino de Aliahan cuenta con N cristales. Como buenos objetos mágicos que son, los grupos que se formen entorno a un cristal, deben cumplir dos condiciones: El poder de un cristal está limitado a un nivel M. La suma de los niveles de los héroes de un grupo no puede superar ese valor M. Como mucho puede haber héroes entorno al cristal y, además, sólo puede haber héroes con la misma clase en cada grupo. El beneficio del cristal es aumentar la suma de los puntos de ataque del grupo. En concreto, por cada héroe que esté, los puntos de ataque del grupo aumenta en un %. Por ejemplo, un grupo de héroes tendrá un % más de puntos de ataque: la suma del poder de los miembros más el % de esa cantidad. Para vencer al dragón la suma de los puntos de ataque totales de todos los grupos debe ser mayor o igual a los puntos de vida del dragón. El problema ahora mismo es que el dragón se acerca y los cristales mágicos son un bien escaso y necesario para el reino. ¡El reino necesita que los héroes usen el menor número posible de cristales! Se pide diseñar e implementar un algoritmo de vuelta atrás que resuelva el problema presentado. Describe claramente el espacio de soluciones, los marcadores utilizados y la poda de optimalidad realizada.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá inicialmente el número H de héroes; el número máximo N de cristales mágicos; el nivel máximo M de cada cristal; y los puntos de vida PV del dragón. A continuación, tres líneas de longitud H: la clase de cada héroe (un número no negativo), el nivel (un número mayor o igual que 0) y los puntos de ataque de cada héroe (un número mayor o igual que 0).",
+  "salida": "La salida es el menor número de cristales necesarios para vencer al dragón. En caso de no ser posible hacer una distribución de los cristales que acabe con el dragón, la salida será DERROTA.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "4\n6 7 2 150\n1 2 1 2 1 2\n1 1 1 1 1 1\n20 20 20 20 20 20\n6 7 1 30\n1 2 1 2 1 2\n1 1 1 1 1 1\n5 5 5 5 5 5\n4 3 5 100\n0 1 1 0\n3 4 2 1\n15 26 1 57\n5 5 5 100\n3 1 5 6 8\n2 2 1 1 1\n10 10 10 10 10",
+    "output": "3\n6\n2\nDERROTA"
+  },
+
+  "tags": ["backtracking", "restricciones", "combinaciones", "optimización", "poda"],
+
+  "como_reconocerlo": "El problema requiere formar grupos bajo restricciones específicas y minimizar un recurso.",
+  "idea_clave": "Utilizar backtracking para explorar combinaciones de héroes y cristales, aplicando poda para optimizar el uso de cristales.",
+
+  "estrategia": [
+    "Definir el espacio de soluciones como combinaciones de héroes asignados a cristales.",
+    "Aplicar restricciones de nivel y clase para cada grupo.",
+    "Calcular el beneficio de ataque para cada combinación válida.",
+    "Usar poda para descartar combinaciones que no pueden superar los puntos de vida del dragón.",
+    "Minimizar el número de cristales utilizados."
+  ],
+
+  "plantilla_codigo": "void resolver(int caso) {\n    // Leer datos de entrada\n    // Inicializar estructuras de datos\n    // Función recursiva de backtracking\n    // Comprobar condiciones de poda\n    // Actualizar mejor solución\n}\n\nvoid backtrack(int nivel, int cristal_actual) {\n    // Si se alcanza una solución válida\n    // Comprobar si es la mejor solución\n    // Intentar asignar héroes al cristal actual\n    // Llamar recursivamente para el siguiente cristal\n}",
+
+  "pistas": ["Considera cómo agrupar héroes para maximizar el ataque sin exceder las restricciones.", "Usa poda para evitar explorar combinaciones que no pueden superar los puntos de vida del dragón."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de asignación de héroes a cristales. Se aplican restricciones de nivel y clase para cada grupo, y se calcula el beneficio de ataque. La poda se utiliza para descartar combinaciones que no pueden superar los puntos de vida del dragón, optimizando así el uso de cristales. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero la poda ayuda a reducir el espacio de búsqueda.",
+
+  "errores_comunes": ["No aplicar correctamente las restricciones de nivel y clase.", "No utilizar poda, lo que lleva a un tiempo de ejecución excesivo."]
+}

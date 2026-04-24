@@ -1,0 +1,32 @@
+{
+  "id": "it_releyendolibroconpreferida_3",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 3,
+
+  "enunciado": "Releyendo un libro Cuando tengo un rato libre me gusta coger un libro y releer alguna de las partes que más me gustaron cuando lo leí por primera vez. Normalmente, mientras voy leyendo doy una puntuación entre 0 y 10 a cada página, de forma que cuando quiero volver a leerlo sé que páginas me gustaron más. Cero significa que no tengo interés en volver a leer esa página, mientras que un 10 indica que es una de las mejores partes de la obra. Una vez que empiezo a leer en una página, continuo con las páginas siguientes sin saltarme ninguna. Para asegurarme de que leo la mejor parte he aprendido a estimar el número de páginas que me dará tiempo a leer en el rato que tengo. Siempre busco que la parte que voy a leer incluya la página que más me gusta del libro y que las demás páginas sean lo más interesantes posible. Si hay varios intervalos igual de interesantes elijo el que esté más avanzado en el libro. Recuerda que las páginas que leo son siempre consecutivas. Requisitos de implementación. La función que resuelve el problema debe tener un coste lineal respecto al número de páginas del libro. Puede implementarse más de un bucle, siempre que el coste sea lineal respecto al número de páginas del libro.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba tiene dos líneas. En la primera se indica el número de páginas del libro (1 < n), seguido de la cantidad de páginas que me dará tiempo a leer (1 < L < n). En la segunda línea se indica la puntuación que he dado a cada página del libro (0 <= p <= 10). La entrada finaliza con dos ceros.",
+  "salida": "Para cada caso de prueba se escribe la página en que debo empezar a leer el libro para que al leer L páginas empezando en ella, lea siempre al menos una página que tenga la máxima puntuación y además no haya otras L páginas que conteniendo una página con la puntuación máxima me gusten más. Si existen dos bloques de páginas que conteniendo la página que más me gusta, su suma de puntuaciones es igual, elegiré la que se encuentre más avanzada en el libro.",
+  "restricciones": "1 < n, 1 < L < n, 0 <= p <= 10",
+
+  "ejemplo": {
+    "input": "6 3\n0 5 3 4 1 2\n7 2\n6 4 5 6 0 0 8\n5 4\n7 7 7 7 7\n6 2\n5 6 7 6 7 5\n0 0",
+    "output": "1\n5\n1\n3"
+  },
+
+  "tags": ["ventana", "puntuación", "consecutivas", "máximo", "lineal"],
+
+  "como_reconocerlo": "El problema busca un subarray de tamaño fijo que maximice una función de puntuación.",
+  "idea_clave": "Usar una ventana deslizante para encontrar el intervalo óptimo que maximiza la suma de puntuaciones incluyendo la máxima puntuación posible.",
+
+  "estrategia": ["Inicializar la ventana con las primeras L páginas.", "Deslizar la ventana una página a la vez, actualizando la suma de puntuaciones.", "Verificar si la ventana actual contiene la página con la máxima puntuación.", "Comparar la suma de la ventana actual con la mejor suma encontrada.", "Actualizar el inicio de la mejor ventana si se encuentra una mejor o igual más avanzada."],
+
+  "plantilla_codigo": "void encontrarMejorInicio(int n, int L, vector<int>& puntuaciones) {\n    int mejorInicio = 0;\n    int mejorSuma = 0;\n    int sumaActual = 0;\n    int maxPuntuacion = *max_element(puntuaciones.begin(), puntuaciones.end());\n    // Inicializar la ventana\n    for (int i = 0; i < L; ++i) {\n        sumaActual += puntuaciones[i];\n    }\n    // Deslizar la ventana\n    for (int i = L; i < n; ++i) {\n        // Actualizar sumaActual\n        // Verificar condiciones\n        // Actualizar mejorInicio si es necesario\n    }\n    // Imprimir el resultado\n}",
+
+  "pistas": ["Considera usar una técnica de ventana deslizante para mantener el coste lineal.", "Asegúrate de que la ventana siempre contiene la página con la máxima puntuación."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una ventana deslizante para evaluar todas las posibles subsecciones de L páginas. Mantiene un registro de la suma de puntuaciones de la ventana actual y la compara con la mejor suma encontrada hasta el momento. La complejidad temporal es O(n) ya que cada página se procesa una vez al deslizar la ventana.",
+
+  "errores_comunes": ["No incluir la página con la máxima puntuación en la ventana.", "No actualizar correctamente la suma de la ventana al deslizarla."]
+}

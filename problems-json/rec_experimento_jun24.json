@@ -1,0 +1,44 @@
+{
+  "id": "rec_experimento_jun24",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Marcelino es físico de partículas y está haciendo una serie de experimentos para comprender el funcionamiento de la materia. Para ello, toma una serie de medidas y las relaciona a partir de un umbral (K): busca el valor resultante de restar a la suma de todas las medidas menores (estrictamente) que K; la suma de todos los valores mayores o iguales que K. Pero como la física de partículas es delicada y pequeños errores en las medidas pueden acarrear grandes problemas, Marcelino, quiere ignorar aquellas medidas que sean incorrectas. Para que una lista de medidas sea correcta, debe pasar que: o bien sólo hay un dato; o bien la suma de los valores (estrictamente) menores que el umbral de la primera mitad del vector módulo K, es estrictamente mayor que la suma de los valores mayores o iguales que el umbral de la segunda mitad del vector módulo K; y al menos una de las dos mitades es a su vez correcta. Por ejemplo, dadas las medidas 6,4,4,5 con el umbral 5, son correctas ya que 4 (la suma de valores menores que K de la primera mitad) es tal que 4%5 = 4 > 0 = 5%5 (con 5 la suma de valores mayores o iguales que K de la segunda mitad), y además la segunda mitad (4,5) es también correcta, aunque la primera mitad (6,4) no lo sea. El valor del experimento es →3, resultado de hacer 8 →11 (4 + 4 = 8, los valores menores que el umbral; 6 + 5 = 11, los valores mayores o iguales que el umbral). Se pide: Escribe un algoritmo recursivo eficiente que permita resolver el problema. Escribe la recurrencia que corresponde al coste de la función recursiva. Indica también a qué orden de complejidad asintótica pertenece dicho coste.",
+  "entrada": "La entrada consta de una serie de casos de prueba, cada caso son dos líneas. La primera contiene el número de datos que se leerán N (siendo N siempre una potencia de 2) y el umbral K. La segunda línea contiene la secuencia de tamaño N con los experimentos, todos los valores serán no negativos.",
+  "salida": "Para cada caso de prueba el programa escribirá el valor del experimento si los datos son correctos o ERROR en caso de que los valores no sean correctos.",
+  "restricciones": "N es siempre una potencia de 2. Todos los valores serán no negativos.",
+
+  "ejemplo": {
+    "input": "4 5\n6 4 4 5",
+    "output": "-3"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "umbral", "validación", "suma"],
+
+  "como_reconocerlo": "El problema se identifica por la necesidad de dividir el conjunto de datos y aplicar condiciones de validez recursivamente.",
+  "idea_clave": "Dividir el conjunto de datos en mitades y aplicar condiciones de validez recursivamente para determinar si el conjunto es correcto.",
+
+  "estrategia": [
+    "Dividir el conjunto de datos en dos mitades.",
+    "Calcular las sumas de valores menores y mayores o iguales que K para cada mitad.",
+    "Verificar las condiciones de validez para cada mitad.",
+    "Aplicar recursión para verificar la validez de las mitades.",
+    "Calcular el resultado del experimento si los datos son correctos."
+  ],
+
+  "plantilla_codigo": "int calcularExperimento(vector<int>& datos, int K) {\n  // Caso base: si solo hay un dato\n  if (datos.size() == 1) {\n    // Calcular el resultado para un solo dato\n  }\n  // Dividir el vector en dos mitades\n  vector<int> primeraMitad, segundaMitad;\n  // Calcular las sumas de valores menores y mayores o iguales que K\n  // Verificar condiciones de validez\n  // Llamar recursivamente para cada mitad\n  // Calcular el resultado del experimento\n  return 0; // Cambiar por el resultado correcto\n}",
+
+  "pistas": [
+    "Considera cómo dividir el vector en mitades y aplicar las condiciones de validez.",
+    "Asegúrate de manejar correctamente el caso base de un solo dato."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo divide el conjunto de datos en mitades y verifica recursivamente si cada mitad cumple con las condiciones de validez. Si al menos una mitad es correcta, se calcula el resultado del experimento. La complejidad temporal es O(N log N) debido a la división y verificación recursiva de las mitades.",
+  
+  "errores_comunes": [
+    "No manejar correctamente el caso base de un solo dato.",
+    "No aplicar correctamente las condiciones de validez al dividir el vector."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "it_evolucionbeneficios_3",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "Evolución de los beneficios. Nuestra empresa quiere ampliar el negocio y para ello va a comprar una compañía de fabricación de componentes. Antes de realizar la compra queremos comprobar el estado en que se encuentra la empresa de fabricación y para ello analizamos los datos sobre sus ventas y sus gastos. Nuestro jefe nos ha encargado que obtengamos los años en que las ventas superaron las ventas de todos los años anteriores. El primer año del que tenemos datos no puede compararse con los anteriores y por lo tanto no lo consideraremos. Para ello contamos con las ventas de cada año desde que se fundó la empresa. Después de dedicar un rato a mirar los números, he decidido que lo más fácil es realizar un programa que me resuelva el problema. Requisitos de implementación. Debe implementarse una función que reciba un vector con todos los datos de las ventas y el año en que empezaron a tomarse los datos, y devuelva en otro vector los años en los que se superaron las ventas de los años anteriores. El coste de la función debe ser del orden del número de datos de entrada.",
+  "entrada": "La entrada comienza con un valor entero que indica el número de casos de prueba. Cada caso de prueba consta de dos líneas. En la primera línea se indica el primer y el último año a los que corresponden los valores de las ventas que nos dan. En la segunda línea se muestran los valores de las ventas en los años indicados.",
+  "salida": "Para cada caso de prueba se escriben en una línea los años en los que las ventas superan las ventas de los años anteriores. Si ningún año superó las ventas de los años anteriores se dejará una línea en blanco.",
+  "restricciones": "El número de años considerados es mayor que cero y el intervalo está entre los años 1700 y 100.000. Los valores posibles de las ventas son números enteros en el intervalo (-231+1.. 231-1).",
+
+  "ejemplo": {
+    "input": "5\n2000 2017\n159 172 181 190 201 213 227 239 243 233 232 229 225 225 227 233 241 250\n2005 2012\n281 292 304 310 300 308 315 318\n2013 2017\n-120 -140 -60 -50 -70\n1990 1992\n20 10 5\n3500 3503\n25 25 27 40",
+    "output": "2001 2002 2003 2004 2005 2006 2007 2008 2017\n2006 2007 2008 2011 2012\n2015 2016\n3502 3503"
+  },
+
+  "tags": ["vector", "acumulador", "ventas", "comparación", "iteración"],
+
+  "como_reconocerlo": "El patrón concreto que identifica este tipo de problema es la necesidad de comparar cada elemento de una secuencia con todos los anteriores para encontrar aquellos que son mayores.",
+  "idea_clave": "Mantener un registro del máximo de ventas encontrado hasta el momento y comparar cada nuevo año con este máximo para determinar si debe ser incluido en el resultado.",
+
+  "estrategia": ["Inicializar el máximo con el primer valor de ventas.", "Iterar sobre los años desde el segundo año.", "Comparar las ventas del año actual con el máximo registrado.", "Si las ventas actuales son mayores, actualizar el máximo y añadir el año al resultado.", "Devolver el vector de años que cumplen la condición."],
+
+  "plantilla_codigo": "void evolucionBeneficios(const vector<int>& ventas, int anioInicio, vector<int>& resultado) {\n    int maxVentas = ventas[0];\n    for (int i = 1; i < ventas.size(); ++i) {\n        // Comparar ventas[i] con maxVentas\n        // Si ventas[i] es mayor, actualizar maxVentas y añadir el año correspondiente a resultado\n    }\n}",
+
+  "pistas": ["Considera cómo puedes usar una variable para almacenar el máximo de ventas encontrado hasta el momento.", "Recuerda que el primer año no se compara con ningún otro."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre la lista de ventas año por año, manteniendo un registro del máximo de ventas encontrado hasta el momento. Cada vez que encuentra un año cuyas ventas superan este máximo, actualiza el máximo y añade el año al resultado. Esto asegura que solo se incluyen los años que superan las ventas de todos los años anteriores. La complejidad temporal es O(n), donde n es el número de años, ya que cada año se procesa una sola vez.",
+
+  "errores_comunes": ["No actualizar el máximo de ventas después de encontrar un año que lo supera, lo que lleva a resultados incorrectos.", "Comparar el primer año con sí mismo, lo cual es innecesario y puede causar errores."]
+}

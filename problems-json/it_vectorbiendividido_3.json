@@ -1,0 +1,43 @@
+{
+  "id": "it_vectorbiendividido_3",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "¿Está bien dividido el vector? ¿Recuerdas las temperaturas registradas en la estación meteorológica del Puerto de Navacerrada? Pues ahora queremos saber si el vector (no vacío) de temperaturas puede dividirse en dos de forma que todas las temperaturas hasta una determinada posición (inclusive) sean estrictamente menores que todas las temperaturas en el vector a partir de dicha posición. Separa en una función la funcionalidad clave del ejercicio e indica en comentarios su especificación (precondición y postcondición). Indica también el invariante y la función de cota del bucle. Requisitos de implementación. El orden de complejidad del algoritmo debe ser lineal respecto al tamaño del vector de temperaturas.",
+  "entrada": "La entrada comienza con un valor entero que indica el número de casos de prueba. Cada caso de prueba consta de dos líneas. La primera contiene el tamaño del vector y una posición p. La segunda línea contiene los valores del vector.",
+  "salida": "Para cada caso de prueba se escribe en una línea SI si la posición p divide el vector como se ha indicado y NO si no lo cumple.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "4\n15 5\n-25 7 3 -4 7 3 8 9 8 10 40 9 8 9 10\n4 0\n-17 -1 5 65\n4 3\n4 -30 6 28\n5 2\n5 -3 4 36 4",
+    "output": "SI\nSI\nSI\nNO"
+  },
+
+  "tags": ["vector", "acumulador", "comparación", "iteración"],
+
+  "como_reconocerlo": "El problema pide verificar si una posición divide un vector en dos partes con una condición de orden estricto.",
+  "idea_clave": "Recorrer el vector hasta la posición dada y verificar las condiciones de orden entre las dos partes del vector.",
+
+  "estrategia": [
+    "Leer el número de casos de prueba.",
+    "Para cada caso, leer el tamaño del vector y la posición p.",
+    "Verificar si todas las temperaturas hasta la posición p son menores que las temperaturas desde p+1.",
+    "Imprimir SI o NO según corresponda."
+  ],
+
+  "plantilla_codigo": "void verificarDivision(const vector<int>& temperaturas, int p) {\n    // Precondición: el vector no está vacío y 0 <= p < temperaturas.size()\n    // Postcondición: devuelve 'SI' si las temperaturas hasta p son menores que desde p+1, 'NO' en caso contrario\n    \n    // Implementar la lógica de verificación\n    for (int i = 0; i <= p; ++i) {\n        // Comparar temperaturas[i] con las temperaturas desde p+1\n    }\n    // Imprimir resultado\n}",
+
+  "pistas": [
+    "Considera usar dos bucles: uno para encontrar el máximo hasta la posición p y otro para verificar el mínimo desde p+1.",
+    "Asegúrate de manejar correctamente los límites del vector para evitar errores de índice."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector hasta la posición p para encontrar el máximo de esa sección. Luego, verifica que este máximo sea menor que el mínimo de la sección desde p+1. Esto asegura que la división cumple con la condición de orden estricto. La complejidad es O(n) ya que cada elemento del vector se procesa una vez.",
+
+  "errores_comunes": [
+    "No verificar correctamente los límites del vector, lo que puede causar errores de índice.",
+    "Confundir las condiciones de comparación entre las dos partes del vector."
+  ]
+}

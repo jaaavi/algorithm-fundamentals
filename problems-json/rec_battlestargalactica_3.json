@@ -1,0 +1,42 @@
+{
+  "id": "rec_battlestargalactica_3",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "En un lejano lugar del universo, los Cylon han lanzado un ataque imprevisto contra las doce colonias de Kobol. Todo lo que queda de la humanidad es una nave de combate la Battlestar Galactica junto con un grupo de naves espaciales civiles. Juntos emprenden un viaje en busca de la decimotercera colonia: la Tierra, cuya ubicación es desconocida. El comandante Adama dirige la expedición desde la nave de combate y el resto de las naves se sitúan en línea detrás de la nave principal. El orden en que lo hacen es importante para poder defenderse mejor de los continuos ataques de los Cylon. Después del último ataque las naves han quedado desordenadas y es preciso que recuperen el orden correcto. Sin embargo, el comandante sabe que los Cylon preparan un nuevo ataque para dentro de T unidades de tiempo. Si intercambiar el lugar de dos naves consecutivas lleva una unidad de tiempo, calcula si será posible restructurar la fila antes del ataque, en caso contrario, los pilotos Apolo y Starbuck tendrán que realizar una salida contra los Cylon para intentar retrasar el ataque. Requisitos de implementación. El problema se debe resolver de forma recursiva. Indicar el coste obtenido y la recurrencia. La función que resuelve el problema debe recibir los datos en un vector y devolver el número de unidades de tiempo necesarias para reestructurar la fila de naves.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso consta de dos líneas, en la primera se indica el número de naves que viajan bajo la protección de la Battlestar Galactica. En la segunda línea se da la posición en que ha quedado cada nave después del ataque de los Cylon.",
+  "salida": "Para cada caso de prueba se escribe en una línea el número de unidades de tiempo necesarias para reestructurar la fila.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "3\n3 2 1\n6\n4 3 2 1 6 5",
+    "output": "3\n7"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "ordenación", "vector"],
+
+  "como_reconocerlo": "El problema requiere ordenar elementos en un vector utilizando un enfoque recursivo.",
+  "idea_clave": "Utilizar un algoritmo de ordenación recursivo para calcular el número de intercambios necesarios.",
+
+  "estrategia": [
+    "Dividir el vector en dos mitades.",
+    "Ordenar recursivamente cada mitad.",
+    "Combinar las mitades ordenadas contando los intercambios necesarios."
+  ],
+
+  "plantilla_codigo": "int calcularTiempoReestructuracion(vector<int>& naves) {\n    // Implementar la función de ordenación recursiva\n    // Calcular y devolver el número de intercambios necesarios\n    return 0;\n}",
+
+  "pistas": [
+    "Considera cómo un algoritmo de ordenación como Merge Sort podría aplicarse aquí.",
+    "Cuenta los intercambios necesarios durante el proceso de combinación de las mitades."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza un enfoque de divide y vencerás para ordenar las naves. Se divide el vector en dos mitades, se ordena cada mitad recursivamente y luego se combinan las mitades ordenadas, contando los intercambios necesarios. La complejidad temporal es O(n log n) debido al enfoque de ordenación recursiva.",
+
+  "errores_comunes": [
+    "No contar correctamente los intercambios durante la combinación de las mitades.",
+    "No manejar correctamente los casos base en la recursión."
+  ]
+}

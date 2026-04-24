@@ -1,0 +1,43 @@
+{
+  "id": "rec_exen24_efi_ej2_secuenciapicudadiferencias",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Se dice que un vector de n ≥2 números enteros es picudo si la secuencia de diferencias de cada elemento respecto al anterior está formada por una secuencia estrictamente creciente (posiblemente vacía) hasta un valor y a partir de ese valor otra estrictamente decreciente (posiblemente vacía). Por ejemplo, el vector que contiene los elementos [1, 4, 10, 20, 29, 35, 40] es picudo, ya que la secuencia de diferencias es [3, 6, 10, 9, 6, 5]. El vector [−3, 4, 9, 12] también es picudo porque la secuencia de diferencias es [7, 5, 3]. Dado un vector picudo, se desea encontrar la mayor diferencia, que en los ejemplos anteriores son respectivamente 10 y 7. Se pide: 1. Escribe un algoritmo recursivo eficiente que resuelva el problema. No está permitido usar memoria adicional proporcional o superior a n. 2. Escribe la recurrencia que corresponde al coste de la función recursiva e indica a qué orden de complejidad asintótica pertenece dicho coste.",
+  "entrada": "El número de casos de prueba. Cada caso de prueba consta de dos líneas, en la primera se indica el número n de elementos del vector (n ≤40.000) y en la segunda los valores del vector picudo separados por blancos.",
+  "salida": "Para cada caso de prueba se escribe en una línea la mayor diferencia.",
+  "restricciones": "n ≤ 40.000",
+
+  "ejemplo": {
+    "input": "7\n2\n7 8\n3\n1 4 10\n3\n4 2 1\n4\n-3 4 9 12\n4\n7 6 6 5\n7\n1 4 10 20 29 35 40\n8\n4 3 3 4 6 10 10 8 3",
+    "output": "1\n6\n-1\n7\n0\n10\n4\n3"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "vector", "diferencias", "complejidad"],
+
+  "como_reconocerlo": "El problema pide encontrar un valor máximo en una secuencia que tiene una estructura específica de crecimiento y decrecimiento.",
+  "idea_clave": "Dividir el vector en subproblemas más pequeños para encontrar la mayor diferencia en una secuencia picuda sin usar memoria adicional significativa.",
+
+  "estrategia": [
+    "Dividir el vector en dos mitades.",
+    "Calcular la secuencia de diferencias en cada mitad.",
+    "Determinar la mayor diferencia en cada mitad y en la frontera entre ambas.",
+    "Combinar los resultados para obtener la mayor diferencia global."
+  ],
+
+  "plantilla_codigo": "int encontrarMayorDiferencia(vector<int>& v, int inicio, int fin) {\n    if (inicio >= fin) return 0; // Caso base\n    int medio = (inicio + fin) / 2;\n    // Calcular diferencias en la primera mitad\n    // Calcular diferencias en la segunda mitad\n    // Calcular diferencias en la frontera\n    // Combinar resultados\n    return max(...); // Devolver la mayor diferencia\n}",
+
+  "pistas": [
+    "Considera cómo dividir el problema en partes más pequeñas.",
+    "Piensa en cómo calcular la diferencia máxima en la frontera entre dos mitades."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo divide el vector en dos mitades y calcula la secuencia de diferencias en cada una. Luego, encuentra la mayor diferencia en cada mitad y en la frontera entre ambas. Finalmente, combina estos resultados para obtener la solución global. La complejidad temporal es O(n log n) debido a la división recursiva y la combinación de resultados.",
+
+  "errores_comunes": [
+    "No manejar correctamente la frontera entre las dos mitades.",
+    "Usar memoria adicional proporcional a n, lo cual está prohibido."
+  ]
+}

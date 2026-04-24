@@ -1,0 +1,116 @@
+[
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "Si en un problema de minimización podamos con un valor que no es cota inferior de la mejor solución alcanzable",
+    "opciones": {
+      "a": "se podan menos nodos.",
+      "b": "el algoritmo puede no terminar.",
+      "c": "podemos perder la mejor solución.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. Si se utiliza como cota optimista un valor que no es cota inferior de la mejor solución alcanzable, entonces dicho valor es superior al de la mejor solución alcanzable y en caso de ser además superior al de la mejor encontrada hasta el momento, podríamos podar la rama actual de forma indebida. En particular, podemos podar la rama donde se encuentra la mejor solución y perderla."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "Indica cual es la respuesta incorrecta sobre los algoritmos vuelta atrás",
+    "opciones": {
+      "a": "No pueden usarse para buscar dos soluciones.",
+      "b": "Pueden usarse para buscar una solución óptima en problemas de optimización.",
+      "c": "Pueden usarse para buscar todas las soluciones.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Para encontrar dos soluciones basta con llevar un contador que registre el número de soluciones encontradas y un booleano, de forma que cuando se alcancen las dos soluciones encontradas el booleano se haga cierto permitiendo detener todas las llamadas recursivas pendientes."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "Vuelta atrás realiza un recorrido en anchura de la parte no podada del árbol de exploración.",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. Vuelta atrás realiza un recorrido en profundidad mediante el uso de la recursión."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "En un problema de maximización resuelto con vuelta atrás la cota optimista o beneficio estimado",
+    "opciones": {
+      "a": "debe ser cota inferior de la mejor solución alcanzable.",
+      "b": "puede ser 0 si los beneficios son positivos.",
+      "c": "debe ser cota superior de la mejor solución alcanzable.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. En un problema de maximización del beneficio la cota optimista ha de ser una cota superior de la mejor solución alcanzable. De esa forma, si la cota optimista es menor que el mejor beneficio obtenido hasta el momento podemos podar esa rama puesto que en ella no hay ninguna solución que mejore a la actual."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "La diferencia fundamental entre los esquemas de vuelta atrás y de ramificación y poda reside",
+    "opciones": {
+      "a": "en que ramificación y poda solo se puede aplicar en problemas de optimización.",
+      "b": "en que en ramificación y poda no se realiza marcaje.",
+      "c": "en la forma en que se recorre el árbol de exploración.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Falso. La respuesta correcta es: en la forma en que se recorre el árbol de exploración."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "El coste de la poda de optimalidad puede ser tan elevado que no compense la poda conseguida.",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "a",
+    "explicacion": "Verdadero. Si para determinar si el subárbol correspondiente a una solución parcial puede conducir o no a una solución mejor que la encontrada hasta el momento se invierte demasiado tiempo, el coste total del algoritmo en el que se realiza dicha poda puede ser superior a aquel en que no se utiliza incluso aunque el número de nodos podados sea mayor utilizándola."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "La versión entera del problema de la mochila se puede resolver",
+    "opciones": {
+      "a": "eligiendo los objetos de mayor a menor valor que quepan.",
+      "b": "utilizando un algoritmo vuelta atrás.",
+      "c": "eligiendo los objetos de mayor a menor valor por unidad de peso que quepan.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Un algoritmo vuelta atrás puede resolver la versión entera del problema de la mochila, pues permite explorar todas las posibles combinaciones factibles de objetos. Utilizando poda de optimalidad se puede reducir el espacio de búsqueda."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "La técnica de marcaje en vuelta atrás tiene como objetivo",
+    "opciones": {
+      "a": "ahorrar espacio.",
+      "b": "marcar ciertos nodos para explorarlos antes que los demás en problemas de optimización.",
+      "c": "podar un mayor número de nodos.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Falso. Los marcadores no permiten podar más nodos sino realizar la poda de factibilidad de forma más eficiente en tiempo mediante el almacenamiento en memoria de información adicional."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "Todos los algoritmos de vuelta atrás son exponenciales.",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. El coste de un algoritmo de vuelta atrás puede ser polinómico si el tamaño del espacio de soluciones lo es. Muchos de ellos son de tamaño exponencial o peor."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_3",
+    "pregunta": "La función que determina si una solución parcial puede generar una solución completa se llama:",
+    "opciones": {
+      "a": "función de factibilidad.",
+      "b": "función de marcaje.",
+      "c": "restricción explícita.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. La función de factibilidad determina si el valor elegido para la componente de la solución en la fase actual satisface las restricciones del problema con respecto a las componentes anteriores y por tanto si aún es posible extenderla a una solución completa."
+  }
+]

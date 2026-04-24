@@ -1,0 +1,42 @@
+{
+  "id": "va_pepecasanovasinestimacion_5",
+  "tema": "Backtracking",
+  "subtipo": "con poda",
+  "dificultad": 4,
+
+  "enunciado": "Pepe Casanova es un ligón de los de antaño, que intenta encandilar a las chicas con canciones románticas. A tal efecto, y de cara al veraneo en una playa del sur, decide conseguir una cinta para el radiocasete de su coche con las mejores canciones de amor. Pepe es muy peculiar en sus gustos, y además anda algo escaso de dinero, por lo que en lugar de comprar una de tantas recopilaciones que circulan por el mercado discográfico, quiere grabársela él mismo. Rebuscando entre sus viejos vinilos, ha confeccionado una lista con sus canciones favoritas, apuntando la duración individual de cada una. Lamentablemente, su cinta de dos caras no tiene capacidad suficiente para contener todas las canciones, así que Pepe ha otorgado una puntuación a cada canción (cuanto más le gusta, mayor es la puntuación). ¿Puedes ayudar a Pepe a conseguir la mejor cinta (aquella cuya suma de puntuaciones de las canciones grabadas sea lo mayor posible), teniendo en cuenta que no puede repetir canciones, las escogidas han de caber enteras y no es admisible que una canción se corte a la mitad al final de una cara de la cinta? Entrada La entrada está formada por una serie de casos de prueba. Cada caso comienza con el número N de canciones (1 ≤N ≤25) en la lista de Pepe. Después aparece la duración de cada una de las dos caras de la cinta, y a continuación aparecen N líneas cada una con dos números enteros que representan la duración y la puntuación de cada una de las canciones. La entrada termina con un 0. Salida Para cada caso de prueba se escribirá una línea con la puntuación total máxima conseguida al grabar algunas canciones completas en las dos caras de la cinta.",
+  "entrada": "Número N de canciones, duración de cada una de las dos caras de la cinta, seguido de N líneas con duración y puntuación de cada canción.",
+  "salida": "La puntuación total máxima conseguida al grabar algunas canciones completas en las dos caras de la cinta.",
+  "restricciones": "1 ≤ N ≤ 25",
+
+  "ejemplo": {
+    "input": "4\n90\n50 80\n40 20\n40 50\n60 10\n0",
+    "output": "150"
+  },
+
+  "tags": ["backtracking", "poda", "optimización", "combinatoria", "restricciones"],
+
+  "como_reconocerlo": "El problema busca maximizar una suma bajo restricciones de capacidad, sin repetir elementos.",
+  "idea_clave": "Usar backtracking con poda para explorar combinaciones de canciones que maximicen la puntuación sin exceder la capacidad de la cinta.",
+
+  "estrategia": [
+    "Definir una función recursiva que explore todas las combinaciones posibles de canciones.",
+    "Implementar poda para descartar combinaciones que excedan la capacidad de la cinta.",
+    "Mantener un registro de la puntuación máxima encontrada."
+  ],
+
+  "plantilla_codigo": "int maxPuntuacion(int N, int cara1, int cara2, vector<pair<int, int>> canciones) {\n    // Inicializar variables necesarias\n    int maxPuntuacion = 0;\n    // Función recursiva para explorar combinaciones\n    function<void(int, int, int, int)> backtrack = [&](int index, int duracion1, int duracion2, int puntuacion) {\n        // Condición de poda\n        if (duracion1 > cara1 || duracion2 > cara2) return;\n        // Actualizar puntuación máxima\n        maxPuntuacion = max(maxPuntuacion, puntuacion);\n        // Explorar siguientes canciones\n        for (int i = index; i < N; ++i) {\n            // Llamada recursiva\n            backtrack(i + 1, duracion1 + canciones[i].first, duracion2, puntuacion + canciones[i].second);\n            backtrack(i + 1, duracion1, duracion2 + canciones[i].first, puntuacion + canciones[i].second);\n        }\n    };\n    // Iniciar backtracking\n    backtrack(0, 0, 0, 0);\n    return maxPuntuacion;\n}",
+
+  "pistas": [
+    "Considera cada canción como una opción para cada cara de la cinta.",
+    "Usa poda para evitar explorar caminos que ya exceden la capacidad de la cinta."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de canciones que se pueden grabar en las dos caras de la cinta. La poda se aplica para evitar combinaciones que excedan la capacidad de la cinta, lo que mejora la eficiencia. La complejidad temporal es exponencial en el peor de los casos, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": [
+    "No aplicar poda correctamente, lo que lleva a explorar combinaciones innecesarias.",
+    "Olvidar actualizar la puntuación máxima al encontrar una nueva combinación válida."
+  ]
+}

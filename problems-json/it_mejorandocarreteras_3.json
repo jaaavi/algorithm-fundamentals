@@ -1,0 +1,32 @@
+{
+  "id": "it_mejorandocarreteras_3",
+  "tema": "Iterativos",
+  "subtipo": "máximo/mínimo",
+  "dificultad": 3,
+
+  "enunciado": "El gobierno está intentando reducir el número de accidentes de carretera. Para ello ha elaborado un ambicioso plan de modernización de las vías en el que se pretende mejorar los tramos más peligrosos. Para detectar estos cuenta con los puntos kilométricos en que han ocurrido accidentes durante los últimos años. Ahora quiere obtener cuál es el punto kilométrico en que más accidentes han ocurrido para cada una de las carreteras del país. El problema pide calcular la moda de una colección de valores. En este caso, los valores no están acotados y por lo tanto no podemos utilizar un vector auxiliar para contar las apariciones de cada elemento. En lugar de esto, ordenaremos el vector y buscaremos el segmento máximo con todos los valores iguales. La función resolver recibirá un vector con los datos leídos de la entrada. Ordenará los elementos y buscará el segmento máximo, devolviendo el valor que se repiten el número máximo de veces. Si existen dos valores que se repiten el número máximo de veces se elije el de más a la izquierda del vector.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso consta de dos líneas, en la primera se muestra el número de accidentes ocurridos, y en la segunda se muestran los puntos kilométricos en que han ocurrido los accidentes. Estos se encuentran ordenados por la fecha en que ocurrió el accidente. El final de casos se marca con el valor -1.",
+  "salida": "Para cada caso de prueba se escribe en una línea el punto kilométrico en que han ocurrido un mayor número de accidentes. En caso de que haya dos puntos kilométricos con el mismo número de accidentes se elegirá él que esté más cerca del comienzo de la carretera (el menor).",
+  "restricciones": "Se garantiza que los valores de la secuencia son números enteros positivos que pueden almacenarse en una variable de tipo int. El número de elementos de la secuencia es siempre mayor que cero, pero no está acotado pudiendo ser “muy grande”.",
+
+  "ejemplo": {
+    "input": "7\n5 3 8 5 10 10 5\n6\n900 50 900 200 50 200\n1\n12000\n-1",
+    "output": "5\n50\n12000"
+  },
+
+  "tags": ["vector", "ordenación", "máximo", "moda", "iteración"],
+
+  "como_reconocerlo": "El problema pide encontrar el valor que más se repite en una lista de números.",
+  "idea_clave": "Ordenar el vector y buscar el segmento más largo de valores iguales para encontrar la moda.",
+
+  "estrategia": ["Ordenar el vector de puntos kilométricos.", "Recorrer el vector para encontrar el segmento más largo de valores iguales.", "Devolver el valor del segmento más largo encontrado."],
+
+  "plantilla_codigo": "void resolver(std::vector<int>& accidentes) {\n    // Ordenar el vector\n    std::sort(accidentes.begin(), accidentes.end());\n    // Inicializar variables para encontrar la moda\n    int moda = accidentes[0];\n    int max_count = 1, count = 1;\n    // Recorrer el vector\n    for (size_t i = 1; i < accidentes.size(); ++i) {\n        // Comprobar si el elemento actual es igual al anterior\n        if (accidentes[i] == accidentes[i - 1]) {\n            count++;\n        } else {\n            count = 1;\n        }\n        // Actualizar la moda si se encuentra un segmento más largo\n        if (count > max_count) {\n            max_count = count;\n            moda = accidentes[i];\n        }\n    }\n    // Devolver la moda\n    std::cout << moda << std::endl;\n}",
+
+  "pistas": ["Considera ordenar el vector para facilitar la búsqueda de la moda.", "Recorre el vector para contar las repeticiones de cada elemento."],
+
+  "solucion_codigo": "void resolver(std::vector<int>& accidentes) {\n    std::sort(accidentes.begin(), accidentes.end());\n    int moda = accidentes[0];\n    int max_count = 1, count = 1;\n    for (size_t i = 1; i < accidentes.size(); ++i) {\n        if (accidentes[i] == accidentes[i - 1]) {\n            count++;\n        } else {\n            count = 1;\n        }\n        if (count > max_count) {\n            max_count = count;\n            moda = accidentes[i];\n        }\n    }\n    std::cout << moda << std::endl;\n}",
+  "explicacion": "El algoritmo ordena el vector de puntos kilométricos para facilitar la búsqueda de la moda. Luego, recorre el vector contando las repeticiones de cada elemento. Si encuentra un segmento más largo de valores iguales, actualiza la moda. La complejidad temporal es O(n log n) debido a la ordenación, seguida de un recorrido lineal O(n).",
+
+  "errores_comunes": ["No ordenar el vector antes de buscar la moda, lo que complica la identificación de segmentos de valores iguales.", "No manejar correctamente el caso en que dos valores tienen la misma frecuencia máxima."]
+}

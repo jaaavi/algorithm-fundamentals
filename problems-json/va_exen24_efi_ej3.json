@@ -1,0 +1,44 @@
+{
+  "id": "va_exen24_efi_ej3",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Santiago, un alumno de la Facultad de Informática ha de decidir de qué asignaturas matricularse el año que viene, teniendo en cuenta que el número de créditos de las asignaturas en las que se matricule ha de ser mayor o igual que una cierta cantidad C. Algunas de las n asignaturas de la titulación que está cursando tienen un prerrequisito. Estos prerrequisitos vienen dados en un vector r de n componentes, donde r[i] representa la asignatura que es necesario tener previamente aprobada para poder matricularse de la asignatura i (o -1 en caso de no tener prerrequisito). Por supuesto, Santiago sabe para cada asignatura si la tiene aprobada o no, el número de créditos y el coste. Se pide diseñar e implementar un algoritmo de vuelta atrás que resuelva el problema de decidir en qué asignaturas matricularse (de las aún no aprobadas) cuya suma de créditos supere C, respete los prerrequisitos y la suma de los costes de dichas asignaturas sea mínima. Describe claramente el espacio de soluciones y los marcadores utilizados. Se valorará realizar poda de optimalidad.",
+  "entrada": "El número de casos de prueba. Para cada caso: el número de asignaturas n (1 ≤ n ≤ 20) y el número de créditos mínimos a matricular C (0 ≤ C ≤ 60); seguido de una línea para cada información sobre las asignaturas: si está aprobada (A) o no (N), los prerrequisitos (-1 si no tiene), el número de créditos, y el coste de matriculación.",
+  "salida": "Por cada caso de prueba, el menor coste para matricularse cumpliendo las restricciones, o 'NO' si no es posible.",
+  "restricciones": "1 ≤ n ≤ 20, 0 ≤ C ≤ 60",
+
+  "ejemplo": {
+    "input": "3\n3 10\nA N N\n-1 0 1\n5 5 5\n5 10 15\n3 10\nA N N\n-1 0 0\n5 5 7\n5 10 15\n10 10\nA N A N N N N N N A\n-1 -1 0 0 0 1 2 3 5 5\n4 5 4 5 5 6 6 5 5 3\n10 30 10 20 10 15 10 20 30 5",
+    "output": "NO\n25\n20"
+  },
+
+  "tags": ["backtracking", "restricciones", "poda", "combinaciones", "optimización"],
+
+  "como_reconocerlo": "Problemas que requieren explorar combinaciones de opciones bajo restricciones específicas.",
+  "idea_clave": "Usar backtracking para explorar combinaciones de asignaturas, aplicando poda para minimizar el coste.",
+  
+  "estrategia": [
+    "Paso 1: Inicializar variables para el seguimiento de créditos y costes.",
+    "Paso 2: Implementar una función recursiva para explorar combinaciones de asignaturas.",
+    "Paso 3: Verificar prerrequisitos antes de considerar una asignatura.",
+    "Paso 4: Aplicar poda si el coste actual supera el mejor encontrado.",
+    "Paso 5: Al alcanzar o superar los créditos requeridos, actualizar el coste mínimo si es menor."
+  ],
+
+  "plantilla_codigo": "void seleccionarAsignaturas(int n, int C, vector<char> aprobadas, vector<int> prerrequisitos, vector<int> creditos, vector<int> costes) {\n    // Inicializar variables para el coste mínimo\n    int costeMinimo = INT_MAX;\n    // Función recursiva para explorar combinaciones\n    function<void(int, int, int)> backtrack = [&](int index, int creditosActuales, int costeActual) {\n        // Comprobar si se cumplen los créditos mínimos\n        if (creditosActuales >= C) {\n            costeMinimo = min(costeMinimo, costeActual);\n            return;\n        }\n        // Explorar asignaturas\n        for (int i = index; i < n; ++i) {\n            // Comprobar prerrequisitos\n            if (aprobadas[i] == 'N' && (prerrequisitos[i] == -1 || aprobadas[prerrequisitos[i]] == 'A')) {\n                // Poda por coste\n                if (costeActual + costes[i] < costeMinimo) {\n                    // Marcar asignatura como seleccionada\n                    aprobadas[i] = 'A';\n                    backtrack(i + 1, creditosActuales + creditos[i], costeActual + costes[i]);\n                    // Desmarcar asignatura\n                    aprobadas[i] = 'N';\n                }\n            }\n        }\n    };\n    // Llamar a la función recursiva\n    backtrack(0, 0, 0);\n    // Imprimir resultado\n    if (costeMinimo == INT_MAX) {\n        cout << \"NO\" << endl;\n    } else {\n        cout << costeMinimo << endl;\n    }\n}",
+
+  "pistas": [
+    "Considera usar una estructura de datos para rastrear el estado de las asignaturas aprobadas.",
+    "Implementa poda para evitar explorar combinaciones que ya superan el coste mínimo encontrado."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo explora todas las combinaciones posibles de asignaturas no aprobadas, respetando los prerrequisitos. Utiliza backtracking para probar diferentes combinaciones y poda para evitar caminos que no pueden mejorar la solución actual. La complejidad temporal es exponencial en el peor caso debido a la naturaleza combinatoria del problema, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": [
+    "No verificar correctamente los prerrequisitos antes de seleccionar una asignatura.",
+    "Olvidar aplicar poda, lo que lleva a un tiempo de ejecución excesivo."
+  ]
+}

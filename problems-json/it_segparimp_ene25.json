@@ -1,0 +1,42 @@
+{
+  "id": "it_segparimp_ene25",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 3,
+
+  "enunciado": "Dado un vector v de n →1 enteros positivos (→0) y un entero l →1, se desea contar el número de segmentos de longitud l que cumplen que la suma de los valores pares sea estrictamente mayor que la suma de los impares. Define un predicado paresMayorImpares(v, p, q) que se evalúe a cierto si y solo si entre las posiciones p (incluida) y q (excluida) la suma de los valores pares es estrictamente mayor que la de los impares. Utilizando el predicado paresMayorImpares, especifica una función que dado un entero l →1 y un vector v de enteros positivos, devuelva el número de segmentos de longitud l que cumplen que la suma de los valores pares es estrictamente mayor que la de los impares. Diseña e implementa un algoritmo iterativo que resuelva el problema propuesto. Escribe los invariantes de los bucles que permitan demostrar la corrección de algoritmo y proporciona funciones de cota. Indica el coste asintótico del algoritmo en el caso peor y justifica adecuadamente tu respuesta.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá el valor de l →1 y el número de elementos del vector n (n ↑100.000), y a continuación los elementos del vector.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con el número de segmentos solicitado en el enunciado.",
+  "restricciones": "n ↑100.000, l →1",
+
+  "ejemplo": {
+    "input": "5\n4 2\n2 1\n4 4\n1 2 3 4\n4 6\n5 1 2 6 4 13\n1 3\n2 3 0\n3 10\n4 7 1 4 2 9 3 10 2 5",
+    "output": "0\n1\n2\n1\n3"
+  },
+
+  "tags": ["vector", "ventana", "suma", "pares e impares"],
+
+  "como_reconocerlo": "El problema requiere contar segmentos de un vector donde una condición sobre la suma de elementos se cumple.",
+  "idea_clave": "Usar una ventana deslizante para calcular eficientemente las sumas de segmentos consecutivos del vector.",
+
+  "estrategia": [
+    "Inicializar contadores para las sumas de pares e impares en el primer segmento.",
+    "Deslizar la ventana a lo largo del vector, actualizando las sumas al agregar un nuevo elemento y quitar el anterior.",
+    "Contar los segmentos donde la suma de pares es mayor que la de impares."
+  ],
+
+  "plantilla_codigo": "int contarSegmentos(int l, const vector<int>& v) {\n    int n = v.size();\n    int count = 0;\n    // Inicializar sumas de pares e impares\n    int sumaPares = 0, sumaImpares = 0;\n    // Calcular sumas para el primer segmento\n    for (int i = 0; i < l; ++i) {\n        // Actualizar sumaPares y sumaImpares\n    }\n    // Deslizar la ventana\n    for (int i = l; i < n; ++i) {\n        // Actualizar sumas al mover la ventana\n        // Comprobar condición y actualizar count\n    }\n    return count;\n}",
+
+  "pistas": [
+    "Considera cómo actualizar las sumas de pares e impares al mover la ventana.",
+    "Piensa en cómo inicializar las sumas para el primer segmento de longitud l."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una ventana deslizante para calcular las sumas de pares e impares en segmentos consecutivos del vector. Al mover la ventana, se actualizan las sumas eficientemente sin recalcular desde cero. La complejidad temporal es O(n) por caso de prueba, ya que cada elemento del vector se procesa un número constante de veces.",
+
+  "errores_comunes": [
+    "No actualizar correctamente las sumas al deslizar la ventana.",
+    "No manejar correctamente los índices al calcular las sumas iniciales."
+  ]
+}

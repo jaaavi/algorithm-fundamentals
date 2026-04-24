@@ -1,0 +1,43 @@
+{
+  "id": "va_faluca_ene25",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "La Comunidad de FALuca ha sufrido una catástrofe natural que ha afectado a m poblaciones. Es necesario distribuir ayuda a dichas poblaciones, cada una de las cuales ha comunicado sus necesidades (kilos de ayuda) al jefe de protección civil de la comunidad. Se dispone de n voluntarios para repartir las ayudas y de una tabla que indica para cada voluntario, cuántos kilos de ayuda puede llevar a cada una de las poblaciones (esto depende de muchos factores como la accesibilidad de la población, la localización y los medios de transporte del voluntario etc.) A una población puede enviarse cualquier número de voluntarios pero cada voluntario solo puede ir a una población. Como no se sabe cuando cada voluntario será capaz de llegar hasta la población que se le asigne, se les ha pedido que cada uno lleve los todos los kilos especificados en la tabla. Si luego la cantidad de ayuda que los voluntarios llevan a una población excede sus necesidades solo se repartirá la notificada como necesaria, y en caso contrario se repartirá toda la que han llevado los voluntarios. El objetivo es maximizar la cantidad de kilogramos de ayuda repartida en las poblaciones teniendo en cuenta que el jefe de protección civil quiere que al menos l poblaciones reciban la ayuda que solicitaron. Define el espacio de soluciones e indica cómo es el árbol de exploración. Implementa un algoritmo de vuelta atrás que resuelva el problema. Explica claramente los marcadores que has utilizado. Plantea dos posibles funciones de poda de optimalidad, razona sobre cual de ellas es mejor e impleméntala en tu algoritmo.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá el valor del número de personas n, de poblaciones m y el número de poblaciones mínimo l cuyas necesidades se han de cubrir. A continuación figura la cantidad de kilos de ayuda necesarios en cada población. Finalmente una fila para cada voluntario indicando la cantidad de kilos de ayuda llevará a cada población.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con la cantidad de kilos máxima que se puede repartir. En caso de no sea posible cumplir la restricción de cubrir las necesidades de al menos l poblaciones se escribirá IMPOSIBLE.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "4\n1 1 1\n3\n5\n4 3 2\n10 7 6\n2 3 1\n4 3 3\n2 1 3\n4 4 4\n4 3 3\n10 7 6\n2 3 1\n4 3 3\n2 1 3\n4 4 4\n4 3 0\n10 7 6\n2 3 1\n4 3 3\n2 1 3\n4 4 4",
+    "output": "3\n13\nIMPOSIBLE\n14"
+  },
+
+  "tags": ["backtracking", "restricciones", "optimización", "poda", "distribución"],
+
+  "como_reconocerlo": "El problema requiere asignar recursos limitados a múltiples objetivos con restricciones específicas.",
+  "idea_clave": "Utilizar backtracking para explorar todas las combinaciones posibles de asignación de voluntarios a poblaciones, aplicando poda para optimizar el proceso.",
+
+  "estrategia": [
+    "Definir el espacio de soluciones como todas las posibles asignaciones de voluntarios a poblaciones.",
+    "Utilizar backtracking para explorar el árbol de decisiones.",
+    "Implementar funciones de poda para descartar ramas no óptimas.",
+    "Calcular la cantidad máxima de ayuda distribuida cumpliendo las restricciones."
+  ],
+
+  "plantilla_codigo": "void distribuirAyuda(int n, int m, int l, vector<int> necesidades, vector<vector<int>> capacidad) {\n  // Inicializar variables necesarias\n  // Función recursiva para backtracking\n  // Implementar poda\n  // Actualizar la mejor solución encontrada\n}",
+
+  "pistas": [
+    "Considera cómo podrías representar el problema como un árbol de decisiones.",
+    "Piensa en cómo podrías implementar la poda para reducir el espacio de búsqueda."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de asignación de voluntarios a poblaciones. Se implementan funciones de poda para descartar combinaciones que no pueden cumplir con las restricciones de cubrir al menos l poblaciones. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": [
+    "No implementar correctamente la poda, lo que lleva a un tiempo de ejecución excesivo.",
+    "Olvidar verificar si se cumplen las restricciones de cubrir al menos l poblaciones."
+  ]
+}

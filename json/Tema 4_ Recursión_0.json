@@ -1,0 +1,121 @@
+[
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "¿En qué casos no termina este algoritmo recursivo ?",
+    "opciones": {
+      "a": "Siempre termina, pues el argumento de la llamada decrece.",
+      "b": "Solo en los positivos pares",
+      "c": "Solo en los números negativos.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Solamente en los números negativos y en los positivos impares."
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "Indica cuáles son casos peores del algoritmo quicksort que usa el primer elemento del segmento como pivote y que en la fase de partición reparte los elementos en menores, iguales y mayores:",
+    "opciones": {
+      "a": "Todos los elementos son iguales.",
+      "b": "El último elemento es la mediana del array.",
+      "c": "Los elementos ya están ordenados de forma estricta.",
+      "d": "Los elementos están ordenados a la inversa de forma estricta."
+    },
+    "correcta": "c, d",
+    "explicacion": "Correcta. El caso en que los elementos están ordenados a la inversa y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n^2), siendo n el número de elementos del array."
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "¿Qué tipo de recursión es la de esta función?",
+    "opciones": {
+      "a": "Recursión múltiple.",
+      "b": "Recursión lineal final.",
+      "c": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Se trata de recursión lineal porque en cada alternativa hay una única llamada recursiva y es final porque el resultado de la llamada recursiva en cada alternativa es el resultado de la función."
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "Indica a qué orden de complejidad pertenece T(n) definida por la recurrencia:",
+    "opciones": {
+      "a": "T(n) ∈ O(n^2)",
+      "b": "T(n) ∈ O(2^n)",
+      "c": "T(n) ∈ O(log n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Puesto que T(n) = T(n−1) + T(n−2) + c1 ≤ 2T(n−1) + c1, aplicando el teorema de la división con a=2, b=1, k=0, tenemos que T(n) ∈ O(2^n)."
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "En los algoritmos recursivos en los que se reduce el tamaño del problema por sustracción:",
+    "opciones": {
+      "a": "Si a = 1 el coste es logarítmico.",
+      "b": "Para que sea polinómico es necesario que b>a.",
+      "c": "Si a>1, es siempre exponencial por muy grande que sea b.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. En caso de que a > 1 el coste está en Θ(a^(n/b)), y es por tanto exponencial independientemente del valor de b."
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "Indica la menor función f(n) que cumple que T(n) ∈ O(f(n)):",
+    "opciones": {
+      "a": "n",
+      "b": "n log n",
+      "c": "n^2",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ Θ(n^2)."
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "Indica cual de las siguientes recurrencias representa el coste del algoritmo mergesort:",
+    "opciones": {
+      "a": "T(n) = c si n ≤ 1, T(n) = 2T(n−1) + c'n si n > 1",
+      "b": "T(n) = c si n ≤ 1, T(n) = T(n/2) + c'n si n > 1",
+      "c": "T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c' si n > 1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c'n si n > 1"
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "Dada la siguiente recurrencia, indica la respuesta correcta:",
+    "opciones": {
+      "a": "T(n) ∈ Θ(n)",
+      "b": "T(n) ∈ Θ(log n)",
+      "c": "T(n) ∈ Θ(n^log_2 3)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "D. Cierto. La respuesta correcta es: T(n) ∈ Θ(n^2)"
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "La generalización es una técnica que se utiliza para:",
+    "opciones": {
+      "a": "Mejorar la eficiencia de los algoritmos recursivos.",
+      "b": "Obtener versiones recursivas finales de funciones recursivas lineales no finales.",
+      "c": "Diseñar algoritmos recursivos.",
+      "d": "Disponer de funciones más generales que la que se deseaba."
+    },
+    "correcta": "a, b, c, d",
+    "explicacion": "Correcta. Añadir parámetros y/o resultados adicionales puede ayudar a mejorar la eficiencia de los algoritmos recursivos."
+  },
+  {
+    "tema": "Tema 4_ Recursión_0",
+    "pregunta": "Indica cuál es la afirmación correcta acerca de este algoritmo de búsqueda binaria en el que la precondición es 0 ≤ c ≤ f + 1 ≤ longitud(v):",
+    "opciones": {
+      "a": "Solo termina si c < f.",
+      "b": "Siempre termina.",
+      "c": "Solo termina si c > f.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. El algoritmo no termina en todos aquellos casos en los que c ≤ f."
+  }
+]

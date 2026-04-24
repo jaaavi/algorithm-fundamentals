@@ -1,0 +1,45 @@
+{
+  "id": "va_supermercadoconpoda_4",
+  "tema": "Backtracking",
+  "subtipo": "con poda",
+  "dificultad": 4,
+
+  "enunciado": "Compra de la semana Alonso Rodr´ıguez tiene que hacer la compra de la semana. Ha hecho una lista de n productos que quiere comprar. En su barrio hay m supermercados en cada uno de los cuales se dispone de todos esos productos. Pero como es un comprador compulsivo no quiere comprar m´as de tres productos en cada uno de los supermercados ya que as´ı pasa m´as tiempo comprando (se puede suponer que n ≤3m). Dispone de una lista de precios (en c´entimos) de los productos en cada uno de los supermercados. Se pide dise˜nar un algoritmo que permita a Alonso decidir c´omo hacer la compra de forma que compre todo lo que necesita y que el coste total sea m´ınimo.",
+  "entrada": "La entrada comienza por una l´ınea indicando el n´umero de casos de prueba que deber´an procesarse. Para cada caso de prueba la primera l´ınea tiene dos n´umeros, el primero es el n´umero de supermercados y el segundo el n´umero de productos. A continuaci´on aparecen tantas l´ıneas como supermercados y en cada una de las l´ıneas el precio de todos los productos en ese supermercado.",
+  "salida": "Por cada caso de prueba aparecer´a una l´ınea independiente con el coste de la mejor soluci´on encontrada o bien el mensaje ”Sin solucion factible” en el caso de que no haya ninguna.",
+  "restricciones": "0 ≤ número de productos ≤ 3 * número de supermercados y número de supermercados ≤ 20",
+
+  "ejemplo": {
+    "input": "2\n6 10\n1820\n510\n370\n1000\n460\n324\n505\n640\n2030\n409\n2000\n430\n450\n1110\n606\n290\n530\n670\n2104\n501\n1760\n502\n395\n1200\n550\n199\n525\n702\n1830\n550\n2130\n640\n560\n1307\n735\n450\n600\n720\n2150\n575\n1143\n455\n505\n1140\n500\n400\n350\n550\n2030\n399\n1200\n475\n403\n1002\n560\n350\n502\n640\n2009\n460\n4 1\n4020\n3560\n5540\n3540",
+    "output": "6743\n3540"
+  },
+
+  "tags": ["backtracking", "poda", "optimización", "restricciones", "coste mínimo"],
+
+  "como_reconocerlo": "El problema requiere encontrar una combinación óptima bajo restricciones específicas de cantidad y coste.",
+  "idea_clave": "Utilizar backtracking con poda para explorar combinaciones de compras minimizando el coste total.",
+  
+  "estrategia": [
+    "Leer el número de casos de prueba.",
+    "Para cada caso, leer el número de supermercados y productos.",
+    "Construir una matriz de precios de productos por supermercado.",
+    "Implementar un algoritmo de backtracking que explore todas las combinaciones posibles de compras, aplicando poda para descartar combinaciones no viables.",
+    "Calcular el coste total de cada combinación válida y mantener el mínimo encontrado.",
+    "Devolver el coste mínimo o 'Sin solucion factible' si no se encuentra ninguna combinación válida."
+  ],
+
+  "plantilla_codigo": "void resolverCompra(int casos) {\n  for (int i = 0; i < casos; ++i) {\n    int supermercados, productos;\n    cin >> supermercados >> productos;\n    vector<vector<int>> precios(supermercados, vector<int>(productos));\n    // Leer precios\n    for (int j = 0; j < supermercados; ++j) {\n      for (int k = 0; k < productos; ++k) {\n        cin >> precios[j][k];\n      }\n    }\n    // Implementar backtracking con poda\n    // ...\n    // Imprimir resultado\n  }\n}",
+
+  "pistas": [
+    "Considera cómo limitar el número de productos comprados en cada supermercado.",
+    "Piensa en cómo aplicar poda para evitar explorar combinaciones que no pueden ser óptimas."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de compras, aplicando poda para descartar aquellas que no cumplen las restricciones o que no pueden mejorar la solución actual. La complejidad temporal es alta debido al número de combinaciones posibles, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": [
+    "No aplicar poda adecuadamente, lo que lleva a tiempos de ejecución excesivos.",
+    "No considerar todas las combinaciones posibles, lo que puede resultar en soluciones subóptimas."
+  ]
+}

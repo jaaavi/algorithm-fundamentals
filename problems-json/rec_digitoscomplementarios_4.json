@@ -1,0 +1,42 @@
+{
+  "id": "rec_digitoscomplementarios_4",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 3,
+
+  "enunciado": "D´ıgitos complementarios Diremos que un d´ıgito es complementario de otro si la suma de ambos es 9. As´ı, el 0 y el 9 son d´ıgitos complementarios, as´ı como el 1 y el 8, el 2 y el 7 etc. En este problema nos dan un n´umero y debemos calcular el n´umero formado por sus d´ıgitos complementarios, en su mismo orden y en orden inverso. Requisitos de implementaci´on. Implementar una funci´on recursiva que reciba un n´umero entero y devuelva el n´umero formado por los d´ıgitos complementarios. Implementar otra funci´on recursiva que reciba un n´umero entero y devuelva el inverso del n´umero formado por los d´ıgitos complementarios. Ambas funciones deben tratar cada d´ıgito del n´umero de entrada una sola vez. Se pueden deﬁnir m´as par´ametros o valores de salida de la funci´on si se considera necesario. No se puede utilizar el tipo std::string para resolver el ejercicio. No olvides poner tu nombre, el usuario del juez que has utilizado hoy y el comentario con el coste de la funci´on. Entrada La entrada comienza con el n´umero de casos de prueba. A continuaci´on cada caso se escribe en una l´ınea y consiste en un n´umero 0 <= N <= 1.000.000.000. Salida Para cada caso de prueba se muestra en una l´ınea el n´umero obtenido sustituyendo cada d´ıgito por su complementario, seguido del inverso del n´umero obtenido al sustituir cada n´umero por su inverso.",
+  "entrada": "Un número entero 0 <= N <= 1.000.000.000.",
+  "salida": "El número formado por los dígitos complementarios seguido del inverso de ese número.",
+  "restricciones": "0 <= N <= 1.000.000.000",
+
+  "ejemplo": {
+    "input": "7\n45637\n555\n2\n90\n3050217\n0\n99",
+    "output": "54362 26345\n444 444\n7 7\n9 90\n6949782 2879496\n9 9\n0 0"
+  },
+
+  "tags": ["recursión", "dígitos", "complementarios", "inverso", "números"],
+
+  "como_reconocerlo": "El problema requiere transformar cada dígito de un número en su complementario y luego invertir el resultado.",
+  "idea_clave": "Utilizar recursión para procesar cada dígito del número una sola vez sin usar cadenas de texto.",
+
+  "estrategia": [
+    "Definir una función recursiva para calcular el número complementario.",
+    "Definir otra función recursiva para invertir el número complementario.",
+    "Procesar cada dígito del número de entrada una sola vez."
+  ],
+
+  "plantilla_codigo": "int complemento(int n) {\n    // Caso base\n    if (n == 0) return 9;\n    // Calcular complemento del dígito actual\n    int digito = n % 10;\n    int comp = 9 - digito;\n    // Llamada recursiva\n    return comp + 10 * complemento(n / 10);\n}\n\nint invertir(int n) {\n    // Implementar lógica para invertir el número\n    // Usar recursión\n}\n\nvoid procesarCasos(int casos) {\n    for (int i = 0; i < casos; ++i) {\n        int n;\n        // Leer número\n        // Calcular complementario e inverso\n        // Imprimir resultados\n    }\n}",
+
+  "pistas": [
+    "Piensa en cómo calcular el complemento de un dígito sin usar cadenas.",
+    "Considera cómo invertir un número usando recursión."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza recursión para calcular el complemento de cada dígito de un número y luego invierte el resultado. La complejidad temporal es O(d), donde d es el número de dígitos del número de entrada, ya que cada dígito se procesa una sola vez.",
+
+  "errores_comunes": [
+    "Intentar usar cadenas de texto para manipular los dígitos.",
+    "No manejar correctamente el caso base en la recursión."
+  ]
+}

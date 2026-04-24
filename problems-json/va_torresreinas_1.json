@@ -1,0 +1,43 @@
+{
+  "id": "va_torresreinas_1",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "¿De cuántas formas se pueden colocar T torres y R reinas en un tablero de ajedrez sin que se ataquen? Además, algunas de las casillas del tablero están rotas y no se puede colocar en ellas ficha alguna. La entrada está formada por distintos casos de prueba. Para cada caso, la primera línea contiene dos naturales (T y R) indicando el número de torres y el número de reinas que hay que colocar en un tablero de T + R filas y columnas (como mucho de tamaño 9×9). Tras esto aparece una línea indicando cuántas casillas del tablero no pueden utilizarse. Por último, aparece una línea por cada casilla inválida con su posición en formato fila-columna (números entre 1 y T + R). Para cada caso de prueba se escribirá en una línea el número de formas posibles de colocar T torres y R reinas sin que se ataquen entre ellas de forma que, además, ninguna esté colocada en una casilla inválida.",
+  "entrada": "Dos números naturales T y R, seguidos por un número que indica cuántas casillas no pueden utilizarse, y luego las posiciones de esas casillas inválidas.",
+  "salida": "El número de formas posibles de colocar T torres y R reinas sin que se ataquen y sin usar casillas inválidas.",
+  "restricciones": "T + R <= 9",
+
+  "ejemplo": {
+    "input": "2 0\n0\n2 0\n1\n1 1\n8 0\n0\n0 8\n0",
+    "output": "2\n1\n40320\n92"
+  },
+
+  "tags": ["backtracking", "restricciones", "tablero", "ajedrez", "combinaciones"],
+
+  "como_reconocerlo": "El problema involucra colocar piezas en un tablero con restricciones de ataque y casillas inválidas.",
+  "idea_clave": "Usar backtracking para explorar todas las configuraciones posibles, respetando las restricciones de ataque y casillas inválidas.",
+
+  "estrategia": [
+    "Inicializar el tablero y marcar las casillas inválidas.",
+    "Usar backtracking para intentar colocar las torres y reinas.",
+    "Verificar que las piezas no se ataquen y no estén en casillas inválidas.",
+    "Contar cada configuración válida."
+  ],
+
+  "plantilla_codigo": "void colocarPiezas(int T, int R, vector<pair<int, int>> casillasInvalidas) {\n  // Inicializar el tablero\n  // Marcar casillas inválidas\n  // Llamar a la función de backtracking\n}\n\nbool backtracking(int fila, int T, int R) {\n  // Intentar colocar una torre o reina en cada posición válida\n  // Verificar restricciones\n  // Llamar recursivamente para la siguiente fila\n  // Deshacer cambios si es necesario\n}",
+
+  "pistas": [
+    "Considera cómo las torres y reinas atacan en el tablero.",
+    "Asegúrate de no colocar piezas en casillas inválidas."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las configuraciones posibles de torres y reinas en el tablero. Se asegura de que ninguna pieza ataque a otra y que no se coloquen en casillas inválidas. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero se reduce gracias a las restricciones y poda del árbol de búsqueda.",
+
+  "errores_comunes": [
+    "No considerar correctamente las restricciones de ataque de las torres y reinas.",
+    "Olvidar marcar las casillas inválidas antes de comenzar el backtracking."
+  ]
+}

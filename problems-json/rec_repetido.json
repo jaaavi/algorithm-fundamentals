@@ -1,0 +1,42 @@
+{
+  "id": "rec_repetido",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Números repetidos En este ejercicio vamos a manejar vectores de tamaño n >= 2 y con valores en el intervalo [1..n) (n excluido). Como hay más posiciones en el vector que posibles valores, el principio del palomar nos dice que al menos hay un valor repetido. Por ejemplo, un vector de longitud 6 podrá tener valores desde 1 hasta 5. Ejemplos de vectores así son [4, 2, 1, 5, 3, 2] o [4, 5, 2, 5, 1, 2]. En el primero se repite el número 2 mientras que en el segundo se repiten el 2 y el 5.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de dos líneas. En la primera se muestra la longitud del vector (n ≥2). La segunda línea contiene los elementos del vector, entre 1 y n −1.",
+  "salida": "Para cada caso de prueba se escribe en una línea el número repetido en el vector.",
+  "restricciones": "Se garantiza que ningún elemento superará 10^9.",
+
+  "ejemplo": {
+    "input": "4\n1 1 2 3\n4\n2 1 1 3\n4\n2 3 1 1\n4\n3 1 1 2\n4\n1 2 3 1\n6\n1 5 4 3 5 2\n10\n6 7 9 3 5 1 2 7 4 8\n10\n6 7 9 3 5 1 2 4 4 8\n0",
+    "output": "1\n1\n1\n1\n1\n5\n7\n4"
+  },
+
+  "tags": ["vector", "recursión", "divide y vencerás", "repetidos", "partición"],
+
+  "como_reconocerlo": "El problema se centra en encontrar un número repetido en un vector utilizando un enfoque de divide y vencerás.",
+  "idea_clave": "Utilizar el principio del palomar y un algoritmo de partición para dividir el problema en subproblemas más pequeños hasta encontrar un número repetido.",
+
+  "estrategia": [
+    "Dividir el vector en dos mitades.",
+    "Aplicar el algoritmo de partición para identificar en qué mitad puede estar el número repetido.",
+    "Recursivamente buscar en la mitad identificada hasta encontrar el número repetido."
+  ],
+
+  "plantilla_codigo": "int encontrarRepetido(vector<int>& v, int inicio, int fin) {\n    if (inicio >= fin) return -1; // Caso base\n    int mitad = (inicio + fin) / 2;\n    // Particionar y decidir en qué mitad buscar\n    // Llamada recursiva\n    return encontrarRepetido(v, inicio, mitad); // o encontrarRepetido(v, mitad + 1, fin);\n}",
+
+  "pistas": [
+    "Considera cómo el principio del palomar garantiza la existencia de un número repetido.",
+    "Piensa en cómo el algoritmo de partición puede ayudarte a reducir el espacio de búsqueda."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza el principio del palomar para garantizar que hay un número repetido. Divide el vector en mitades y utiliza un algoritmo de partición para identificar en qué mitad buscar. La complejidad temporal es O(n log n) en el peor de los casos debido a la naturaleza recursiva del enfoque de divide y vencerás.",
+  
+  "errores_comunes": [
+    "No manejar correctamente los índices al dividir el vector.",
+    "Olvidar considerar todos los casos base en la recursión."
+  ]
+}

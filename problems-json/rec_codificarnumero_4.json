@@ -1,0 +1,43 @@
+{
+  "id": "rec_codificarnumero_4",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 3,
+
+  "enunciado": "Mi banco ha establecido un sistema de seguridad por el cual cada vez que quiero realizar una transacción me envía un número n ≥0 a mi móvil y yo he de calcular otro número c a partir de él e introducirlo en la aplicación. Para obtener el código c a partir del número n se realiza la suma de las siguientes cantidades: cada dígito en posición impar se multiplica por 3 y se le suma el menor dígito a su derecha y cada dígito en posición par se multiplica por 2 y se le suma el mayor dígito a su izquierda. Se considera que el dígito más significativo está en la posición 1 y que el número de dígitos de n es par. Por ejemplo, si el número es 7214, el código que debo introducir es : (7 ∗3 + 1) + (2 ∗2 + 7) + (1 ∗3 + 4) + (4 ∗2 + 7) = 55",
+  "entrada": "El número de casos de prueba seguido por cada número n ≤231 −1.",
+  "salida": "Por cada caso de prueba el programa escribirá el número codificado.",
+  "restricciones": "n ≤ 231 − 1; el número de dígitos de n es par.",
+
+  "ejemplo": {
+    "input": "6\n7214\n85\n22\n10\n1000\n1274",
+    "output": "55\n47\n14\n4\n5\n50"
+  },
+
+  "tags": ["recursión", "dígitos", "cálculo", "posición", "seguridad"],
+
+  "como_reconocerlo": "El problema requiere procesar un número dígito a dígito con operaciones diferentes según la posición.",
+  "idea_clave": "Utilizar recursión para procesar cada dígito del número según su posición y acumular el resultado.",
+
+  "estrategia": [
+    "Definir una función recursiva que procese el número dígito a dígito.",
+    "Para cada dígito, aplicar la operación correspondiente según su posición (impar o par).",
+    "Acumular el resultado de cada operación y avanzar al siguiente dígito.",
+    "Terminar la recursión cuando se hayan procesado todos los dígitos."
+  ],
+
+  "plantilla_codigo": "int calcularCodigo(int n) {\n    // Caso base: si n es 0, devolver 0\n    // Obtener el dígito más significativo\n    // Calcular el resultado parcial según la posición del dígito\n    // Llamada recursiva con el resto del número\n    // Devolver el resultado acumulado\n}",
+
+  "pistas": [
+    "Considera cómo acceder al dígito más significativo de un número.",
+    "Piensa en cómo determinar si la posición de un dígito es par o impar."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el número dígito a dígito, aplicando operaciones específicas según la posición del dígito (impar o par). La recursión permite procesar cada dígito y acumular el resultado final. La complejidad temporal es O(d), donde d es el número de dígitos del número.",
+  
+  "errores_comunes": [
+    "No manejar correctamente la posición de los dígitos, especialmente al determinar si es par o impar.",
+    "Olvidar el caso base en la recursión, lo que puede llevar a una recursión infinita."
+  ]
+}

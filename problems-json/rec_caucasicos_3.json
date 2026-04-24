@@ -1,0 +1,44 @@
+{
+  "id": "rec_caucasicos_3",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "N´umeros cauc´asicos Un vector de enteros mayores que 0 de longitud 2n (donde n es un n´umero natural) es cauc´asico si el valor absoluto de la diferencia entre el n´umero de elementos pares de sus mitades es, a lo sumo, 2 y cada mitad tambi´en es cauc´asica. Un vector con un elemento es caucasico. Algunos ejemplos: • {2, 4, 6, 8 ∥1, 3, 5, 7} No es cauc´asico, porque su primera mitad tiene 4 elementos pares y la segunda 0. • {2, 4, 6, 8 ∥2, 8, 5, 10} Es cauc´asico. • {2, 4, 8, 12, 3, 7, 9, 21 ∥10, 20, 30, 1, 3, 5, 7, 40} No es cauc´asico ya que la primera mitad no lo es. Dise˜na un algoritmo recursivo que determine si un vector de longitud 2n es cauc´asico. Requisitos de implementaci´on. Indicar la recurrencia utilizada para el c´alculo del coste y el coste de la soluci´on obtenida. Comentar y explicar la soluci´on propuesta. El problema se debe resolver utilizando la t´ecnica de divide y vencer´as.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba se escribe en dos l´ıneas. En la primera se indica el n´umero de elementos de vector, en la segunda se muestran los valores. La entrada termina con un caso con 0 valores. El n´umero de valores de cada caso de prueba es 2n siendo 0 ≤n ≤20. Los valores del vector son n´umeros enteros positivos.",
+  "salida": "Para cada caso de prueba se escribe en una l´ınea SI si el vector es cauc´asico y NO si no lo es.",
+  "restricciones": "0 ≤ n ≤ 20. Los valores del vector son números enteros positivos.",
+
+  "ejemplo": {
+    "input": "4\n2 6 3 8\n8\n6 12 8 18 10 15 16 40\n8\n6 12 8 18 11 15 17 41\n16\n1 3 2 5 3 1 3 4 4 6 8 2 3 5 7 2\n0",
+    "output": "SI\nSI\nNO\nNO"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "vector", "pares", "mitades"],
+
+  "como_reconocerlo": "El problema se resuelve dividiendo el vector en mitades y verificando condiciones en cada mitad.",
+  "idea_clave": "Dividir el vector en mitades y verificar la condición de caucásico recursivamente en cada mitad.",
+  
+  "estrategia": [
+    "Dividir el vector en dos mitades.",
+    "Contar los elementos pares en cada mitad.",
+    "Verificar si la diferencia de pares entre las mitades es menor o igual a 2.",
+    "Aplicar recursivamente el mismo proceso a cada mitad.",
+    "Combinar los resultados para determinar si el vector completo es caucásico."
+  ],
+
+  "plantilla_codigo": "bool esCaucasico(vector<int>& v, int inicio, int fin) {\n  if (fin - inicio <= 1) return true; // Caso base\n  int mitad = (inicio + fin) / 2;\n  // Contar pares en cada mitad\n  int paresIzq = contarPares(v, inicio, mitad);\n  int paresDer = contarPares(v, mitad, fin);\n  // Verificar condición de caucásico\n  if (abs(paresIzq - paresDer) > 2) return false;\n  // Llamadas recursivas\n  return esCaucasico(v, inicio, mitad) && esCaucasico(v, mitad, fin);\n}\n\nint contarPares(vector<int>& v, int inicio, int fin) {\n  int count = 0;\n  for (int i = inicio; i < fin; ++i) {\n    if (v[i] % 2 == 0) ++count;\n  }\n  return count;\n}",
+
+  "pistas": [
+    "Divide el vector en dos mitades y cuenta los elementos pares en cada una.",
+    "Asegúrate de que la diferencia de pares entre las mitades no exceda 2 y aplica el mismo proceso recursivamente."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo divide el vector en mitades y verifica si cada mitad es caucásica. La condición de caucásico se verifica contando los elementos pares en cada mitad y asegurando que la diferencia no exceda 2. La recursión se aplica a cada mitad, asegurando que cada subvector también cumpla la condición. La complejidad temporal es O(n log n) debido a la división recursiva del vector y el conteo de pares en cada paso.",
+
+  "errores_comunes": [
+    "No verificar correctamente la condición de caucásico en las mitades.",
+    "Olvidar aplicar la recursión a cada mitad del vector."
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Dado 0 ≤ a < b ≤ v.size() y 0 ≤ c ≤ v.size(), ¿cuál es el coste de la siguiente función recursiva?",
+    "opciones": {
+      "a": "Θ(c*N) con N = v.size().",
+      "b": "Θ(N log N) con N = b-a.",
+      "c": "Θ(c log N) con N = b-a.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: Θ(N log N) con N = b-a."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Considerando el algoritmo de ordenación por mezclas o mergesort para un vector de tamaño mayor que 1, ¿cuál de estas afirmaciones es cierta?",
+    "opciones": {
+      "a": "Sólo se puede implementar de manera recursiva.",
+      "b": "Su coste es siempre Θ(nlog n).",
+      "c": "Su coste en el caso peor es Θ(n²).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Mergesort siempre hace dos llamadas recursivas con la mitad del tamaño y después hace una mezcla ordenada de lo obtenido. Por ello el coste es Θ(nlog n)."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Considere el algoritmo de búsqueda binaria en el que estamos interesados en devolver la última posición en la que está x, con la cabecera: int busqueda(vector<int>& v, int x, int i, int f) Si nos garantizan que ese valor siempre estará en el vector y nos dicen que la llamada inicial al algoritmo es busqueda(v, x, 0, v.size()), ¿Cuál de las siguientes expresiones es el caso base?",
+    "opciones": {
+      "a": "if (i+1 == f) return f",
+      "b": "if (i == f-1) return i",
+      "c": "if (f == v.size()) return f-1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: if (i == f-1) return i"
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Tenemos una función f que sabemos que satisface su especificación, dada por una precondición P y una postcondición Q. ¿Cuál de las siguientes afirmaciones es cierta?",
+    "opciones": {
+      "a": "Si llamamos con un valor que cumple P, hay que comprobar si el resultado cumple Q.",
+      "b": "La salida de f está garantizada que cumple Q únicamente si la entrada cumple P.",
+      "c": "La salida de f siempre cumple Q.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Falso. La respuesta correcta es: La salida de f está garantizada que cumple Q únicamente si la entrada cumple P."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Indica la complejidad del siguiente algoritmo int f(int n, int m){ int y = 0; for (int k = 3; k < n - 7; k += 3) y -= 1; for (int i = m; i >= 6; i -= 4) y -= 4; return y; }",
+    "opciones": {
+      "a": "Θ(m + log n)",
+      "b": "Θ(n*m)",
+      "c": "No se puede saber.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Hay dos bucles independientes. El primero da un número logarítmico de vueltas con respecto a n, por lo que su coste es Θ(log n). Mientras que el segundo da un número proporcional a m de vueltas, por lo que su coste es Θ(m). Como no sabemos si n o m es mayor, el coste es Θ(m + log n)."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Dado el predicado auxiliar S(v,a,b) = ∀i: a ≤ i < b: v[i] ≥ v[a] y el predicado P(v) = max p,q: 0 ≤ p < q ≤ n ∧ S(v,p,q):q - p, ¿cuál de las siguientes afirmaciones indica qué define el predicado P(v) para v, un vector cualquiera de tamaño n > 0?",
+    "opciones": {
+      "a": "Da la longitud máxima de los intervalos [p,q] en el que todos sus valores son mayores que el punto v[p].",
+      "b": "P(v) no está bien definido.",
+      "c": "Da la longitud máxima de los intervalos [p,q] en el que todos sus valores son mayores o iguales que el punto v[p].",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: Da la longitud máxima de los intervalos [p,q] en el que todos sus valores son mayores o iguales que el punto v[p]."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "¿Cuál de estas propiedades es parte del invariante que permite demostrar la corrección de este bucle? Donde 0 ≤ c y f ≤ v.size() int s = 0, k = c; while (k < f){ if(v[k] % 3 == 0) s = s + 1; k = k + 1; }",
+    "opciones": {
+      "a": "s = #i:c ≤ i < k: 3∣v[i] ≤ 3*j",
+      "b": "s = #i:c ≤ i < v.size():j:0 ≤ j:v[i] = 3*j",
+      "c": "s = ∑i:c ≤ i < k ∧ (v[i]%3 = 0):v[i]",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "La respuesta correcta es: s = #i:c ≤ i < k: 3∣v[i] ≤ 3*j"
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Indica cuál de las siguientes es una función de cota que permite demostrar la terminación de este bucle, suponiendo que 0 ≤ n < log(v): int i = 4, k = n, p = 3; while (i < n){ if (v[i] <= v[k] && k >= 0){ p += v[i] * v[k]; k--; } i++; }",
+    "opciones": {
+      "a": "i",
+      "b": "k - i",
+      "c": "n",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Dado 0 ≤ i < f ≤ v.size() y la función recursiva: int fun(const vector<int>&v, int i, int f){ if (i+1 == f && v[i]%2 == 0) return v[i]; else if (i+1 == f && v[i]%2 != 0) return 0; else{ int m = (f+i)/2; return fun(v, i, m) + fun(v, m, f); } } Si v = 11,0,3,6,2,10, ¿Qué devuelve la llamada fun(v,0,5)?",
+    "opciones": {
+      "a": "18",
+      "b": "8",
+      "c": "2",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. La función devuelve la suma de valores pares que hay en el intervalo [i, f], al llamar con i = 0 y f = 5. Hay 2 valores pares en ese intervalo: 6 y 2. La suma es 8."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Indica cuál de las siguientes afirmaciones es incorrecta",
+    "opciones": {
+      "a": "Θ(n²) = Θ(2*n²)",
+      "b": "O(3ⁿ) ⊆ O(2ⁿ)",
+      "c": "O(log n) ⊆ O(n⁴)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Ω(log n) ⊆ Ω(n)"
+  }
+]

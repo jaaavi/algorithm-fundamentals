@@ -1,0 +1,122 @@
+[
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Un algoritmo de coste exponencial, ¿es preferible a uno de coste cuadrático?",
+    "opciones": {
+      "a": "Siempre.",
+      "b": "Sí, si el tamaño de los datos es suficientemente grande.",
+      "c": "Podría en algunos casos, para tamaño de datos pequeños.",
+      "d": "Nunca"
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: Podría en algunos casos, para tamaño de datos pequeños."
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Indica cuál de las siguientes afirmaciones es incorrecta",
+    "opciones": {
+      "a": "Ω(1) ⊂ Ω(n²)",
+      "b": "O(π) ⊂ O(n³)",
+      "c": "O(log n) ⊂ O(2ⁿ)",
+      "d": "O(n) ⊆ O(√5 ⋅ n)"
+    },
+    "correcta": "a",
+    "explicacion": "La respuesta correcta es: Ω(1) ⊂ Ω(n²)"
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Un algoritmo óptimo para encontrar un elemento cualquiera que no sea el máximo ni el mínimo en un vector no necesariamente ordenado de n>=3 elementos que no admite repetidos tiene complejidad en el caso peor (la más ajustada)",
+    "opciones": {
+      "a": "O(n log m)",
+      "b": "O(max(n, m))",
+      "c": "O(1)",
+      "d": "O(n²)"
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: O(1)"
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Indica la complejidad del siguiente algoritmo\nint c = 0;\nfor (int i = 1; i <= n; i *= 3)\nc++;",
+    "opciones": {
+      "a": "Θ(1)",
+      "b": "Θ(log n)",
+      "c": "Θ(n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: Θ(log n)"
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Indica la complejidad del siguiente algoritmo\nint a = 0;\nfor (int i = n+10, j = m; (i >= 0) || (j > 0); --i, --j)\na++;",
+    "opciones": {
+      "a": "Θ(n * m)",
+      "b": "Θ(min(n, m))",
+      "c": "Θ(max(n, m))",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: Θ(max(n, m))"
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Un algoritmo óptimo que comprueba si un vector de n elementos es decreciente tiene complejidad en el caso mejor:",
+    "opciones": {
+      "a": "O(n)",
+      "b": "O(n²)",
+      "c": "O(n log n)",
+      "d": "Ninguna de las anteriores"
+    },
+    "correcta": "d",
+    "explicacion": "La respuesta correcta es: Ninguna de las anteriores"
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Dado un vector v de tamaño n y otro w de tamaño m, indica cuál es la complejidad en tiempo (más ajustada) del siguiente bucle en el caso peor.\nbool b=true; int i=0, j=0;\nwhile (b && (i<n) && (j<m))\n{\n if (v[i]==w[j]) {i=i+1;j=j+1;}\n else if (v[i]<w[j]) {i=i+1;}\n else {b=false;j=j+1;}\n};\nb = b && (j==m);",
+    "opciones": {
+      "a": "O(n log m)",
+      "b": "O(n * m)",
+      "c": "O(n)",
+      "d": "O(n²)"
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: O(n)"
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Un algoritmo óptimo para insertar un elemento en un vector no necesariamente ordenado que admite elementos repetidos tiene complejidad en el caso peor (la más ajustada)",
+    "opciones": {
+      "a": "O(n²)",
+      "b": "O(log n)",
+      "c": "O(n log n)",
+      "d": "O(1)"
+    },
+    "correcta": "d",
+    "explicacion": "La respuesta correcta es: O(1)"
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Un algoritmo óptimo que busca el mínimo en un vector no ordenado de n elementos tiene complejidad en el caso peor:",
+    "opciones": {
+      "a": "Θ(n log n)",
+      "b": "Θ(n)",
+      "c": "Θ(n²)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: Θ(n)"
+  },
+  {
+    "tema": "Tema 1_ Costes_1",
+    "pregunta": "Un algoritmo óptimo para insertar un elemento en un vector ordenado (de forma que siga ordenado) tiene complejidad en el caso peor (la más ajustada)",
+    "opciones": {
+      "a": "O(n²)",
+      "b": "O(n)",
+      "c": "O(1)",
+      "d": "O(n log n)"
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: O(n)"
+  }
+]

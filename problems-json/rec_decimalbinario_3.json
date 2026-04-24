@@ -1,0 +1,43 @@
+{
+  "id": "rec_decimalbinario_3",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 3,
+
+  "enunciado": "Transformar un número decimal a binario\nCon la revolución digital, el sistema de numeración en base dos o sistema de numeración binario adquiere una gran relevancia al ser el sistema utilizado por los ordenadores y las redes de comunicación. Todo informático necesita en algún momento obtener la representación binaria de un número.\nEn este problema desarrollaremos un conversor de números expresados en base 10 a números expresados en base 2.\nRequisitos de implementación.\nEl conversor debe realizarse con una función que dado un número entero devuelva en una cadena de caracteres de tipo std::string su representación en binario.\nSe utilizará una función resuelveCaso para leer el dato de entrada, llamar al conversor y escribir la cadena de salida.\nEntrada\nLa entrada comienza con una línea en que se indica el número de casos de prueba. Cada caso consiste en un número entero positivo n (0 ≤N ≤231 −1).\nSalida\nPara cada caso de prueba se muestra en una línea la representación en binario del número.",
+  "entrada": "Un número entero positivo n (0 ≤ n ≤ 231 − 1) por cada caso de prueba.",
+  "salida": "Una cadena de caracteres que representa el número en binario.",
+  "restricciones": "0 ≤ n ≤ 231 − 1",
+
+  "ejemplo": {
+    "input": "6\n3\n8\n1\n24\n156\n345",
+    "output": "11\n1000\n1\n11000\n10011100\n101011001"
+  },
+
+  "tags": ["recursión", "binario", "conversión", "cadena", "números"],
+
+  "como_reconocerlo": "El problema pide convertir un número decimal a su representación binaria usando recursión.",
+  "idea_clave": "Utilizar la división sucesiva por 2 y almacenar los restos para construir la representación binaria.",
+
+  "estrategia": [
+    "Leer el número de casos de prueba.",
+    "Para cada número, aplicar recursión para dividir el número por 2.",
+    "Concatenar los restos de las divisiones para formar la cadena binaria.",
+    "Devolver la cadena resultante."
+  ],
+
+  "plantilla_codigo": "std::string decimalABinario(int n) {\n    // Caso base: si n es 0, devolver \"0\"\n    // Llamada recursiva: dividir n por 2 y concatenar el resto\n    return \"\"; // Devolver la cadena binaria\n}\n\nvoid resuelveCaso() {\n    // Leer el número de casos\n    // Para cada caso, leer el número y llamar a decimalABinario\n    // Imprimir el resultado\n}",
+
+  "pistas": [
+    "Piensa en cómo se construye un número binario dividiendo por 2.",
+    "Recuerda que el resto de la división por 2 es el bit menos significativo."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo convierte un número decimal a binario dividiendo el número por 2 recursivamente y concatenando los restos. Funciona porque cada resto representa un bit en la posición correspondiente. La complejidad temporal es O(log n) debido a las divisiones sucesivas por 2.",
+
+  "errores_comunes": [
+    "Olvidar el caso base en la recursión, lo que lleva a una recursión infinita.",
+    "No concatenar correctamente los restos, resultando en una representación binaria incorrecta."
+  ]
+}

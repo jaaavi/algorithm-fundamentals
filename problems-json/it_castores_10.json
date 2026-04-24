@@ -1,0 +1,44 @@
+{
+  "id": "it_castores_10",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 3,
+
+  "enunciado": "La bióloga Flora está escribiendo su TFG sobre el comportamiento de los castores, esos adorables roedores que maravillan a todos por su habilidad a la hora de construir presas. Su objetivo es determinar si un grupo de castores es capaz de construir una presa en un terreno determinado. ¿Qué reglas rigen el comportamiento de los castores? Las largas observaciones de Flora le han llevado a la conclusión de que dado un terreno, un grupo de C castores únicamente construye una presa si hay una zona llana con una longitud de, al menos, C metros. Pero, además, debe cumplirse esta segunda condición: los castores sólo construyen su presa si el terreno inmediatamente posterior al llano es estrictamente más alto que éste. Flora tiene a su disposición mapas topográficos con las alturas de cada metro del terreno. Por ejemplo, si las alturas son v = 1,1,0,4,4,7 y hay 2 castores trabajando, se hará una presa en la zona 4,4 ya que 2 castores necesitan 2 metros y, justo después de este llano, la altura es superior a la altura del llano (4 < 7). Se pide: 1. (1 punto) Define un predicado llano_acotado(w,p,q) que se evalúe a cierto si, y solo si, entre las posiciones p (incluida) y q (excluida) el terreno es llano y, además, la altura del punto q es estrictamente mayor que la del llano. 2. (2 puntos) Utilizando el predicado auxiliar llano_acotado(w,p,q), especifica una función que dado un vector de valores enteros v y un valor c ≥1, devuelva si existe un terreno adecuado para que los c castores construyan la presa. 3. (6 puntos) Diseña e implementa un algoritmo iterativo eficiente que resuelva el problema propuesto. Importante: debes evitar que el algoritmo compruebe todo el terreno una vez que se tiene clara una respuesta. 4. (1 punto) Indica y justifica adecuadamente el coste asintótico en el caso peor. 1.5 puntos adicionales Escribe el invariante del bucle que permite demostrar la corrección del algoritmo y proporciona una función de cota.",
+  "entrada": "La entrada consta de varios casos de prueba. Cada uno de ellos ocupa dos líneas. La primera línea indica la longitud N del mapa del terreno (1 ≤N ≤108) y el valor c (1 ≤l ≤N) con el número de castores que van a trabajar. La segunda línea contiene las N alturas del terreno. El terreno tiene valores enteros. La entrada termina con 0 0.",
+  "salida": "Para cada caso de prueba debe escribirse una línea indicando SI, si es posible hacer la presa; y NO en caso de no ser posible.",
+  "restricciones": "1 ≤ N ≤ 108, 1 ≤ c ≤ N",
+
+  "ejemplo": {
+    "input": "6 2\n1 1 0 4 4 7\n3 1\n-6 -2 0\n3 2\n1 1 1\n5 2\n3 0 0 0 2\n0 0",
+    "output": "SI\nSI\nNO\nSI"
+  },
+
+  "tags": ["ventana", "iterativo", "vector", "acumulador", "condiciones"],
+
+  "como_reconocerlo": "El problema requiere encontrar una subsecuencia de longitud fija que cumpla ciertas condiciones.",
+  "idea_clave": "Usar una ventana deslizante para verificar si existe una subsecuencia llana de longitud C seguida de un valor mayor.",
+
+  "estrategia": [
+    "Inicializar una ventana de tamaño C y recorrer el vector.",
+    "Verificar si todos los elementos en la ventana son iguales.",
+    "Comprobar si el elemento siguiente a la ventana es mayor que los elementos de la ventana.",
+    "Detenerse y devolver 'SI' si se encuentra una subsecuencia que cumple las condiciones.",
+    "Si se recorre todo el vector sin encontrar una subsecuencia válida, devolver 'NO'."
+  ],
+
+  "plantilla_codigo": "bool puedeConstruirPresa(vector<int>& alturas, int c) {\n  int n = alturas.size();\n  for (int i = 0; i <= n - c; ++i) {\n    // Verificar si la subsecuencia desde i hasta i+c-1 es llana\n    // y si alturas[i+c] es mayor que alturas[i]\n    // Si es así, devolver true\n  }\n  return false; // Si no se encuentra ninguna subsecuencia válida\n}",
+
+  "pistas": [
+    "Considera cómo podrías usar una ventana deslizante para verificar subsecuencias.",
+    "Piensa en cómo podrías detener el algoritmo tan pronto como encuentres una subsecuencia válida."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector de alturas usando una ventana de tamaño C. Para cada posición, verifica si los elementos en la ventana son iguales y si el siguiente elemento es mayor. Si se encuentra una subsecuencia que cumple estas condiciones, se devuelve 'SI'. La complejidad temporal es O(N) en el peor caso, ya que cada elemento se procesa una vez.",
+
+  "errores_comunes": [
+    "No verificar correctamente si todos los elementos en la ventana son iguales.",
+    "Olvidar comprobar si el elemento siguiente a la ventana es mayor que los elementos de la ventana."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "it_todosconlaseleccion_3",
+  "tema": "Iterativos",
+  "subtipo": "máximo/mínimo",
+  "dificultad": 3,
+
+  "enunciado": "Todos con la selección Si la selección nacional gana el próximo partido en Málaga, habrá ganado 6 partidos seguidos. Hacia bastante tiempo que no tenía una racha ganadora seguida tan larga. Nuestro periodista encargado de seguir el partido del próximo sábado quiere saber cual ha sido la racha ganadora más larga de la selección en todo la historia, para poder contarlo durante el partido. Para ello recopila los datos y le pide a un amigo informático que le ayude a analizarlos con un programa. Deben obtener el máximo número de partidos seguidos que ha conseguido ganar la selección, si ha ocurrido varias veces que se ganasen este número de partidos, y hace cuantos partidos que finalizó la última racha. Requisitos de implementación. Implementar una función que reciba en un vector los datos, y devuelva la información pedida en el problema.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba tiene dos líneas. En la primera se indica el número de partidos jugados por la selección. En la segunda se indica la diferencia de goles entre los dos equipos. Un valor positivo indica que la selección ganó el partido, un valor cero indica que empató y un valor negativo que perdió.",
+  "salida": "Para cada caso de prueba se escribe en una línea el número máximo de partidos seguidos ganados, el número de veces que se ha ganado este número de partidos seguidos y el número de partidos jugados desde que finalizó la última racha ganadora.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "10\n2 0 -3 1 1 0 2 1 -1 2\n9\n-1 3 1 2 0 1 -2 4 3\n10\n1 1 3 0 1 -1 4 3 1 2\n3\n-1 0 -1",
+    "output": "2 2 2\n3 1 5\n4 1 0\n0 0 3"
+  },
+
+  "tags": ["vector", "máximo", "racha", "conteo", "diferencia de goles"],
+
+  "como_reconocerlo": "El problema pide encontrar la racha más larga de eventos consecutivos en una secuencia.",
+  "idea_clave": "Recorrer el vector acumulando victorias consecutivas y actualizando el máximo cuando se rompe la racha.",
+
+  "estrategia": [
+    "Inicializar variables para el máximo de rachas, conteo de rachas máximas y partidos desde la última racha.",
+    "Recorrer el vector de diferencias de goles.",
+    "Acumular victorias consecutivas y actualizar el máximo si se supera.",
+    "Contar cuántas veces se alcanza el máximo.",
+    "Calcular los partidos desde la última racha ganadora."
+  ],
+
+  "plantilla_codigo": "void analizarRachas(const vector<int>& diferencias) {\n  int maxRacha = 0;\n  int conteoMaxRacha = 0;\n  int partidosDesdeUltimaRacha = 0;\n  int rachaActual = 0;\n  // Recorrer el vector de diferencias\n  for (int dif : diferencias) {\n    if (dif > 0) {\n      // Incrementar racha actual\n    } else {\n      // Comparar y actualizar máximo\n      // Resetear racha actual\n    }\n  }\n  // Imprimir resultados\n}",
+
+  "pistas": [
+    "Piensa en cómo actualizar el máximo cuando se rompe una racha.",
+    "Considera cómo manejar el conteo de partidos desde la última racha ganadora."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector de diferencias de goles, acumulando victorias consecutivas. Cuando se encuentra un empate o derrota, se compara la racha actual con el máximo registrado y se actualiza si es necesario. También se cuenta cuántas veces se alcanza el máximo y se calcula cuántos partidos han pasado desde la última racha ganadora. La complejidad temporal es O(n), donde n es el número de partidos.",
+  
+  "errores_comunes": [
+    "No reiniciar la racha actual después de una derrota o empate.",
+    "Olvidar actualizar el conteo de partidos desde la última racha ganadora."
+  ]
+}

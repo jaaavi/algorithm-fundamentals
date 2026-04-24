@@ -1,0 +1,32 @@
+{
+  "id": "va_variacionesconrepeticion_3",
+  "tema": "Backtracking",
+  "subtipo": "generación",
+  "dificultad": 3,
+
+  "enunciado": "Generar todas las variaciones con repetición de un conjunto de elementos. Las variaciones con repetición de m elementos tomados de n en n son los distintos grupos de n elementos, iguales o distintos, que podemos formar con los m elementos, de forma que dos grupos se diferencian en alguno de sus elementos o en su colocación. El número de variaciones con repetición de m elementos tomados de n en n es VRm,n = m^n. Por ejemplo dadas las letras a, b, y c, las variaciones con repetición de estos tres elementos tomados de dos en dos son aa, ab, ac, bb, ba, bc, cc, ca, cb. Entrada La entrada consta de una serie de casos de prueba. Cada caso tiene una línea donde se indica el número de letras que se consideran m y el tamaño de la palabra n. Se consideran únicamente las letras del alfabeto anglosajón, cogiéndose las m primeras. Se garantiza que n <= m. Salida Para cada caso de prueba se muestran todas las posibles palabras que se pueden formar una por línea. Después de cada caso se muestra una línea en blanco.",
+  "entrada": "Una serie de casos de prueba, cada uno con dos números: m (número de letras) y n (tamaño de la palabra).",
+  "salida": "Todas las posibles palabras formadas, una por línea, seguidas de una línea en blanco después de cada caso.",
+  "restricciones": "Se garantiza que n <= m.",
+
+  "ejemplo": {
+    "input": "3 2\n1 1",
+    "output": "aa\nab\nac\nba\nbb\nbc\nca\ncb\ncc\na\n"
+  },
+
+  "tags": ["backtracking", "variaciones", "repetición", "alfabeto", "generación"],
+
+  "como_reconocerlo": "El problema pide generar todas las combinaciones posibles de un conjunto con repetición.",
+  "idea_clave": "Usar backtracking para generar todas las combinaciones posibles de longitud n con m elementos permitidos, permitiendo repetición.",
+
+  "estrategia": ["Inicializar un vector para almacenar la combinación actual.", "Usar una función recursiva para construir las combinaciones.", "En cada paso, añadir un elemento al vector y llamar recursivamente.", "Cuando la combinación alcanza la longitud deseada, imprimirla.", "Retroceder y probar con el siguiente elemento."],
+
+  "plantilla_codigo": "void generarVariaciones(int m, int n) {\n    vector<char> combinacion(n);\n    backtrack(combinacion, m, n, 0);\n}\n\nvoid backtrack(vector<char>& combinacion, int m, int n, int nivel) {\n    if (nivel == n) {\n        // Imprimir la combinación actual\n        return;\n    }\n    for (int i = 0; i < m; ++i) {\n        combinacion[nivel] = 'a' + i;\n        backtrack(combinacion, m, n, nivel + 1);\n    }\n}",
+
+  "pistas": ["Piensa en cómo construir las combinaciones de manera recursiva.", "Recuerda que puedes usar las mismas letras más de una vez."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para generar todas las combinaciones posibles de longitud n usando las primeras m letras del alfabeto. Funciona porque explora todas las posibilidades de manera sistemática, y la complejidad temporal es O(m^n) debido a que cada posición puede ser ocupada por m letras diferentes.",
+
+  "errores_comunes": ["Olvidar imprimir una línea en blanco después de cada caso de prueba.", "No manejar correctamente la repetición de elementos en las combinaciones."]
+}

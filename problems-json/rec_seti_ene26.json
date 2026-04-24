@@ -1,0 +1,44 @@
+{
+  "id": "rec_seti_ene26",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Vida inteligente (! puntos) El programa SETI fue un programa de computación distribuida impulsado por la Universidad de Berkeley para la búsqueda de vida inteligente fuera de la Tierra (porque asumían que ya en la Tierra había vida inteligente). Lobo Mulleros es un apasionado de la ufología –esos platillos volantes no identificados– y está decidido a recuperar el programa SETI en su Soria natal. Con el uso de un radiotelescopio que estaba convenientemente libre, ha obtenido las lecturas de una buena porción del cielo. Si una lectura es positiva indica que hay señales viables para el estudio; si es negativa, que hay interferencias que hacen inviable la señal; y si es \", es ruido blanco que conviene ignorar. Inspirado en un buen puñado de recortes de periódicos de los años #\" del pasado siglo XX se dispone a estudiar si esos datos pueden ser significativos de vida inteligente extraterrestre y cumplen la que él ha denominado como distribución SETI para un valor k →0. Para ello el número de lecturas positivas, menos el número de lecturas negativas debe ser al menos de k y, además, al menos una de sus mitades debe cumplir también la distribución SETI. Si sólo hay una lectura, siempre se cumple la distribución SETI para cualquier k. Si las lecturas cumplen la distribución SETI, escribirá la diferencia entre el número de lecturas positivas y el número de lecturas negativas. Se pide: $. (%.& puntos) Diseña un algoritmo recursivo eficiente que permita resolver el problema. %. (\".& puntos) Escribe la recurrencia que corresponde al coste de la función recursiva e indica a qué orden de complejidad asintótica pertenece dicho coste. Entrada La entrada consta de varios casos de prueba. Cada uno de ellos ocupa dos líneas. La primera línea indica la cantidad N de datos que ha leído Lobo (siempre una potencia de %) y el valor de k (0 ↑k). La segunda línea contiene las N lecturas del cielo. La entrada termina cuando no hay más casos. Salida Para cada caso de prueba se escribe una línea. Si las lecturas cumplen la distribución SETI, se escribe la diferencia entre el número de lecturas positivas y el número de lecturas negativas. Si no la cumple se escribirá NO.",
+  "entrada": "La cantidad N de datos (potencia de 2) y el valor de k, seguido de N lecturas del cielo.",
+  "salida": "La diferencia entre el número de lecturas positivas y negativas si cumple la distribución SETI, o 'NO' si no la cumple.",
+  "restricciones": "N es una potencia de 2, 0 <= k.",
+  
+  "ejemplo": {
+    "input": "4 2\n5 0 1 2\n2 2\n-1 10\n4 0\n0 -7 0 1\n1 5\n-1",
+    "output": "3\nNO\n0\n-1"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "potencia de 2", "diferencia", "lecturas"],
+  
+  "como_reconocerlo": "El problema requiere dividir el conjunto de datos en mitades y verificar condiciones en cada mitad.",
+  "idea_clave": "Dividir el conjunto de lecturas en mitades y verificar recursivamente la condición de la distribución SETI.",
+  
+  "estrategia": [
+    "Dividir las lecturas en dos mitades.",
+    "Calcular la diferencia entre lecturas positivas y negativas.",
+    "Verificar si la diferencia cumple con k.",
+    "Aplicar recursión en al menos una de las mitades.",
+    "Combinar resultados para determinar si el conjunto completo cumple la distribución SETI."
+  ],
+
+  "plantilla_codigo": "int setiDistribution(int N, int k, vector<int>& readings) {\n    // Caso base: si solo hay una lectura\n    if (N == 1) {\n        // Comprobar si cumple la condición para k\n    }\n    // Dividir las lecturas en dos mitades\n    int mid = N / 2;\n    // Calcular diferencias para cada mitad\n    int diff1 = setiDistribution(mid, k, readings);\n    int diff2 = setiDistribution(mid, k, readings + mid);\n    // Comprobar si alguna mitad cumple la condición\n    // Devolver la diferencia o 'NO'\n}",
+
+  "pistas": [
+    "Considera cómo dividir el problema en subproblemas más pequeños.",
+    "Recuerda que al menos una de las mitades debe cumplir la condición para que el conjunto completo lo haga."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo divide el conjunto de lecturas en mitades y verifica recursivamente si cada mitad cumple la condición de la distribución SETI. La complejidad temporal es O(N log N) debido a la división y combinación de resultados en cada nivel de recursión.",
+  
+  "errores_comunes": [
+    "No verificar correctamente la condición en cada mitad.",
+    "Olvidar considerar el caso base cuando solo hay una lectura."
+  ]
+}

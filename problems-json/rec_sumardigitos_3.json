@@ -1,0 +1,43 @@
+{
+  "id": "rec_sumardigitos_3",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 3,
+
+  "enunciado": "Números que suman lo mismo\nEn este problema vamos a seleccionar, de entre un conjunto de números enteros positivos, aquellos valores cuyas cifras sumen lo mismo que las del número que tengo.\nDetalles de la implementación\nLa cifra menos significativa de un número se obtiene con la función módulo. Por ejemplo 3245%10 = 5. Para quitar la cifra menos significativa a un número se divide entre 10. Por ejemplo 2345/10 = 234.\nHacer una función int sumaDigitos(int n); que devuelva la suma de los dígitos del número.\nEn la función resuelveCaso se leerán los valores de entrada y para cada valor se utilizará la función sumaDigitos para decidir si la suma de los dígitos coincide y se escribirá el resultado.\nSe realizarán dos implementaciones de la función sumaDigitos, una implementación con una función recursiva no final y otra implementación con una función recursiva final. Se probarán ambas soluciones en el juez.\nEntrada\nLa entrada comienza con el número de casos de prueba a tratar. Cada caso consta de dos líneas. En la primera se muestra el número de elementos del conjunto y el número que tengo. En la segunda se muestran los valores de cada elemento del conjunto separados por blancos.\nEl número de elementos del conjunto es siempre mayor o igual que cero y menor que 10.000. Los valores están comprendidos en el intervalo [1...232-1].\nSalida\nPara cada caso de prueba se escribe en una línea los valores del conjunto cuya suma de dígitos coincide con la suma de los dígitos del número dado en el orden en que aparecieron en la entrada.\nEntrada de ejemplo\n3\n4 55\n25 64 32 38\n3 6\n45 63 25\n5 66\n66 14 912 50502 1\nSalida de ejemplo\n64\n66 912 50502\nAutor: Isabel Pita",
+  "entrada": "Número de casos de prueba. Para cada caso: número de elementos del conjunto y el número que tengo, seguido de los valores de cada elemento del conjunto.",
+  "salida": "Valores del conjunto cuya suma de dígitos coincide con la suma de los dígitos del número dado.",
+  "restricciones": "El número de elementos del conjunto es siempre mayor o igual que cero y menor que 10.000. Los valores están comprendidos en el intervalo [1...232-1].",
+
+  "ejemplo": {
+    "input": "3\n4 55\n25 64 32 38\n3 6\n45 63 25\n5 66\n66 14 912 50502 1",
+    "output": "64\n66 912 50502"
+  },
+
+  "tags": ["recursión", "suma de dígitos", "números enteros", "conjunto", "comparación"],
+
+  "como_reconocerlo": "El problema requiere calcular la suma de los dígitos de un número de manera recursiva.",
+  "idea_clave": "Utilizar recursión para descomponer el número y sumar sus dígitos, comparando con otros números.",
+
+  "estrategia": [
+    "Leer el número de casos de prueba.",
+    "Para cada caso, calcular la suma de los dígitos del número dado.",
+    "Para cada número en el conjunto, calcular la suma de sus dígitos y comparar.",
+    "Imprimir los números cuya suma de dígitos coincide con la del número dado."
+  ],
+
+  "plantilla_codigo": "int sumaDigitos(int n) {\n    // Caso base: si n es 0, devolver 0\n    // Llamada recursiva: sumar el último dígito y llamar con n dividido por 10\n}\n\nvoid resuelveCaso() {\n    // Leer número de elementos y el número dado\n    // Calcular suma de dígitos del número dado\n    // Iterar sobre el conjunto de números\n    // Usar sumaDigitos para cada número y comparar\n    // Imprimir los números que coinciden\n}",
+
+  "pistas": [
+    "Piensa en cómo descomponer un número en sus dígitos usando operaciones aritméticas.",
+    "Considera cómo la recursión puede ayudarte a sumar los dígitos de un número de manera eficiente."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza recursión para descomponer un número en sus dígitos y sumarlos. Funciona porque cada llamada recursiva procesa un dígito y reduce el problema. La complejidad temporal es O(log n) debido a la división por 10 en cada paso.",
+
+  "errores_comunes": [
+    "Olvidar el caso base en la función recursiva, lo que puede llevar a una recursión infinita.",
+    "No manejar correctamente la entrada y salida de datos, especialmente en el formato esperado."
+  ]
+}

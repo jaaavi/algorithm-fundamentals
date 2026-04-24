@@ -1,0 +1,122 @@
+[
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(a)} fun contarPares(int a[ ], int n) dev (int c) {c = #i:0 ≤ i < n:a[i]%2 = 0} y el siguiente algoritmo: int contarPares(int a[],int n){ int c=0; int k=-1; while (k<n-1) { if (a[k+1] % 2 == 0) {c=c+1;} k=k+1; } return c; } indica si el algoritmo es correcto con respecto a la especificación y en tal caso cual es el invariante que permite demostrar la corrección del bucle. Seleccione una:",
+    "opciones": {
+      "a": "Es correcto con invariante {−1 ≤ k < n ∧ c = #i:0 ≤ i ≤ k:a[i]%2 = 0}",
+      "b": "Es correcto con invariante {−1 ≤ k < n ∧ c = #i:0 ≤ i < n:a[i]%2 = 0}.",
+      "c": "El algoritmo no es correcto con respecto a la especificación.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "a. Cierto. b. Falso. c. Falso. d. Falso. La respuesta correcta es: Es correcto con invariante {−1 ≤ k < n ∧ c = #i:0 ≤ i ≤ k:a[i]%2 = 0}"
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Indica cuál de las siguientes es una función de cota para este bucle: int i=0; bool encontrado=false; while (i<n && !encontrado) { if (v[i]>0) {encontrado=true;} else {i=i+1;} } Seleccione una:",
+    "opciones": {
+      "a": "i+1",
+      "b": "Ninguna de ellas.",
+      "c": "n−i−1",
+      "d": "i"
+    },
+    "correcta": "b",
+    "explicacion": "a. Incorrecta. b. Correcta. c. Incorrecta. d. Incorrecta. La respuesta correcta es: Ninguna de ellas."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Indica cuál de las propiedades es un invariante del siguiente bucle: {n ≥ 0} int y=1; int j=n; while (j>0){ y=y*x; j--; } {y = x^n} Seleccione una:",
+    "opciones": {
+      "a": "y*x^(−j) = x^n",
+      "b": "0 < j ≤ n",
+      "c": "y*x^j = x^n",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "a. Falso. b. Falso. c. Cierto. d. Falso. La respuesta correcta es: y*x^j = x^n"
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Indica cuál de las siguientes es una función de cota para este bucle: int i=0; bool encontrado=false; while (i<n) { if (v[i]>0) {encontrado=true;} else {i=i+1;} } Seleccione una:",
+    "opciones": {
+      "a": "i+1",
+      "b": "n−i",
+      "c": "Ninguna de ellas.",
+      "d": "i"
+    },
+    "correcta": "c",
+    "explicacion": "a. Incorrecta. b. Incorrecta. c. Correcta. d. Incorrecta. La respuesta correcta es: Ninguna de ellas."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Dada la siguiente especificación: {v.size() > 0} fun ultimoMaximo(vector v) dev (int i) {0 ≤ i < v.size() ∧ (∀k:0 ≤ k < v.size():v[k] ≤ v[i]) ∧ (∀l:i < l < v.size():v[l] < v[i])} y el siguiente algoritmo como cuerpo de la función i=v.size()-1; int j=v.size()-2; while (j >= 0){ if (v[j]>v[i]) {i=j;} j=j-1; } return i; indica si el algoritmo es correcto con respecto a la especificación y en tal caso cual es el invariante que permite demostrar la corrección del bucle. Seleccione una:",
+    "opciones": {
+      "a": "Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k:j < k < v.size():v[k] ≤ v[i]).",
+      "b": "Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k:j < k < v.size():v[k] ≤ v[i]) ∧ (∀l:i < l < v.size():v[l] < v[i]).",
+      "c": "Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k:j < k < v.size():v[k] ≤ v[i]) ∧ (∀l:i < l < v.size():v[l] < v[i]).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "a. Falso. b. Cierto. c. Falso. d. Falso. La respuesta correcta es: Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k:j < k < v.size():v[k] ≤ v[i]) ∧ (∀l:i < l < v.size():v[l] < v[i])."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(a)} fun producto(int a[ ], int n) dev (int p) {p = Πi:0 ≤ i < n:a[i]} y el siguiente invariante {0 ≤ k ≤ n ∧ p = Πi:k ≤ i < n:a[i]} indica qué expresión colocar en lugar de ? para que el siguiente algoritmo sea correcto con respecto a la especificación dada y el bucle tenga como invariante el indicado: p=1; int k=n; while (k>0){ p=p*a[?]; k=k-1; } return p; Seleccione una:",
+    "opciones": {
+      "a": "k",
+      "b": "k-1",
+      "c": "k+1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "a. Falso. b. Cierto. c. Falso. d. Falso. La respuesta correcta es: k-1"
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Dada la siguiente especificación: {0 < n ≤ longitud(a)} fun maximo(int a[ ], int n) dev (int m) {m = maxi:0 ≤ i < n:a[i]} y el siguiente invariante: {1 ≤ k ≤ n ∧ m = maxi:0 ≤ i < k:a[i] } indica qué expresiones colocar en lugar de los ? para que el siguiente algoritmo sea correcto con respecto a la especificación dada y el bucle tenga como invariante el indicado: k=? ; m=? ; while (k<n) { if (m<a[k]) {m=a[k];} k=k+1; } return m; Seleccione una:",
+    "opciones": {
+      "a": "k=0; m=0;",
+      "b": "k=0; m=a[0];",
+      "c": "k=1; m=a[1];",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "a. Falso. b. Falso. c. Falso. d. Cierto. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "¿Cuál de estas propiedades es un invariante de este bucle? int x=0; int n=v.size(); while (n!=0) { x=v[n-1]-x; n=n-1; } Seleccione una:",
+    "opciones": {
+      "a": "x = 0",
+      "b": "x = ∑i:n + 1 ≤ i < v.size():(-1)^(n)*v[i]",
+      "c": "x = ∑i:n ≤ i < v.size():(-1)^(n)*v[i]",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "a. Falso. b. Falso. c. Cierto. d. Falso. La respuesta correcta es: x = ∑i:n ≤ i < v.size():(-1)^(n)*v[i]"
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(v) ∧ ∀z:0 ≤ z < n:v[z] ≥ 0} fun parejasParImpar(int v[ ], int n) dev (int p) {p = #i, j:0 ≤ i < j < n:(v[i]%2 = 0 ∧ v[j]%2 = 1)} se ha decidido diseñar un bucle con coste O(n) para resolverlo usando el siguiente invariante { 0 ≤ k ≤ n ∧ p = #i, j:0 ≤ i < j < k:(v[i]%2 = 0 ∧ v[j]%2 = 1) ∧ npares = #i:0 ≤ i < k:v[i]%2 = 0} Indica cuáles de los siguientes bucles es correcto con respecto a la especificación y tiene dicho invariante 1. int npares = 0, k=0; p=0; while (k<n){ if (v[k]%2==0) {npares = npares+1;} else {p = p + npares;} k=k+1; } return p; 2. int npares = 0, k=0; p=0; while (k<n){ k=k+1; if (v[k-1]%2==0) {npares = npares+1;} else {p = p + npares;} } return p; 3. int npares = 0, k=0; p=0; while (k<n){ if (v[k]%2==0) {npares = npares+1;} p = p + npares; k=k+1; } return p; Seleccione una:",
+    "opciones": {
+      "a": "Solamente 1 y 2.",
+      "b": "Solamente 3.",
+      "c": "Solamente 2 y 3.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "a. Cierto. b. Falso. c. Falso. d. Falso. La respuesta correcta es: Solamente 1 y 2."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_0",
+    "pregunta": "Indica qué afirmaciones son correctas acerca del siguiente algoritmo: {x > 0} int i=x; while (i>=0){ i=i+1; i=i-1; } {i ≥ 0} Seleccione una o más de una:",
+    "opciones": {
+      "a": "La postcondición debería ser i = −1 para que el bucle sea correcto.",
+      "b": "La postcondición debería ser i = x para que el bucle sea correcto.",
+      "c": "La función de cota es i.",
+      "d": "La propiedad i > 0 es un invariante del bucle."
+    },
+    "correcta": "d",
+    "explicacion": "a. Falso. b. Falso. c. Falso. d. Cierto. La respuesta correcta es: La propiedad i > 0 es un invariante del bucle."
+  }
+]

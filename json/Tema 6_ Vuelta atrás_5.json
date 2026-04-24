@@ -1,0 +1,116 @@
+[
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "Todos los algoritmos de vuelta atrás son exponenciales.",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. El coste de un algoritmo de vuelta atrás puede ser polinómico si el tamaño del espacio de soluciones lo es. Muchos de ellos son de tamaño exponencial o peor."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "La versión entera del problema de la mochila se puede resolver",
+    "opciones": {
+      "a": "eligiendo los objetos de mayor a menor valor que quepan.",
+      "b": "eligiendo los objetos de mayor a menor valor por unidad de peso que quepan.",
+      "c": "utilizando un algoritmo vuelta atrás.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. Un algoritmo vuelta atrás puede resolver la versión entera del problema de la mochila, pues permite explorar todas las posibles combinaciones factibles de objetos. Utilizando poda de optimalidad se puede reducir el espacio de búsqueda."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "La función que determina si una solución parcial puede generar una solución completa se llama:",
+    "opciones": {
+      "a": "restricción explícita.",
+      "b": "poda de optimalidad.",
+      "c": "función de marcaje.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: función de factibilidad."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "En un problema de maximización resuelto con vuelta atrás la cota optimista o beneficio estimado",
+    "opciones": {
+      "a": "debe ser cota superior de la mejor solución alcanzable.",
+      "b": "siempre puede ser el valor de la solución parcial.",
+      "c": "puede ser 0 si los beneficios son positivos.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. En un problema de maximización del beneficio la cota optimista ha de ser una cota superior de la mejor solución alcanzable."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "La técnica de marcaje en vuelta atrás tiene como objetivo",
+    "opciones": {
+      "a": "podar un mayor número de nodos.",
+      "b": "determinar de manera más eficiente la factibilidad de una solución parcial.",
+      "c": "marcar ciertos nodos para explorarlos antes que los demás en problemas de optimización.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Los marcadores permiten realizar la poda de factibilidad de forma más eficiente en tiempo mediante el almacenamiento en memoria de información adicional."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "Indica cual es la respuesta incorrecta sobre los algoritmos vuelta atrás",
+    "opciones": {
+      "a": "Pueden usarse para buscar una solución óptima en problemas de optimización.",
+      "b": "Pueden usarse para buscar una sola solución.",
+      "c": "No pueden usarse para buscar dos soluciones.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Falso. La respuesta correcta es: No pueden usarse para buscar dos soluciones."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "Si en un problema de minimización podamos con un valor que no es cota inferior de la mejor solución alcanzable",
+    "opciones": {
+      "a": "el algoritmo puede no terminar.",
+      "b": "podemos perder la mejor solución.",
+      "c": "se lanza un error en tiempo de ejecución",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Si se utiliza como cota optimista un valor que no es cota inferior de la mejor solución alcanzable, entonces dicho valor es superior al de la mejor solución alcanzable."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "Vuelta atrás realiza un recorrido en anchura de la parte no podada del árbol de exploración.",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. Vuelta atrás realiza un recorrido en profundidad mediante el uso de la recursión."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "La diferencia fundamental entre los esquemas de vuelta atrás y de ramificación y poda reside",
+    "opciones": {
+      "a": "en la forma en que se aplica el test de factibilidad.",
+      "b": "en la forma en que se recorre el árbol de exploración.",
+      "c": "en que en vuelta atrás no hay poda de optimalidad.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. La diferencia esencial entre vuelta atrás y ramificación y poda es la forma de recorrer el espacio de soluciones."
+  },
+  {
+    "tema": "Tema 6_ Vuelta atrás_5",
+    "pregunta": "El coste de la poda de optimalidad puede ser tan elevado que no compense la poda conseguida.",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "a",
+    "explicacion": "Verdadero. Si para determinar si el subárbol correspondiente a una solución parcial puede conducir o no a una solución mejor que la encontrada hasta el momento se invierte demasiado tiempo, el coste total del algoritmo en el que se realiza dicha poda puede ser superior a aquel en que no se utiliza incluso aunque el número de nodos podados sea mayor utilizándola."
+  }
+]

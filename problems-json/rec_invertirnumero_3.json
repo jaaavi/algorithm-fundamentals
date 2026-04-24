@@ -1,0 +1,43 @@
+{
+  "id": "rec_invertirnumero_3",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 2,
+
+  "enunciado": "Invertir un número. En este problema vamos a invertir los dígitos de un número. Requisitos de implementación: Los números deben tratarse como números enteros, no como cadenas de caracteres. Entrada: La entrada consta de una serie de casos de prueba que acaban con el número 0. Cada caso de prueba es un número entero positivo que se puede almacenar en una variable de tipo int. Los números nunca empiezan con un dígito 0, pero pueden tener el dígito 0 en otras posiciones. Salida: Para cada caso de prueba se escribe en una línea el valor inverso al de entrada.",
+  "entrada": "Una serie de números enteros positivos terminando con un 0.",
+  "salida": "El número invertido para cada caso de prueba.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "2345\n3\n12\n101010\n567\n0",
+    "output": "5432\n3\n21\n10101\n765"
+  },
+
+  "tags": ["recursión", "números", "inversión", "enteros"],
+
+  "como_reconocerlo": "El problema requiere invertir los dígitos de un número usando recursión.",
+  "idea_clave": "Utilizar recursión para procesar el número dígito a dígito desde el final hacia el principio.",
+
+  "estrategia": [
+    "Definir una función recursiva que tome un número entero como argumento.",
+    "En cada llamada recursiva, extraer el último dígito del número.",
+    "Construir el número invertido acumulando los dígitos extraídos.",
+    "Detener la recursión cuando el número sea 0."
+  ],
+
+  "plantilla_codigo": "int invertirNumero(int n) {\n    // Caso base: si n es 0, devolver 0\n    // Extraer el último dígito\n    // Llamada recursiva con el resto del número\n    // Construir el número invertido\n    return 0; // Cambiar por el valor correcto\n}",
+
+  "pistas": [
+    "Piensa en cómo extraer el último dígito de un número.",
+    "Considera cómo puedes construir el número invertido a medida que avanzas en la recursión."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza recursión para invertir los dígitos de un número. En cada llamada recursiva, se extrae el último dígito y se acumula en el resultado final. La recursión termina cuando el número se reduce a 0. La complejidad temporal es O(d), donde d es el número de dígitos del número de entrada.",
+
+  "errores_comunes": [
+    "Tratar el número como una cadena de caracteres en lugar de un entero.",
+    "No manejar correctamente el caso base de la recursión."
+  ]
+}

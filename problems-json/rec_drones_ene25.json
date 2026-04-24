@@ -1,0 +1,42 @@
+{
+  "id": "rec_drones_ene25",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "En Falcon Heights (Minnesota) la empresa FalHeights quiere ser la primera en usar exclusivamente drones para la entrega de paquetes a sus clientes. Para ello, los dueños han comprado una pequeña flota de flamantes drones, cuya principal limitación es la batería que se puede usar. Por ello, planificar los repartos se ha convertido en un desafío. Los ingenieros de FalHeights conocen de cuántos drones disponen para hacer los repartos, así como de la lista de pesos (en kg) de los paquetes a entregas. Lo que buscan es la capacidad mínima de batería necesaria para hacer todos los repartos teniendo en cuenta lo siguiente: • Por política de empresa, los repartos deben realizarse en estricto orden de compra (no se pueden reorganizar las entregas). • El gasto de batería de un dron es proporcional al peso total de los paquetes transportados. En concreto, entregar 1 kg de carga supone necesitar 2 hA (hectoamperios) de batería. • Sale más barato comprar todas las baterías de los drones de la misma capacidad. Por ejemplo, si disponemos de dos drones y hay que entregar 3 paquetes de pesos 4 2 3, la batería mínima será de 10 hA (un dron repartirá 4 kg y otro 5 kg). Se pide: 1. Diseña un algoritmo recursivo eficiente que permita resolver el problema. 2. Escribe la recurrencia que corresponde al coste de la función recursiva e indica a qué orden de complejidad asintótica pertenece dicho coste.",
+  "entrada": "La entrada consta de varios casos de prueba. Cada uno de ellos ocupa dos líneas. La primera línea indica la cantidad N de paquetes (1 ≤ N ≤ 108) y el valor d (1 ≤ d ≤ N) de drones que dispone la empresa. La segunda línea contiene los N pesos (en kg) de los paquetes, todos ellos valores enteros positivos. La entrada termina con 0 0.",
+  "salida": "Para cada caso de prueba debe escribirse una línea indicando la capacidad mínima necesaria de las baterías (en hA) para poder realizar todas las entregas con la cantidad de drones disponibles.",
+  "restricciones": "1 ≤ N ≤ 108, 1 ≤ d ≤ N",
+
+  "ejemplo": {
+    "input": "3 2\n4 3 2\n3 3\n4 3 2\n3 1\n4 3 2\n5 2\n3 5 2 4 1\n0 0",
+    "output": "10\n8\n18\n16"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "búsqueda binaria", "optimización", "drones"],
+
+  "como_reconocerlo": "El problema busca optimizar un recurso (batería) bajo restricciones de orden y capacidad.",
+  "idea_clave": "Utilizar búsqueda binaria sobre la capacidad de batería para encontrar el mínimo necesario que permita realizar todas las entregas con los drones disponibles.",
+
+  "estrategia": [
+    "Definir una función recursiva que verifique si una capacidad de batería dada es suficiente.",
+    "Utilizar búsqueda binaria para encontrar la capacidad mínima de batería que satisface la condición.",
+    "Ajustar los límites de la búsqueda binaria según la viabilidad de la capacidad actual."
+  ],
+
+  "plantilla_codigo": "int calcularCapacidadMinima(int N, int d, vector<int>& pesos) {\n    // Definir límites inferior y superior para la búsqueda binaria\n    int low = ...;\n    int high = ...;\n    \n    // Búsqueda binaria\n    while (low < high) {\n        int mid = (low + high) / 2;\n        if (esSuficiente(mid, N, d, pesos)) {\n            high = mid;\n        } else {\n            low = mid + 1;\n        }\n    }\n    return low;\n}\n\nbool esSuficiente(int capacidad, int N, int d, vector<int>& pesos) {\n    // Implementar lógica para verificar si la capacidad es suficiente\n    return ...;\n}",
+
+  "pistas": [
+    "Considera cómo dividir los paquetes entre los drones de manera que se minimice la capacidad máxima de batería.",
+    "Piensa en cómo la búsqueda binaria puede ayudarte a encontrar la capacidad mínima necesaria."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza búsqueda binaria para encontrar la capacidad mínima de batería necesaria. La función recursiva verifica si una capacidad dada permite realizar todas las entregas con los drones disponibles. La búsqueda binaria ajusta los límites según la viabilidad de la capacidad actual, garantizando que se encuentra la mínima posible. La complejidad temporal es O(N log(maxPeso)), donde maxPeso es la suma de los pesos de los paquetes.",
+
+  "errores_comunes": [
+    "No considerar el orden estricto de entrega de los paquetes.",
+    "No ajustar correctamente los límites de la búsqueda binaria, lo que puede llevar a un bucle infinito."
+  ]
+}

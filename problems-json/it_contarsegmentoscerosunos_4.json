@@ -1,0 +1,35 @@
+{
+  "id": "it_contarsegmentoscerosunos_4",
+  "tema": "Iterativos",
+  "subtipo": "conteo",
+  "dificultad": 3,
+  "enunciado": "Dado un vector v de n ≥0 enteros y un entero l ≥1, se desea contar el número de segmentos de longitud l que cumplen que contienen tantos 0s como 1s. Se puede suponer que n ≥l y que los l primeros números del vector son distintos de 0 y de 1. 1. Define un predicado cerosUnos(v, p, q) que devuelva cierto si y solo si entre las posiciones p (incluida) y q (excluida) hay tantos ceros como unos. 2. Utilizando el predicado cerosUnos, especifica una función que dado un entero l ≥1 y un vector v de enteros positivos de longitud ≥l cuyas primeras l posiciones son distintas de 0 y de 1, devuelva el número de segmentos de longitud l que cumplen que contienen tantos ceros como unos. 3. Diseña e implementa un algoritmo iterativo que resuelva el problema propuesto. 4. Escribe el invariante del bucle que permite demostrar la corrección del mismo y proporciona una función de cota. 5. Indica el coste asintótico del algoritmo en el caso peor y justifica adecuadamente tu respuesta.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá el valor de l ≥1 y el número de elementos n ≤20000 del vector, y a continuación los elementos del vector.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con el número de segmentos solicitado en el enunciado.",
+  "restricciones": "n ≤ 20000, n ≥ l, l ≥ 1",
+  "ejemplo": {
+    "input": "5\n3 10\n-3 2 7 1 3 0 0 8 1 0\n2 5\n7 -9 6 2 7\n1 5\n8 1 1 1 1\n10 10\n2 3 4 5 6 7 8 9 10 11\n2 10\n-1 -1 1 0 1 0 1 0 1 0",
+    "output": "4\n4\n1\n1\n8"
+  },
+  "tags": ["vector", "conteo", "segmentos", "iterativo"],
+  "como_reconocerlo": "El problema pide contar segmentos de un vector que cumplen una condición específica.",
+  "idea_clave": "Recorrer el vector y verificar la condición de igualdad de ceros y unos en cada segmento de longitud l.",
+  "estrategia": [
+    "Inicializar un contador de segmentos válidos a cero.",
+    "Recorrer el vector desde el inicio hasta n-l.",
+    "Para cada posición, verificar si el segmento de longitud l tiene igual número de ceros y unos.",
+    "Incrementar el contador si la condición se cumple.",
+    "Devolver el contador al final del recorrido."
+  ],
+  "plantilla_codigo": "int contarSegmentos(vector<int>& v, int l) {\n    int contador = 0;\n    for (int i = 0; i <= v.size() - l; ++i) {\n        // Verificar si el segmento desde i hasta i+l tiene igual número de ceros y unos\n        if (cerosUnos(v, i, i + l)) {\n            contador++;\n        }\n    }\n    return contador;\n}\n\nbool cerosUnos(vector<int>& v, int p, int q) {\n    // Implementar la lógica para contar ceros y unos\n    return false; // Cambiar según la lógica\n}",
+  "pistas": [
+    "Considera cómo podrías verificar la igualdad de ceros y unos en un segmento de manera eficiente.",
+    "Piensa en cómo podrías optimizar el conteo de ceros y unos usando una ventana deslizante."
+  ],
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector y verifica para cada posible segmento de longitud l si contiene igual número de ceros y unos. Utiliza un bucle iterativo para evaluar cada segmento posible. La complejidad temporal es O(n*l) en el peor caso, ya que para cada posición inicial se verifica un segmento de longitud l.",
+  "errores_comunes": [
+    "No verificar correctamente los límites del segmento al contar ceros y unos.",
+    "Olvidar que los primeros l elementos no pueden ser ceros ni unos, lo que puede llevar a errores en el conteo inicial."
+  ]
+}

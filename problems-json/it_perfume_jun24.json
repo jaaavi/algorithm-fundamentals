@@ -1,0 +1,43 @@
+{
+  "id": "it_perfume_jun24",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 4,
+
+  "enunciado": "Ejercicio !. El mejor perfume (\".# puntos) Chomel es una compañía de alto renombre mundial especializada en perfumes y anda tras lo que podría ser su mejor perfume o, al menos, el más rentable. Un perfume se basa en la unión de diferentes productos que la empresa separa en dos cadenas. Chomel busca juntar l →1 cantidades de productos (siempre tomados consecutivamente) de las dos cadenas a la vez y quedarse con la secuencia de longitud l de mayor bene!cio. Por lo tanto, Chomel dispone de dos cadenas de ingredientes v y w de igual longitud N →1. Los productos de la primera cadena son todos enteros no negativos (→0) y su suma indica la ganancia del perfume (el valor que Chomel quiere maximizar). La segunda cadena también tiene valores no negativos pero deben ser manejados con cuidado: un buen perfume debe estar balanceado, lo que se traduce a tener tantos elementos pares como impares de esta segunda cadena. Por ejemplo, dadas las cadenas v = 10,2,1,0,2, w = 0,0,3,4,0, y l = 2, el valor máximo es 3, que corresponde con coger la secuencia que comienza en el índice 1 y termina en el índice 2 (v[1]+v[2] = 2 + 1 = 3). Hay secuencias con más valor (por ejemplo el intervalo de 0 a 1) pero no cumplen que haya tantos elementos pares como impares en w (w[1] es par, mientras que w[2] es impar). Se pide: \". (#.$% puntos) De!ne un predicado equilibrado(w,p,q) que se evalúe a cierto si y solo si entre las posiciones p (incluida) y q (excluida) hay el mismo número de valores pares que impares. $. (#.% puntos) Utilizando el predicado auxiliar equilibrado(w,p,q), especi!ca una función que dado un entero l →1 y dos vectores de enteros no negativos v y w, devuelva el valor máximo de la suma de los intervalos de longitud l en v; siempre que el intervalo cumpla que además contiene tantos elementos pares como impares en w. &. ($ puntos) Diseña e implementa un algoritmo iterativo e!ciente que resuelva el problema propuesto. ’. (#.% puntos) Escribe el invariante del bucle que permite demostrar la corrección del algoritmo y proporciona una función de cota. %. (#.$% puntos) Indica y justi!ca adecuadamente el coste asintótico en el caso peor.",
+  "entrada": "La entrada consta de varios casos de prueba. Cada uno de ellos ocupa tres líneas. La primera línea indica la longitud N de las dos listas de entrada (\" ↑N ↑\"#8) y el valor l (\" ↑l ↑N) con la longitud de la secuencia. La segunda línea contiene los N elementos de la cadena de valores de ganancia v; mientras que la tercera línea contiene los N elementos de la cadena w.",
+  "salida": "Para cada caso de prueba debe escribirse una línea con el máximo valor de los intervalos de longitud l con tantos elementos pares como impares en w. Si no hay ningún intervalo la salida será !.",
+  "restricciones": "N ≥ 1, l ≤ N",
+
+  "ejemplo": {
+    "input": "4\n5 2\n10 2 1 0 2\n0 0 3 4 0\n4 1\n10 10 20 30\n9 0 7 10\n7 4\n0 1 7 18 2 9\n5 9 4 6 8 7 9",
+    "output": "3\n0\n36"
+  },
+
+  "tags": ["ventana", "acumulador", "equilibrio", "pares e impares", "iterativo"],
+
+  "como_reconocerlo": "El problema busca maximizar una suma bajo una restricción de equilibrio en una ventana deslizante.",
+  "idea_clave": "Usar una ventana deslizante para evaluar todas las subsecuencias de longitud l y verificar el equilibrio de pares e impares en w.",
+
+  "estrategia": [
+    "Definir el predicado equilibrado para verificar el equilibrio de pares e impares.",
+    "Usar una ventana deslizante para recorrer las subsecuencias de longitud l en v.",
+    "Calcular la suma de cada subsecuencia y verificar el equilibrio usando el predicado.",
+    "Actualizar el máximo si la subsecuencia es equilibrada."
+  ],
+
+  "plantilla_codigo": "int maxPerfumeValue(int N, int l, vector<int>& v, vector<int>& w) {\n    int max_value = 0;\n    for (int i = 0; i <= N - l; ++i) {\n        // Calcular suma de v[i] a v[i+l-1]\n        // Verificar equilibrio de w[i] a w[i+l-1]\n        // Actualizar max_value si es equilibrado\n    }\n    return max_value;\n}",
+
+  "pistas": [
+    "Considera cómo podrías verificar rápidamente si una subsecuencia de w tiene el mismo número de pares e impares.",
+    "Piensa en cómo podrías usar una ventana deslizante para evitar recalcular la suma desde cero cada vez."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una ventana deslizante para evaluar todas las subsecuencias de longitud l en v. Para cada subsecuencia, calcula la suma y verifica si la subsecuencia correspondiente en w tiene el mismo número de pares e impares. Si es así, actualiza el máximo encontrado. La complejidad temporal es O(N*l) en el peor caso, debido a la necesidad de verificar el equilibrio para cada subsecuencia.",
+  
+  "errores_comunes": [
+    "No verificar correctamente el equilibrio de pares e impares en w.",
+    "Recalcular la suma de la subsecuencia desde cero en lugar de usar una ventana deslizante."
+  ]
+}

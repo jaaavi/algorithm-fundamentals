@@ -1,0 +1,476 @@
+[
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Dada la siguiente especificación { 0 <= n <= long(v) } fun xxx (int v[], int n, int x) dev int r { r = # u : 0 <= u < n : v[u] < x } y teniendo en cuenta que estamos considerando los n primeros elementos del vector, indica qué afirmación es correcta con respecto a ella.",
+    "opciones": {
+      "a": "El valor de r es la posición en el vector del primer elemento menor que x.",
+      "b": "El valor de r es el número de posiciones del vector que contienen elementos menores que x.",
+      "c": "El valor de r es la suma de los elementos del vector que son menores que x.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Falso. El operador # es el operador de conteo. Cierto. El operador # es el operador de conteo. Falso. El operador # es el operador de conteo, no el de la suma. Falso. La respuesta correcta es: El valor de r es el número de posiciones del vector que contienen elementos menores que x. La respuesta correcta es: El valor de r es el número de posiciones del vector que contienen elementos menores que x."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Indica si la siguiente igualdad es verdadera o falsa: Θ( log n) = Θ(√n^π)",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. Puesto que lim n→∞ log n / √n^π = 0 por el teorema del límite Θ( log n) ⊆ Θ(√n^π) y por tanto Θ(log n) ≠ Θ(√n^π). La respuesta correcta es: Falso"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(v)} fun sumaProductos(int v[ ], int n) dev (int p) {p = Σ i,j: 0 ≤ i < j < n: v[i]∗v[j]} y el siguiente código como cuerpo de dicha función: int k=n, s=0; p=0; while (k>0){ p=p+v[k-1]∗s; s=s+v[k-1]; k=k-1; } return p; Indica si el algoritmo es correcto con respecto a la especificación y en tal caso cual es el invariante que permite demostrar la corrección del bucle.",
+    "opciones": {
+      "a": "Es correcto con invariante 0 ≤ k ≤ n ∧ p = Σ i,j: k ≤ i < j < n: v[i]∗v[j] ∧ s = Σ z: k < z < n: v[z].",
+      "b": "Es correcto con invariante 0 ≤ k ≤ n ∧ p = Σ i,j: k < i < j < n: v[i]∗v[j].",
+      "c": "Es correcto con invariante 0 ≤ k ≤ n ∧ p = Σ i,j: k ≤ i < j < n: v[i]∗v[j] ∧ s = Σ z: k ≤ z < n: v[z].",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Falso. Para restablecer s se suma v[k−1] por lo que ha de ser s = Σ z:k ≤ z < n: v[z]. Falso. Para restablecer la variable p se está usando la variable s y por lo que la necesitamos en el invariante. Hay que añadir s = Σ z:k ≤ z < n: v[z]. Cierto. Falso. La respuesta correcta es: Es correcto con invariante 0 ≤ k ≤ n ∧ p = Σ i,j: k ≤ i < j < n: v[i]∗v[j] ∧ s = Σ z: k ≤ z < n: v[z]. La respuesta correcta es: Es correcto con invariante 0 ≤ k ≤ n ∧ p = Σ i,j: k ≤ i < j < n: v[i]∗v[j] ∧ s = Σ z: k ≤ z < n: v[z]."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Indica la menor función f(n) que cumple que T(n) ∈ O(f(n)): T(1) = 1 T(n) = T(n−1) + n si n > 1",
+    "opciones": {
+      "a": "n²",
+      "b": "log n",
+      "c": "n³",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ Θ(n²). Falso. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ Θ(n²) ≠ Θ(log n). Falso. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ Θ(n²) ≠ Θ(n³). Falso. La respuesta correcta es: n² La respuesta correcta es: n²"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(v) ∧ ∀z: 0 ≤ z < n: v[z] ≥ 0} fun parejasParImpar (int v[ ], int n) dev (int p) {p = # i,j: 0 ≤ i < j < n: (v[i]%2 = 0 ∧ v[j]%2 = 1)} se ha decidido diseñar un bucle con coste O(n) para resolverlo usando el siguiente invariante {0 ≤ k ≤ n ∧ p = (# i,j: 0 ≤ i < j < k: v[i]%2 = 0 ∧ v[j]%2 = 1) ∧ npares = # i: 0 ≤ i < k: v[i]%2 = 0} Indica cuáles de los siguientes bucles es correcto con respecto a la especificación y tiene dicho invariante",
+    "opciones": {
+      "a": "Solamente 2.",
+      "b": "Solamente 2 y 3.",
+      "c": "Solamente 1 y 2.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Falso. El algoritmo 1 también es correcto y tiene el mismo invariante que 2, pero restablece las variables del bucle en distinto orden. Falso. El algoritmo 3 no es correcto: por ejemplo si el vector tuviese los valores [6,2] , el algoritmo devolvería 3 cuando debería devolver 0, ya que no hay ningún impar. Cierto. Los algoritmos 1 y 2 son correctos y su invariante es el indicado, aunque el cuerpo de los bucles es distinto porque se restablecen las variables en distinto orden. El algoritmo 3 no es correcto: por ejemplo si el vector tuviese los valores [6,2] , el algoritmo devolvería 3 cuando debería devolver 0, ya que no hay ningún impar. Falso. La respuesta correcta es: Solamente 1 y 2. La respuesta correcta es: Solamente 1 y 2."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Dado un vector a de n enteros, ¿cuáles de los siguientes predicados son equivalentes? 1. ∀u: 1 ≤ u < n: a[u−1] < a[u] 2. ∀u: 0 ≤ u < n−1: a[u] < a[u + 1] 3. ∀i,j: 0 ≤ i < j < n: a[i] < a[j] 4. ∀i,j: 0 ≤ i ≤ j ≤ n: a[i] ≤ a[j]",
+    "opciones": {
+      "a": "Solo 1 y 2.",
+      "b": "Todos son equivalentes.",
+      "c": "Solo 1, 2 y 3.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Falso. 1 y 2 son equivalentes a 3 por la propiedad transitiva de < b. Falso. 4 equivale a falso porque < no es reflexivo. Cierto. 1 y 2 son equivalentes a 3 por la propiedad transitiva, pero 4 equivale a falso porque < no es reflexivo. Falso. La respuesta correcta es: Solo 1, 2 y 3. 1 y 2 son equivalentes a 3 por la propiedad transitiva, pero 4 equivale a falso porque < no es reflexivo. La respuesta correcta es: Solo 1, 2 y 3."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Indica la complejidad del siguiente algoritmo int c = 0; for (int i = n+10, j = m; (i >= 0) || (j > 0); --i, --j ) --c;",
+    "opciones": {
+      "a": "Θ(max(n,m))",
+      "b": "Θ(min(n,m))",
+      "c": "Θ(n * log m)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Del bucle se sale en cuanto las dos condiciones se cumplen, por lo que el número de vueltas del bucle es proporcional a max(n,m) , y el cuerpo del bucle es de coste constante. Falso. Del bucle se sale en cuanto las dos condiciones se cumplen (y no cuando se hace cierta una de ellas). Falso. El número de vueltas es proporcional a la suma de ambos límites. Falso. La respuesta correcta es Θ(max(n,m)) . La respuesta correcta es: Θ(max(n,m)) ."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "¿Cuáles de los siguientes es caso peor para el algoritmo de la búsqueda binaria vista en clase?",
+    "opciones": {
+      "a": "El elemento buscado está en la última posición del vector.",
+      "b": "Todos los elementos del vector son iguales al elemento buscado.",
+      "c": "El elemento buscado está en la primera posición del vector.",
+      "d": "El elemento buscado está en el punto medio de la segunda mitad."
+    },
+    "correcta": "a, c",
+    "explicacion": "Correcta. El algoritmo de búsqueda binaria visto en clase continúa haciendo llamadas recursivas hasta llegar al caso vacío, por lo que todos los casos tienen el mismo coste del Θ(log n) siendo n el número de elementos del vector. Correcta. El algoritmo de búsqueda binaria visto en clase continúa haciendo llamadas recursivas hasta llegar al caso vacío, por lo que todos los casos tienen el mismo coste del Θ(log n) siendo n el número de elementos del vector. Correcta. El algoritmo de búsqueda binaria visto en clase continúa haciendo llamadas recursivas hasta llegar al caso vacío, por lo que todos los casos tienen el mismo coste del Θ(log n) siendo n el número de elementos del vector. Correcta. El algoritmo de búsqueda binaria visto en clase continúa haciendo llamadas recursivas hasta llegar al caso vacío, por lo que todos los casos tienen el mismo coste del Θ(log n) siendo n el número de elementos del vector. Las respuestas correctas son: El elemento buscado está en la última posición del vector., Todos los elementos del vector son iguales al elemento buscado., El elemento buscado está en la primera posición del vector., El elemento buscado está en el punto medio de la segunda mitad."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Indica cuáles son casos peores del algoritmo quicksort que usa el primer elemento del segmento como pivote y que en la fase de partición reparte los elementos en menores, iguales y mayores:",
+    "opciones": {
+      "a": "Todos los elementos son iguales.",
+      "b": "El primer elemento es la mediana del array.",
+      "c": "Los elementos ya están ordenados de forma estricta.",
+      "d": "Los elementos están ordenados a la inversa de forma estricta."
+    },
+    "correcta": "c, d",
+    "explicacion": "Incorrecta. El caso en que todos los elementos son iguales es uno de los casos mejores porque una vez hecha la partición los elementos iguales al pivote se descartan en bloque, así que en ese caso el coste está en O(n). Incorrecta. Sin saber cómo es el resto del array podría ser cualquier caso, inclusive uno mejor o uno peor. Correcta. El caso en que los elementos están ordenados a la inversa y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n²), siendo n el número de elementos del array. Correcta. El caso en que los elementos ya están ordenados y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n²), siendo n el número de elementos del array. Las respuestas correctas son: Los elementos ya están ordenados de forma estricta., Los elementos están ordenados a la inversa de forma estricta."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_0",
+    "pregunta": "Dado el siguiente algoritmo que calcula la raíz cuadrada entera de un número dado x: {x ≥ 0} r=0; while ( (r+1)∗(r+1) ≤x) { r=r+1; } {r ≥ 0 ∧ r∗r ≤ x < (r + 1)∗(r + 1)} indica cuales de las siguientes funciones de cota permite demostrar la terminación del bucle:",
+    "opciones": {
+      "a": "x − r∗r",
+      "b": "r",
+      "c": "x − (r + 1)∗(r + 1)",
+      "d": "x − r"
+    },
+    "correcta": "a, c, d",
+    "explicacion": "Correcta. El invariante del bucle es r ≥ 0 ∧ r∗r ≤ x, lo que garantiza que x − r∗r ≥ 0. En cada vuelta r se incrementa en 1 por lo que x − r∗r decrece al menos en 1. Incorrecta. Aunque r es positiva, crece estrictamente en cada vuelta. Correcta. Si se cumple la condición del bucle (r + 1)∗(r + 1) ≤ x entonces se garantiza que al entrar al bucle x − (r + 1)∗(r + 1) ≥ 0. En cada vuelta r se incrementa en 1 por lo que x − (r + 1)∗(r + 1) decrece al menos en 3. Correcta. El invariante del bucle es r ≥ 0 ∧ r∗r ≤ x, lo que garantiza que x − r ≥ 0. En cada vuelta r se incrementa en 1 por lo que x − r decrece al menos en 1. Las respuestas correctas son: x − r∗r, x − (r + 1)∗(r + 1), x − r"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Indica si la siguiente afirmación es verdadera o falsa: 2^n + n^10 ∈ Ω(n^10)",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "a",
+    "explicacion": "Verdadero. Usando la regla de la suma Ω(2^n + n^10) = Ω(2^n) y como Ω(2^n) ⊂ Ω(n^10), se cumple que 2^n + n^10 ∈ Ω(n^10). La respuesta correcta es: Verdadero"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Indica cuáles son casos peores del algoritmo quicksort que usa el primer elemento del segmento como pivote y que en la fase de partición reparte los elementos en menores, iguales y mayores:",
+    "opciones": {
+      "a": "El último elemento es la mediana del array.",
+      "b": "Todos los elementos son iguales.",
+      "c": "Los elementos ya están ordenados de forma estricta.",
+      "d": "El primer elemento es la mediana del array."
+    },
+    "correcta": "c",
+    "explicacion": "Correcta. El caso en que los elementos están ordenados a la inversa y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n^2), siendo n el número de elementos del array. La respuesta correcta es: Los elementos ya están ordenados de forma estricta."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dada la siguiente especificación { 0 < n <= longitud(v) } fun xxx (int v[], int n) dev int r { r = max u : 0 <= u < n ∧ u mod 2 = 0 : v[u] } indica cuál afirmación es correcta acerca de la precondición.",
+    "opciones": {
+      "a": "La precondición debería exigir que los elementos del vector sean positivos.",
+      "b": "La precondición exige n>0 porque en caso contrario la postcondición está mal definida.",
+      "c": "La precondición podría ser igualmente 0<=n<=longitud(v).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Si n=0, la postcondición está mal definida porque el máximo es una operación parcial. La respuesta correcta es: La precondición exige n>0 porque en caso contrario la postcondición está mal definida."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dada la siguiente recurrencia, indica la respuesta correcta: T(n) = 3n^2 si n ≤ 1 T(n) = 3T(n/2) + n^2 si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ Θ(log n)",
+      "b": "T(n) ∈ Θ(n^2 log n)",
+      "c": "T(n) ∈ Θ(n^log_3 2)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: T(n) ∈ Θ(n^2). La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(u) ∧ ∀z:0 ≤ z < n:u[z] ≥ 0} fun parejasParImpar(int v[], int n) dev int p {p = #i. j:0 ≤ i < j < n: (u[i]%2 = 0 ∧ u[j]%2 = 1)} se ha decidido diseñar un bucle con coste O(n) para resolverlo usando el siguiente invariante { 0 ≤ k ≤ n ∧ p = (#i. j:0 ≤ i < j < k:u[i]%2 = 0 ∧ u[j]%2 = 1) ∧ npares = #i:0 ≤ l < k:u[l]%2 = 0} Indica cuáles de los siguientes bucles es correcto con respecto a la especificación y tiene dicho invariante 1. int npares = 0, k=0; p=0; while (k<n) { if (v[k]%2==0) {npares = npares+1;} else {p = p + npares;} k=k+1; } return p; 2. int npares = 0, k=0; p=0; while (k<n) { k=k+1; if (v[k-1]%2==0) {npares = npares+1;} else {p = p + npares;} } return p; 3. int npares = 0, k=0; p=0; while (k<n) { if (v[k]%2==0) {npares = npares+1;} p = p + npares; k=k+1; } return p;",
+    "opciones": {
+      "a": "Solamente 1 y 3.",
+      "b": "Solamente 1 y 2.",
+      "c": "Solamente 2.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Los algoritmos 1 y 2 son correctos y su invariante es el indicado, aunque el cuerpo de los bucles es distinto porque se restablecen las variables en distinto orden. El algoritmo 3 no es correcto: por ejemplo si el vector tuviese los valores [6,2] , el algoritmo devolvería 3 cuando debería devolver 0, ya que no hay ningún impar. La respuesta correcta es: Solamente 1 y 2."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dada la siguiente especificación: {0 < n ≤ longitud(a)} fun maximo(int a[], int n) dev (int m) {m = max i:0 ≤ i < n:a[i]} y el siguiente invariante: {0 ≤ k < n ∧ m = max i:k ≤ i < n:a[i] } indica qué expresiones colocar en lugar de los ? para que el siguiente algoritmo sea correcto con respecto a la especificación dada y el bucle tenga como invariante el indicado: k=? ; m=? ; while (?) { if (m<a[k-1]) {m=a[k-1];} k=k-1; }",
+    "opciones": {
+      "a": "Inicialización: k=n-1;m=a[n-1]; Condición del while: (k>0)",
+      "b": "Inicialización: k=n;m=a[n]; Condición del while: (k>0)",
+      "c": "Inicialización: k=n;m=a[n]; Condición del while: (k>=0)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Si k vale n−1 inicialmente, el máximo está bien definido, siendo i = n−1 el único índice en el rango, por lo que m ha de valer a[n−1]. La respuesta correcta es: Inicialización: k=n-1;m=a[n-1]; Condición del while: (k>0)"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dado un vector a de n enteros, ¿cuáles de los siguientes predicados son equivalentes? 1. ∀u:1 ≤ u < n:a[u−1] ≤ a[u] 2. ∀u:0 ≤ u < n−1:a[u] ≤ a[u+1] 3. ∀i, j:0 ≤ i < j < n:a[i] ≤ a[j] 4. ∀i, j:0 ≤ i ≤ j < n:a[i] ≤ a[j]",
+    "opciones": {
+      "a": "Solo 1, 2 y 3.",
+      "b": "No hay dos equivalentes.",
+      "c": "Solo 1 y 2.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Todos son equivalentes. Por las propiedades reflexiva y transitiva de la relación de orden ≤ . La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Dado el siguiente algoritmo que calcula la raiz cuadrada entera de un número dado x: {x ≥ 0} r=0; while ((r+1)*(r+1)<=x) { r=r+1; } { y ≥ 0 ∧ r*r ≤ x < (r+1)*(r+1) } indica cuales de las siguientes funciones de cota permite demostrar la terminación del bucle:",
+    "opciones": {
+      "a": "x−r*(r+1)",
+      "b": "r",
+      "c": "x−r*r",
+      "d": "x−r"
+    },
+    "correcta": "a",
+    "explicacion": "Correcta. Si se cumple la condición del bucle (r+1)*(r+1) ≤ x entonces se garantiza que al entrar al bucle x−(r+1)*(r+1) ≥ 0 y por tanto x−r*(r+1) ≥ 0. En cada vuelta r se incrementa en 1 por lo que x−r*(r+1) decrece al menos en 2. Las respuestas correctas son: x−r*(r+1), x−r*r, x−r"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "¿Cuál afirmación es correcta respecto al coste de un algoritmo divide y vencerás cuya recurrencia es la siguiente? T(n) = c_0 si n ≤ n_0 T(n) = a · T(n/b) + c_1 · n^k si n > n_0",
+    "opciones": {
+      "a": "T(n) ∈ Θ(n^k) si a > b^k",
+      "b": "T(n) ∈ Θ(n^k) si a = b^k",
+      "c": "T(n) ∈ Θ(n^k log n) si a < b^k",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: T(n) ∈ Θ(n^k log n) si a = b^k. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_1",
+    "pregunta": "Indica la complejidad del siguiente algoritmo int a = 0; for (int i = 1; i < n; i *= 2) ++a;",
+    "opciones": {
+      "a": "Θ(log n)",
+      "b": "Θ(n log n)",
+      "c": "Θ(n^2)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. El número de vueltas del bucle es proporcional a log n y el coste de cada vuelta es constante. La respuesta correcta es: Θ(log n)"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica a qué orden de complejidad pertenece T(n) definida por la recurrencia: T(n) = c₀ si n ≤ 1 T(n) = T(n − 1) + T(n − 2) + c₁ si n > 1 Seleccione una:",
+    "opciones": {
+      "a": "T(n) ∈ O(n log n)",
+      "b": "T(n) ∈ O(2ⁿ)",
+      "c": "T(n) ∈ O(n²)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Falso. Puesto que T(n) = T(n − 1) + T(n − 2) + c₁ ≤ 2T(n − 1) + c₁, aplicando el teorema de la división con a=2, b=1, k=0, tenemos que T(n) ∈ O(2ⁿ). Análogamente, T(n) = T(n − 1) + T(n − 2) + c₁ y aplicando el teorema de la división con a=2, b=2, k=0, tenemos que T(n) ∈ Ω(2ⁿ). Por tanto T(n)∈θ(2ⁿ)."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica cuál de las siguientes es una función de cota para este bucle: int i=0; bool encontrado=false; while (i<n && !encontrado){ if (v[i]>0) {encontrado=true;} else {i=i+1;} } Seleccione una:",
+    "opciones": {
+      "a": "i + 1",
+      "b": "n − i − 1",
+      "c": "n − i + 1",
+      "d": "Ninguna de ellas."
+    },
+    "correcta": "d",
+    "explicacion": "Correcta. Puesto que la variable i no se incrementa cuando la variable booleana se hace cierta, una función de cota podría ser: n − i + (encontrado?0:1). Dicha función decrece estrictamente en aquellas vueltas en las que i se incrementa en 1. También decrece estrictamente cuando i no crece, ya que en ese caso encontrado se hace cierto y la función pasa de valer n − i + 1 a n − i."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica si la siguiente igualdad es verdadera o falsa: O((n + 1)!) = O(n!) Seleccione una:",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. Puesto que (n + 1)! = (n + 1) · n! se cumple que lim n→∞ n!/(n + 1)! = 0 y por el teorema del límite O((n + 1)!) ⊄ O(n!)."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica qué afirmación es correcta sobre este predicado, siendo u un vector de enteros: ∃i:0 < i < u.size():u[i − 1] < u[i] Seleccione una:",
+    "opciones": {
+      "a": "Equivale al predicado true.",
+      "b": "Si es cierto, sabemos que u tiene al menos dos elementos y no está ordenado de forma decreciente",
+      "c": "Equivale al predicado false.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Para que el predicado sea cierto u.size() debe ser al menos 2 y debe haber dos posiciones consecutivas que crecen estrictamente, pero el resto pueden ser de cualquier forma. Así que con seguridad sabemos que el vector no es decreciente."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Dada la siguiente especificación {v.size() > 0} fun primerMaximo(vector v) dev (int i) {0 ≤ i < v.size() ∧ (∀k:0 ≤ k < v.size():v[k] ≤ v[i]) ∧ (∀t:0 ≤ t<i:v[t] < v[i])} y el siguiente algoritmo como cuerpo de la función i=0; int j=1; while (j < v.size()) { if (v[j]>v[i]) {i=j;} j=j+1; } return i; indica si el algoritmo es correcto con respecto a la especificación y en tal caso cuál es el invariante que permite demostrar la corrección del bucle. Seleccione una:",
+    "opciones": {
+      "a": "El algoritmo no es correcto con respecto a la especificación.",
+      "b": "Es correcto con invariante 0 ≤ i < j ≤ v.size() ∧ (∀k:0 ≤ k < j:v[k] ≤ v[i]).",
+      "c": "Es correcto con invariante 0 ≤ i < j ≤ v.size() ∧ (∀k:0 ≤ k < j:v[k] ≤ v[i]) ∧ (∀t:0 ≤ t<i:v[t] < v[i]).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "¿Cuáles de los siguientes es caso peor para el algoritmo de la búsqueda binaria vista en clase? Seleccione una o más de una:",
+    "opciones": {
+      "a": "El elemento buscado está en la última posición del vector.",
+      "b": "El elemento buscado está en el punto medio.",
+      "c": "Todos los elementos del vector son iguales al elemento buscado.",
+      "d": "El elemento buscado está en el punto medio de la segunda mitad."
+    },
+    "correcta": "a, b, c, d",
+    "explicacion": "Correcta. El algoritmo de búsqueda binaria visto en clase continúa haciendo llamadas recursivas hasta llegar al caso vacío, por lo que todos los casos tienen el mismo coste del Θ(log n) siendo n el número de elementos del vector."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Indica la complejidad del siguiente algoritmo int b = 0; for (int i = 0, j = -10; (i < n) || (j < m); ++i, ++j) b++; Seleccione una:",
+    "opciones": {
+      "a": "θ(1)",
+      "b": "θ(min(n,m))",
+      "c": "θ(max(n,m))",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. Del bucle se sale en cuanto las dos condiciones se cumplen, por lo que el número de vueltas del bucle es proporcional a max(n,m) y el cuerpo del bucle es de coste constante."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(a)} fun producto(int a[], int n) dev (int p) {p = Πi:0 ≤ i < n:a[i]} y el siguiente invariante {0 ≤ k ≤ n ∧ p = Πi:k ≤ i < n:a[i]} indica qué expresión colocar en lugar de ? para que el siguiente algoritmo sea correcto con respecto a la especificación dada y el bucle tenga como invariante el indicado: p=1; int k=n; while (k>0){ p=p*a[?]; k=k-1; } return p; Seleccione una:",
+    "opciones": {
+      "a": "i-1",
+      "b": "n-1",
+      "c": "i",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Correcta. La respuesta correcta es: k-1"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "La recurrencia que representa el caso mejor del algoritmo quicksort que usa el primer elemento del segmento como pivote y la fase de partición reparte los elementos en menores o iguales y mayores o iguales, es: Seleccione una:",
+    "opciones": {
+      "a": "T(0) = c, T(n) = 2T(n/2) + c'n si n > 0",
+      "b": "T(0) = c, T(n) = T(n/2) + c'n si n > 0",
+      "c": "T(0) = c, T(n) = T(n − 1) + c'n si n > 0",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. El caso mejor se da cuando en cada llamada recursiva, el primer elemento que se usa como pivote queda colocado en la mitad del segmento después de la partición generando dos llamadas recursivas de la mitad de tamaño, y eso sucede cuando es la mediana del segmento."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_2",
+    "pregunta": "Dada la siguiente especificación { 0 < n <= longitud(v) } fun xxx (int v[], int n) dev int r { r = max u: 0 <= u < n ∧ u mod 2 = 0 : v[u]} y teniendo en cuenta que estamos considerando los n primeros elementos del vector, indica qué afirmación es correcta con respecto a ella. Seleccione una:",
+    "opciones": {
+      "a": "El valor de r es el máximo de los elementos pares del vector.",
+      "b": "La postcondición está mal definida cuando n=longitud(v).",
+      "c": "El valor de r es la posición más a la derecha que contiene un elemento par.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: El valor de r es el máximo de los elementos del vector que se encuentran en posiciones pares."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "Indica la complejidad del siguiente algoritmo\nint a = 0;\nfor (int i = 1; i < n; i *= 4)\n  a++;",
+    "opciones": {
+      "a": "Θ(log n)",
+      "b": "Θ(n)",
+      "c": "Θ(n²)",
+      "d": "Ninguna de las anteriores"
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. El número de vueltas del bucle es proporcional a log n y el coste de cada vuelta es constante."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "Indica cuáles son funciones de cota para el siguiente bucle:\ni=0;\nwhile (i < n && v[i]!=0)\n  { i=i+2 }",
+    "opciones": {
+      "a": "n - i - 1",
+      "b": "n - i - 2",
+      "c": "i",
+      "d": "i + 2"
+    },
+    "correcta": "a",
+    "explicacion": "Correcta. Puesto que al entrar en el bucle 0 ≤ i < n, n − i − 1 es una función positiva que decrece en cada vuelta porque i se incrementa."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "¿Qué significa el siguiente predicado para un vector no vacío de naturales?\n∀i: 1 ≤ i < v.size(): (v[i]%2 = 0) ∨ (v[i−1]%2 = 1)",
+    "opciones": {
+      "a": "v consta de una secuencia de pares seguida de una de impares, ambas no vacías.",
+      "b": "En v tiene que haber al menos un par.",
+      "c": "En v tiene que haber al menos un impar.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: v consta de una secuencia de impares seguida de otra de pares, posiblemente vacías cualquiera de ellas."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "¿Cuáles de los siguientes algoritmos son algoritmos divide y vencerás?",
+    "opciones": {
+      "a": "Algoritmo de búsqueda binaria.",
+      "b": "Algoritmo de ordenación por selección.",
+      "c": "Algoritmo de ordenación por mezclas (mergesort).",
+      "d": "Algoritmo de Euclides."
+    },
+    "correcta": "a, c",
+    "explicacion": "Correcta. En este algoritmo se realizan dos llamadas recursivas cada una de ellas con la mitad de los elementos y después se combinan los resultados de ambas llamadas."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "Indica cuáles son casos peores del algoritmo quicksort que usa el primer elemento del segmento como pivote y que en la fase de partición reparte los elementos en menores, iguales y mayores:",
+    "opciones": {
+      "a": "Todos los elementos son iguales.",
+      "b": "Los elementos están ordenados a la inversa de forma estricta.",
+      "c": "El último elemento es la mediana del array.",
+      "d": "El primer elemento es la mediana del array."
+    },
+    "correcta": "b",
+    "explicacion": "Correcta. El caso en que los elementos ya están ordenados y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n²), siendo n el número de elementos del array."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "Indica a qué orden de complejidad pertenece T(n) definida por la recurrencia:\nT(n) = c₀ si n ≤ 1\nT(n) = T(n − 1) + T(n − 2) + c₁ si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ O(n log n)",
+      "b": "T(n) ∈ O(log n)",
+      "c": "T(n) ∈ O(n²)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: T(n) ∈ Θ(2ⁿ)"
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "Indica cuál de las siguientes afirmaciones es correcta para todo k tal que 0 ≤ k < 2",
+    "opciones": {
+      "a": "Ω(nᵏ) ⊂ Ω(n²)",
+      "b": "Ω(nᵏ) ⊂ Ω(nᵏ)",
+      "c": "Ω(nᵏ) ⊂ Ω(n)",
+      "d": "O(n log n) ⊂ O(nᵏ)"
+    },
+    "correcta": "b",
+    "explicacion": "Correcta. Afirmación correcta según la jerarquía de órdenes de complejidad."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "Dada la siguiente especificación\n{v.size() > 0}\nfun ultimoMaximo(vector v) dev (int i)\n{0 ≤ i < v.size() ∧ (∀k: 0 ≤ k < v.size():v[k] ≤ v[i]) ∧ (∀l: i < l < v.size():v[i] < v[l])}\ny el siguiente algoritmo como cuerpo de la función\ni=v.size()-1; int j=v.size()-2;\nwhile (j >= 0)\n  if (v[j]>v[i]) {i=j;}\n  j=j-1;\nreturn i;\nindica si el algoritmo es correcto con respecto a la especificación y en tal caso cual es el invariante que permite demostrar la corrección del bucle.",
+    "opciones": {
+      "a": "Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k: j < k < v.size():v[k] ≤ v[i]) ∧ (∀l: i < l < v.size():v[i] < v[l]).",
+      "b": "Es correcto con invariante 0 ≤ j < i < v.size() ∧ (∀k: j < k < v.size():v[k] ≤ v[i]) ∧ (∀l: i < l < v.size():v[i] < v[l]).",
+      "c": "Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k: j < k < v.size():v[k] ≤ v[i]) ∧ (∀l: i < l < v.size():v[i] < v[l]).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. La respuesta correcta es: Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k: j < k < v.size():v[k] ≤ v[i]) ∧ (∀l: i < l < v.size():v[i] < v[l])."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "Dada la siguiente especificación:\n{0 <= n <= longitud(V) ∧ V = V}\nproc xxx (inout v[]; int n)\n{forall i: 0 <= i < n : v[i] = Σ j : 0 <= j <= i : V[j]}\nal finalizar el procedimiento el vector v tiene en cada posición:",
+    "opciones": {
+      "a": "El mismo elemento que en el vector original.",
+      "b": "La suma de todos los elementos del vector original V situados en su posición y las anteriores.",
+      "c": "La suma de todos los elementos del vector original V situados en su posición y las posteriores.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. La respuesta correcta es: La suma de todos los elementos del vector original V situados en su posición y las anteriores."
+  },
+  {
+    "tema": "Repaso Temas 1 al 5_3",
+    "pregunta": "Indica qué afirmaciones son correctas acerca del siguiente algoritmo:\n{x > 0}\nint i=x;\nwhile (i>=0){\n  i=i+1;\n  i=i-1;\n}\n{i ≥ 0}",
+    "opciones": {
+      "a": "La postcondición debería ser i = −1 para que el bucle sea correcto.",
+      "b": "La función de cota es i.",
+      "c": "Es correcto respecto a la especificación.",
+      "d": "No termina."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. Puesto que el valor inicial de i es x > 0, y en cada vuelta i mantiene su valor, nunca alcanza el valor 0 y por tanto el bucle no termina."
+  }
+]

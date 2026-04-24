@@ -1,0 +1,43 @@
+{
+  "id": "va_adornosnavidadconestimacion_3",
+  "tema": "Backtracking",
+  "subtipo": "con poda",
+  "dificultad": 4,
+
+  "enunciado": "Este año, mis padres han decidido renovar los adornos que tradicionalmente ponemos en la casa por Navidad. Quieren comprar algunas figuras para el jardín delantero y para colgar en la fachada: un enorme árbol del que cuelguen bolas, luces y muñecos, y varias guirnaldas para las paredes y techos. Han seleccionado en un catálogo todos aquellos objetos que les gustaría poner. Ahora quieren maximizar la superficie cubierta por los adornos sin sobrepasar el presupuesto que tienen. Debemos tener en cuenta que los adornos no se pueden partir, ya que correríamos el riesgo de provocar un cortocircuito eléctrico.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de n + 1 líneas. En la primera se indica el número de objetos que se pueden comprar (1 ≤n ≤80) y el presupuesto con que se cuenta. En las n siguientes se indican el coste y la superficie que ocupa cada uno de los objetos.",
+  "salida": "Para cada caso de prueba se escribe en una línea la máxima superficie que pueden cubrir.",
+  "restricciones": "1 ≤ n ≤ 80",
+
+  "ejemplo": {
+    "input": "2 10\n1 1\n10 4\n4 10\n4 2\n3 4\n5 5\n2 1\n4 10\n4 6\n3 4\n5 5\n3 1\n8 15\n7 6\n5 4\n10 8\n8 9\n6 8\n5 6\n7 5\n6 8",
+    "output": "4\n10\n11\n17\n1"
+  },
+
+  "tags": ["backtracking", "poda", "optimización", "presupuesto", "superficie"],
+
+  "como_reconocerlo": "Problemas que requieren maximizar o minimizar un valor bajo restricciones específicas, como presupuesto.",
+  "idea_clave": "Utilizar backtracking con poda para evitar explorar soluciones que exceden el presupuesto disponible.",
+
+  "estrategia": [
+    "Inicializar variables para el presupuesto y la superficie máxima.",
+    "Recorrer cada objeto y decidir si incluirlo o no en la solución actual.",
+    "Aplicar poda para descartar soluciones parciales que exceden el presupuesto.",
+    "Actualizar la superficie máxima si se encuentra una solución válida mejor."
+  ],
+
+  "plantilla_codigo": "void maximizarSuperficie(int n, int presupuesto, vector<pair<int, int>> objetos) {\n  // Inicializar variables\n  int superficieMaxima = 0;\n  // Función recursiva para explorar soluciones\n  void backtrack(int index, int presupuestoActual, int superficieActual) {\n    // Caso base: si se ha recorrido todos los objetos\n    if (index == n) {\n      // Actualizar superficie máxima si es necesario\n      return;\n    }\n    // Opción 1: no incluir el objeto actual\n    backtrack(index + 1, presupuestoActual, superficieActual);\n    // Opción 2: incluir el objeto actual si el presupuesto lo permite\n    if (presupuestoActual + objetos[index].first <= presupuesto) {\n      backtrack(index + 1, presupuestoActual + objetos[index].first, superficieActual + objetos[index].second);\n    }\n  }\n  // Llamar a la función recursiva\n  backtrack(0, 0, 0);\n  // Imprimir la superficie máxima encontrada\n}",
+
+  "pistas": [
+    "Considera usar una función recursiva que explore todas las combinaciones posibles de adornos.",
+    "Implementa poda para evitar explorar caminos que ya superan el presupuesto disponible."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de adornos, aplicando poda para evitar caminos que exceden el presupuesto. La complejidad temporal es exponencial en el peor caso, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": [
+    "No aplicar poda correctamente, lo que lleva a explorar soluciones innecesarias.",
+    "No actualizar la superficie máxima correctamente al encontrar una nueva solución válida."
+  ]
+}

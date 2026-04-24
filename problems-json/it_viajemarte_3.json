@@ -1,0 +1,32 @@
+{
+  "id": "it_viajemarte_3",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "Viajes a Marte Los vuelos a Marte están cada vez más solicitados. Para poder cubrir la demanda, la compañía ha encargado unos vehículos espaciales con más filas de asientos. El constructor ha propuesto disminuir la distancia entre las filas de la parte posterior. De esta forma no será necesario hacer modificaciones en el diseño del aparato. El problema está en que en estas filas sólo podrán sentarse personas bajitas. La compañía, sin embargo, no quiere aumentar el presupuesto, por lo que ha decidido pedir a los viajeros su altura cuando compran el billete y a la hora de embarcar llama primero a los más bajos para que ocupen las filas posteriores. Tu misión es dividir a los viajeros entre bajos y altos en función de la altura que te digan. Si la altura de algún viajero coincide con la altura establecida se le considerará bajo. Debes también indicar el número de viajeros bajos del vuelo. Entrada La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de n+1 líneas. En la primera se indica el número n de viajeros y la altura establecida para diferenciarlos. En cada una de las líneas siguientes aparece el nombre de un viajero y su altura. El número de viajeros es mayor o igual que 0 y menor que 150.000. Los nombres de los viajeros son cadenas de caracteres sin blancos. La altura son números enteros positivos. Salida Para cada caso de prueba se escriben dos líneas. La primera comienza con Bajos: seguido de los nombres de los viajeros bajos. La segunda comienza con Altos: seguido de los nombres de los viajeros altos. Para poder comparar tu salida con la del juez los nombres de los viajeros se mostrarán en orden alfabético, aunque esto no debe alterar el algoritmo empleado para resolver el problema, sino solo la salida de los datos.",
+  "entrada": "Una serie de casos de prueba. Cada caso consta de n+1 líneas: la primera línea contiene un número n y una altura establecida; las siguientes n líneas contienen el nombre de un viajero y su altura.",
+  "salida": "Para cada caso de prueba, dos líneas: una con los nombres de los viajeros bajos y otra con los nombres de los viajeros altos, ambos en orden alfabético.",
+  "restricciones": "El número de viajeros es mayor o igual que 0 y menor que 150.000. Las alturas son números enteros positivos.",
+  
+  "ejemplo": {
+    "input": "5 170\nRosa 150\nOlga 175\nMaria 180\nLucia 170\nAna 150\n4 180\nDaniel 190\nJose 200\nAntonio 190\nRoberto 200\n2 150\nBeatriz 140\nGonzalo 120\n1",
+    "output": "Bajos: Ana Lucia Rosa\nAltos: Maria Olga\nBajos:\nAltos: Antonio Daniel Jose Roberto\nBajos: Beatriz Gonzalo\nAltos:"
+  },
+
+  "tags": ["vector", "acumulador", "ordenamiento", "iteración"],
+
+  "como_reconocerlo": "El problema requiere clasificar elementos en dos grupos basados en un criterio numérico.",
+  "idea_clave": "Usar un acumulador para separar y ordenar los nombres de los viajeros según su altura respecto a un valor dado.",
+
+  "estrategia": ["Leer el número de viajeros y la altura de referencia.", "Iterar sobre cada viajero, clasificándolos como bajos o altos.", "Ordenar alfabéticamente los nombres de cada grupo.", "Imprimir los resultados en el formato especificado."],
+
+  "plantilla_codigo": "void clasificarViajeros(int n, int alturaReferencia) {\n  vector<string> bajos;\n  vector<string> altos;\n  for (int i = 0; i < n; ++i) {\n    // Leer nombre y altura del viajero\n    // Clasificar en bajos o altos\n  }\n  // Ordenar los vectores bajos y altos\n  // Imprimir resultados\n}",
+
+  "pistas": ["Considera usar estructuras de datos que permitan ordenar fácilmente.", "Recuerda que la clasificación depende de si la altura es menor o igual a la referencia."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo clasifica a los viajeros en dos grupos según su altura comparada con un valor de referencia. Luego, ordena alfabéticamente los nombres de cada grupo antes de imprimirlos. La complejidad temporal es O(n log n) debido al ordenamiento de los nombres.",
+
+  "errores_comunes": ["No ordenar los nombres alfabéticamente antes de imprimir.", "Confundir la condición de clasificación, especialmente el caso de igualdad."]
+}

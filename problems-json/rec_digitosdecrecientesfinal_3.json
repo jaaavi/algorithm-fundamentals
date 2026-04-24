@@ -1,0 +1,42 @@
+{
+  "id": "rec_digitosdecrecientesfinal_3",
+  "tema": "Recursión",
+  "subtipo": "recursión final",
+  "dificultad": 4,
+
+  "enunciado": "Número con cifras decrecientes Dado un número queremos eliminar los dígitos que no superen a todos los dígitos que quedan a su derecha. Por ejemplo, dado el número 4321 todos sus dígitos igualan o superan a los que quedan a su derecha porque 4 ≥3 ≥2 ≥1 por lo que no se elimina ninguno de ellos. Sin embargo, dado el número 475241, el dígito 2 no supera al 4 y por lo tanto se debe eliminar, lo mismo ocurre con el dígito 4 de mayor peso. El número resultante es 7541. El número resultante siempre tendrá sus dígitos ordenados de forma decreciente según su valor. Observa también que dado un número, no queremos cualquier posible transformación que deje sus dígitos en orden decreciente, sino la que lo hace eliminando los dígitos que no superen a los dígitos que quedan a su derecha. Requisitos de implementación. • El problema debe resolverse con una función que sea recursiva final. • Debes incluir también la recursión del coste y decir qué coste tiene tu función. • La función recursiva debe recibir un número entero, y devolver como valor de retorno el número pedido. • No se pueden utilizar los tipos std::string, ni std::vector para resolver el ejercicio.",
+  "entrada": "La entrada comienza con el número de casos de prueba. Cada caso se escribe en una línea y consiste en un número, 0 <= N <= 100.000.000.",
+  "salida": "Para cada caso de prueba se muestra en una línea el resultado obtenido con la función recursiva final.",
+  "restricciones": "0 <= N <= 100.000.000",
+
+  "ejemplo": {
+    "input": "6\n4321\n1234\n1000\n888\n64839\n9576135",
+    "output": "4321\n4\n1000\n888\n9\n9765"
+  },
+
+  "tags": ["recursión", "números", "decreciente", "eliminación", "final"],
+
+  "como_reconocerlo": "El patrón concreto que identifica este tipo de problema es la eliminación de dígitos que no superan a los que quedan a su derecha en un número.",
+  "idea_clave": "La clave es recorrer el número de derecha a izquierda, manteniendo el máximo encontrado y eliminando los dígitos menores que este máximo.",
+
+  "estrategia": [
+    "Convertir el número en una secuencia de dígitos.",
+    "Recorrer los dígitos de derecha a izquierda.",
+    "Mantener el máximo encontrado y construir el número resultante eliminando los dígitos menores que este máximo."
+  ],
+
+  "plantilla_codigo": "int eliminarDigitos(int numero) {\n    // Implementar la lógica de recursión final aquí\n    // Recorrer los dígitos de derecha a izquierda\n    // Mantener el máximo encontrado\n    // Construir el número resultante\n    return 0; // Cambiar por el resultado correcto\n}",
+
+  "pistas": [
+    "Piensa en cómo puedes recorrer los dígitos de un número sin convertirlo a una cadena.",
+    "Considera cómo puedes mantener el máximo encontrado mientras recorres los dígitos de derecha a izquierda."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre los dígitos del número de derecha a izquierda, manteniendo el máximo encontrado. Si un dígito es menor que el máximo, se elimina. Esto asegura que el número resultante tiene sus dígitos en orden decreciente. La complejidad temporal es O(d), donde d es el número de dígitos del número de entrada.",
+
+  "errores_comunes": [
+    "Convertir el número a una cadena para manipular los dígitos, lo cual está prohibido.",
+    "No mantener correctamente el máximo encontrado al recorrer los dígitos, lo que lleva a resultados incorrectos."
+  ]
+}

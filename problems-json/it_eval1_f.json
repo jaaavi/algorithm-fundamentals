@@ -1,0 +1,43 @@
+{
+  "id": "it_eval1_f",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 4,
+
+  "enunciado": "Cargado por la cuesta\nCualquiera que haya ido a hacer la compra semanal andando teme las cuestas. Subir largas cuestas cargado con las bolsas de la compra es una tortura por la que Guillermo está decidido a no volver a sufrir. Aprovechando que se tiene que mudar de piso, se ha hecho con un mapa topográfico de la zona para comprobar las elevaciones del terreno. Su idea es estudiar los cambios de elevación para buscar si hay alguna cuesta y, así, evitar mudarse a esa zona.\nEl tipo de cuesta que Guillermo quiere evitar son aquellas en las que la altura del terreno nunca desciende, que tienen una longitud estrictamente mayor que una cantidad L y cuyo desnivel total es mayor o igual que una cantidad D.\nPor ejemplo, si el terreno tiene las siguientes alturas 1 -1 2 2 5 7 5 y quiere evitar una cuesta con desnivel mayor o igual que 6 y de longitud mayor que 2; encontrará una cuesta que comienza en la posición 1 (comprende el trozo -1 2 2 5), ya que el terreno nunca desciende, la longitud es 4 > 2 y cuyo desnivel es 6 ≥6. Le da igual lo que ocurra después de encontrar la primera cuesta, además.\nSe pide:\n1. (1 punto) Define un predicado auxiliar cuesta(v,p,q,D) que se evalúe a cierto si, y solo si, entre las posiciones p y q (ambas incluidas) el terreno es no decreciente (los valores suben o se mantienen igual) y el desnivel total es mayor o igual que D.\n2. (2 puntos) Utilizando el predicado auxiliar cuesta(v,a,b,D), especifica una función que dado un vector v de enteros, un valor 0 ≤D de desnivel mínimo y un valor 0 ≤L de longitud mínima, devuelva dos valores, un booleano que indique si existe una cuesta y un entero que, en caso de existir la cuesta, sea la primera posición de la misma.\n3. (6 puntos) Diseña e implementa un algoritmo iterativo eficiente que resuelva el problema propuesto.\n4. (1 punto) Indica el coste asintótico del algoritmo en el caso peor y justifica adecuadamente tu respuesta.",
+  "entrada": "La entrada está compuesta por diferentes casos de prueba. Cada caso de prueba consta de dos líneas. La primera contendrá el número de elementos del vector N (0 ≤N ≤109), el desnivel mínimo D (0 ≤D ≤1000) y la longitud mínima L (0 ≤L ≤N). La segunda los N elementos del vector.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con SI seguido del comienzo de la primera cuesta (en caso de que exista); o con NO en caso de no existir ninguna cuesta.",
+  "restricciones": "0 ≤N ≤109, 0 ≤D ≤1000, 0 ≤L ≤N",
+
+  "ejemplo": {
+    "input": "7 6 2\n1 -1 2 2 5 7 5\n0 0 0\n3 1 1\n0 -2 -1\n7 4 2\n5 1 -1 1 0 1 7\n4 2 4\n1 2 3 4\n4 2 3\n1 2 3 4",
+    "output": "SI 1\nNO\nSI 1\nSI 4\nNO\nSI 0"
+  },
+
+  "tags": ["vector", "ventana", "desnivel", "iterativo", "búsqueda"],
+
+  "como_reconocerlo": "El problema busca una subsecuencia no decreciente con restricciones de longitud y desnivel.",
+  "idea_clave": "Utilizar una ventana deslizante para encontrar la primera subsecuencia que cumpla las condiciones.",
+  
+  "estrategia": [
+    "Inicializar variables para la posición inicial de la ventana y el desnivel acumulado.",
+    "Deslizar la ventana a través del vector, actualizando el desnivel y verificando si la subsecuencia es no decreciente.",
+    "Comprobar si la longitud y el desnivel cumplen las condiciones dadas.",
+    "Detenerse al encontrar la primera subsecuencia válida."
+  ],
+
+  "plantilla_codigo": "bool cuesta(const vector<int>& v, int p, int q, int D) {\n  // Implementar lógica para verificar si el tramo es no decreciente y cumple el desnivel\n}\n\npair<bool, int> encontrarCuesta(const vector<int>& v, int D, int L) {\n  // Inicializar variables\n  // Recorrer el vector con una ventana\n  // Verificar condiciones\n  // Retornar resultado\n}",
+
+  "pistas": [
+    "Considera cómo mantener el desnivel acumulado mientras deslizas la ventana.",
+    "Asegúrate de que la subsecuencia es no decreciente antes de verificar las condiciones de longitud y desnivel."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una ventana deslizante para recorrer el vector de alturas. Calcula el desnivel acumulado y verifica si la subsecuencia es no decreciente. Si encuentra una subsecuencia que cumple las condiciones de longitud y desnivel, devuelve la posición inicial de la misma. La complejidad temporal es O(N) en el peor caso, ya que cada elemento del vector se procesa una vez.",
+  
+  "errores_comunes": [
+    "No actualizar correctamente el desnivel acumulado al mover la ventana.",
+    "No verificar que la subsecuencia es no decreciente antes de comprobar las condiciones de longitud y desnivel."
+  ]
+}

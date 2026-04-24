@@ -1,0 +1,34 @@
+{
+  "id": "rec_sumdivisible_1",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 3,
+  "enunciado": "Se dice que un entero positivo es “sumdivisible” si la suma de sus dígitos es divisible por el número de dígitos y al quitar el último, el resultado es también “sumdivisible”. Por ejemplo, el número 33374 es “sumdivisible”, ya que: 33374 tiene 5 dígitos y 3+3+3+7+4=20 es divisible por 5 3337 tiene 4 dígitos y 3+3+3+7=16 es divisible por 4 333 tiene 3 dígitos y 3+3+3=9 es divisible por 3 33 tiene 2 dígitos y 3+3=6 es divisible por 2 3 tiene 1 dígito y 3=3 es divisible por 1 Se pide: (a) (2,5 puntos) Implementar un algoritmo recursivo que tome como entrada un entero positivo y determine si es o no “sumdivisible” (b) (0,5 puntos) Determinar justiﬁcadamente el orden de complejidad del algoritmo La implementación deberá ir acompañada de un programa de prueba, que lea desde la entrada estandar casos de prueba, los ejecute, e imprima por la salida estándar el resultado. Cada caso de prueba será una línea con un entero positivo. La salida correspondiente será SI si el número es “sumdivisible”, y NO en caso contrario. El ﬁnal de los casos de prueba se indicará mediante una línea que contiene únicamente 0. A continuación se muestra un ejemplo de entrada / salida: Entrada 33374 33373 84 85 9 0 Salida SI NO SI NO SI",
+  "entrada": "Un entero positivo.",
+  "salida": "Devuelve 'SI' si el número es “sumdivisible”, y 'NO' en caso contrario.",
+  "restricciones": "No especificadas",
+  "ejemplo": {
+    "input": "33374",
+    "output": "SI"
+  },
+  "tags": ["recursión", "divisibilidad", "números", "dígitos"],
+  "como_reconocerlo": "El problema requiere verificar una propiedad recursiva sobre los dígitos de un número.",
+  "idea_clave": "Verificar recursivamente la divisibilidad de la suma de dígitos por el número de dígitos.",
+  "estrategia": [
+    "Calcular la suma de los dígitos del número.",
+    "Verificar si la suma es divisible por el número de dígitos.",
+    "Eliminar el último dígito y repetir el proceso recursivamente.",
+    "Si se llega a un solo dígito, verificar la condición base."
+  ],
+  "plantilla_codigo": "bool esSumdivisible(int n) {\n    // Calcular la suma de los dígitos\n    // Verificar divisibilidad\n    // Caso base: si n tiene un solo dígito\n    // Llamada recursiva eliminando el último dígito\n}",
+  "pistas": [
+    "Considera cómo calcular la suma de los dígitos de un número.",
+    "Piensa en cómo reducir el problema eliminando el último dígito."
+  ],
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo verifica si un número es 'sumdivisible' calculando la suma de sus dígitos y comprobando la divisibilidad por el número de dígitos. Luego, recursivamente, elimina el último dígito y repite el proceso. La complejidad temporal es O(d), donde d es el número de dígitos del número.",
+  "errores_comunes": [
+    "No manejar correctamente el caso base de un solo dígito.",
+    "Olvidar verificar la divisibilidad en cada paso recursivo."
+  ]
+}

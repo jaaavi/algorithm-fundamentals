@@ -1,0 +1,43 @@
+{
+  "id": "va_caballoajedrez_9",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Caballo de ajedrez Los caballos son una de las piezas más fascinantes del ajedrez. Se pueden mover hasta de 8 formas diferentes dando saltos de un lado para otro del tablero. Queremos saber de cuántas formas podemos llegar desde una casilla inicial a la esquina superior derecha sin pasar dos veces por la misma casilla. Entrada La entrada contiene un conjunto de casos de prueba, cada uno en una línea. Cada caso de prueba contiene 3 números enteros positivos n, x e y que indican respectivamente las dimensiones del tablero de ajedrez (n × n siendo n ≤8) y la casilla inicial (x, y) donde comienza el caballo. La casilla (0, 0) corresponde a la esquina inferior izquierda del tablero. La entrada termina con un tablero de tamaño 0 que no se debe procesar. Salida Para cada caso de prueba el programa escribirá de cuántas formas distintas puede ir el caballo desde la casilla inicial hasta la esquina superior derecha del tablero sin pasar dos veces por la misma casilla.",
+  "entrada": "Un conjunto de casos de prueba, cada uno en una línea, con 3 números enteros positivos n, x, y.",
+  "salida": "Para cada caso de prueba, el número de formas distintas en que el caballo puede ir desde la casilla inicial hasta la esquina superior derecha sin pasar dos veces por la misma casilla.",
+  "restricciones": "n ≤ 8",
+
+  "ejemplo": {
+    "input": "2 0 0\n3 0 0\n3 1 1\n4 0 0\n4 0 1\n4 1 1\n0 0 0",
+    "output": "0\n2\n0\n138\n154\n136"
+  },
+
+  "tags": ["backtracking", "caballo", "ajedrez", "restricciones", "tablero"],
+
+  "como_reconocerlo": "El problema involucra encontrar caminos en un tablero de ajedrez con restricciones de movimiento.",
+  "idea_clave": "Usar backtracking para explorar todas las posibles rutas del caballo sin repetir casillas.",
+
+  "estrategia": [
+    "Definir las 8 posibles direcciones de movimiento del caballo.",
+    "Usar backtracking para explorar todas las rutas posibles desde la casilla inicial.",
+    "Marcar las casillas visitadas para evitar repeticiones.",
+    "Contar las rutas que llegan a la esquina superior derecha."
+  ],
+
+  "plantilla_codigo": "void resolver(int n, int x, int y) {\n  // Inicializar el tablero y las direcciones de movimiento\n  // Llamar a la función de backtracking\n}\n\nvoid backtrack(int x, int y, int pasos) {\n  // Comprobar si se ha llegado a la esquina superior derecha\n  // Marcar la casilla actual como visitada\n  // Intentar moverse en cada una de las 8 direcciones\n  // Desmarcar la casilla actual antes de retroceder\n}",
+
+  "pistas": [
+    "Considera todas las direcciones posibles en las que el caballo puede moverse.",
+    "Asegúrate de no visitar la misma casilla más de una vez en el mismo camino."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las posibles rutas del caballo desde la casilla inicial hasta la esquina superior derecha del tablero. Se asegura de no visitar la misma casilla más de una vez en cada ruta. La complejidad temporal es alta debido al número de rutas posibles, pero está limitada por el tamaño máximo del tablero (8x8).",
+
+  "errores_comunes": [
+    "No considerar todas las direcciones de movimiento del caballo.",
+    "Olvidar desmarcar una casilla al retroceder en el backtracking."
+  ]
+}

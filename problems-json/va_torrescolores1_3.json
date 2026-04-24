@@ -1,0 +1,45 @@
+{
+  "id": "va_torrescolores1_3",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 3,
+
+  "enunciado": "Torres de colores. Versión 1. (Examen febrero 2017, sesión 2, ejercicio 3, simplificado) Laura quiere construir una torre con piezas de colores. En su juego de construcciones hay piezas azules, rojas y verdes, de cada una de las cuales tiene tantas piezas como quiera. Quiere construir una torre que contenga n >= 1 piezas en total cada una encima de la anterior. Implementar un algoritmo que muestre todas las formas posibles que tiene de construir una torre de la altura deseada. Requisitos de implementación El objetivo del problema es practicar el esquema de vuelta atrás, por lo tanto se pueden representar los colores con valores enteros. No es necesario utilizar tipos enumerados. La salida se pide ordenada en orden lexicográfico. Para ello piensa en que orden debe el algoritmo ir probando los tres valores, de forma que las permutaciones se generen en el orden que se pide en la salida.",
+  "entrada": "La entrada que espera el corrector automático consta de una serie de casos de prueba y acabará cuando se introduzca una línea con un cero. Cada caso de prueba se escribe en una línea y consta de 1 entero mayor que cero y representa la altura de la torre.",
+  "salida": "Para cada caso de prueba se escriben todas las posibles torres, una en cada línea ordenadas por orden lexicográfico y separando cada par de colores por un espacio. Cada caso termina con una línea en blanco.",
+  "restricciones": "n >= 1",
+
+  "ejemplo": {
+    "input": "1\n2\n0",
+    "output": "azul\nrojo\nverde\n\nazul azul\nazul rojo\nazul verde\nrojo azul\nrojo rojo\nrojo verde\nverde azul\nverde rojo\nverde verde\n\n"
+  },
+
+  "tags": ["backtracking", "permutaciones", "lexicográfico", "colores", "torres"],
+
+  "como_reconocerlo": "El problema requiere generar todas las combinaciones posibles de elementos con restricciones específicas.",
+  "idea_clave": "Utilizar backtracking para generar combinaciones de colores y asegurar el orden lexicográfico en la salida.",
+
+  "estrategia": [
+    "Definir una función recursiva que construya las torres.",
+    "En cada llamada recursiva, añadir un color a la torre actual.",
+    "Comprobar si la torre actual ha alcanzado la altura deseada.",
+    "Si es así, añadir la torre a la lista de resultados.",
+    "Si no, continuar añadiendo colores.",
+    "Asegurar que los colores se añaden en orden lexicográfico."
+  ],
+
+  "plantilla_codigo": "void construirTorres(int altura, string torreActual) {\n  // Si la torre actual tiene la altura deseada, imprimirla\n  // Si no, añadir un color y llamar recursivamente\n  // Asegurar el orden lexicográfico\n}\n\nvoid resolver(int n) {\n  construirTorres(n, \"\");\n}",
+
+  "pistas": [
+    "Piensa en cómo ordenar los colores para que las combinaciones se generen en orden lexicográfico.",
+    "Recuerda que puedes usar enteros para representar los colores y facilitar el ordenamiento."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para generar todas las combinaciones posibles de colores para construir torres de una altura dada. Funciona porque explora todas las posibilidades de forma sistemática y asegura el orden lexicográfico al probar los colores en un orden específico. La complejidad temporal es O(3^n) donde n es la altura de la torre, ya que cada posición puede ser ocupada por uno de los tres colores.",
+  
+  "errores_comunes": [
+    "No asegurar el orden lexicográfico al generar las combinaciones.",
+    "Olvidar añadir una línea en blanco después de cada conjunto de combinaciones para un caso de prueba."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "rec_fugaprision_3",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 3,
+
+  "enunciado": "Año 3016, sistema interestelar XG23. En la carcel de alta seguridad C78 se ha detectado la fuga de un preso del pabellón Z4. Cada preso del pabellón se identifica mediante una letra del alfabeto latino moderno de 26 letras. Sabiendo que el primer preso de este pabellón tiene la letra x1 y el último es el x2 y que todos ellos son consecutivos, encuentra la letra del preso fugado lo más rápido posible para evitar que pueda robar una nave y salir del sistema interestalar. Requisitos de implementación. Indicar el coste de la solución obtenida. La función que resuelve el problema debe recibir las letras de los presos en un vector y calcular el que falta. La implementación debe ser recursiva. Dada dos variables de tipo char el resultado de restar su valor es la diferencia entre los códigos ASCII de los caracteres. Por ejemplo si la variable x1 tiene el valor ’c’ y la variable x2 el valor ’f’, el resultado de la operación x2-x1 es 3.",
+  "entrada": "La entrada comienza con el número de casos de prueba. Cada caso de prueba tiene dos líneas. En la primera se indica la letra del primer y último presidiario del pabellón. En la segunda se indican las letras de los presidiarios presentes en el recuento, ordenados en orden ascendente. Cada pabellón tiene al menos un preso distinto del que se ha fugado.",
+  "salida": "Para cada caso de prueba se escribe en una línea la letra del preso fugado.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "12\na e\na b c e\nc h\nd e f g h\nc h\nc e f g h\nc h\nc d f g h\nc h\nc d e g h\nc h\nc d e f h\nc h\nc d e f g\nd h\ne f g h\nd h\nd f g h\nd h\nd e g h\nd h\nd e f h\nd h\nd e f g\n1",
+    "output": "d\nc\nd\ne\nf\ng\nh\nd\ne\nf\ng\nh\n2"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "vector", "búsqueda", "ASCII"],
+
+  "como_reconocerlo": "El problema requiere encontrar un elemento faltante en una secuencia ordenada de caracteres.",
+  "idea_clave": "Utilizar recursión para dividir el problema en subproblemas más pequeños y encontrar el carácter faltante.",
+  
+  "estrategia": [
+    "Dividir el vector de caracteres en dos mitades.",
+    "Comparar el índice esperado con el índice real para determinar en qué mitad falta el carácter.",
+    "Aplicar recursión en la mitad donde falta el carácter.",
+    "Continuar hasta encontrar el carácter faltante."
+  ],
+
+  "plantilla_codigo": "char encontrarFugado(vector<char>& presos, int inicio, int fin) {\n  if (inicio >= fin) {\n    // Caso base: devolver el carácter faltante\n  }\n  int medio = (inicio + fin) / 2;\n  // Comparar índices y decidir en qué mitad buscar\n  // Llamada recursiva a la mitad correspondiente\n}",
+
+  "pistas": [
+    "Piensa en cómo dividir el vector de caracteres en mitades.",
+    "Observa cómo los índices esperados y reales pueden indicar dónde falta el carácter."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una estrategia de divide y vencerás para encontrar el carácter faltante en una secuencia ordenada de caracteres. Al dividir el vector en mitades y comparar índices, se puede determinar en qué mitad falta el carácter. La complejidad temporal es O(log n) debido a la división recursiva del problema.",
+
+  "errores_comunes": [
+    "No manejar correctamente el caso base de la recursión.",
+    "Confundir los índices esperados y reales al comparar mitades."
+  ]
+}

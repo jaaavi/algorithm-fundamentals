@@ -1,0 +1,43 @@
+{
+  "id": "rec_prob_el_ritmo_de_los_nu_meros",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 4,
+
+  "enunciado": "Después de dedicar décadas y décadas de su vida al noble arte de contador profesional, el Conde Draco anda cabizbajo. Donde antes habitaba la ilusión por la enumeración cantada, ahora solo queda un trabajo, una rutina que le pesa. Necesita nuevos retos numéricos que le hagan sentir algo. ¿Pero qué podía hacer? El Conde se encerró en su castillo durante meses estrujando sus neuronas de gomaespuma: ¿Sumar números? —Muy visto, se dijo—. ¿Restar? —Eso es casi lo mismo—. Estaría bien que pudiera seguir manteniendo ritmos —¡Ajá!—. ¡Sumas y restas alternantes! La idea del nuevamente ilusionado Conde Draco fue la de hacer sumas y restas de dígitos juntándolos por bloques según un valor de ritmo. Si el ritmo es k, cada bloque tendrá tamaño k. Así, los primeros k dígitos (desde el dígito más significativo en adelante) se suman, los siguientes k se restan, los siguientes k se suman de nuevo, etc. Lo entenderemos mejor con el ejemplo que contó en Conde Draco a los productores de su programa. Imaginemos que cogemos el número 9732 y el ritmo k=1, entonces cada bloque tendrá tamaño 1 y la cuenta será 9-7+3-2 = 3. Si cambiamos el ritmo a k=2, los bloques tendrían tamaño 2, dando 9+7-3-2 = 11. Si el ritmo fuera k=3, se tendría 9+7+3-2 = 17. Y para cualquier k≥4 tendríamos 9+7+3+2 = 21. Los productores no están muy convencidos de que esto vaya a hacer que el programa del Conde Draco sea más divertido pero, como son incapaces de desilusionarle, le han dicho que adelante con ello. Se pide: 1. (8 puntos) Escribe un algoritmo recursivo eficiente que permita resolver el problema para un número n≥0 y un factor de ritmo k≥1 dados. No está permitido almacenar en un vector auxiliar o una variable string los dígitos del número. 2. (0.5 puntos) Justifica si tu función es recursiva final o no final. 3. (1.5 puntos) Escribe la recurrencia que corresponde al coste de la función recursiva utilizando el número de dígitos de n como tamaño del problema. Indica también a qué orden de complejidad asintótica pertenece dicho coste.",
+  "entrada": "Cada caso de consta de un número 0 ≤n≤263 −1 y un factor de ritmo 0 ≤k≤231 −1. La entrada termina cuando no haya más números que procesar",
+  "salida": "Para cada caso de prueba el programa escribirá el valor resultante de hacer la suma alternante de los dígitos de n según el factor de ritmo k. El resultado siempre será un número entero.",
+  "restricciones": "0 ≤ n ≤ 263 − 1, 0 ≤ k ≤ 231 − 1",
+
+  "ejemplo": {
+    "input": "9732 1\n1107 1\n1107 2\n421 2\n0 1\n99 7",
+    "output": "3\n-7\n-5\n5\n0\n18"
+  },
+
+  "tags": ["recursión", "aritmética", "dígitos", "alternancia"],
+
+  "como_reconocerlo": "El problema implica realizar operaciones alternantes sobre los dígitos de un número según un patrón cíclico.",
+  "idea_clave": "Utilizar recursión para procesar los dígitos del número en bloques de tamaño k, alternando entre suma y resta.",
+
+  "estrategia": [
+    "Definir una función recursiva que procese los dígitos del número.",
+    "Dividir los dígitos en bloques de tamaño k.",
+    "Alternar entre sumar y restar los bloques.",
+    "Llamar recursivamente hasta procesar todos los dígitos."
+  ],
+
+  "plantilla_codigo": "int ritmoNumeros(int n, int k) {\n    // Caso base: si n es 0, devolver 0\n    // Calcular el bloque actual de dígitos\n    // Determinar si sumar o restar el bloque\n    // Llamada recursiva para el resto de los dígitos\n    return 0; // Cambiar por el resultado correcto\n}",
+
+  "pistas": [
+    "Considera cómo extraer los dígitos de un número sin convertirlo a una cadena.",
+    "Piensa en cómo alternar entre suma y resta usando el índice del bloque actual."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo procesa los dígitos del número en bloques de tamaño k, alternando entre sumarlos y restarlos. Funciona porque cada llamada recursiva reduce el problema al siguiente bloque de dígitos. La complejidad temporal es O(d/k), donde d es el número de dígitos de n.",
+  
+  "errores_comunes": [
+    "Olvidar alternar correctamente entre suma y resta.",
+    "No manejar correctamente el caso base cuando n es 0."
+  ]
+}

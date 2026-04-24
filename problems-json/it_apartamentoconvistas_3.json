@@ -1,0 +1,44 @@
+{
+  "id": "it_apartamentoconvistas_3",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "Un apartamento con vistas Quiero comprar un apartamento en un pueblo de la costa para ir a pasar las vacaciones. Lo más importante es que tenga vistas al mar. Ayer estuve recorriendo las calles del pueblo desde el interior hacia el mar y por cada calle que pasé, apunté la altura de todos los edificios de la calle y la altura del piso mas alto que se vende en cada edificio. En este pueblo todas las calles son paralelas o perpendiculares al mar y entre cada dos calles solo hay un edificio. Ahora voy a analizar las casas de cada calle perpendicular al mar para saber que pisos no tienen ningún edificio que les tape la vista del mar. Un edificio tapa la vista si tiene la misma altura o superior que el piso. Requisitos de implementación. Se debe implementar un función que reciba un vector con los datos de los edificios tal como se dan en la entrada y devuelva en otro vector los identificadores de los edificios con vistas al mar, ordenados desde el mar hacia el interior. El coste de la función debe ser del orden del número de edificios. Justifica el coste de tu implementación. Entrada La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de n+1 líneas. En la primera línea se indica el número de edificios n de la calle. En las n líneas siguientes para cada edificio, desde el edificio que se encuentra más en el interior hasta el edificio que se encuentra en la costa, se da su identificador, su altura y la altura del piso más alto que se vende. Si no se vende ningún piso en este edificio se pondrá un valor negativo. La entrada termina con un cero. Se garantiza que el número de edificios es mayor que cero y menor que 200.000, y la altura de los edificios es un número entero mayor o igual que cero y menor que 200.000. La altura de los pisos es menor o igual que la altura del edificio en que se encuentran. El identificador del edificio es una cadena de caracteres sin blancos. Salida Para cada caso de prueba se escriben dos líneas. En la primera se indica el número de pisos que tienen vistas al mar y en la segunda el identificador de los edificios en que se encuentran esos pisos. Los edificios se muestran desde la costa hacia el interior. Si no hay ningún piso con vistas se escribirá Ninguno.",
+  "entrada": "Un vector con los datos de los edificios: identificador, altura del edificio, altura del piso más alto que se vende.",
+  "salida": "Un vector con los identificadores de los edificios con vistas al mar, ordenados desde el mar hacia el interior.",
+  "restricciones": "El número de edificios es mayor que cero y menor que 200.000. La altura de los edificios es un número entero mayor o igual que cero y menor que 200.000.",
+
+  "ejemplo": {
+    "input": "4\nMiraSierra 10 5\nBellaVista 6 4\nDescanso 3 -1\nMiraMar 2 1\n1\nPaz 3 1\n3\nCampos 10 5\nSegundo 7 4\nPlaya 5 1\n2\nNaranjos 5 3\nPalmeras 6 -1\n4\nOlivos 10 5\nBuganvilla 4 3\nPaseoII 6 6\nElPuerto 6 -1\n0",
+    "output": "2\nMiraMar BellaVista\n1\nPaz\n1\nPlaya\nNinguno\nNinguno\n2"
+  },
+
+  "tags": ["vector", "acumulador", "vista", "edificios", "ordenación"],
+
+  "como_reconocerlo": "El problema requiere identificar elementos que cumplen una condición acumulativa a lo largo de una secuencia.",
+  "idea_clave": "Recorrer los edificios desde el mar hacia el interior, acumulando la altura máxima vista y comparando con la altura de los pisos más altos que se venden.",
+
+  "estrategia": [
+    "Inicializar una variable para almacenar la altura máxima vista.",
+    "Recorrer los edificios desde el mar hacia el interior.",
+    "Para cada edificio, comparar la altura del piso más alto que se vende con la altura máxima vista.",
+    "Si el piso más alto es mayor que la altura máxima vista, añadir el identificador del edificio al resultado y actualizar la altura máxima vista.",
+    "Devolver los identificadores de los edificios con vistas al mar."
+  ],
+
+  "plantilla_codigo": "void apartamentosConVistas(const vector<Edificio>& edificios, vector<string>& vistas) {\n    int alturaMaximaVista = 0;\n    // Recorrer los edificios desde el mar hacia el interior\n    for (int i = edificios.size() - 1; i >= 0; --i) {\n        // Comparar la altura del piso más alto que se vende\n        if (edificios[i].alturaPiso > alturaMaximaVista) {\n            // Añadir identificador al resultado\n            vistas.push_back(edificios[i].identificador);\n            // Actualizar la altura máxima vista\n            alturaMaximaVista = edificios[i].alturaPiso;\n        }\n    }\n    // Invertir el vector de vistas para que estén desde el mar hacia el interior\n    reverse(vistas.begin(), vistas.end());\n}",
+
+  "pistas": [
+    "Considera recorrer los edificios desde el mar hacia el interior para facilitar la comparación de alturas.",
+    "Mantén un registro de la altura máxima vista hasta el momento para decidir si un piso tiene vistas al mar."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre los edificios desde el mar hacia el interior, manteniendo un registro de la altura máxima vista. Si un piso más alto que la altura máxima vista se encuentra, se considera que tiene vistas al mar. Esto asegura que solo los pisos que realmente tienen vistas se añaden al resultado. La complejidad temporal es O(n), donde n es el número de edificios, ya que cada edificio se procesa una vez.",
+
+  "errores_comunes": [
+    "No actualizar correctamente la altura máxima vista después de encontrar un piso con vistas.",
+    "No invertir el vector de resultados para que los identificadores estén en el orden correcto desde el mar hacia el interior."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "rec_arqueologo_jun25",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 3,
+
+  "enunciado": "El profesor Henry del Marshall College es un arqueólogo que disfruta del trabajo de campo... Pero no tanto del de clasificación de los artefactos que encuentra. Por ello suele usar a sus alumnos para que clasifiquen lo excavado. Como es consciente que esto podría parecerse demasiado a explotación no remunerada, ha incluido esta clasificación como el método que usa para evaluar el trabajo de sus grupos de estudiantes. El método de evaluación es el siguiente: Henry se queda con un artefacto que le parece más interesante y lo data con la precisión que le caracteriza; mientras, sus estudiantes datan lo mejor que pueden el resto de artefactos. Una vez que están todos datados, los alumnos los ordenan de mayor a menor por su fecha estimada y el profesor busca el artefacto cuya fecha es la más cercana a la que dató. En caso de empate, elige el que tenga la fecha más reciente. Los alumnos aprueban si ese artefacto está suficientemente bien datado. Como esto no es un curso de arqueología sino de algoritmia, tu trabajo es únicamente el de encontrar el artefacto que más se acerca (en valor absoluto) a la fecha precisa dada por el profesor. Por ejemplo, si los artefactos tienen fechas [10,6,4,1,1,-2] y se busca la pieza que más se acerque a una datación del año 5; el artefacto que más se acerca es el del año 6 (el del año 4 también está a distancia 1, pero el año 6 es más reciente). Se pide: 1. Diseña un algoritmo recursivo eficiente que permita resolver el problema. 2. Escribe la recurrencia que corresponde al coste de la función recursiva e indica a qué orden de complejidad asintótica pertenece dicho coste.",
+  "entrada": "La entrada consta de varios casos de prueba. Cada uno de ellos ocupa dos líneas. La primera línea indica la cantidad N de piezas que han datado los alumnos (1 ≤ N ≤ 1000) y la fecha f de la pieza datada por el profesor. La segunda línea contiene las N fechas estimadas de los alumnos. Estas fechas estarán ordenadas decrecientemente. La entrada termina con 0 0.",
+  "salida": "Para cada caso de prueba debe escribirse una línea con la fecha de la pieza que más se acerca a la que ha datado el profesor. En caso de empate, se elegirá la fecha más reciente.",
+  "restricciones": "1 ≤ N ≤ 1000",
+
+  "ejemplo": {
+    "input": "6 5\n10 6 4 1 1 -2\n3 -1\n3 3 3\n5 -10\n1200 977 20 -6 -50\n1 100\n50\n0 0",
+    "output": "6\n3\n-6\n50"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "búsqueda", "ordenación"],
+
+  "como_reconocerlo": "El problema requiere encontrar el elemento más cercano a un valor dado en una lista ordenada.",
+  "idea_clave": "Utilizar un enfoque de divide y vencerás para reducir el espacio de búsqueda de manera eficiente.",
+
+  "estrategia": ["Dividir el conjunto de fechas en mitades.", "Comparar la fecha central con la fecha objetivo.", "Decidir en qué mitad continuar la búsqueda.", "Repetir hasta encontrar la fecha más cercana."],
+
+  "plantilla_codigo": "int encontrarFechaMasCercana(vector<int>& fechas, int f, int inicio, int fin) {\n    if (inicio > fin) {\n        // Caso base: devolver el resultado más cercano encontrado\n    }\n    int medio = (inicio + fin) / 2;\n    // Comparar fechas[medio] con f y decidir en qué mitad continuar\n    // Llamada recursiva a la mitad seleccionada\n}",
+
+  "pistas": ["Considera cómo dividir el problema en subproblemas más pequeños.", "Piensa en cómo manejar el caso de empate."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza un enfoque de divide y vencerás para encontrar la fecha más cercana a la dada por el profesor. Al dividir el conjunto de fechas en mitades, se reduce el espacio de búsqueda, lo que permite encontrar la solución de manera eficiente. La complejidad temporal es O(log N) debido a la naturaleza recursiva del enfoque.",
+
+  "errores_comunes": ["No manejar correctamente el caso de empate al elegir la fecha más reciente.", "No considerar el caso base adecuadamente, lo que puede llevar a una recursión infinita."]
+}

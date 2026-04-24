@@ -1,0 +1,121 @@
+[
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "Dada la siguiente recurrencia, indica la respuesta correcta: T(n) = 3n² si n ≤ 1 T(n) = 3T(⌊n/2⌋) + n² si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ Θ(n²)",
+      "b": "T(n) ∈ Θ(n)",
+      "c": "T(n) ∈ Θ(log n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "La respuesta correcta es: T(n) ∈ Θ(n²)"
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "¿En qué casos no termina este algoritmo recursivo? int f(int x) { int resultado; if (x==0) {resultado=0;} else {resultado = f(x-2);} return resultado; }",
+    "opciones": {
+      "a": "Solo en los positivos pares",
+      "b": "Siempre termina, pues el argumento de la llamada decrece.",
+      "c": "Solamente en los números negativos y en los positivos impares.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: Solamente en los números negativos y en los positivos impares."
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "La generalización es una técnica que se utiliza para:",
+    "opciones": {
+      "a": "Disponer de funciones más generales que la que se deseaba.",
+      "b": "Diseñar algoritmos recursivos.",
+      "c": "Obtener versiones recursivas finales de funciones recursivas lineales no finales.",
+      "d": "Mejorar la eficiencia de los algoritmos recursivos."
+    },
+    "correcta": "a, b, c, d",
+    "explicacion": "Las respuestas correctas son: Disponer de funciones más generales que la que se deseaba., Diseñar algoritmos recursivos., Obtener versiones recursivas finales de funciones recursivas lineales no finales., Mejorar la eficiencia de los algoritmos recursivos."
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "Indica cuáles son casos peores del algoritmo quicksort que usa el primer elemento del segmento como pivote y que en la fase de partición reparte los elementos en menores, iguales y mayores:",
+    "opciones": {
+      "a": "El primer elemento es la mediana del array.",
+      "b": "Los elementos ya están ordenados de forma estricta.",
+      "c": "El último elemento es la mediana del array.",
+      "d": "Todos los elementos son iguales."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: Los elementos ya están ordenados de forma estricta."
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "Indica a qué orden de complejidad pertenece T(n) definida por la recurrencia: T(n) = c₀ si n ≤ 1 T(n) = T(n − 1) + T(n − 2) + c₁ si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ Θ(n)",
+      "b": "T(n) ∈ Θ(2ⁿ)",
+      "c": "T(n) ∈ Θ(n²)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: T(n) ∈ Θ(2ⁿ)"
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "Indica cual de las siguientes recurrencias representa el coste del algoritmo mergesort:",
+    "opciones": {
+      "a": "T(n) = c si n ≤ 1, T(n) = 2T(⌊n/2⌋) + c*n si n > 1",
+      "b": "T(n) = c si n ≤ 1, T(n) = 2T(⌊n/2⌋) + c' * n si n > 1",
+      "c": "T(n) = c si n ≤ 1, T(n) = 2T(n − 1) + c' si n > 1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "La respuesta correcta es: T(n) = c si n ≤ 1, T(n) = 2T(⌊n/2⌋) + c*n si n > 1"
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "Indica la menor función f(n) que cumple que T(n) ∈ O(f(n)): T(1) = 1 T(n) = T(n − 1) + 1 + n si n > 1",
+    "opciones": {
+      "a": "n³",
+      "b": "n²",
+      "c": "2ⁿ",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: n²"
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "¿Qué tipo de recursión es la de esta función? int mcd(int a, int b) { int m; if (a==b) { m = a;} else if (a>b) { m = mcd(a-b,b);} else {m=mcd(b-a);} return m; }",
+    "opciones": {
+      "a": "Recursión lineal final.",
+      "b": "Recursión lineal no final.",
+      "c": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "La respuesta correcta es: Recursión lineal final."
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "Indica cuál es la afirmación correcta acerca de este algoritmo de búsqueda binaria en el que la precondición es 0 ≤ c ≤ f + 1 ≤ longitud(v): int f(int v[], int x, int c, int f) { int resultado; if (c>f) {resultado = c-1;} else { int m = (c+f)/2; if (v[m] > x) {resultado = f(v,x,c,m);} else {resultado = f(v,x,m,f);} } return resultado; }",
+    "opciones": {
+      "a": "Solo termina si c < f.",
+      "b": "Solo termina si c > f.",
+      "c": "Siempre termina.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: Solo termina si c > f."
+  },
+  {
+    "tema": "Tema 4_ Recursión_3",
+    "pregunta": "En los algoritmos recursivos en los que se reduce el tamaño del problema por sustracción: T(n) = c₀ si 0 ≤ n ≤ n₀ T(n) = aT(n − b) + cₖ si n > n₀",
+    "opciones": {
+      "a": "Si a = 1, el coste es lineal.",
+      "b": "Si a>1, es siempre exponencial por muy grande que sea b.",
+      "c": "El coste siempre es exponencial.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: Si a>1, es siempre exponencial por muy grande que sea b."
+  }
+]

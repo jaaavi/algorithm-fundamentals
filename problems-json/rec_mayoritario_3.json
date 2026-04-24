@@ -1,0 +1,42 @@
+{
+  "id": "rec_mayoritario_3",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Elemento mayoritario\nDado un vector de n elementos queremos saber si alguno de ellos aparece un número de veces estrictamente mayor que n/2. El problema debe resolverse utilizando la técnica de divide y vencerás en un tiempo del orden exacto de n log n. (Examen enero 2022)\nEn la solución no se ordenará el vector ni se modificará el orden de los elementos.\nEntrada\nLa entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba consta de una línea con los valores del vector, todos ellos enteros positivos. Cada línea acaba con el valor 0 que no pertenece al vector.\nSalida\nPara cada caso de prueba el programa escribirá en una línea el valor del elemento mayoritario si éste existe y NO si no existe ningún elemento mayoritario.",
+  "entrada": "Un número entero que indica el número de casos de prueba, seguido de líneas con los valores del vector, terminando cada línea con un 0.",
+  "salida": "El valor del elemento mayoritario si existe, o 'NO' si no existe.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "9\n7 2 2 2 4 2 7 2 0\n5 5 5 5 5 0\n4 4 4 8 8 8 2 2 2 0\n0\n3 0\n3 4 0\n3 4 3 0\n3 4 3 5 0\n3 4 3 5 3 6 0",
+    "output": "2\n5\nNO\nNO\n3\nNO\n3\nNO\nNO"
+  },
+
+  "tags": ["vector", "divide y vencerás", "recursión", "mayoritario", "n log n"],
+
+  "como_reconocerlo": "El problema pide encontrar un elemento que aparece más de n/2 veces usando divide y vencerás.",
+  "idea_clave": "Dividir el vector en subproblemas más pequeños, resolverlos y combinar los resultados para encontrar el elemento mayoritario.",
+  
+  "estrategia": [
+    "Dividir el vector en dos mitades.",
+    "Resolver recursivamente cada mitad para encontrar un candidato a mayoritario.",
+    "Combinar los resultados de las dos mitades para determinar el elemento mayoritario del vector completo."
+  ],
+
+  "plantilla_codigo": "int encontrarMayoritario(vector<int>& vec, int inicio, int fin) {\n    if (inicio == fin) {\n        // Caso base: un solo elemento\n        return vec[inicio];\n    }\n    int medio = (inicio + fin) / 2;\n    int mayoritarioIzq = encontrarMayoritario(vec, inicio, medio);\n    int mayoritarioDer = encontrarMayoritario(vec, medio + 1, fin);\n    // Combinar resultados\n    // Contar ocurrencias de mayoritarioIzq y mayoritarioDer en el rango [inicio, fin]\n    // Determinar si alguno es mayoritario\n    return -1; // Placeholder\n}",
+
+  "pistas": [
+    "Piensa en cómo dividir el problema en subproblemas más pequeños.",
+    "Considera cómo combinar los resultados de los subproblemas para encontrar el elemento mayoritario."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo divide el vector en dos mitades y busca recursivamente un candidato a mayoritario en cada mitad. Luego, combina los resultados contando las ocurrencias de cada candidato en el vector completo para determinar si alguno es mayoritario. La complejidad temporal es O(n log n) debido a la división recursiva y la combinación lineal de resultados.",
+
+  "errores_comunes": [
+    "No manejar correctamente el caso base de un solo elemento.",
+    "No combinar adecuadamente los resultados de las mitades para determinar el mayoritario."
+  ]
+}

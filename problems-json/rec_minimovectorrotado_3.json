@@ -1,0 +1,32 @@
+{
+  "id": "rec_minimovectorrotado_3",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Consideramos un vector V[N] de números enteros, cuyo valores se han obtenido aplicando una rotación sobre un vector ordenado en orden estrictamente decreciente. Implementa un algoritmo que calcule el mínimo del vector con una complejidad O(log(n)). El número de elementos sobre los que se aplica la rotación para obtener el vector de entrada es un valor entre 0 y N y no se conoce. Por ejemplo, un posible vector de entrada sería el vector 70 55 13 4 100 80 obtenido desplazando los dos primeros elementos del vector 100 80 70 55 13 4 al final del mismo. Se debe implementar una función recursiva (resolver) que dado el vector, con los datos de entrada ya leidos, obtenga el mínimo en tiempo logarítmico respecto al número de elementos del vector. Se pueden utilizar más parámetros si se considera necesario.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de dos líneas. En la primera se indica el número de elementos del vector y en la segunda los valores del vector.",
+  "salida": "Para cada caso de prueba se escribe en una línea diferente el mínimo del vector.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "4\n8 6 4 2\n4\n2 8 6 4\n4\n4 2 8 6\n4\n6 4 2 8\n5\n8 5 3 1 10\n5\n5 3 1 10 8\n6\n70 55 13 4 100 80",
+    "output": "2\n2\n2\n2\n1\n1\n4"
+  },
+
+  "tags": ["vector", "recursión", "divide y vencerás", "mínimo", "rotación"],
+
+  "como_reconocerlo": "El problema pide encontrar el mínimo en un vector rotado en tiempo logarítmico.",
+  "idea_clave": "Utilizar un enfoque de búsqueda binaria para encontrar el punto de rotación y, por ende, el mínimo.",
+
+  "estrategia": ["Dividir el vector en dos mitades.", "Comparar los elementos del medio con los extremos para determinar la dirección de búsqueda.", "Recursivamente buscar en la mitad que contiene el mínimo."],
+
+  "plantilla_codigo": "int resolver(vector<int>& V, int inicio, int fin) {\n  if (inicio == fin) {\n    // Caso base: un solo elemento\n    return V[inicio];\n  }\n  int medio = (inicio + fin) / 2;\n  // Comparar y decidir en qué mitad buscar\n  if (V[medio] < V[fin]) {\n    // Buscar en la mitad izquierda\n  } else {\n    // Buscar en la mitad derecha\n  }\n}",
+
+  "pistas": ["Considera cómo se comporta un vector rotado en comparación con un vector ordenado.", "Piensa en cómo la búsqueda binaria puede ayudarte a encontrar el mínimo."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una búsqueda binaria modificada para encontrar el mínimo en un vector rotado. Al comparar el elemento medio con los extremos, se determina en qué mitad del vector se encuentra el mínimo. La complejidad temporal es O(log(n)) debido a la división del problema en mitades en cada paso recursivo.",
+
+  "errores_comunes": ["No manejar correctamente el caso en que el vector no está rotado.", "Confundir la dirección de búsqueda en la recursión."]
+}

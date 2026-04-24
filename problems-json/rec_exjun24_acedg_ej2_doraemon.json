@@ -1,0 +1,43 @@
+{
+  "id": "rec_exjun24_acedg_ej2_doraemon",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 3,
+  
+  "enunciado": "Doraemon ha construido un nuevo invento para Novita. Se trata de un saltador con el que se puede subir escaleras saltando muchos escalones al tiempo. Novita no ha perdido el tiempo y se ha dirigido rápidamente al parque, donde hay una escaleras muy largas, para probarlo. Mientras tanto Gigante, que se encuentra en lo alto de la escalera, se dispone bajar. Nunca lo hace de escalón en escalón, sino que se apoya en el pasamanos para dar grandes saltos que le permitan llegar abajo en menos tiempo. Dados los escalones que pisará cada uno cuando suban o bajen la escalera, ¿Podrías decirnos si se encontrarán en un escalón y podrán hablar un rato, o si se cruzarán mientras saltan?. Suponemos que todos los saltos consumen el mismo tiempo independientemente del número de escalones que se salten y de quien de los saltos. Se cumple que las dos secuencias de escalones tienen la misma longitud. La primera secuencia empieza siempre en cero y termina en lo alto de la escalera. La segunda secuencia empieza en lo alto de la escalera y termina en cero. Si Novita o Gigante utilizan menos escalones uno que el otro, se repetirá el primer o último valor, dependiendo del momento en que empiezan a bajar o subir. Salvo al principio o al final de las secuencias no hay valores repetidos.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de tres líneas, en la primera se indica el número de escalones que se muestran en las dos líneas siguientes. En la línea siguiente se indican los escalones que pisará Novita al subir la escalera. En la tercera línea se indican los escalones que pisará Gigante al bajar la escalera.",
+  "salida": "Para cada caso de prueba se escribe en una línea HABLAN si existe un escalón en que se encuentran los dos, seguido del escalón en que se encuentran y SE CRUZAN si se cruzan mientras saltan seguido de los dos escalones en los que pisa Novita antes y después de cruzarse.",
+  "restricciones": "El número de escalones es un valor mayor que cero y menor que 100.000.",
+  
+  "ejemplo": {
+    "input": "5\n0 0 3 4 6\n6 4 3 0 0\n4\n0 3 4 6\n6 4 2 0\n4\n0 4 10 10\n10 0 0 0\n4\n0 0 0 10\n10 0 0 0\n9\n0 0 0 4 8 10 14 14 14\n14 12 10 9 7 4 2 0 0\n0",
+    "output": "HABLAN 3\nSE CRUZAN 3 4\nSE CRUZAN 0 4\nHABLAN 0\nSE CRUZAN 4 8"
+  },
+  
+  "tags": ["recursión", "divide y vencerás", "escalones", "secuencias"],
+  
+  "como_reconocerlo": "El problema involucra comparar dos secuencias de movimientos para determinar encuentros o cruces.",
+  "idea_clave": "Utilizar un enfoque recursivo para dividir el problema en subproblemas más pequeños y determinar si hay encuentros o cruces.",
+  
+  "estrategia": [
+    "Dividir las secuencias de escalones en mitades.",
+    "Comparar las posiciones actuales de Novita y Gigante.",
+    "Determinar si hay un encuentro o cruce en las mitades actuales.",
+    "Repetir el proceso recursivamente en las mitades."
+  ],
+  
+  "plantilla_codigo": "void resolver(int novita[], int gigante[], int inicio, int fin) {\n  if (inicio >= fin) return;\n  int medio = (inicio + fin) / 2;\n  // Comparar posiciones actuales de Novita y Gigante\n  // Llamadas recursivas para mitades\n  resolver(novita, gigante, inicio, medio);\n  resolver(novita, gigante, medio + 1, fin);\n}",
+  
+  "pistas": [
+    "Considera cómo dividir las secuencias de escalones en partes más pequeñas.",
+    "Piensa en cómo comparar las posiciones de Novita y Gigante en cada paso recursivo."
+  ],
+  
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo divide las secuencias de escalones en mitades y compara las posiciones de Novita y Gigante para determinar encuentros o cruces. Funciona porque cada subproblema es más pequeño y manejable. La complejidad temporal es O(n log n) debido a la división y comparación recursiva.",
+  
+  "errores_comunes": [
+    "No manejar correctamente los casos base de la recursión.",
+    "Olvidar comparar las posiciones de Novita y Gigante en cada paso recursivo."
+  ]
+}

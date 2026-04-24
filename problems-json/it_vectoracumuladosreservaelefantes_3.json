@@ -1,0 +1,42 @@
+{
+  "id": "it_vectoracumuladosreservaelefantes_3",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "Reserva de elefantes El parque nacional de Chobe, en la región noroeste de Botswana, es famoso por su alta densidad de elefantes. Los encargados del parque llevan muchos años recopilando datos sobre el número de nacimientos de elefantes en la región. Sin embargo, los visitantes del parque no suelen estar interesados en los nacimientos de un determinado año, sino que preguntan por el número de nacimientos entre dos fechas, lo que obliga a los encargados a sumar los datos entre las dos fechas pedidas. Cansados ya de tanto sumar, han decidido que deben mantener las sumas ya realizadas y de esta forma solo tendrán que consultar el dato. Pero mantener todos los intervalos de fechas no resulta viable, por lo que después de pensarlo un poco han decidido que con tener los datos acumulados de los nacimientos de todos los años anteriores es suficiente. Requisitos de implementación. Los datos deben prepararse para que resolver cada pregunta tenga un coste constante. La preparación de los datos tiene coste lineal en el número de datos que tiene el parque.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso se escribe en varias líneas. En la primera se muestra el primer y último año (0 < p <= u <= 100 000) en los que se han tomado datos de los nacimientos de elefantes. En la segunda línea se muestran los n = u-p+1 nacimientos ocurridos durante estos años (0 <= k < 230). En la línea siguiente se indican el número de preguntas que realizan los visitantes (0 < m <=100 000) y en las m líneas siguientes se muestran dos años (p <= a <= b <= u) que representan el intervalo en el que se debe calcular el número de nacimientos de elefantes. El final de los casos se marca con dos ceros que no deben tratarse.",
+  "salida": "Para cada caso de entrada se escriben tantas líneas como preguntas haya en el caso. En cada línea se escribe el número de nacimientos ocurridos durante los años que se indican en la pregunta. Ambos años incluidos. Cada caso termina con una línea con tres guiones (---).",
+  "restricciones": "0 < p <= u <= 100 000, 0 <= k < 230, 0 < m <=100 000, p <= a <= b <= u",
+
+  "ejemplo": {
+    "input": "1950 1955\n4 1 2 0 3 6\n3\n1950 1953\n1952 1955\n1951 1954\n2010 2016\n4 2 1 6 4 4 2\n2\n2014 2014\n2010 2016\n0 0",
+    "output": "7\n11\n6\n---\n4\n23\n---"
+  },
+
+  "tags": ["vector", "acumulador", "coste constante", "intervalo", "suma acumulada"],
+
+  "como_reconocerlo": "El problema requiere calcular sumas en intervalos de un vector de manera eficiente.",
+  "idea_clave": "Usar un vector de sumas acumuladas para responder consultas de intervalos en tiempo constante.",
+
+  "estrategia": [
+    "Calcular un vector de sumas acumuladas a partir de los datos de nacimientos.",
+    "Para cada consulta, usar el vector de sumas acumuladas para calcular la suma en el intervalo dado en tiempo constante.",
+    "Imprimir los resultados de cada consulta y finalizar cada caso con '---'."
+  ],
+
+  "plantilla_codigo": "void resolverReservaElefantes() {\n  // Leer los casos de prueba\n  while (true) {\n    // Leer primer y último año\n    // Si es '0 0', terminar\n    // Leer nacimientos por año\n    // Calcular sumas acumuladas\n    // Leer número de preguntas\n    // Para cada pregunta, calcular la suma usando el vector de sumas acumuladas\n    // Imprimir resultado\n    // Imprimir '---' al final de cada caso\n  }\n}",
+
+  "pistas": [
+    "Piensa en cómo puedes usar un vector de sumas acumuladas para responder rápidamente a las consultas.",
+    "Recuerda que la suma acumulada hasta el año b menos la suma acumulada hasta el año a-1 te da la suma en el intervalo [a, b]."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza un vector de sumas acumuladas para almacenar la suma de nacimientos hasta cada año. Esto permite responder a cada consulta de intervalo en tiempo constante, ya que la suma en un intervalo [a, b] se obtiene restando la suma acumulada hasta a-1 de la suma acumulada hasta b. La preparación del vector de sumas acumuladas tiene un coste lineal respecto al número de años, cumpliendo con los requisitos de eficiencia del problema.",
+
+  "errores_comunes": [
+    "No calcular correctamente el vector de sumas acumuladas, lo que lleva a resultados incorrectos.",
+    "Olvidar manejar correctamente el caso base cuando a es el primer año, lo que puede causar un acceso fuera de límites."
+  ]
+}

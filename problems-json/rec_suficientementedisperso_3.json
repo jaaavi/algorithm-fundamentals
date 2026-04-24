@@ -1,0 +1,44 @@
+{
+  "id": "rec_suficientementedisperso_3",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Suficientemente disperso El dueño del casino está muy preocupado porque los jugadores de ruleta puedan llegar a detectar que el crupier controla el número que saca en cada tirada. Todas las noches estudia la lista de números que han salido ese día y comprueba que sean suficientemente dispersos. El dueño se conforma con que la diferencia entre el primer valor que se saca y el último sea mayor o igual que una cantidad K. Además comprueba que los datos que salieron en la primera mitad de la noche y los datos que salieron en la segunda mitad sean también suficientemente dispersos, es decir que la diferencia entre el primer valor y el último tanto en la primera mitad como en la segunda sea mayor o igual que K y además cada una de sus mitades sea también suficientemente dispersa. Estudia únicamente secuencias con un número de elementos que sea potencia de dos para poder dividirlas siempre en dos partes iguales. Considera que un solo valor siempre es suficientemente disperso.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de dos líneas. En la primera se muestra el número de tiradas que se considera y el valor de dispersión que se precisa. En la segunda se muestran los números que han salido en cada tirada",
+  "salida": "Para cada caso de prueba se escribe en una línea SI si el vector está suficientemente disperso y NO si no lo está.",
+  "restricciones": "El número de valores de cada caso de prueba es una potencia de 2. El valor de dispersión es un entero positivo mayor que cero. Los valores de cada tirada son números entre 0 <= N <= 1.048.576",
+
+  "ejemplo": {
+    "input": "4 3\n6 1 3 9\n4 3\n3 10 12 14\n8 4\n20 2 0 4 14 8 5 10",
+    "output": "SI\nNO\nSI"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "potencia de dos", "dispersión"],
+
+  "como_reconocerlo": "El problema se puede dividir recursivamente en subproblemas más pequeños que siguen la misma estructura.",
+  "idea_clave": "Dividir el vector en mitades y verificar la condición de dispersión recursivamente en cada mitad.",
+
+  "estrategia": [
+    "Verificar si el vector tiene un solo elemento, en cuyo caso es suficientemente disperso.",
+    "Calcular la diferencia entre el primer y último elemento del vector.",
+    "Dividir el vector en dos mitades iguales.",
+    "Aplicar recursivamente el mismo proceso a cada mitad.",
+    "Combinar los resultados para determinar si el vector completo es suficientemente disperso."
+  ],
+
+  "plantilla_codigo": "bool esSuficientementeDisperso(vector<int>& numeros, int K) {\n    // Caso base: si el vector tiene un solo elemento\n    if (numeros.size() == 1) return true;\n    \n    // Calcular la diferencia entre el primer y último elemento\n    int diferencia = numeros.back() - numeros.front();\n    \n    // Verificar si la diferencia es suficiente\n    if (diferencia < K) return false;\n    \n    // Dividir el vector en dos mitades\n    int mitad = numeros.size() / 2;\n    vector<int> primeraMitad(numeros.begin(), numeros.begin() + mitad);\n    vector<int> segundaMitad(numeros.begin() + mitad, numeros.end());\n    \n    // Aplicar recursión a cada mitad\n    return esSuficientementeDisperso(primeraMitad, K) && esSuficientementeDisperso(segundaMitad, K);\n}",
+
+  "pistas": [
+    "Piensa en cómo dividir el problema en partes más pequeñas que se puedan resolver de la misma manera.",
+    "Asegúrate de verificar la condición de dispersión en cada nivel de la recursión."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo verifica recursivamente si un vector de números es suficientemente disperso. Comienza comprobando la diferencia entre el primer y último elemento, luego divide el vector en dos mitades y aplica el mismo proceso a cada mitad. La complejidad temporal es O(n log n) debido a la división y combinación de resultados en cada nivel de recursión.",
+
+  "errores_comunes": [
+    "No verificar correctamente la condición de dispersión en cada mitad.",
+    "Olvidar manejar el caso base de un solo elemento."
+  ]
+}

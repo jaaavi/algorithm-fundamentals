@@ -1,0 +1,118 @@
+[
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "El coste del siguiente algoritmo está en\n\nint potencia(int a,int n){\n  int p;\n  if (n==0) {p = 1;}\n  else {\n    p = potencia(a,n/2);\n    p=p*p;\n    if (n%2==1) {p=p*a;}\n  }\n  return p;\n}\n\nSeleccione una:",
+    "opciones": {
+      "a": "Θ(n²)",
+      "b": "Θ(log n)",
+      "c": "Θ(aⁿ)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "b. Cierto. El tamaño del problema es n. La recurrencia correspondiente a esta función es T(n) = c₁, T(n) = T(n/2) + c₂si n > 0. Por el teorema de la división T(n) ∈ Θ(log n)."
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "En el algoritmo de selección, el coste de la fase del cálculo de la mediana de las medianas, diciendo n el tamaño del vector está en\n\nSeleccione una:",
+    "opciones": {
+      "a": "Θ(log n)",
+      "b": "Θ(n²)",
+      "c": "Θ(n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "c. Cierto. El cálculo de las medianas de cada grupo de 5 elementos requiere recorrer el vector completo realizando operaciones de coste constante (accesos al vector, comparaciones e intercambios) y por tanto su coste está en Θ(n). El cálculo de la mediana de esas medianas se realiza mediante una llamada recursiva de tamaño n/5 y por tanto su coste también está en Θ(n/5) = Θ(n)."
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "En divide y vencerás los casos base son siempre aquellos que ya no pueden dividirse más.\n\nSeleccione una:",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. Los casos base no necesariamente son casos que no pueden dividirse más. En ellos se aplica un algoritmo distinto del recursivo que suele ser asintóticamente más costoso que el algoritmo divide y vencerás pero que tiene costes razonables para tamaños pequeños."
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "El coste del algoritmo de selección está en Θ(n), siendo n el número de elementos del vector, en el caso peor si\n\nSeleccione una:",
+    "opciones": {
+      "a": "se usa el primer elemento del segmento para hacer la partición.",
+      "b": "se usa el último elemento del segmento para hacer la partición.",
+      "c": "se usa la mediana de las medianas para hacer la partición.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "c. Cierto. Hacer la partición con la mediana de las medianas garantiza que el tamaño de las llamadas recursivas está acotado superiormente por 7n/10. Incluso teniendo en cuenta que el cálculo de la mediana de las medianas requiere una llamada recursiva adicional de tamaño n/5, se puede demostrar que el coste en el caso peor está en Θ(n)."
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "¿Cuáles de los siguientes algoritmos son algoritmos divide y vencerás?\n\nSeleccione una o más de una:",
+    "opciones": {
+      "a": "Algoritmo de ordenación por selección.",
+      "b": "Algoritmo de búsqueda binaria.",
+      "c": "Algoritmo de la burbuja (bubblesort).",
+      "d": "Algoritmo de ordenación por mezclas (mergesort)."
+    },
+    "correcta": "b, d",
+    "explicacion": "b. Correcta. En este algoritmo se realiza una llamada recursiva con la mitad de los elementos.\nd. Correcta. En este algoritmo se realizan dos llamadas recursivas cada una de ellas con la mitad de los elementos y después se combinan los resultados de ambas llamadas."
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "Indica cuales afirmaciones son correctas respecto del umbral óptimo en un algoritmo divide y vencerás\n\nSeleccione una o más de una:",
+    "opciones": {
+      "a": "Solo depende del algoritmo utilizado en los casos base.",
+      "b": "Encontrarlo permite reducir el coste asintótico.",
+      "c": "Se calcula de forma experimental.",
+      "d": "Siempre existe uno único."
+    },
+    "correcta": "c",
+    "explicacion": "c. Correcta. Se calcula de forma experimental ya que depende de las constantes multiplicativas particulares obtenidas para los casos base y recursivo específicas para el computador y lenguaje concretos."
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "El número total de llamadas recursivas realizadas por la búsqueda binaria (vista en clase)\n\nSeleccione una:",
+    "opciones": {
+      "a": "está en Θ(n) siendo n el número de elementos del vector.",
+      "b": "está en Θ(n log n) siendo n el número de elementos del vector.",
+      "c": "está en Θ(log n) siendo n el número de elementos del vector.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "c. Cierto. Puesto que cada vez se divide el tamaño del problema por la mitad y se realiza una única llamada recursiva con dicho tamaño, el número total de llamadas recursivas es el número de veces que se puede dividir el tamaño del vector, n, por 2 hasta llegar a cero y por tanto está en Θ(log n)."
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "El algoritmo de selección se puede utilizar para calcular el mínimo de un vector con la llamada\n\nSeleccione una:",
+    "opciones": {
+      "a": "seleccion(v, 0, v.size(), 1)",
+      "b": "seleccion(v, 0, v.size()-1, 1)",
+      "c": "seleccion(v, 0, v.size(), 0)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "d. Cierto. La respuesta correcta es: seleccion(v, 0, v.size()-1, 0)"
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "¿Cuál afirmación es correcta respecto al coste de un algoritmo divide y vencerás cuya recurrencia es la siguiente?\n\nT(n) = c₀ si n ≤ n₀\nT(n) = a · T(n/b) + c₁ · nᵏ si n > n₀\n\nSeleccione una:",
+    "opciones": {
+      "a": "T(n) ∈ Θ(nᵏ) si a = bᵏ",
+      "b": "T(n) ∈ Θ(nᵏ log n) si a = bᵏ",
+      "c": "T(n) ∈ Θ(nᵏ log n) si a > bᵏ",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "b. Cierto. Por el teorema de la división, si a = bᵏ entonces T(n) ∈ Θ(nᵏ · log n)."
+  },
+  {
+    "tema": "Tema 5_ Divide y vencerás_0",
+    "pregunta": "En divide y vencerás, el número de subproblemas debe ser lo mayor posible para lograr que estos sean más simples.\n\nSeleccione una:",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "b",
+    "explicacion": "Falso. En una recurrencia de reducción por división donde a = 1, b = 2 y k = 0 (a = bᵏ) la solución está en Θ(log n). Sin embargo si en lugar de una llamada de tamaño la mitad decidimos aumentar los subproblemas para hacerlos más simples y hacer dos llamadas de la cuarta parte de tamaño, a = 2, b = 4 y k = 0 (a > bᵏ) entonces la solución está en Θ(√n)."
+  }
+]

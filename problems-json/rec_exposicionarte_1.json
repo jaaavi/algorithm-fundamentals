@@ -1,0 +1,42 @@
+{
+  "id": "rec_exposicionarte_1",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Doc ha recibido ya las piezas de arte para la exposición, pero aún la tiene a medio montar. Su principal problema es que indicó a los artistas que le enviaran a su casa las obras y ahora tiene que trasladarlas al lugar de la exposición. En teoría, esa labor de mudanza es fácil: se alquila un camión, se carga y se llevan. En la práctica, sin embargo, la situación es un poco más difícil. Aunque las obras son pequeñas (en un único camión entrarían todas), pesan mucho. Eso significa que debe tener cuidado a la hora de escoger el camión que alquile y fijarse en cuál es el peso máximo que es capaz de transportar. La tarea se complica un poco porque: • El precio del alquiler del camión es proporcional a la carga máxima que soporta, por lo que quiere ajustarla al mínimo. • Teniendo en cuenta el tiempo de que dispone Doc para realizar la mudanza, tiene limitado el número de viajes que puede hacer con el camión. • Para evitar tener que mover mucho las obras dentro de casa de Doc, las piezas las cargará en el camión en el mismo orden en el que están colocadas en el pasillo de la entrada. Tenemos que ayudar a Doc a elegir el camión que debe alquilar. Entrada La entrada estará compuesta de varios casos de prueba. Cada caso de prueba ocupa dos líneas. La primera tiene el número de obras de arte que se agolpan en el pasillo de Doc (como mucho 10.000) y el número máximo de viajes que Doc tiene tiempo de hacer con el camión. Ambos números son mayores que cero. La segunda línea contiene los pesos de las distintas obras que hay que transportar en el orden en el que deben ser trasladadas. Se garantiza que la suma de los pesos de todas las obras es inferior a 10^9. La entrada termina con una línea con dos ceros que no debe procesarse. Salida Por cada caso de prueba se escribirá una única línea con el tope de carga más pequeño que debe tener el camión alquilado para poder hacer la mudanza de todas las obras sin pasarse del número de viajes máximo establecido ni superar la carga máxima del camión.",
+  "entrada": "Varios casos de prueba. Cada caso tiene dos líneas: la primera con el número de obras (máximo 10.000) y el número máximo de viajes. La segunda línea con los pesos de las obras.",
+  "salida": "Por cada caso de prueba, una línea con el tope de carga más pequeño que debe tener el camión.",
+  "restricciones": "Número de obras máximo 10.000. Suma de pesos inferior a 10^9. Número de viajes y obras mayores que cero.",
+
+  "ejemplo": {
+    "input": "3 1\n3 4 5\n3 2\n3 4 5\n3 2\n3 5 4\n3 3\n3 4 5\n0 0",
+    "output": "12\n7\n8\n5"
+  },
+
+  "tags": ["divide y vencerás", "recursión", "búsqueda binaria", "optimización", "carga máxima"],
+
+  "como_reconocerlo": "El problema requiere encontrar un valor óptimo bajo restricciones de capacidad y orden.",
+  "idea_clave": "Utilizar búsqueda binaria para encontrar el mínimo peso máximo que permite realizar la mudanza en el número de viajes permitido.",
+
+  "estrategia": [
+    "Paso 1: Definir el rango de búsqueda para el peso máximo del camión.",
+    "Paso 2: Usar búsqueda binaria para encontrar el mínimo peso máximo que permite realizar la mudanza.",
+    "Paso 3: Verificar si un peso máximo dado permite realizar la mudanza en el número de viajes permitido."
+  ],
+
+  "plantilla_codigo": "int minCarga(vector<int>& pesos, int numViajes) {\n    // Definir el rango de búsqueda\n    int izquierda = *max_element(pesos.begin(), pesos.end());\n    int derecha = accumulate(pesos.begin(), pesos.end(), 0);\n    \n    // Búsqueda binaria\n    while (izquierda < derecha) {\n        int medio = izquierda + (derecha - izquierda) / 2;\n        if (esPosible(pesos, numViajes, medio)) {\n            derecha = medio;\n        } else {\n            izquierda = medio + 1;\n        }\n    }\n    return izquierda;\n}\n\nbool esPosible(vector<int>& pesos, int numViajes, int pesoMax) {\n    // Implementar la lógica para verificar si es posible\n    // realizar la mudanza con el peso máximo dado\n}",
+
+  "pistas": [
+    "Considera cómo podrías dividir el problema en subproblemas más pequeños.",
+    "Piensa en cómo podrías usar búsqueda binaria para optimizar el proceso de encontrar el peso máximo."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza búsqueda binaria para encontrar el peso máximo mínimo que permite realizar la mudanza en el número de viajes permitido. La función esPosible verifica si un peso máximo dado es suficiente para completar la mudanza. La complejidad temporal es O(n log W), donde n es el número de obras y W es la suma de los pesos.",
+  
+  "errores_comunes": [
+    "No considerar el orden de las obras al cargarlas en el camión.",
+    "No implementar correctamente la función de verificación para la búsqueda binaria."
+  ]
+}

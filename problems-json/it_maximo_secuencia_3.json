@@ -1,0 +1,46 @@
+{
+  "id": "it_maximo_secuencia_3",
+  "tema": "Iterativos",
+  "subtipo": "máximo/mínimo",
+  "dificultad": 2,
+
+  "enunciado": "Dado un vector de enteros v de tamaño n, diseña un algoritmo iterativo que devuelva el valor máximo de la secuencia y la posición (índice) en la que aparece por primera vez.",
+
+  "entrada": "Un vector v[0..n-1] de enteros y su tamaño n, con n ≥ 1.",
+  "salida": "El valor máximo del vector y el índice de su primera aparición.",
+  "restricciones": "n ≥ 1. Los valores del vector pueden ser negativos.",
+
+  "ejemplo": {
+    "input": "v = {3, -1, 7, 2, 7}, n = 5",
+    "output": "maxVal = 7, maxPos = 2"
+  },
+
+  "tags": ["vector", "máximo", "iterativo", "acumulador", "primera aparición"],
+
+  "como_reconocerlo": "Recorrido lineal que pide encontrar el mayor elemento y su posición de primera aparición.",
+  "idea_clave": "Mantener el máximo actual y su índice mientras se recorre. Actualizar solo cuando el nuevo valor es estrictamente mayor.",
+
+  "estrategia": [
+    "Inicializar maxVal = v[0] y maxPos = 0",
+    "Recorrer el vector desde i = 1 hasta n-1",
+    "Si v[i] > maxVal: actualizar maxVal = v[i] y maxPos = i",
+    "Devolver maxVal y maxPos al terminar"
+  ],
+
+  "plantilla_codigo": "void maximo(vector<int> v, int n, int &maxVal, int &maxPos) {\n    maxVal = v[0];\n    maxPos = 0;\n    for (int i = 1; i < n; i++) {\n        if (/* condición */) {\n            // actualizar maxVal y maxPos\n        }\n    }\n}",
+
+  "pistas": [
+    "¿Cuál es el invariante del bucle? Después de cada iteración, maxVal debe ser el mayor de v[0..i].",
+    "Usa > (estrictamente mayor) para preservar la primera aparición, no >= (que devolvería la última)."
+  ],
+
+  "solucion_codigo": "void maximo(vector<int> v, int n, int &maxVal, int &maxPos) {\n    maxVal = v[0];\n    maxPos = 0;\n    for (int i = 1; i < n; i++) {\n        if (v[i] > maxVal) {\n            maxVal = v[i];\n            maxPos = i;\n        }\n    }\n}",
+
+  "explicacion": "Se recorre el vector linealmente manteniendo el máximo visto y su posición. Solo actualizamos cuando encontramos un valor estrictamente mayor, lo que garantiza que maxPos apunte a la primera aparición. La complejidad es O(n) en tiempo y O(1) en espacio auxiliar.",
+
+  "errores_comunes": [
+    "Usar >= en lugar de >: devolvería la posición de la última aparición del máximo, no la primera.",
+    "Inicializar maxVal = 0: falla si todos los elementos son negativos.",
+    "Olvidar actualizar maxPos al actualizar maxVal."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "rec_escalonmaslargodyv_9",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Podemos ver un vector creciente de números enteros que representan alturas como una escalera donde cada peldaño i está a una cierta altura v[i]. De esta forma, los valores consecutivos iguales representan escalones (zonas de la escalera de la misma altura). Definimos la longitud de un escalón como el número de valores consecutivos iguales que lo forman. Por ejemplo, el vector 1 1 3 3 3 5 5 6 6 6 6 8 8 representa una escalera con 5 escalones. El primer escalón está a altura 1 y tiene longitud 2, el segundo escalón está a altura 3 y tiene longitud 3, el tercer escalón tiene altura 5 y longitud 2, etc. Diseña un algoritmo eficiente divide y vencerás que dado un vector no vacío y creciente de números enteros, calcule la longitud del escalón más largo. Pista: además de calcular la longitud del escalón más largo te ayudará calcular la longitud del primer y del último escalón.",
+  "entrada": "La entrada contiene un conjunto de casos de prueba, cada uno en una línea. El primer número de cada caso de prueba representa la longitud del vector (0 < n <= 100.000) y a continuación aparecerán los n valores enteros crecientes que conforman el vector. La entrada termina con un vector de longitud 0 que no debe procesarse.",
+  "salida": "Para cada caso de prueba el programa escribirá la longitud del escalón más largo en una línea diferente.",
+  "restricciones": "0 < n <= 100.000",
+
+  "ejemplo": {
+    "input": "3 1 1 1\n5 1 1 2 3 4\n5 1 2 3 4 4\n5 1 2 2 2 5\n8 1 2 3 4 5 6 7 8\n8 1 1 3 3 3 5 8 8\n8 1 2 3 3 5 5 5 5\n0",
+    "output": "3\n2\n2\n3\n1\n3\n4"
+  },
+
+  "tags": ["vector", "divide y vencerás", "recursión", "escalones", "longitud"],
+
+  "como_reconocerlo": "El problema pide encontrar el escalón más largo en un vector creciente de números enteros.",
+  "idea_clave": "Utilizar el enfoque de divide y vencerás para dividir el vector en subproblemas más pequeños y combinar los resultados para encontrar el escalón más largo.",
+
+  "estrategia": ["Dividir el vector en dos mitades.", "Calcular el escalón más largo en cada mitad recursivamente.", "Combinar los resultados de las dos mitades considerando los escalones que cruzan la frontera entre las dos mitades."],
+
+  "plantilla_codigo": "int escalonMasLargo(vector<int>& v, int inicio, int fin) {\n    if (inicio == fin) {\n        // Caso base: un solo elemento\n        return 1;\n    }\n    int medio = (inicio + fin) / 2;\n    int izq = escalonMasLargo(v, inicio, medio);\n    int der = escalonMasLargo(v, medio + 1, fin);\n    // Calcular el escalón que cruza el medio\n    int cruzado = calcularCruzado(v, inicio, medio, fin);\n    // Devolver el máximo de los tres\n    return max(izq, max(der, cruzado));\n}\n\nint calcularCruzado(vector<int>& v, int inicio, int medio, int fin) {\n    // Implementar cálculo del escalón cruzado\n    return 0;\n}",
+
+  "pistas": ["Considera cómo los escalones pueden cruzar la frontera entre dos mitades del vector.", "Asegúrate de calcular correctamente la longitud del primer y último escalón en cada subproblema."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza el enfoque de divide y vencerás para dividir el vector en mitades, calcular el escalón más largo en cada mitad y luego combinar los resultados. La complejidad temporal es O(n log n) debido a la división recursiva y la combinación de resultados.",
+  
+  "errores_comunes": ["No considerar los escalones que cruzan la frontera entre las dos mitades.", "No manejar correctamente el caso base de un solo elemento."]
+}

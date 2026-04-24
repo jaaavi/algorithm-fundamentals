@@ -1,0 +1,43 @@
+{
+  "id": "rec_numeroextranyo_4",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Un vector no vacío de enteros positivos es extraño si la suma de los números pares de la primera mitad más el producto de los números impares de la primera mitad es menor o igual que el producto de los números pares de la segunda mitad más la suma de los números impares de la segunda mitad, y al menos una de sus dos mitades es extraña. Un vector con un único elemento siempre es extraño. Se pide: a) Escribe un algoritmo recursivo eficiente que permita resolver el problema para un vector dado suponiendo que el número de elementos es una potencia de dos. b) Escribe la recurrencia que corresponde al coste de la función recursiva indicando claramente cuál es el tamaño del problema. Indica también a qué orden de complejidad asintótica pertenece dicho coste.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá el número de elementos del vector y a continuación una línea con los elementos.",
+  "salida": "Por cada caso de prueba el programa escribirá NO si el vector no es extraño según la definición o SI si el vector lo es.",
+  "restricciones": "El número de elementos es una potencia de dos.",
+  
+  "ejemplo": {
+    "input": "5\n2\n1 2\n2\n2 2\n4\n1 2 2 2\n4\n2 4 1 2\n4\n2 2 2 2",
+    "output": "SI\nNO\nSI\nNO\nNO"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "vector", "enteros positivos", "potencia de dos"],
+
+  "como_reconocerlo": "El problema se centra en dividir un vector en mitades y aplicar condiciones específicas a cada mitad.",
+  "idea_clave": "Dividir el vector en mitades y aplicar la condición de extrañeza recursivamente a cada mitad.",
+  
+  "estrategia": [
+    "Dividir el vector en dos mitades.",
+    "Calcular la suma de pares y el producto de impares para cada mitad.",
+    "Comparar las sumas y productos de las mitades según la condición dada.",
+    "Aplicar recursión para verificar si al menos una mitad es extraña."
+  ],
+
+  "plantilla_codigo": "bool esExtrano(vector<int>& v, int inicio, int fin) {\n  if (inicio == fin) {\n    // Caso base: un único elemento\n    return true;\n  }\n  int mitad = (inicio + fin) / 2;\n  // Calcular suma de pares y producto de impares para cada mitad\n  // Comparar condiciones\n  // Llamadas recursivas\n  return false; // Cambiar según la lógica\n}",
+
+  "pistas": [
+    "Divide el vector en dos mitades y analiza cada una por separado.",
+    "Recuerda que un vector con un único elemento siempre es extraño."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo divide el vector en mitades y verifica la condición de extrañeza en cada mitad. Utiliza recursión para aplicar la misma lógica a subproblemas más pequeños. La complejidad temporal es O(n log n) debido a la división y combinación de resultados.",
+  
+  "errores_comunes": [
+    "No manejar correctamente el caso base de un único elemento.",
+    "Olvidar verificar que al menos una mitad debe ser extraña."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "it_ultimavez_3",
+  "tema": "Iterativos",
+  "subtipo": "búsqueda",
+  "dificultad": 3,
+
+  "enunciado": "Última vez que... A cinco jornadas de finalizar La Vuelta, el primer clasificado es el belga Evenepoel. Durante la retransmisión de la etapa de hoy, los comentaristas han indicado que la última vez que ganó la vuelta un corredor belga fue en el año 1977 con Freddy Maertens. Anteriormente había ganado Eddy Merckx en el año 1973. Dada la nacionalidad de los ganadores de una competición anual, por ejemplo La Vuelta o El Tour, debes calcular el número de años que hace que ganó por última vez un deportista de una determinada nacionalidad. Requisitos de implementación. Los valores se deben almacenar en un vector, que luego se recorre para resolver el problema. El problema se debe resolver de la forma más eficiente posible, evitando recorrerlo entero si no es necesario.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso consta de dos líneas. En la primera se indica el número de años en que ha tenido lugar la competición y la nacionalidad en la que estamos interesados. En la segunda se muestra la nacionalidad de los ganadores de cada edición, comenzando por la más antigua. La entrada termina con el valor 0.",
+  "salida": "Para cada caso de prueba se escribe en una línea el número de años que hace que no gana un deportista de la nacionalidad buscada. Si no se ganó nunca en los años conocidos se escribirá NUNCA",
+  "restricciones": "El número de años en que ha tenido lugar la competición es un entero mayor que cero y menor que 100.000. Las nacionalidades son cadenas de caracteres.",
+
+  "ejemplo": {
+    "input": "5 Bel\nEsl Esl Esl Brit Brit\n6 Esp\nEsp Brit Col Ecu Esp Alem\n4 Esp\nAlem Esp Esp Esp\n0",
+    "output": "NUNCA\n2\n1"
+  },
+
+  "tags": ["vector", "búsqueda", "eficiencia", "nacionalidad", "última vez"],
+
+  "como_reconocerlo": "El problema pide encontrar la última ocurrencia de un elemento en una secuencia.",
+  "idea_clave": "Recorrer el vector desde el final hacia el principio para encontrar la última aparición de la nacionalidad buscada.",
+
+  "estrategia": ["Leer el número de años y la nacionalidad de interés.", "Recorrer el vector de ganadores desde el final hacia el principio.", "Registrar el índice de la última aparición de la nacionalidad buscada.", "Calcular los años desde la última victoria o devolver 'NUNCA'."],
+
+  "plantilla_codigo": "void calcularUltimaVictoria(vector<string> ganadores, string nacionalidad) {\n  // Recorrer el vector desde el final\n  for (int i = ganadores.size() - 1; i >= 0; --i) {\n    // Comprobar si la nacionalidad coincide\n    // Si coincide, calcular los años desde la última victoria\n  }\n  // Si no se encuentra, devolver 'NUNCA'\n}",
+
+  "pistas": ["Considera recorrer el vector desde el final para encontrar la última aparición.", "Si no encuentras la nacionalidad, recuerda devolver 'NUNCA'."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo busca la última aparición de una nacionalidad en un vector de ganadores. Al recorrer desde el final, se puede detener al encontrar la primera coincidencia, optimizando el tiempo de ejecución. La complejidad temporal es O(n) en el peor caso, donde n es el número de años de la competición.",
+
+  "errores_comunes": ["No recorrer el vector desde el final, lo que puede llevar a errores en el cálculo de la última aparición.", "Olvidar manejar el caso en que la nacionalidad nunca aparece, devolviendo incorrectamente un número en lugar de 'NUNCA'."]
+}

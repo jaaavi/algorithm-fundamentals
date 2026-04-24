@@ -1,0 +1,44 @@
+{
+  "id": "va_expresionesparentesiscorchetesllaves_3",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Se pide generar todas las combinaciones posibles de paréntesis, corchetes y llaves abiertos y cerrados de una longitud dada. Las expresiones deben cumpir que: [[etiqueta no soportada: it]] [[etiqueta no soportada: it]] [[etiqueta no soportada: it]] Entrada La entrada consta de una serie de casos de prueba. Cada caso tiene una línea donde se indica la longitud de la secuencia que se debe generar, un número entero, par, mayor o igual que 2 y menor o igual que 10. La entrada de datos termina con un 0 que no debe procesarse. Salida Para cada caso de prueba se muestran todas las posibles combinaciones que se pueden generar, una por línea. Después de cada caso se escriben tres guiones.",
+  "entrada": "Una serie de casos de prueba, cada uno con un número entero, par, mayor o igual que 2 y menor o igual que 10, que indica la longitud de la secuencia a generar.",
+  "salida": "Todas las posibles combinaciones de paréntesis, corchetes y llaves balanceados de la longitud dada, una por línea, seguidas de tres guiones.",
+  "restricciones": "La longitud de la secuencia es un número entero, par, mayor o igual que 2 y menor o igual que 10.",
+
+  "ejemplo": {
+    "input": "2\n4\n0",
+    "output": "()\n{}\n[]\n---\n()()\n{}()\n{}{}\n{}[]\n{()}\n{{}}\n{[]}\n[]()\n[]{}\n[][]\n[()]\n[{}]\n[[]]\n---"
+  },
+
+  "tags": ["backtracking", "combinaciones", "paréntesis", "corchetes", "llaves"],
+
+  "como_reconocerlo": "El problema requiere generar todas las combinaciones posibles de símbolos balanceados con restricciones de longitud.",
+  "idea_clave": "Utilizar backtracking para generar combinaciones de símbolos balanceados respetando las restricciones de apertura y cierre.",
+
+  "estrategia": [
+    "Definir una función recursiva que construya las combinaciones.",
+    "Mantener un contador para cada tipo de símbolo abierto y cerrado.",
+    "Agregar un símbolo abierto si no se ha alcanzado el límite de apertura.",
+    "Agregar un símbolo cerrado si no se desbalancea la secuencia.",
+    "Imprimir la combinación cuando se alcanza la longitud deseada."
+  ],
+
+  "plantilla_codigo": "void generarCombinaciones(int n, string secuencia, int abiertosParentesis, int abiertosCorchetes, int abiertosLlaves) {\n  // Si la longitud de la secuencia es igual a n, imprimirla\n  // Intentar agregar un paréntesis abierto si es posible\n  // Intentar agregar un corchete abierto si es posible\n  // Intentar agregar una llave abierta si es posible\n  // Intentar cerrar un paréntesis si es posible\n  // Intentar cerrar un corchete si es posible\n  // Intentar cerrar una llave si es posible\n}",
+
+  "pistas": [
+    "Considera cómo mantener el balance de cada tipo de símbolo mientras generas las combinaciones.",
+    "Recuerda que cada símbolo abierto debe tener un símbolo cerrado correspondiente antes de agregar más símbolos abiertos."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de símbolos balanceados. Se asegura de que cada símbolo abierto tenga un correspondiente símbolo cerrado antes de continuar. La complejidad temporal es exponencial debido a la naturaleza combinatoria del problema.",
+
+  "errores_comunes": [
+    "No mantener el balance correcto de símbolos abiertos y cerrados.",
+    "Olvidar imprimir las combinaciones en el formato correcto con los guiones al final de cada caso."
+  ]
+}

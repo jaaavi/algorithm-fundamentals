@@ -1,0 +1,43 @@
+{
+  "id": "va_pepecasanova_5",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Pepe Casanova es un ligón de los de antaño, que intenta encandilar a las chicas con canciones románticas. A tal efecto, y de cara al veraneo en una playa del sur, decide conseguir una cinta para el radiocasete de su coche con las mejores canciones de amor. Pepe es muy peculiar en sus gustos, y además anda algo escaso de dinero, por lo que en lugar de comprar una de tantas recopilaciones que circulan por el mercado discográfico, quiere grabársela él mismo. Rebuscando entre sus viejos vinilos, ha confeccionado una lista con sus canciones favoritas, apuntando la duración individual de cada una. Lamentablemente, su cinta de dos caras no tiene capacidad suficiente para contener todas las canciones, así que Pepe ha otorgado una puntuación a cada canción (cuanto más le gusta, mayor es la puntuación). ¿Puedes ayudar a Pepe a conseguir la mejor cinta (aquella cuya suma de puntuaciones de las canciones grabadas sea lo mayor posible), teniendo en cuenta que no puede repetir canciones, las escogidas han de caber enteras y no es admisible que una canción se corte a la mitad al final de una cara de la cinta? Entrada La entrada está formada por una serie de casos de prueba. Cada caso comienza con el número N de canciones (1 ≤N ≤25) en la lista de Pepe. Después aparece la duración de cada una de las dos caras de la cinta, y a continuación aparecen N líneas cada una con dos números enteros que representan la duración y la puntuación de cada una de las canciones. La entrada termina con un 0. Salida Para cada caso de prueba se escribirá una línea con la puntuación total máxima conseguida al grabar algunas canciones completas en las dos caras de la cinta.",
+  "entrada": "Número N de canciones, duración de cada una de las dos caras de la cinta, seguido de N líneas con duración y puntuación de cada canción.",
+  "salida": "La puntuación total máxima conseguida al grabar algunas canciones completas en las dos caras de la cinta.",
+  "restricciones": "1 ≤ N ≤ 25",
+
+  "ejemplo": {
+    "input": "4\n90\n50 80\n40 20\n40 50\n60 10\n0",
+    "output": "150"
+  },
+
+  "tags": ["backtracking", "restricciones", "optimización", "combinaciones", "puntuación"],
+
+  "como_reconocerlo": "El problema requiere maximizar una puntuación bajo restricciones de capacidad.",
+  "idea_clave": "Utilizar backtracking para explorar combinaciones de canciones que maximicen la puntuación sin exceder la capacidad de la cinta.",
+
+  "estrategia": [
+    "Definir una función recursiva que explore todas las combinaciones posibles de canciones.",
+    "Para cada canción, decidir si incluirla o no en la cinta, verificando que no exceda la capacidad.",
+    "Calcular la puntuación total de las combinaciones válidas y actualizar el máximo encontrado.",
+    "Asegurarse de no repetir canciones y que cada lado de la cinta se llene adecuadamente."
+  ],
+
+  "plantilla_codigo": "int maxPuntuacion(int N, int duracionCara1, int duracionCara2, vector<pair<int, int>> canciones) {\n    // Inicializar variables para la mejor puntuación\n    int mejorPuntuacion = 0;\n    // Función recursiva para explorar combinaciones\n    function<void(int, int, int, int)> backtrack = [&](int index, int duracionRestante1, int duracionRestante2, int puntuacionActual) {\n        if (index == N) {\n            // Actualizar mejor puntuación si es necesario\n            mejorPuntuacion = max(mejorPuntuacion, puntuacionActual);\n            return;\n        }\n        // Opción 1: No incluir la canción actual\n        backtrack(index + 1, duracionRestante1, duracionRestante2, puntuacionActual);\n        // Opción 2: Incluir la canción en la cara 1 si cabe\n        if (canciones[index].first <= duracionRestante1) {\n            backtrack(index + 1, duracionRestante1 - canciones[index].first, duracionRestante2, puntuacionActual + canciones[index].second);\n        }\n        // Opción 3: Incluir la canción en la cara 2 si cabe\n        if (canciones[index].first <= duracionRestante2) {\n            backtrack(index + 1, duracionRestante1, duracionRestante2 - canciones[index].first, puntuacionActual + canciones[index].second);\n        }\n    };\n    // Iniciar backtracking desde el primer índice\n    backtrack(0, duracionCara1, duracionCara2, 0);\n    return mejorPuntuacion;\n}",
+
+  "pistas": [
+    "Considera cada canción y decide si incluirla en la cara 1, cara 2 o no incluirla.",
+    "Asegúrate de no exceder la duración disponible en cada cara de la cinta."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de canciones que se pueden grabar en las dos caras de la cinta. Se asegura de que las canciones no excedan la duración disponible en cada cara y maximiza la puntuación total. La complejidad temporal es exponencial debido a la exploración de todas las combinaciones posibles de canciones.",
+  
+  "errores_comunes": [
+    "No verificar correctamente si una canción cabe en la cara de la cinta antes de incluirla.",
+    "Olvidar actualizar la mejor puntuación encontrada al final de la exploración de combinaciones."
+  ]
+}

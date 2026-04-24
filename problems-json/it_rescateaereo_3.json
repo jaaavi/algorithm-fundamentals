@@ -1,0 +1,44 @@
+{
+  "id": "it_rescateaereo_3",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "Después de sufrir un devastador ataque alienígena, el alto mando ha recibido una llamada de rescate de la ciudad de Nueva York. El grupo de supervivientes se encuentra detrás de la línea de rascacielos de la ciudad. Al otro lado de los edificios se encuentra vigilando una nave extraterrestre. Para evitar que el transporte aéreo encargado del rescate sea detectado por la nave enemiga, hemos encontrado la secuencia más larga de edificios cuya altura es estrictamente mayor que la de nuestro transporte. El alto mando ya ha avisado a los supervivientes para que se dirijan a este punto de encuentro. Suponemos que todos los edificios tienen la misma anchura. Requisitos de implementación. El coste de la función debe ser lineal en el número de edificios considerados.",
+  "entrada": "La entrada comienza con el número de casos de prueba. Cada caso de prueba tiene dos líneas. En la primera se indica el número de edificios de la línea n, seguido de la altura del transporte t. En la segunda se indica la altura de cada edificio de la línea.",
+  "salida": "Para cada caso de prueba se escriben en una línea el comienzo y el final del intervalo. En caso de existir dos intervalos iguales se eligirá el de la izquierda.",
+  "restricciones": "Se supone que la altura del transporte es menor que la altura de alguno de los edificios considerados y por lo menos existe un edificio.",
+
+  "ejemplo": {
+    "input": "2\n10 5\n3 6 4 8 9 8 7 2 8 9\n7 5\n8 8 8 2 3 9 9",
+    "output": "3 6\n0 2"
+  },
+
+  "tags": ["vector", "acumulador", "intervalo", "lineal"],
+
+  "como_reconocerlo": "El problema busca el intervalo más largo de elementos que cumplen una condición específica.",
+  "idea_clave": "Recorrer el vector acumulando la longitud de secuencias válidas y actualizando el máximo encontrado.",
+  
+  "estrategia": [
+    "Inicializar variables para el inicio y fin del intervalo actual y el máximo.",
+    "Recorrer el vector de alturas de edificios.",
+    "Si la altura del edificio es mayor que la del transporte, extender el intervalo actual.",
+    "Si no, comparar el intervalo actual con el máximo y actualizar si es necesario.",
+    "Al final del recorrido, verificar si el último intervalo es el máximo."
+  ],
+
+  "plantilla_codigo": "void encontrarIntervalo(int casos, vector<vector<int>> datos) {\n  for (int i = 0; i < casos; ++i) {\n    int n = datos[i][0];\n    int t = datos[i][1];\n    vector<int> alturas = datos[i].subvector(2, n+2);\n    // Inicializar variables para el intervalo máximo\n    int inicioMax = 0, finMax = 0, longitudMax = 0;\n    int inicioActual = 0, longitudActual = 0;\n    for (int j = 0; j < n; ++j) {\n      if (alturas[j] > t) {\n        // Extender el intervalo actual\n      } else {\n        // Comparar y actualizar el intervalo máximo\n      }\n    }\n    // Verificar el último intervalo\n    // Imprimir el resultado\n  }\n}",
+
+  "pistas": [
+    "Piensa en cómo puedes usar dos índices para rastrear el inicio y el final de un intervalo.",
+    "Recuerda actualizar el intervalo máximo solo cuando encuentres uno más largo."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre cada lista de alturas de edificios, manteniendo un registro del intervalo más largo donde las alturas son mayores que la del transporte. Utiliza un enfoque de dos punteros para rastrear el inicio y el final del intervalo actual, actualizando el máximo cuando se encuentra un intervalo más largo. La complejidad temporal es O(n) por caso de prueba, ya que cada edificio se evalúa una vez.",
+
+  "errores_comunes": [
+    "No actualizar el intervalo máximo al final del recorrido si el último intervalo es el más largo.",
+    "Confundir los índices de inicio y fin al imprimir el resultado."
+  ]
+}

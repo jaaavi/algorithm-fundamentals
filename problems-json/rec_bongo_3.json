@@ -1,0 +1,32 @@
+{
+  "id": "rec_bongo_3",
+  "tema": "Recursión",
+  "subtipo": "búsqueda",
+  "dificultad": 3,
+
+  "enunciado": "En la residencia de mis tíos, se ha puesto de moda un nuevo juego al que llaman el bongo. Cansados de tachar el número que cantaba el cajero sobre su tarjeta de bingo, los ancianos han optado por tachar el número del cartón que coincida con el número cantado por el cajero más su posición en el cartón (la primera posición del cartón es la cero). De esta forma ejercitan su capacidad de cálculo. Así, por ejemplo, si en el cartón están los números 2 4 7 9 12 15 22 y el número cantado es el 6, al anciano tachará el número 9, ya que su posición, la 3, más el número cantado coinciden con el valor. Si no encuentra ningún número que le coincida no tachará ninguno y esperará al siguiente número. Utilizan únicamente cartones con los números ordenados de forma creciente y para evitar que una persona pueda tachar dos números en una tirada, los cartones no tienen ninguna pareja de números consecutivos. Hoy he estado jugando con ellos, pero me falta práctica y perdía algunos números. He decidido hacer un programa que dados los valores del cartón y el número que canta el cajero me enseñe el número que debo tachar o si no debo hacer nada, para poder estar a su nivel la próxima vez que juegue. Requisitos de implementación. Indicar el coste de la solución obtenida. La función que resuelve el problema debe ser recursiva.",
+  "entrada": "La entrada comienza con el número de casos de prueba. Cada caso de prueba tiene dos líneas. En la primera se indica la cantidad de números que hay en el cartón y el número cantado por el cajero. En la segunda línea se indican los valores del cartón separados por blancos. Los cartones tienen al menos un elemento.",
+  "salida": "Para cada caso de prueba se escriben en una línea el número que se debe tachar o la palabra NO si no hay ninguno en su sitio.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "4\n7 8\n3 6 8 11 14 17 20\n6 2\n0 3 5 7 9 11\n4 5\n0 4 7 12\n5 4\n1 3 7 9 12",
+    "output": "11\n3\n7\nNO"
+  },
+
+  "tags": ["recursión", "búsqueda", "vector", "índices"],
+
+  "como_reconocerlo": "El problema requiere encontrar un elemento en un vector que cumpla una condición específica basada en su índice.",
+  "idea_clave": "Utilizar recursión para recorrer el vector y verificar si el número más su índice coincide con el número cantado.",
+
+  "estrategia": ["Definir una función recursiva que recorra el vector.", "En cada llamada, verificar si el número más su índice coincide con el número cantado.", "Si coincide, devolver el número; si no, continuar la búsqueda.", "Si se llega al final sin coincidencias, devolver 'NO'."],
+
+  "plantilla_codigo": "int buscarNumero(vector<int>& carton, int cantado, int index) {\n  // Caso base: si se ha recorrido todo el vector\n  // Comprobar si el número en la posición actual más el índice coincide con el número cantado\n  // Llamada recursiva al siguiente índice\n}\n\nint main() {\n  // Leer número de casos de prueba\n  // Para cada caso, leer el cartón y el número cantado\n  // Llamar a la función recursiva y mostrar el resultado\n}",
+
+  "pistas": ["Considera cómo el índice afecta la búsqueda del número correcto.", "Piensa en cómo la recursión puede ayudarte a recorrer el vector sin usar un bucle explícito."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector de números del cartón utilizando recursión. En cada paso, verifica si el número en la posición actual más su índice coincide con el número cantado. Si encuentra una coincidencia, devuelve el número; de lo contrario, continúa la búsqueda. La complejidad temporal es O(n), donde n es el número de elementos en el cartón, ya que en el peor caso se revisa cada elemento una vez.",
+
+  "errores_comunes": ["No considerar el índice al verificar la coincidencia con el número cantado.", "No manejar correctamente el caso base en la recursión, lo que puede llevar a una recursión infinita."]
+}

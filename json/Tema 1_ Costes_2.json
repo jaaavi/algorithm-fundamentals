@@ -1,0 +1,120 @@
+[
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Un algoritmo óptimo que comprueba si un vector de n elementos es estrictamente decreciente tiene complejidad en el caso mejor:",
+    "opciones": {
+      "a": "O(n)",
+      "b": "O(n²)",
+      "c": "O(n log n)",
+      "d": "Ninguna de las anteriores"
+    },
+    "correcta": "d",
+    "explicacion": "Falso. En el caso mejor el vector no cumple la propiedad y se detiene inmediatamente."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Un algoritmo óptimo que busca el mínimo en un vector ordenado de n elementos tiene complejidad en el caso peor:",
+    "opciones": {
+      "a": "Θ(n²)",
+      "b": "Θ(log n)",
+      "c": "Θ(1)",
+      "d": "Ninguna de las anteriores"
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. Basta con consultar el primer o último elemento del vector dependiendo de si está ordenado creciente o decrecientemente."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Indica la complejidad del siguiente algoritmo\n\nint b = 0;\nfor (int i = 1; i <= n; i *= 4)\n  --b;",
+    "opciones": {
+      "a": "Θ(log n)",
+      "b": "Θ(1)",
+      "c": "Θ(n²)",
+      "d": "Ninguna de las anteriores"
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. El número de vueltas del bucle es proporcional a log n y el coste de cada vuelta es constante."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Un algoritmo de coste lineal, ¿es preferible a uno de coste constante?",
+    "opciones": {
+      "a": "Siempre.",
+      "b": "Sí, si el tamaño de los datos es suficientemente grande.",
+      "c": "Podría en algunos casos, para tamaño de datos pequeños.",
+      "d": "Nunca"
+    },
+    "correcta": "c",
+    "explicacion": "Falso. Para tamaños pequeños podría ser mejor el lineal."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Indica si la siguiente afirmación es verdadera o falsa:\n\n2^n + n^10 ∈ Ω(2^n)",
+    "opciones": {
+      "a": "Verdadero",
+      "b": "Falso"
+    },
+    "correcta": "a",
+    "explicacion": "Verdadero. Usando la regla de la suma Ω(2^n + n^10) = Ω(2^n)."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Un algoritmo óptimo para insertar un elemento en un vector no necesariamente ordenado que admite elementos repetidos tiene complejidad en el caso peor (la más ajustada)",
+    "opciones": {
+      "a": "O(1)",
+      "b": "O(log n)",
+      "c": "O(n²)",
+      "d": "O(n log n)"
+    },
+    "correcta": "a",
+    "explicacion": "Basta con añadir el elemento al final en tiempo O(1)."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Dados un vector v de tamaño n y otro w de tamaño m, indica cuál es la complejidad en tiempo (más ajustada) del siguiente bucle en el caso peor.\n\nbool b=true; int i=0, j=0;\nwhile (b && (i<n) && (j<m))\n{\n  if (v[i]==w[j]) {i=i+1;j=j+1;}\n  else if (v[i]<w[j]) {i=i+1;}\n  else {b=false;j=j+1;}\n};\nb = b && (j==m);",
+    "opciones": {
+      "a": "O(n log m)",
+      "b": "O(n * m)",
+      "c": "O(n)",
+      "d": "O(n²)"
+    },
+    "correcta": "c",
+    "explicacion": "En el caso peor todos los elementos de w son estrictamente mayores que todos los de v, lo que fuerza a recorrer el vector v por completo incluso cuando m > n. En ese caso el número de vueltas del bucle es proporcional a n y cada vuelta es de coste constante por lo que el coste está en O(n). El coste O(max(n, m)) es una cota superior menos ajustada."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Un algoritmo óptimo para encontrar un elemento cualquiera que no sea el máximo ni el mínimo en un vector no necesariamente ordenado de n>=3 elementos que no admite repetidos tiene complejidad en el caso peor (la más ajustada)",
+    "opciones": {
+      "a": "O(1)",
+      "b": "O(n²)",
+      "c": "O(n * m)",
+      "d": "O(n log m)"
+    },
+    "correcta": "a",
+    "explicacion": "Puesto que no hay elementos repetidos basta con tomar tres elementos, por ejemplo los tres primeros y compararlos. El elemento que no sea el mayor ni el menor de los tres no puede ser el máximo ni el mínimo, así que conseguimos el objetivo en tiempo O(1)."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Indica la complejidad del siguiente algoritmo\n\nint b = 0;\nfor (int i = 0, j = -10; (i < n) || (j < m); ++i, ++j)\n  --b;",
+    "opciones": {
+      "a": "Θ(1)",
+      "b": "Θ(n * log m)",
+      "c": "Θ(max(n, m))",
+      "d": "Ninguna de las anteriores"
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. Del bucle se sale en cuanto las dos condiciones se cumplen, por lo que el número de vueltas del bucle es proporcional a max(n, m), y el cuerpo del bucle es de coste constante."
+  },
+  {
+    "tema": "Tema 1_ Costes_2",
+    "pregunta": "Un algoritmo óptimo para insertar un elemento en un vector ordenado (de forma que siga ordenado) tiene complejidad en el caso peor (la más ajustada)",
+    "opciones": {
+      "a": "O(n²)",
+      "b": "O(n)",
+      "c": "O(log n)",
+      "d": "O(1)"
+    },
+    "correcta": "b",
+    "explicacion": "Para insertar ordenadamente es necesario hacer hueco al elemento desplazando otros elementos. En el caso peor es necesario desplazarlos todos obteniendo coste O(n)."
+  }
+]

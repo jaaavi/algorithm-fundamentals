@@ -1,0 +1,122 @@
+[
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "¿Cuál de estas propiedades es parte del invariante que permite demostrar la corrección de este bucle? Donde 0 <= y <= v.size() int s = 0, k = c; while (k < f) { if (v[k] % 3 == 0) s = s + 1; k = k + 1; }",
+    "opciones": {
+      "a": "s == #i:c <= i <= k:3|v[i] => s:v[i] = 3 * j",
+      "b": "s == #i:c <= i <= k:3|v[i] => s:v[i] = 3 * j",
+      "c": "s == #i:c <= i < f:3|v[i] => s:v[i] = 3 * j",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: s == #i:c <= i < f:3|v[i] => s:v[i] = 3 * j"
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Dados 0 <= i <= j <= v.size() y la función recursiva: int fun(const vector<int>&v, int i, int f){ if (i+1 == f && v[i]&2 == 0) return v[i]; else if (i+1 == f && v[i]&1 != 0) return 0; else{ int m = (f+i)/2; return fun(v, i, m) + fun(v, m, f); } } Si v = 11,0,3,6,2,10, ¿Qué devuelve la llamada fun(v,0,5)?",
+    "opciones": {
+      "a": "no está bien definida para esa entrada",
+      "b": "8",
+      "c": "18",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "La respuesta correcta es: 8"
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Dado el predicado auxiliar S(v,a,b) = ∀i:a <= i < b:v[i] >= v[a] y el predicado P(v) = max p,q:0 <= p < q <= n:S(v,p,q):q - p, ¿cuál de las siguientes afirmaciones indica qué define el predicado P(v) para v, un vector cualquiera de tamaño n > 0?",
+    "opciones": {
+      "a": "Da la longitud máxima de los intervalos [p,q] en el que todos sus valores son mayores que el punto v[p].",
+      "b": "Da la suma de longitudes de los intervalos [p,q] en el que todos sus valores son mayores o iguales que el punto v[p].",
+      "c": "Da true si para todos los intervalos [p,q] con todos sus valores son mayores o iguales que el punto v[p].",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Indica cuál de las siguientes afirmaciones es correcta",
+    "opciones": {
+      "a": "O(n^2) = o(2^n)",
+      "b": "Θ(n^2) = Θ(n^3)",
+      "c": "Ω(n log n) ⊆ Ω(n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: Ω(n log n) ⊆ Ω(n)"
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Considerando el algoritmo de ordenación rápida o quicksort para un vector de tamaño mayor que 1, ¿cuál de estas afirmaciones es cierta?",
+    "opciones": {
+      "a": "Su coste en el caso peor es Θ(n^2).",
+      "b": "Sólo se puede implementar de manera recursiva.",
+      "c": "Su coste en el mejor de los casos es Θ(1).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "La respuesta correcta es: Su coste en el caso peor es Θ(n^2)."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Considera el algoritmo de búsqueda binaria en el que estamos interesados en devolver la última posición en la que está x, con la cabecera: int busqueda(vector<int>& v, int x, int i, int f) Si nos garantizan que este valor x siempre estará en el vector y nos dicen que la llamada inicial al algoritmo es busqueda(v,x,0,v.size()), ¿cuál de las siguientes expresiones es el caso base?",
+    "opciones": {
+      "a": "if (i+1 == f) return f",
+      "b": "if (i == f-1) return v[i]",
+      "c": "if (i == f-1) return i",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: if (i == f-1) return i"
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Indica la complejidad del siguiente algoritmo int f(int n, int m){ int x = 0; for (int k = 5; k < n - 8; k += 5) x += 4; for (int i = m; i >= 6; i -= 3) x *= 2; return x; }",
+    "opciones": {
+      "a": "Θ(n*m)",
+      "b": "Θ(m*log n)",
+      "c": "Θ(m + log n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: Θ(m + log n)"
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Tenemos una función f que sabemos que satisface su especificación, dada por una precondición P y una postcondición Q. ¿Cuál de las siguientes afirmaciones es cierta?",
+    "opciones": {
+      "a": "Si llamamos con un valor que no cumple P, habría que comprobar a mano si el resultado cumple Q.",
+      "b": "Si llamamos con un valor que cumple P, hay que comprobar si el resultado cumple Q.",
+      "c": "Si llamamos con un valor que no cumple P, la función f dará un error.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Dados 0 <= a < b <= v.size() y 0 <= c <= v.size(), ¿cuál es el coste de la siguiente función recursiva? int g(const vector<int>&v, int a, int b, int c){ if (b == a + 1) { return v[a]*c - 3*c; } else{ int m = (a + b)/2; int x = g(v, a, m, c+a); int y = g(v, m, b, c+b); for(int i = a; i < b; ++i) y += v[i]; return x - y; } }",
+    "opciones": {
+      "a": "Θ(c*N) con N = v.size().",
+      "b": "Θ(c log N) con N = b - a.",
+      "c": "Θ(N log N) con N = b - a.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "La respuesta correcta es: Θ(N log N) con N = b - a."
+  },
+  {
+    "tema": "Repaso del test de evaluación",
+    "pregunta": "Indica cuál de las siguientes es una función de cota que permite demostrar la terminación de este bucle, suponiendo que 0 <= n < long(v): int i = 4, k = n, p = 3; while (i < n){ if (v[i] <= v[k] && k >= 0){ p += v[i] * v[k]; k--; } i++; }",
+    "opciones": {
+      "a": "k",
+      "b": "n - i - 4",
+      "c": "i",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "La respuesta correcta es: Ninguna de las anteriores."
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "id": "va_baldamermeladas_sinestimacion",
+  "tema": "Backtracking",
+  "subtipo": "con poda",
+  "dificultad": 4,
+
+  "enunciado": "Hay quien cree que hubo un error de cálculo al contratar a Ricardo en el Supermercado La vuelta. El chico es majo y competente pero raro como él solo. Con decir que trabaja de reponedor para costearse un postgrado en informática, ya lo decimos todo. Las altas esferas del supermercado –es decir, Pili y Loli, dos señoras de más de ochenta años que siguen usando el diminutivo de su nombre y que abrieron un supermercado con los ahorros de sus acaudaladas familias simplemente porque les pilló el estallido de la burbuja de las peluquerías caninas– le nombrarían cada semana empleado del mes (si eso tuviera sentido y ellas repartieran premios a sus trabajadores) porque desde que entró, las ventas se han disparado. ¿Cuál es el secreto de Ricardo? Conseguir baldas perfectas. Para Ricardo una balda está perfecta si está repleta (no hay huecos vacíos entre productos) y es además estética al mantener una buen código de colores y formas. Hoy se ha puesto a ordenar las mermeladas. Cada tarro tiene un peso, un tono de color y una forma (cilíndrica, cúbica y de prisma hexagonal). Los valores estéticos en este caso se traducen a que en ningún momento los tonos de colores pueden disminuir, ni puede haber más tarros cilíndricos que de alguno de los otros dos tipos. Además, en la balda final debe haber al menos tantos botes hexagonales como la suma de los cúbicos y cilíndricos. Obviamente, una balda no puede soportar una cantidad ilimitada de tarros de mermelada. Cada balda tiene un peso máximo que puede soportar y que Ricardo debe asegurarse de no superar; así como una longitud máxima (el número de tarros que caben en ella). ¿Ayudas a Ricardo a contar de cuántas formas diferentes puede colocar los tarros de mermelada en una balda cumpliendo con sus estrictos criterios estéticos? Se pide: Describe el espacio de soluciones y el árbol de exploración. Implementa un algoritmo de vuelta atrás que resuelva el problema. Explica claramente los marcadores que has utilizado. ¿Puedes indicar alguna estimación de satisfactibilidad?",
+  "entrada": "Cada caso de prueba consta de 4 líneas: 1. la longitud de la balda (L> 0), el número de tarros de mermelada a nuestra disposición (N≥0) y el peso máximo (P≥0) que aguanta la balda. 2. el peso de cada uno de los N tarros. 3. el tono de color de cada uno de los N tarros (un número entero entre 0 y 256). 4. el tipo de bote para cada uno de los N tarros (un número entero: 0 para cilíndricos, 1 para cúbicos y 2 para prismas hexagonales). La entrada termina cuando no haya más números que procesar",
+  "salida": "Para cada caso de prueba el programa escribirá el número de formas diferentes de colocar los N tarros en la balda cumpliendo con todas las restricciones.",
+  "restricciones": "L > 0, N ≥ 0, P ≥ 0, tono de color entre 0 y 256, tipo de bote: 0, 1, 2",
+
+  "ejemplo": {
+    "input": "2 3 10\n3 4 5\n1 1 2\n0 1 2\n3 4 10\n2 3 2 4\n5 5 5 5\n1 2 0 2\n3 4 10\n2 3 2 4\n1 1 2 2\n1 2 0 2\n2 1 10\n5\n0\n2",
+    "output": "1\n6\n2\n0"
+  },
+
+  "tags": ["backtracking", "poda", "combinaciones", "restricciones", "recursión"],
+
+  "como_reconocerlo": "El problema requiere contar combinaciones válidas bajo restricciones complejas.",
+  "idea_clave": "Utilizar backtracking con poda para evitar explorar configuraciones no válidas o subóptimas.",
+
+  "estrategia": [
+    "Definir una función recursiva que explore todas las combinaciones posibles de tarros.",
+    "Aplicar poda para descartar combinaciones que no cumplan las restricciones de peso, color y tipo.",
+    "Contar las combinaciones válidas que llenan la balda cumpliendo todas las restricciones."
+  ],
+
+  "plantilla_codigo": "void resolver(int L, int N, int P, vector<int>& pesos, vector<int>& colores, vector<int>& tipos) {\n  // Inicializar variables necesarias\n  // Llamar a la función recursiva de backtracking\n}\n\nvoid backtrack(int index, int peso_actual, int longitud_actual, vector<int>& seleccionados) {\n  // Comprobar restricciones\n  // Si es una solución válida, contarla\n  // Recorrer opciones posibles\n  // Llamar recursivamente\n}",
+
+  "pistas": ["Considera las restricciones de color y tipo al decidir si continuar explorando una rama.", "Utiliza poda para evitar explorar configuraciones que ya superan el peso o longitud máxima."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de tarros en la balda. Se aplican restricciones de peso, color y tipo para podar el árbol de búsqueda y evitar configuraciones no válidas. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": ["No aplicar poda correctamente, lo que lleva a explorar configuraciones innecesarias.", "Olvidar verificar todas las restricciones antes de contar una configuración como válida."]
+}

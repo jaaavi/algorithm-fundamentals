@@ -1,0 +1,51 @@
+{
+  "id": "va_papa_noel_3",
+  "tema": "Backtracking",
+  "subtipo": "con poda",
+  "dificultad": 4,
+
+  "enunciado": "Papá Noel tiene una bolsa con capacidad máxima de peso P y debe elegir un subconjunto de regalos de entre n disponibles. Cada regalo i tiene un peso peso[i] y un valor alegría[i]. Se quiere maximizar la alegría total de los regalos seleccionados sin superar la capacidad de la bolsa. Diseña un algoritmo de vuelta atrás con estimación que resuelva el problema.",
+
+  "entrada": "n (número de regalos), P (capacidad máxima de la bolsa), vectores peso[0..n-1] y alegría[0..n-1].",
+  "salida": "El subconjunto de regalos que maximiza la alegría sin superar el peso P. Devuelve la alegría máxima y qué regalos seleccionar.",
+  "restricciones": "n ≥ 1, P ≥ 0. Todos los pesos y alegrías son enteros positivos.",
+
+  "ejemplo": {
+    "input": "n=4, P=10, peso={2,3,5,7}, alegría={3,4,5,6}",
+    "output": "Regalos 0,1,2 (peso=10, alegría=12)"
+  },
+
+  "tags": ["backtracking", "mochila", "poda", "estimación", "subconjunto", "optimización"],
+
+  "como_reconocerlo": "Optimización combinatoria: maximizar/minimizar una función sobre todos los subconjuntos con restricciones de capacidad. Nodo del árbol = decisión incluir/excluir regalo i.",
+  "idea_clave": "Árbol binario de decisiones (incluir o no cada regalo). La poda por estimación calcula la cota superior de alegría alcanzable desde el nodo actual — si no puede superar el mejor ya encontrado, podar esa rama.",
+
+  "estrategia": [
+    "Ordenar regalos por ratio alegría/peso descendente (mejora la poda)",
+    "Función bt(i, pesoAcum, alegríaAcum): procesa el regalo i",
+    "Calcular estimación: alegría acumulada + fracción de regalos restantes que caben",
+    "Podar si estimación ≤ mejorAlegría (no puede mejorar)",
+    "Caso base: i == n → actualizar mejor si alegríaAcum > mejorAlegría",
+    "Rama izquierda: incluir regalo i si pesoAcum + peso[i] ≤ P",
+    "Rama derecha: no incluir regalo i (siempre explorar)"
+  ],
+
+  "plantilla_codigo": "int mejorAlegria = 0;\nvector<bool> mejorSel;\n\ndouble estimacion(int i, int pesoAcum, int alegAcum, ...) {\n    // cota superior: fracción relajada de la mochila\n    // ...\n}\n\nvoid bt(int i, int pesoAcum, int alegAcum, vector<bool> &sel) {\n    if (/* poda por estimación */) return;\n    if (i == n) {\n        // actualizar mejor\n        return;\n    }\n    // rama incluir\n    if (pesoAcum + peso[i] <= P) {\n        sel[i] = true;\n        bt(i+1, pesoAcum + peso[i], alegAcum + alegria[i], sel);\n        sel[i] = false;\n    }\n    // rama no incluir\n    bt(i+1, pesoAcum, alegAcum, sel);\n}",
+
+  "pistas": [
+    "La estimación más simple (sin ordenar): alegríaAcum + suma de todas las alegrías restantes. Es válida pero débil.",
+    "Para una poda más potente, ordena por ratio y usa la relajación fraccional de la mochila como cota superior.",
+    "No olvides que la rama 'incluir' solo se activa si el regalo cabe en la bolsa."
+  ],
+
+  "solucion_codigo": "// Variables globales\nint n, P;\nvector<int> peso, alegria;\nint mejorAlegria;\nvector<bool> mejorSel, selActual;\n\ndouble estimacion(int i, int pesoAcum, int alegAcum) {\n    double est = alegAcum;\n    int pAcum = pesoAcum;\n    for (int j = i; j < n; j++) {\n        if (pAcum + peso[j] <= P) {\n            pAcum += peso[j];\n            est += alegria[j];\n        } else {\n            int hueco = P - pAcum;\n            est += (double)alegria[j] * hueco / peso[j];\n            break;\n        }\n    }\n    return est;\n}\n\nvoid bt(int i, int pesoAcum, int alegAcum) {\n    if (estimacion(i, pesoAcum, alegAcum) <= mejorAlegria) return;\n    if (i == n) {\n        mejorAlegria = alegAcum;\n        mejorSel = selActual;\n        return;\n    }\n    // Incluir regalo i\n    if (pesoAcum + peso[i] <= P) {\n        selActual[i] = true;\n        bt(i+1, pesoAcum + peso[i], alegAcum + alegria[i]);\n        selActual[i] = false;\n    }\n    // No incluir regalo i\n    bt(i+1, pesoAcum, alegAcum);\n}",
+
+  "explicacion": "El algoritmo recorre el árbol binario de decisiones (incluir/excluir cada regalo) con poda por estimación. La función estimacion() calcula una cota superior relajada (admite fracciones del último regalo) — si esta cota no supera el mejor encontrado, la rama se poda. Ordenar por ratio alegría/peso hace que los regalos más rentables se consideren primero, mejorando la poda. La complejidad en el peor caso es O(2^n) pero la poda lo reduce drásticamente en la práctica.",
+
+  "errores_comunes": [
+    "Podar con estimacion < mejorAlegria en vez de <=: pierde soluciones de igual valor.",
+    "No aplicar la poda antes del caso base: el árbol se recorre completo sin beneficio.",
+    "No restaurar selActual[i] = false tras la rama izquierda (backtracking incompleto).",
+    "Calcular la estimación sin considerar el peso ya acumulado."
+  ]
+}

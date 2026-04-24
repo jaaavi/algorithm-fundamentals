@@ -1,0 +1,121 @@
+[
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "Indica cual de las siguientes recurrencias representa el coste del algoritmo mergesort:",
+    "opciones": {
+      "a": "T(n) = c si n ≤ 1, T(n) = 2T(n − 1) + c' ⋅ n si n > 1",
+      "b": "T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c' si n > 1",
+      "c": "T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c ⋅ n si n > 1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. En cada llamada a la función se generan dos llamadas recursivas de la mitad de tamaño y se invierte un coste lineal en el tamaño del segmento para realizar la mezcla."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "¿Qué tipo de recursión es la de esta función?\nint mcd(int a, int b) {\n  int m;\n  if (a==b) { m = a;}\n  else if (a>b) { m = mcd(a-b,b);}\n  else {m=mcd(a,b-a);}\n  return m;\n}",
+    "opciones": {
+      "a": "Recursión lineal final.",
+      "b": "Recursión lineal no final.",
+      "c": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Se trata de recursión lineal porque en cada alternativa hay una única llamada recursiva y es final porque el resultado de la llamada recursiva en cada alternativa es el resultado de la función."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "Dada la siguiente recurrencia, indica la respuesta correcta:\nT(n) = 3n² si n ≤ 1\nT(n) = 3T(n/2) + n² si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ Θ(n²)",
+      "b": "T(n) ∈ Θ(n)",
+      "c": "T(n) ∈ Θ(log n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Aplicando el teorema de la división con a=3, b=2 y k=2, como 3 < 2² tenemos que T(n) ∈ Θ(n²)."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "¿En qué casos no termina este algoritmo recursivo?\nint f(int x) {\n  int resultado;\n  if (x==0) {resultado=0;}\n  else {resultado = f(x-2);}\n  return resultado;\n}",
+    "opciones": {
+      "a": "No termina en ningún caso.",
+      "b": "Solo en los positivos impares.",
+      "c": "Solamente en los números negativos y en los positivos impares.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. No termina en los números positivos impares, ya que al restar dos en cada llamada recursiva no se alcanza el caso base 0. Tampoco en los enteros negativos."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "En los algoritmos recursivos en los que se reduce el tamaño del problema por sustracción:\nT(n) = c₀ si 0 ≤ n ≤ n₀\nT(n) = aT(n − b) + cₙk si n > n₀",
+    "opciones": {
+      "a": "El coste siempre es exponencial.",
+      "b": "Para que sea polinómico es necesario que b>a.",
+      "c": "Si a = 1, el coste es lineal.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Si a>1, es siempre exponencial por muy grande que sea b."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "Indica cuál es la afirmación correcta acerca de este algoritmo de búsqueda binaria en el que la precondición es 0 ≤ c ≤ f + 1 ≤ longitud(v):\nint f(int v[], int x, int c, int f) {\n  int resultado;\n  if (c>f) {resultado = -1;}\n  else {\n    int m = (c+f)/2;\n    if (v[m] > x) {resultado = f(v,x,c,m);}\n    else {resultado = f(v,x,m,f);}\n  }\n  return resultado;\n}",
+    "opciones": {
+      "a": "Nunca termina.",
+      "b": "Solo termina si c < f.",
+      "c": "Solo termina si c > f.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. El algoritmo no termina en todos aquellos casos en los que c ≤ f. El punto medio cumple c ≤ m ≤ f y por tanto las llamadas recursivas (con c,m y m,f) de nuevo cumplen que c ≤ f. Luego, si inicialmente c ≤ f se llegará a un caso base en el que c = m = f, que repetidamente se invocará a sí mismo, generando una recursión infinita."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "La recurrencia que representa el caso peor del algoritmo quicksort que usa el primer elemento del segmento como pivote es:",
+    "opciones": {
+      "a": "T(0) = c, T(n) = 2T(n − 1) + c' ⋅ n si n > 0",
+      "b": "T(0) = c, T(n) = T(n − 1) + c' ⋅ n si n > 0",
+      "c": "T(0) = c, T(n) = T(n − 1) + c' si n > 0",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. En el caso peor se genera cada vez una llamada vacía y otra con todos los elementos menos el pivote. Esto sucede por ejemplo en un array ya ordenado, en el que el pivote se queda siempre en su lugar y se hace una llamada con el resto de elementos."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "Indica la menor función f(n) que cumple que T(n) ∈ O(f(n)):\nT(1) = 1\nT(n) = T(n − 1) + n si n > 1",
+    "opciones": {
+      "a": "n²",
+      "b": "n³",
+      "c": "log n",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ Θ(n²)."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "Indica a qué orden de complejidad pertenece T(n) definida por la recurrencia:\nT(n) = c₀ si n ≤ 1\nT(n) = T(n − 1) + T(n − 2) + c₁ si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ O(n log n)",
+      "b": "T(n) ∈ O(2ⁿ)",
+      "c": "T(n) ∈ O(log n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Puesto que T(n) = T(n − 1) + T(n − 2) + c₁, aplicando el teorema de la división con a=2, b=1, k=0, tenemos que T(n) ∈ O(2ⁿ)."
+  },
+  {
+    "tema": "Tema 4_ Recursión_6",
+    "pregunta": "La generalización es una técnica que se utiliza para:",
+    "opciones": {
+      "a": "Disponer de funciones más generales que la que se deseaba.",
+      "b": "Mejorar la eficiencia de los algoritmos recursivos.",
+      "c": "Obtener versiones recursivas finales de funciones recursivas lineales no finales.",
+      "d": "Diseñar algoritmos recursivos."
+    },
+    "correcta": "a, b, c, d",
+    "explicacion": "Correcta. Añadir parámetros adicionales permite disponer de versiones más generales, por ejemplo en los métodos de ordenación quicksort y mergesort, el hecho de añadir como parámetros adicionales los extremos del segmento del vector en que actúa el algoritmo nos permite ordenar un segmento cualquiera del vector y en particular todo el vector."
+  }
+]

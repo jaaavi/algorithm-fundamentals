@@ -1,0 +1,43 @@
+{
+  "id": "rec_digitosdecrecientesfinalynofinal_3",
+  "tema": "Recursión",
+  "subtipo": "recursión final",
+  "dificultad": 4,
+
+  "enunciado": "Formar números con sus cifras decrecientes. Dado un número queremos eliminar los dígitos que no superen a todos los dígitos que quedan a su derecha. Por ejemplo dado el número 4321 todos sus dígitos igualan o superan a los que quedan a su derecha porque 4 >= 3 >= 2 >= 1 por lo que no se elimina ninguno de ellos. Sin embargo dado el número 475241, el dígito 2 no supera al 4 y por lo tanto se debe eliminar, lo mismo que el dígito 4 de mayor peso. El número resultante es 7541. El número resultante siempre tendrá sus dígitos ordenados de forma decreciente según su valor. Observad que dado un número, no queremos cualquier posible transformación que deje sus dígitos en orden decreciente, sino la que se obtiene eliminando los dígitos que no superen a los dígitos que quedan a su derecha. Por ejemplo, dado el número 4231, el resultado de la función debe ser el número 431, ya que el dígito 2 es el que no supera a los dígitos de su derecha. El problema debe resolverse dos veces. La primera con una función recursiva no final y la segunda con una función recursiva final. Requisitos de implementación. Se deben escribir las ecuaciones recursivas que resuelven el problema en el fichero que se entrega. Las funciones recursivas deben recibir un número entero, y devolver como valor de retorno el número obtenido al eliminar todos los dígitos que no superan a los que quedan a su derecha. Se pueden utilizar más parámetros por valor si la solución lo requiere. No se deben utilizar parámetros por referencia en ninguna de las funciones implementadas. Se pueden devolver más valores como retorno de la función si la solución lo requiere. El problema se debe resolver utilizando un número entero. No se puede utilizar el tipo std::string, ni el tipo std::vector para resolver el ejercicio.",
+  "entrada": "La entrada comienza con el número de casos de prueba. Cada caso se escribe en una línea y consiste en un número, 0 <= N <= 100.000.000.",
+  "salida": "Para cada caso de prueba se muestra en una línea el resultado obtenido con la función recursiva no final y a continuación el resultado de la función recursiva final.",
+  "restricciones": "0 <= N <= 100.000.000",
+
+  "ejemplo": {
+    "input": "6\n4321\n1234\n1000\n888\n64839\n9576135",
+    "output": "4321 4321\n4 4\n1000 1000\n888 888\n9 9\n9765 9765"
+  },
+
+  "tags": ["recursión", "números", "dígitos", "decreciente", "eliminación"],
+
+  "como_reconocerlo": "El problema requiere eliminar dígitos que no superan a los que quedan a su derecha en un número.",
+  "idea_clave": "Utilizar recursión para comparar cada dígito con los que quedan a su derecha y eliminar los que no cumplen la condición.",
+
+  "estrategia": [
+    "Convertir el número en una secuencia de dígitos.",
+    "Comparar cada dígito con el máximo de los dígitos a su derecha.",
+    "Eliminar los dígitos que no superan al máximo de los dígitos a su derecha.",
+    "Construir el número resultante con los dígitos restantes."
+  ],
+
+  "plantilla_codigo": "int eliminarDigitosNoSuperan(int numero) {\n    // Implementar la lógica recursiva aquí\n    return 0; // Cambiar por el resultado correcto\n}\n\nint eliminarDigitosNoSuperanFinal(int numero) {\n    // Implementar la lógica recursiva final aquí\n    return 0; // Cambiar por el resultado correcto\n}",
+
+  "pistas": [
+    "Piensa en cómo puedes comparar cada dígito con los que quedan a su derecha.",
+    "Considera cómo puedes implementar la recursión final para optimizar el proceso."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre los dígitos del número de derecha a izquierda, manteniendo el máximo encontrado. Si un dígito es menor que este máximo, se elimina. La recursión final optimiza el proceso al evitar llamadas adicionales innecesarias. La complejidad temporal es O(n), donde n es el número de dígitos del número.",
+
+  "errores_comunes": [
+    "No considerar correctamente el caso base en la recursión.",
+    "Olvidar actualizar el máximo al recorrer los dígitos."
+  ]
+}

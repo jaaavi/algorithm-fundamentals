@@ -1,0 +1,122 @@
+[
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Indica cuáles son funciones de cota para el siguiente bucle: int i=0; while (i < n && v[i]!=0) { i=i+2; }",
+    "opciones": {
+      "a": "n−i",
+      "b": "n−i+1",
+      "c": "i",
+      "d": "i+2"
+    },
+    "correcta": "a",
+    "explicacion": "Correcta. Puesto que al entrar en el bucle 0 ≤ i < n, n−i es una función positiva que decrece en cada vuelta porque i se incrementa."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(a)} fun producto(int a[ ], int n) dev (int p) {p = Πi: 0 ≤ i < n: a[i]} y el siguiente invariante {0 ≤ k ≤ n ∧ p = Πi: k ≤ i < n: a[i]} indica qué expresión colocar en lugar de ? para que el siguiente algoritmo sea correcto con respecto a la especificación dada y el bucle tenga como invariante el indicado: p=1; int k=n; while (k>0){ p=p*a[?]; k=k-1; } return p;",
+    "opciones": {
+      "a": "k",
+      "b": "i",
+      "c": "k-1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. Según el invariante, el valor v[k] ya está incluido en el producto que toma la variable p. Al pasar a k−1 se restablece multiplicando por v[k−1]."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Indica qué afirmaciones son correctas acerca del siguiente algoritmo: {x > 0} int i=x; while (i>=0){ i=i+1; i=i−1; } {i ≥ 0}",
+    "opciones": {
+      "a": "No termina.",
+      "b": "La propiedad i ≥ 0 es un invariante del bucle.",
+      "c": "La propiedad i = x es un invariante del bucle.",
+      "d": "La función de cota es i."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Puesto que el valor inicial de i es x > 0, y en cada vuelta i mantiene su valor, nunca alcanza el valor 0 y por tanto el bucle no termina."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Dada la siguiente especificación: {v.size() > 0} fun ultimoMaximo(vector v) dev (int i) {0 ≤ i < v.size() ∧ (∀k: 0 ≤ k < v.size():v[k] ≤ v[i]) ∧ (∀l: i < l < v.size():v[i] < v[l])} e el siguiente algoritmo como cuerpo de la función i=v.size()-1; int j=v.size()-2; while (j >= 0){ if (v[j]>v[i]) {i=j;} j=j-1; } return i;",
+    "opciones": {
+      "a": "Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k: j < k < v.size():v[k] ≤ v[i]) ∧ (∀l: i < l < v.size():v[i] < v[l]).",
+      "b": "Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k: j < k < v.size():v[k] ≤ v[i]).",
+      "c": "Es correcto con invariante −1 ≤ j < i < v.size() ∧ (∀k: j < k < v.size():v[k] ≤ v[i]) ∧ (∀l: i < l < v.size():v[i] < v[l]).",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Dado el siguiente algoritmo que calcula la raíz cuadrada entera de un número dado x: {x ≥ 0} r=0; while ((r+1)*(r+1)<=x) { r=r+1; } {r ≥ 0 ∧ r*r ≤ x < (r + 1)*(r + 1)} indica cuales de las siguientes funciones de cota permite demostrar la terminación del bucle:",
+    "opciones": {
+      "a": "x−r*r",
+      "b": "x−r*(r+1)",
+      "c": "r",
+      "d": "x−(r+1)*(r+1)"
+    },
+    "correcta": "a",
+    "explicacion": "Correcta. El invariante del bucle es r ≥ 0 ∧ r*r ≤ x, lo que garantiza que x−r*r ≥ 0. En cada vuelta r se incrementa 1 por lo que x−r*r decrece al menos en 1."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(v) ∧ ∀z: 0 ≤ z < n: v[z] ≥ 0} fun parejasParImpar(int v[], int n) dev (int p) {p = #i, j: 0 ≤ i < j < n: (v[i]%2 == 0 ∧ v[j]%2 == 1)} se ha decidido diseñar un bucle con coste O(n) para resolverlo usando el siguiente invariante {0 ≤ k ≤ n ∧ p = (#i, j: 0 ≤ i < j < k: v[i]%2 == 0 ∧ v[j]%2 == 1) ∧ npares = #i: 0 ≤ i < k: v[i]%2 == 0} Indica cuáles de los siguientes bucles es correcto con respecto a la especificación y tiene dicho invariante",
+    "opciones": {
+      "a": "Solamente 1 y 2.",
+      "b": "Solamente 2 y 3.",
+      "c": "Solamente 3.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Los algoritmos 1 y 2 son correctos y su invariante es el indicado, aunque el cuerpo de los bucles es distinto porque se restablecen las variables en distinto orden."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Indica cuál de las propiedades es un invariante del siguiente bucle: {n ≥ 0} int y=1; int j=n; while (j>0){ y=y*x; j=j−1; } {y = x^n}",
+    "opciones": {
+      "a": "y = x^j",
+      "b": "0 < j ≤ n",
+      "c": "y = x^n−j+1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "¿Cuál de estas propiedades es un invariante de este bucle? int x=0; int n=v.size(); while (n!=0){ x=v[n-1]-x; n=n-1; }",
+    "opciones": {
+      "a": "x = ∑i:n ≤ i < v.size():(-1)^i * v[i]",
+      "b": "x = ∑i:n + 1 ≤ i < v.size():(-1)^n * v[i]",
+      "c": "n ≠ 0",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Dada la siguiente especificación: {0 < n ≤ longitud(a)} fun maximo(int a[], int n) dev (int m) {m = max(i: 0 ≤ i < n: a[i])} y el siguiente invariante: {0 ≤ k ≤ n ∧ m = max(i: k ≤ i < n: a[i])} indica qué expresiones colocar en lugar de los ? para que el siguiente algoritmo sea correcto con respecto a la especificación dada y el bucle tenga como invariante el indicado: k=? ; m=?; while (?) { if (m<a[k-1]) {m=a[k-1];} k=k-1; }",
+    "opciones": {
+      "a": "Inicialización: k=n; m=a[n-1]; Condición del while: (k>1)",
+      "b": "Inicialización: k=n; m=a[n]; Condición del while: (k>=0)",
+      "c": "Inicialización: k=n; m=a[n]; Condición del while: (k>0)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Tema 3_ Diseño de algoritmos iterativos_1",
+    "pregunta": "Dada la siguiente especificación: {0 ≤ n ≤ longitud(a)} fun contarPares(int a[], int n) dev (int c) {c = #i: 0 ≤ i < n: a[i]%2 == 0} y el siguiente algoritmo: int contarPares(int a[],int n){ int c=0; int k=-1; while (k<n-1) { if (a[k+1] % 2 == 0) {c=c+1;} k=k+1; } return c; } indica si el algoritmo es correcto con respecto a la especificación y en tal caso cual es el invariante que permite demostrar la corrección del bucle.",
+    "opciones": {
+      "a": "Es correcto con invariante {−1 ≤ k ≤ n ∧ c = #i: 0 ≤ i ≤ k: a[i]%2 == 0}.",
+      "b": "El algoritmo no es correcto con respecto a la especificación.",
+      "c": "Es correcto con invariante {−1 ≤ k < n ∧ c = #i: 0 ≤ i ≤ k: a[i]%2 == 0}.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. La respuesta correcta es: Es correcto con invariante {−1 ≤ k < n ∧ c = #i: 0 ≤ i ≤ k: a[i]%2 == 0}."
+  }
+]

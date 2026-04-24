@@ -1,0 +1,48 @@
+{
+  "id": "va_torres_colores_4",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Se dispone de un tablero de n×m celdas. Hay que colocar torres de k colores distintos (hay una torre de cada color) de forma que ninguna torre amenace a otra del mismo color. Una torre amenaza a otra si están en la misma fila o en la misma columna. Diseña un algoritmo de vuelta atrás que encuentre todas las distribuciones posibles.",
+
+  "entrada": "n (filas), m (columnas), k (número de colores/torres). Se garantiza k ≤ n·m.",
+  "salida": "Todas las distribuciones válidas de las k torres en el tablero. Para cada solución, las posiciones (fila, columna) de cada torre.",
+  "restricciones": "1 ≤ k ≤ n·m. Las torres de distinto color pueden compartir fila o columna.",
+
+  "ejemplo": {
+    "input": "n=2, m=2, k=2",
+    "output": "[(0,0),(0,1)], [(0,0),(1,0)], [(0,1),(0,0)], ... (todas permutaciones válidas)"
+  },
+
+  "tags": ["backtracking", "tablero", "torres", "restricciones", "filas", "columnas"],
+
+  "como_reconocerlo": "Colocación de elementos en cuadrícula con restricciones de exclusión por fila/columna — variante del problema de las N-reinas.",
+  "idea_clave": "Colocar las torres de color 0 a k-1 una a una. Para la torre del color i, probar cada celda libre del tablero que no comparta fila ni columna con ninguna torre del mismo color ya colocada.",
+
+  "estrategia": [
+    "Representar el estado como un array sol[k] donde sol[c] = (fila, col) de la torre de color c",
+    "bt(c): intenta colocar la torre de color c",
+    "Probar cada celda (f, col) del tablero",
+    "Comprobar que ninguna torre ya colocada de color c' (c' < c) tenga fila==f o col==col (restricción de amenaza solo para igual color)",
+    "Si la celda es válida: asignar sol[c] = (f, col) y llamar a bt(c+1)",
+    "Caso base: c == k → registrar solución"
+  ],
+
+  "plantilla_codigo": "int n, m, k;\nvector<pair<int,int>> sol;\n\nbool valido(int c, int fila, int col) {\n    for (int i = 0; i < c; i++) {\n        if (sol[i].first == fila || sol[i].second == col)\n            return false;\n    }\n    return true;\n}\n\nvoid bt(int c) {\n    if (c == k) {\n        // registrar solución\n        return;\n    }\n    for (int f = 0; f < n; f++) {\n        for (int cc = 0; cc < m; cc++) {\n            if (/* celda válida */) {\n                sol[c] = {f, cc};\n                bt(c + 1);\n                // backtrack automático al reasignar\n            }\n        }\n    }\n}",
+
+  "pistas": [
+    "La restricción de amenaza solo aplica entre torres del MISMO color, no de colores distintos.",
+    "Puedes recorrer las celdas en orden fila por fila para evitar duplicados si el enunciado pide distribuciones sin orden de color."
+  ],
+
+  "solucion_codigo": "int n, m, k;\nvector<pair<int,int>> sol;\nvector<vector<pair<int,int>>> soluciones;\n\nbool valido(int c, int fila, int col) {\n    for (int i = 0; i < c; i++) {\n        if (sol[i].first == fila || sol[i].second == col)\n            return false;\n    }\n    return true;\n}\n\nvoid bt(int c) {\n    if (c == k) {\n        soluciones.push_back(sol);\n        return;\n    }\n    for (int f = 0; f < n; f++) {\n        for (int cc = 0; cc < m; cc++) {\n            if (valido(c, f, cc)) {\n                sol[c] = {f, cc};\n                bt(c + 1);\n            }\n        }\n    }\n}\n\nint main() {\n    sol.resize(k);\n    bt(0);\n}",
+
+  "explicacion": "Se genera el árbol de backtracking colocando las torres color a color. Para cada color c, se prueban todas las n·m celdas del tablero y se comprueba que ninguna torre ya colocada (colores 0..c-1) esté en la misma fila o columna. No es necesario backtrack explícito porque sol[c] se sobreescribe en la siguiente iteración del bucle. La complejidad en el peor caso es O((n·m)^k).",
+
+  "errores_comunes": [
+    "Aplicar la restricción entre torres de DISTINTOS colores — las torres de colores distintos sí pueden amenazarse.",
+    "No distinguir entre el índice de color (c) y las coordenadas de la celda.",
+    "Olvidar el caso base c == k para registrar la solución."
+  ]
+}

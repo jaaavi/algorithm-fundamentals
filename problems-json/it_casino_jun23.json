@@ -1,0 +1,37 @@
+{
+  "id": "it_casino_jun23",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "René anda obsesionado con hundir a la banca del casino local. Tiene dos armas para ello: un chivatazo y sus conocimientos de algoritmos. Un amigo que trabaja en el casino, le ha pasado la secuencia de ganancias y pérdidas que sacará la ruleta esta noche. La secuencia de números que recibe René indica qué ganaría (si es un valor positivo) o perdería (si es un valor negativo) de hacer una apuesta en ese instante. Su intención es obtener cuál es la racha que le proporciona la ganancia máxima. Como hay cierto riesgo de que le pillen, René ha decidido que sólo hará una apuesta si, al menos, se asegura un beneficio mínimo. Además, si encuentra más de una racha que genere ese beneficio máximo, sólo le interesa aquella que lo haga antes (es decir, que comience antes). Se pide: Especifica una función que reciba un vector de enteros y un valor s > 0, y devuelva tres valores: el valor de la ganancia máxima (siempre que ésta sea al menos s), el inicio y el final del intervalo en la que esto ocurre (ambos índices incluidos en el intervalo). Diseña e implementa un algoritmo iterativo eficiente que resuelva el problema propuesto y que cumpla la especificación que has hecho. Escribe el invariante del bucle que permite demostrar la corrección del mismo y proporciona una función de cota. Indica y justifica adecuadamente el coste asintótico del algoritmo en el caso peor.",
+  "entrada": "La entrada consta de varios casos de prueba. Cada uno de ellos ocupa dos líneas. La primera línea de cada caso indica la longitud N de la lista de entrada (1 ≤ N ≤ 100000) y el valor S (1 ≤ S) del beneficio mínimo esperado; y la segunda línea contiene los N elementos de la lista.",
+  "salida": "Para cada caso de prueba debe escribirse una línea con los valores que nos interesan: la ganancia máxima, el inicio del intervalo y el final del intervalo (ambos índices incluídos). Si no hay ningún intervalo con beneficio mayor o igual a S, la salida será NO COMPENSA.",
+  "restricciones": "1 ≤ N ≤ 100000, 1 ≤ S",
+
+  "ejemplo": {
+    "input": "5\n10 5\n4 3 -4 1 5 2 -12 8 3 -1\n5 10\n-10 11 10 -100 1\n3 2\n-1 -2 0\n7 7\n7 0 1 -6 4 3 -2\n7 1\n8 -8 7 3 -20 2 5",
+    "output": "11 0 5\n21 1 2\nNO COMPENSA\n9 0 5\n10 0 3"
+  },
+
+  "tags": ["vector", "acumulador", "índices", "máximo", "iterativo"],
+
+  "como_reconocerlo": "El problema busca el subarray con la suma máxima que cumpla una condición mínima.",
+  "idea_clave": "Usar un algoritmo de acumulación para encontrar la subarray con la suma máxima que cumpla el beneficio mínimo.",
+  
+  "estrategia": [
+    "Inicializar variables para el máximo beneficio, inicio y fin del intervalo.",
+    "Recorrer el vector acumulando sumas y actualizando el máximo beneficio cuando se supera el mínimo.",
+    "Actualizar los índices de inicio y fin cuando se encuentra un nuevo máximo.",
+    "Devolver el máximo beneficio y los índices, o 'NO COMPENSA' si no se cumple el mínimo."
+  ],
+
+  "plantilla_codigo": "void calcularRachaMaxima(const vector<int>& ganancias, int s, int& maxGanancia, int& inicio, int& fin) {\n    // Inicializar variables\n    int sumaActual = 0;\n    int inicioTemp = 0;\n    maxGanancia = INT_MIN;\n    \n    // Recorrer el vector\n    for (int i = 0; i < ganancias.size(); ++i) {\n        // Acumular suma\n        // Actualizar máximo si se supera el mínimo\n        // Actualizar índices de inicio y fin\n    }\n    // Comprobar si se encontró una racha que cumple el mínimo\n}",
+
+  "pistas": ["Considera cómo actualizar la suma acumulada y cuándo reiniciarla.", "Piensa en cómo manejar los índices de inicio y fin cuando encuentras un nuevo máximo."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector acumulando sumas y actualizando el máximo beneficio cuando se supera el mínimo. Utiliza un enfoque de acumulador para mantener la suma actual y reiniciarla cuando es necesario. La complejidad temporal es O(N) debido a que se recorre el vector una sola vez.",
+  
+  "errores_comunes": ["No reiniciar la suma acumulada correctamente al encontrar un valor negativo.", "No manejar correctamente los índices de inicio y fin al actualizar el máximo beneficio."]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "it_segmentoconsecutivos_4",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 3,
+
+  "enunciado": "Dado un vector de enteros, se desea encontrar el segmento más largo de números consecutivos. Se pide: 1. Especifica una función que dado un vector de enteros de longitud ≥0 devuelva la longitud del segmento más largo del vector formado por una secuencia de números consecutivos. 2. Diseña e implementa un algoritmo iterativo que resuelva el problema propuesto. 3. Escribe el invariante del bucle que permite demostrar la corrección del mismo y proporciona una función de cota. 4. Indica el coste asintótico del algoritmo en el caso peor y justifica adecuadamente tu respuesta.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá la longitud del vector, y a continuación los valores de tipo int que contiene el vector.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con la longitud del segmento más largo solicitado.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "6\n0\n1\n5\n2\n3 2\n10\n2 3 2 3 4 5 6 5 4 3\n10\n1 1 2 3 4 8 7 6 5 6\n10\n-2 2 2 2 2 2 2 2 2 2",
+    "output": "0\n1\n2\n10\n5\n1"
+  },
+
+  "tags": ["vector", "ventana", "iterativo", "consecutivos", "segmento"],
+
+  "como_reconocerlo": "El problema pide encontrar el segmento más largo de números consecutivos en un vector.",
+  "idea_clave": "Usar una ventana deslizante para identificar y contar segmentos consecutivos en el vector.",
+
+  "estrategia": [
+    "Inicializar variables para el segmento más largo y el segmento actual.",
+    "Recorrer el vector y verificar si el siguiente número es consecutivo.",
+    "Actualizar el segmento actual o reiniciarlo si no es consecutivo.",
+    "Actualizar el segmento más largo si el actual es mayor.",
+    "Devolver el segmento más largo encontrado."
+  ],
+
+  "plantilla_codigo": "int longitudSegmentoConsecutivo(vector<int> &v) {\n    int maxSegmento = 0;\n    int segmentoActual = 0;\n    for (int i = 0; i < v.size(); ++i) {\n        // Verificar si el siguiente número es consecutivo\n        // Actualizar segmentoActual o reiniciarlo\n        // Actualizar maxSegmento si es necesario\n    }\n    return maxSegmento;\n}",
+
+  "pistas": ["Considera cómo manejar los casos en los que el vector está vacío.", "Piensa en cómo identificar si dos números son consecutivos."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector una vez, verificando si cada par de números consecutivos son consecutivos en valor. Si lo son, incrementa el contador del segmento actual; si no, lo reinicia. Al final, devuelve el segmento más largo encontrado. La complejidad temporal es O(n), donde n es el tamaño del vector, ya que se recorre el vector una sola vez.",
+
+  "errores_comunes": ["No reiniciar el contador del segmento actual cuando se encuentra un número no consecutivo.", "No considerar el caso de un vector vacío."]
+}

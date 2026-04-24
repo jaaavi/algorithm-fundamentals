@@ -1,0 +1,32 @@
+{
+  "id": "va_torrescolores2_3",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 3,
+
+  "enunciado": "Torres de colores. Versión 2 (Examen febrero 2017, sesión 2, ejercicio 3, simplificado) Laura quiere construir una torre con piezas de colores. En su juego de construcciones hay piezas azules, rojas y verdes, de cada una de las cuales tiene tantas piezas como quiera. Quiere construir una torre que contenga n >= 1 piezas en total cada una encima de la anterior. No le gusta el color verde, así que nunca coloca dos piezas verdes juntas mientras se va construyendo la torre. Además, como el color rojo es su favorito, las torres que construye siempre tienen en la parte inferior una pieza roja. Implementar un algoritmo que muestre todas las formas posibles que tiene de construir una torre de la altura deseada cumpliendo con las restricciones mencionadas. Requisitos de implementación. Añadir a la versión anterior una condición esValida que comprueba que no se colocan dos piezas verdes seguidas. La torre roja en la base se debe colocar en la función resuelveCaso, antes de llamar a la función recursiva y entrar en la función recursiva en la etapa 1.",
+  "entrada": "La entrada que espera el corrector automático consta de una serie de casos de prueba y acabará cuando se introduzca una línea con un ceros. Cada caso de prueba se escribe en una línea y consta de 1 entero mayor que cero y representa la altura de la torre.",
+  "salida": "Para cada caso de prueba se escriben todas las posibles torres, una en cada línea ordenadas por orden lexicográfico y separando cada par de colores por un espacio. Cada caso termina con una línea en blanco.",
+  "restricciones": "n >= 1",
+
+  "ejemplo": {
+    "input": "1\n2\n3\n0",
+    "output": "rojo\nrojo azul\nrojo rojo\nrojo verde\nrojo azul azul\nrojo azul rojo\nrojo azul verde\nrojo rojo azul\nrojo rojo rojo\nrojo rojo verde\nrojo verde azul\nrojo verde rojo\n"
+  },
+
+  "tags": ["backtracking", "restricciones", "combinaciones", "colores", "torres"],
+
+  "como_reconocerlo": "El problema requiere generar todas las combinaciones posibles bajo ciertas restricciones.",
+  "idea_clave": "Usar backtracking para generar combinaciones de colores, asegurando que no haya dos piezas verdes consecutivas y que la base sea roja.",
+
+  "estrategia": ["Colocar una pieza roja en la base.", "Usar backtracking para añadir piezas, verificando restricciones.", "Imprimir cada combinación válida."],
+
+  "plantilla_codigo": "void construirTorre(int altura, string torre, int nivel) {\n    if (nivel == altura) {\n        // Imprimir torre\n    } else {\n        // Intentar añadir azul\n        // Intentar añadir rojo\n        // Intentar añadir verde si no es consecutivo\n    }\n}\n\nvoid resuelveCaso(int altura) {\n    string torre = \"rojo\";\n    construirTorre(altura, torre, 1);\n}",
+
+  "pistas": ["Empieza siempre con una pieza roja en la base.", "Asegúrate de no colocar dos piezas verdes consecutivas."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de piezas de colores, comenzando siempre con una pieza roja. Se asegura de que no haya dos piezas verdes consecutivas. La complejidad temporal es exponencial debido a la generación de todas las combinaciones posibles.",
+  
+  "errores_comunes": ["Olvidar colocar la pieza roja en la base.", "No verificar correctamente la restricción de piezas verdes consecutivas."]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "rec_obtusos_10",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 4,
+
+  "enunciado": "Pascual empezó muy contento en la empresa en la que hace prácticas, pero un mes después está cansado de tanto Excel así que le ha pedido a su superior que le ponga una tarea más interesante. Ante tal disposición el jefe le ha propuesto automatizar una tarea que hasta ahora hacían a mano: conocer la cantidad de dígitos obtusos, como son llamados, en los números identificadores de los clientes. Un dígito de un número natural n se dice que es obtuso si es igual al producto, módulo 10, de los dígitos con valores impares que son más significativos que él. Además, el dígito más significativo es obtuso únicamente si es 1. Por ejemplo, en el número 371323 hay 2 dígitos obtusos, el último 3 = (3∗7∗1∗3) mod 10 y el 1 = (3∗7) mod 10. Como decíamos antes, la tarea de Pascual es la de conocer la cantidad de dígitos obtusos de un número dado. Se pide: 1. (8.5 puntos) Escribe un algoritmo recursivo eficiente que permita resolver el problema para un número n dado. No está permitido almacenar en un vector auxiliar o una variable string los dígitos del número. 2. (1.5 puntos) Escribe la recurrencia que corresponde al coste de la función recursiva utilizando el número de dígitos de n como tamaño del problema. Indica también a qué orden de complejidad asintótica pertenece dicho coste.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de consta de un número n. Su valor está garantizado que cabe en una variable entera.",
+  "salida": "Para cada caso de prueba el programa escribirá la cantidad de dígitos obtusos del número n dado.",
+  "restricciones": "No está permitido almacenar en un vector auxiliar o una variable string los dígitos del número.",
+
+  "ejemplo": {
+    "input": "5\n371323\n1111\n7793113\n339\n22222",
+    "output": "2\n4\n3\n2\n0"
+  },
+
+  "tags": ["recursión", "dígitos", "números", "módulo", "obtusos"],
+
+  "como_reconocerlo": "El problema pide contar dígitos que cumplen una condición específica basada en otros dígitos más significativos.",
+  "idea_clave": "Usar recursión para procesar los dígitos de un número sin almacenarlos en estructuras auxiliares.",
+
+  "estrategia": [
+    "Definir una función recursiva que procese el número dígito a dígito.",
+    "Calcular el producto de los dígitos impares más significativos.",
+    "Verificar si el dígito actual es obtuso y contar si lo es.",
+    "Llamar recursivamente para el siguiente dígito menos significativo."
+  ],
+
+  "plantilla_codigo": "int contarDigitosObtusos(int n) {\n    // Caso base: si n es 0, no hay dígitos obtusos\n    if (n == 0) return 0;\n    // Calcular el dígito menos significativo\n    int digito = n % 10;\n    // Llamada recursiva para el resto del número\n    int cuenta = contarDigitosObtusos(n / 10);\n    // Calcular el producto de los dígitos impares más significativos\n    // Verificar si el dígito actual es obtuso\n    // Incrementar cuenta si es obtuso\n    return cuenta;\n}",
+
+  "pistas": [
+    "Considera cómo puedes calcular el producto de los dígitos impares más significativos sin almacenarlos.",
+    "Piensa en cómo puedes usar la recursión para procesar cada dígito del número de manera eficiente."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre los dígitos del número de derecha a izquierda usando recursión. Para cada dígito, calcula el producto de los dígitos impares más significativos y verifica si el dígito actual es obtuso. La complejidad temporal es O(d), donde d es el número de dígitos del número, ya que cada dígito se procesa una vez.",
+
+  "errores_comunes": [
+    "Intentar almacenar los dígitos en un vector o string, lo cual está prohibido.",
+    "Olvidar considerar el caso base en la recursión, lo que puede llevar a una recursión infinita."
+  ]
+}

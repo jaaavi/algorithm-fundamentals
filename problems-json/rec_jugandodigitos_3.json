@@ -1,0 +1,44 @@
+{
+  "id": "rec_jugandodigitos_3",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 3,
+
+  "enunciado": "Jugando con los dígitos de un número Vamos a modificar los dígitos de un número de la siguiente forma. Si el dígito es impar le restamos uno y si el dígito es par le sumamos uno. Requisitos de implementación. Resolver el problema utilizando primero una función recursiva no final que reciba un número entero y devuelva el número transformado según se indicó en el problema. A continuación resolverlo utilizando una función recursiva final. Probar ambas soluciones en el juez automático. Entrada La entrada comienza con el número de casos de prueba. A continuación cada caso se escribe en una línea y consiste en un número 0 <= N <= 1.000.000.000. Salida Para cada caso de prueba se muestra en una línea el número obtenido sustituyendo cada dígito por su transformado. Entrada de ejemplo 7 45637 555 2 90 81 0 11 Salida de ejemplo 54726 444 3 81 90 1 0 Autor: Isabel Pita",
+
+  "entrada": "Un número entero N por cada caso de prueba, donde 0 <= N <= 1.000.000.000.",
+  "salida": "El número transformado según las reglas dadas, para cada caso de prueba.",
+  "restricciones": "0 <= N <= 1.000.000.000",
+
+  "ejemplo": {
+    "input": "7\n45637\n555\n2\n90\n81\n0\n11",
+    "output": "54726\n444\n3\n81\n90\n1\n0"
+  },
+
+  "tags": ["recursión", "dígitos", "transformación", "números", "recursión final"],
+
+  "como_reconocerlo": "El problema requiere modificar cada dígito de un número de manera recursiva.",
+  "idea_clave": "Utilizar recursión para procesar cada dígito del número y transformarlo según las reglas dadas.",
+
+  "estrategia": [
+    "Definir una función recursiva que procese el último dígito del número.",
+    "Modificar el dígito según si es par o impar.",
+    "Llamar recursivamente a la función con el número sin el último dígito.",
+    "Combinar el resultado de la llamada recursiva con el dígito modificado."
+  ],
+
+  "plantilla_codigo": "int transformarNumero(int n) {\n    // Caso base: si n es 0, devolver 0\n    // Obtener el último dígito\n    // Modificar el dígito según las reglas\n    // Llamada recursiva con el resto del número\n    // Combinar el resultado\n}\n\nint transformarNumeroFinal(int n, int resultado) {\n    // Caso base: si n es 0, devolver resultado\n    // Obtener el último dígito\n    // Modificar el dígito según las reglas\n    // Llamada recursiva con el resto del número y el resultado acumulado\n}",
+
+  "pistas": [
+    "Piensa en cómo extraer y modificar el último dígito de un número.",
+    "Considera cómo combinar el resultado de la llamada recursiva con el dígito modificado."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo procesa cada dígito del número de manera recursiva, modificándolo según si es par o impar. La recursión permite descomponer el problema en subproblemas más pequeños, procesando un dígito a la vez. La complejidad temporal es O(d), donde d es el número de dígitos del número, ya que cada dígito se procesa una vez.",
+
+  "errores_comunes": [
+    "No manejar correctamente el caso base de la recursión.",
+    "Olvidar combinar el resultado de la llamada recursiva con el dígito modificado."
+  ]
+}

@@ -1,0 +1,19 @@
+node_modules/
+.DS_Store
+*.log
+*.tmp
+crop_test.png
+ocr_test.txt
+ocr_test2.txt
+test.js
+.claude/
+imgs/
+
+# PDFs originales — no subir al repositorio
+problems/
+lessons/
+
+# Variables de entorno — nunca subir API keys
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,43 @@
+{
+  "id": "va_papanoel_3",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Papa Noel reparte juguetes Cada año son más los niños que le piden regalos a Papa Noel. Esta noche debe repartir los regalos y todavía no tiene preparado lo que le dará a cada niño. Para poder llegar a tiempo los elfos han diseñado un programa informático, que asignará a cada niño 2 juguetes entre todos los disponibles. Como quieren que los niños queden contentos han elaborado una lista con la satisfacción que le produce a cada niño cada uno de los juguetes que tienen en la fábrica. El objetivo es que todos los niños puedan llegar a un cierto grado de satisfacción, aunque no reciban los juguetes que más les gustan. Papa Noel también ha pedido que los juguetes sean variados, para que ningún niño reciba dos cosas demasiado parecidas, para ello los elfos han clasificado los juguetes por tipos y no entregarán a un niño dos juguetes del mismo tipo. El jefe elfo de informática ha puesto a su equipo a trabajar en un programa que obtenga todas las posibles asignaciones de juguetes que cumplen los requisitos pedidos por Papa Noel. Para evitar las asignaciones repetidas (por ejemplo dar a un niño el juguete A y el juguete B es la misma asignación que darle el juguete B y el juguete A) los dos juguetes de cada niño se obtendrán ordenados, el primer juguete será el de menor identificador y el segundo el de mayor identificador. Requisitos de implementación. El problema se debe implementar empleando la técnica de vuelta atrás. En la plantilla propuesta, la solución se almacena en un vector donde las componentes pares tienen el primer juguete asignado a un niño y las componentes impares el segundo juguete. En las etapas pares se asigna el primer juguete de un niño y en las etapas impares el segundo juguete.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de n+3 líneas. En la primera se indica el número juguetes diferentes que se fabrican, m, el número de niños a los que se les reparten juguetes, n, y la mínima satisfacción pedida para los niños. En la siguiente línea se indica el número de unidades disponibles de cada juguete. En la tercera línea se indica el tipo que tiene cada juguete y en las n últimas líneas la satisfacción de cada uno de los n niños con cada uno de los m juguetes. Después de cada caso hay una línea en blanco para facilitar la identificación de los casos en el ejemplo.",
+  "salida": "Para cada caso de prueba se escriben todas las posibles asignaciones que se pueden realizar, una en cada línea. Si no existe ninguna asignación posible se escribirá SIN SOLUCION. Después de cada caso se escribe una línea en blanco.",
+  "restricciones": "El número de juguetes diferentes, el número de niños y la satisfacción mínima son enteros mayores que cero. El número de unidades disponibles es un entero mayor o igual que cero. El tipo de cada juguete es una cadena de caracteres, y la satisfacción es un número entero que puede ser negativo si el niño aborrece el juguete.",
+
+  "ejemplo": {
+    "input": "4 3 10\n2 1 1 2\nTipo1 Tipo1 Tipo2 Tipo3\n8 9 3 1\n6 4 5 3\n2 2 9 9\n4 3 8\n2 1 1 2\nTipo1 Tipo1 Tipo2 Tipo3\n8 9 3 1\n6 4 5 3\n2 2 9 9\n4 2 10\n1 1 1 1\nTipo1 Tipo1 Tipo1 Tipo2\n10 12 12 15\n9 10 20 7\n3 5 10\n4 3 5\nTipo1 Tipo1 Tipo2\n5 7 4\n8 6 5\n4 8 2\n9 3 4\n8 5 5",
+    "output": "1 3 0 2 0 3\n0 2 0 3 1 3\n0 3 0 2 1 3\n0 3 0 3 1 2\n0 3 1 2 0 3\n1 2 0 3 0 3\n1 3 0 2 0 3\n1 3 0 3 0 2\nSIN SOLUCION\n1 2 0 2 1 2 0 2 0 2\n1 2 0 2 1 2 0 2 1 2\n1 2 1 2 1 2 0 2 0 2"
+  },
+
+  "tags": ["backtracking", "restricciones", "combinaciones", "satisfacción", "juguetes"],
+
+  "como_reconocerlo": "El problema requiere generar combinaciones bajo restricciones específicas de satisfacción y tipo.",
+  "idea_clave": "Utilizar backtracking para explorar todas las combinaciones posibles de asignación de juguetes, respetando las restricciones de tipo y satisfacción mínima.",
+
+  "estrategia": [
+    "Paso 1: Inicializar las estructuras de datos necesarias para almacenar los juguetes, tipos y satisfacciones.",
+    "Paso 2: Implementar una función de backtracking que intente asignar juguetes a cada niño.",
+    "Paso 3: Verificar que cada asignación cumple con las restricciones de tipo y satisfacción.",
+    "Paso 4: Almacenar y mostrar las asignaciones válidas."
+  ],
+
+  "plantilla_codigo": "void asignarJuguetes(int ninos, int juguetes, vector<int>& unidades, vector<string>& tipos, vector<vector<int>>& satisfaccion) {\n    vector<int> solucion(ninos * 2, -1);\n    backtrack(0, solucion, unidades, tipos, satisfaccion);\n}\n\nvoid backtrack(int etapa, vector<int>& solucion, vector<int>& unidades, vector<string>& tipos, vector<vector<int>>& satisfaccion) {\n    if (etapa == solucion.size()) {\n        // Comprobar si la solución es válida y mostrarla\n    } else {\n        // Intentar asignar un juguete en la etapa actual\n    }\n}",
+
+  "pistas": [
+    "Considera cómo las restricciones de tipo y satisfacción afectan las posibles combinaciones.",
+    "Recuerda que las asignaciones deben ser únicas y ordenadas por identificador."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las combinaciones posibles de asignación de juguetes a los niños. Se asegura de que cada niño reciba dos juguetes de diferentes tipos y que la satisfacción total cumpla con el mínimo requerido. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero el uso de restricciones ayuda a podar el espacio de búsqueda.",
+  
+  "errores_comunes": [
+    "No verificar correctamente las restricciones de tipo, lo que lleva a asignaciones inválidas.",
+    "No manejar adecuadamente las condiciones de satisfacción mínima, resultando en soluciones incorrectas."
+  ]
+}

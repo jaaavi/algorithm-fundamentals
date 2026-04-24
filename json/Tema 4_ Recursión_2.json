@@ -1,0 +1,121 @@
+[
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "Indica cuáles son casos peores del algoritmo quicksort que usa el primer elemento del segmento como pivote y que en la fase de partición reparte los elementos en menores, iguales y mayores:",
+    "opciones": {
+      "a": "El último elemento es la mediana del array.",
+      "b": "Los elementos están ordenados a la inversa de forma estricta.",
+      "c": "Los elementos ya están ordenados de forma estricta.",
+      "d": "Todos los elementos son iguales."
+    },
+    "correcta": "b",
+    "explicacion": "a. Incorrecta. Sin saber cómo es el resto del array podría ser cualquier caso, inclusive uno mejor o uno peor. b. Correcta. El caso en que los elementos ya están ordenados y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n²), siendo n el número de elementos del array. c. Correcta. El caso en que los elementos están ordenados a la inversa y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n²), siendo n el número de elementos del array. d. Incorrecta. El caso en que todos los elementos son iguales es uno de los casos mejores porque una vez hecha la partición los elementos iguales al pivote se descartan en bloque, así que en ese caso el coste está en O(n). Las respuestas correctas son: Los elementos están ordenados a la inversa de forma estricta., Los elementos ya están ordenados de forma estricta."
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "Indica cual de las siguientes recurrencias representa el coste del algoritmo mergesort:",
+    "opciones": {
+      "a": "T(n) = c si n ≤ 1, T(n) = T(n/2) + c'n si n > 1",
+      "b": "T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c'n si n > 1",
+      "c": "T(n) = c si n ≤ 1, T(n) = 2T(n − 1) + c' si n > 1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "a. Falso. En cada llamada a la función se generan dos llamadas recursivas de la mitad de tamaño, así que debería ser 2T(n/2). b. Cierto. En cada llamada a la función se generan dos llamadas recursivas de la mitad de tamaño y se invierte un coste lineal en el tamaño del segmento para realizar la mezcla. c. Falso. El tamaño de las llamadas recursivas es la mitad del tamaño de la llamada original, debería ser 2T(n/2), no 2T(n − 1). El coste adicional a las llamadas recursivas, que se debe fundamentalmente al algoritmo de mezcla, es lineal en el tamaño del problema n=f-c+1, no constante. Debería ser c'n. d. Falso. La respuesta correcta es: T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c'n si n > 1 La respuesta correcta es: T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c'n si n > 1"
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "¿En qué casos no termina este algoritmo recursivo? int f(int x) { int resultado; if (x==0) {resultado=0;} else {resultado = f(x-2);} return resultado; }",
+    "opciones": {
+      "a": "Solo en los positivos pares",
+      "b": "Solo en los positivos impares.",
+      "c": "No termina en ningún caso.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "a. Falso. En los positivos pares sí termina. b. Falso. Tampoco termina en los números negativos. c. Falso. Sí termina en los números positivos pares. d. Cierto. La respuesta correcta es: Solamente en los números negativos y en los positivos impares. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "¿Qué tipo de recursión es la de esta función? int mcd(int a, int b) { int m; if (a==b) { m = a;} else if (a>b) { m = mcd(a-b,b);} else {m=mcd(a,b-a);} return m; }",
+    "opciones": {
+      "a": "Recursión lineal final.",
+      "b": "Recursión múltiple.",
+      "c": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "a. Cierto. Se trata de recursión lineal porque en cada alternativa hay una única llamada recursiva y es final porque el resultado de la llamada recursiva en cada alternativa es el resultado de la función. b. Falso. Se trata de recursión lineal porque en cada alternativa hay una única llamada recursiva y por tanto cada invocación a la función genera una sola llamada recursiva. c. Falso. La respuesta correcta es: Recursión lineal final. La respuesta correcta es: Recursión lineal final."
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "Indica cuál es la afirmación correcta acerca de este algoritmo de búsqueda binaria en el que la precondición es 0 ≤ c ≤ f + 1 ≤ longitud(v): int f(int v[], int x, int c, int f) { int resultado; if (c>f) {resultado = c-1;} else { int m = (c+f)/2; if (v[m] > x) {resultado = f(v,x,c,m);} else {resultado = f(v,x,m,f);} } return resultado; }",
+    "opciones": {
+      "a": "Nunca termina.",
+      "b": "Siempre termina.",
+      "c": "Los únicos casos en que no termina son cuando f = c.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "a. Falso. En los casos en que c > f el algoritmo termina. b. Falso. El algoritmo no termina en todos aquellos casos en los que c ≤ f. El punto medio cumple c ≤ m ≤ f y por tanto las llamadas recursivas (con c,m y m,f) de nuevo cumplen que c ≤ f. Luego, si inicialmente c ≤ f se llegará a un caso base en el que c = m = f, que repetidamente se invocará a sí mismo, generando una recursión infinita. c. Falso. El algoritmo no termina en todos aquellos casos en los que c ≤ f. El punto medio cumple c ≤ m ≤ f y por tanto las llamadas recursivas (con c,m y m,f) de nuevo cumplen que c ≤ f. Luego, si inicialmente c ≤ f se llegará a un caso base en el que c = m = f, que repetidamente se invocará a sí mismo, generando una recursión infinita. d. Cierto. La respuesta correcta es: Solo termina si c > f. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "Indica a qué orden de complejidad pertenece T(n) definida por la recurrencia: T(n) = c₀ si 1 ≤ n ≤ 1 T(n) = T(n − 1) + T(n − 2) + c₁ si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ O(n log n)",
+      "b": "T(n) ∈ O(n)",
+      "c": "T(n) ∈ O(log n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "a. Falso. Puesto que T(n) = T(n − 1) + T(n − 2) + c₁ ≤ 2T(n − 1) + c₁, aplicando el teorema de la división con a=2, b=1, k=0, tenemos que T(n) ∈ Θ(2^n). Análogamente, T(n) = T(n − 1) + T(n − 2) + c₁ ≤ 2T(n − 2) + c₁ y aplicando el teorema de la división con a=2, b=2, k=0, tenemos que T(n) ∈ Ω(2^n). Por tanto T(n)∉O(n log n). b. Falso. Puesto que T(n) = T(n − 1) + T(n − 2) + c₁ ≤ 2T(n − 1) + c₁, aplicando el teorema de la división con a=2, b=1, k=0, tenemos que T(n) ∈ Θ(2^n). Análogamente, T(n) = T(n − 1) + T(n − 2) + c₁ ≤ 2T(n − 2) + c₁ y aplicando el teorema de la división con a=2, b=2, k=0, tenemos que T(n) ∈ Ω(2^n). Por tanto T(n)∉O(n). c. Falso. Puesto que T(n) = T(n − 1) + T(n − 2) + c₁ ≤ 2T(n − 1) + c₁, aplicando el teorema de la división con a=2, b=1, k=0, tenemos que T(n) ∈ Θ(2^n). Análogamente, T(n) = T(n − 1) + T(n − 2) + c₁ ≤ 2T(n − 2) + c₁ y aplicando el teorema de la división con a=2, b=2, k=0, tenemos que T(n) ∈ Ω(2^n). Por tanto T(n)∉O(log n). d. Cierto. La respuesta correcta es: Ninguna de las anteriores. La respuesta correcta es: Ninguna de las anteriores."
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "Dada la siguiente recurrencia, indica la respuesta correcta: T(n) = 3n² si n ≤ 1 T(n) = 3T(n/2) + n² si n > 1",
+    "opciones": {
+      "a": "T(n) ∈ Θ(log n)",
+      "b": "T(n) ∈ Θ(n²)",
+      "c": "T(n) ∈ Θ(n log₂ 3)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "a. Falso. Aplicando el teorema de la división con a=3, b=2 y k=2, como 3 < 2² tenemos que T(n) ∈ Θ(n²) ≠ Θ(log n). b. Cierto. Aplicando el teorema de la división con a=3, b=2 y k=2, como 3 < 2² tenemos que T(n) ∈ Θ(n²) ≠ Θ(n). c. Falso. Aplicando el teorema de la división con a=3, b=2 y k=2, como 3 < 2² tenemos que T(n) ∈ Θ(n²) ≠ Θ(n log₂ 3). d. Falso. La respuesta correcta es: T(n) ∈ Θ(n²) La respuesta correcta es: T(n) ∈ Θ(n²)"
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "Indica la menor función f(n) que cumple que T(n) ∈ O(f(n)): T(1) = 1 T(n) = T(n − 1) + n si n > 1",
+    "opciones": {
+      "a": "log n",
+      "b": "n³",
+      "c": "n²",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "a. Falso. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ Θ(n²) ≠ Θ(log n). b. Falso. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ Θ(n²) ≠ Θ(n³). c. Cierto. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ Θ(n²). d. Falso. La respuesta correcta es: n² La respuesta correcta es: n²"
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "La generalización es una técnica que se utiliza para:",
+    "opciones": {
+      "a": "Obtener versiones recursivas finales de funciones recursivas lineales no finales.",
+      "b": "Mejorar la eficiencia de los algoritmos recursivos.",
+      "c": "Disponer de funciones más generales que la que se deseaba.",
+      "d": "Diseñar algoritmos recursivos."
+    },
+    "correcta": "b",
+    "explicacion": "a. Correcta. Generar versiones recursivas finales a partir de versiones no finales requiere añadir un parámetro adicional acumulador. b. Correcta. Añadir parámetros y/o resultados adicionales puede ayudar a mejorar la eficiencia de los algoritmos recursivos. c. Correcta. Añadir parámetros adicionales permite disponer de versiones más generales, por ejemplo en los métodos de ordenación quicksort y mergesort, el hecho de añadir como parámetros adicionales los extremos del segmento del vector en que actúa el algoritmo nos permite ordenar un segmento cualquiera del vector y en particular todo el vector. d. Correcta. Añadir parámetros adicionales permite definir recursivamente algunos algoritmos, por ejemplo la búsqueda binaria o los métodos de ordenación quicksort y mergesort en los que se añade como parámetros adicionales los extremos del segmento del vector en que actúa el algoritmo. Las respuestas correctas son: Obtener versiones recursivas finales de funciones recursivas lineales no finales., Mejorar la eficiencia de los algoritmos recursivos., Disponer de funciones más generales que la que se deseaba., Diseñar algoritmos recursivos."
+  },
+  {
+    "tema": "Tema 4_ Recursión_2",
+    "pregunta": "En los algoritmos recursivos en los que se reduce el tamaño del problema por sustracción: T(n) = c₀ si 0 ≤ n ≤ n₀ T(n) = aT(n − b) + c'nᵏ si n > n₀",
+    "opciones": {
+      "a": "El coste siempre es polinómico.",
+      "b": "Para que sea polinómico es necesario que b>a.",
+      "c": "El coste siempre es exponencial.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "a. Falso. En caso de que a > 1 el coste está en Θ(aⁿ/ᵇ), y es por tanto exponencial. b. Falso. Para que sea polinómico es necesario que a=1, independientemente del valor de b. c. Falso. En caso de que a = 1 el coste está en Θ(nᵏ + 1), y es por tanto polinómico. d. Cierto. La respuesta correcta es: Si a>1, es siempre exponencial por muy grande que sea b. La respuesta correcta es: Ninguna de las anteriores."
+  }
+]

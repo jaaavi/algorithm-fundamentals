@@ -1,0 +1,32 @@
+{
+  "id": "va_papanoeloptimizacion_3",
+  "tema": "Backtracking",
+  "subtipo": "con poda",
+  "dificultad": 4,
+
+  "enunciado": "Papa Noel reparte juguetes. Versión sin estimación Cada año son más los niños que le piden regalos a Papa Noel. Esta noche debe repartir los regalos y todavía no tiene preparado lo que le dará a cada niño. Para poder llegar a tiempo los elfos han diseñado un programa informático, que asignará a cada niño un juguetes entre todos los disponibles. Cada juguete sólo se puede asignar a un niño. Como quieren que los niños queden contentos han elaborado una lista con la satisfacción que le produce a cada niño cada uno de los juguetes que tienen en la fábrica. El objetivo es maximizar el grado de satisfacción del conjunto de todos los niños. La suma de la satisfacción de todos los niños debe ser máxima. El jefe elfo de informática ha puesto a su equipo a trabajar en un programa que obtenga la satisfacción máxima que pueden conseguir. Entrada La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de n+1 líneas. En la primera se indica el número juguetes que se fabrican, m (1 <= m <= 10), y el número de niños a los que se les reparten juguetes, n (1 <= n <= 9). En las n líneas siguientes se indica la satisfacción de cada uno de los n niños con cada uno de los m juguetes. Después de cada caso hay una línea en blanco para facilitar la identificación de los casos en el ejemplo. Se garantiza que el número de juguetes es siempre igual o superior al número de niños. La satisfacción es un número entero que puede ser negativo si el niño aborrece el juguete. Salida Para cada caso de prueba se escribe la satisfacción máxima que se puede conseguir.",
+  "entrada": "Una serie de casos de prueba. Cada caso consta de n+1 líneas: la primera línea con dos enteros m y n, y las siguientes n líneas con m enteros cada una representando la satisfacción de cada niño con cada juguete.",
+  "salida": "La satisfacción máxima que se puede conseguir para cada caso de prueba.",
+  "restricciones": "1 <= m <= 10, 1 <= n <= 9, m >= n",
+
+  "ejemplo": {
+    "input": "4 3\n8 9 3 1\n6 4 5 3\n2 2 9 9\n4 3\n8 9 3 1\n6 4 5 3\n2 2 9 9\n4 2\n10 12 12 15\n9 10 20 7",
+    "output": "24\n24\n35"
+  },
+
+  "tags": ["backtracking", "poda", "satisfacción", "asignación", "optimización"],
+
+  "como_reconocerlo": "El problema busca maximizar una suma de satisfacciones asignando elementos únicos a cada participante.",
+  "idea_clave": "Utilizar backtracking con poda para explorar combinaciones de asignación de juguetes a niños maximizando la satisfacción total.",
+
+  "estrategia": ["Inicializar la satisfacción máxima a un valor muy bajo.", "Usar backtracking para probar todas las combinaciones posibles de asignación de juguetes a niños.", "Aplicar poda para descartar combinaciones que no pueden superar la satisfacción máxima actual.", "Actualizar la satisfacción máxima cuando se encuentra una combinación válida con mayor satisfacción."],
+
+  "plantilla_codigo": "int maxSatisfaccion(int m, int n, vector<vector<int>>& satisfaccion) {\n    int maxSatisfaccion = INT_MIN;\n    // Función recursiva para asignar juguetes\n    function<void(int, int)> backtrack = [&](int niño, int satisfaccionActual) {\n        if (niño == n) {\n            maxSatisfaccion = max(maxSatisfaccion, satisfaccionActual);\n            return;\n        }\n        for (int juguete = 0; juguete < m; ++juguete) {\n            // Comprobar si el juguete ya está asignado\n            // Si no, asignar y llamar recursivamente\n            // Desasignar después de la llamada recursiva\n        }\n    };\n    backtrack(0, 0);\n    return maxSatisfaccion;\n}",
+
+  "pistas": ["Considera usar un vector para marcar qué juguetes ya han sido asignados.", "Implementa poda para evitar explorar ramas que no pueden mejorar la solución actual."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las posibles asignaciones de juguetes a niños, maximizando la satisfacción total. La poda se aplica para evitar explorar combinaciones que no pueden superar la satisfacción máxima encontrada hasta el momento. La complejidad temporal es factorial en el número de niños, pero la poda reduce significativamente el espacio de búsqueda.",
+  
+  "errores_comunes": ["No aplicar poda, lo que resulta en un tiempo de ejecución excesivo.", "No manejar correctamente la asignación y desasignación de juguetes, causando asignaciones incorrectas."]
+}

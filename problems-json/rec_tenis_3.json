@@ -1,0 +1,32 @@
+{
+  "id": "rec_tenis_3",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 3,
+
+  "enunciado": "Hemos organizado un torneo de tenis entre todos los vecinos de la urbanización. El torneo es a un solo partido, es decir, de cada partido sale un ganador que pasa a la siguiente ronda donde se enfrenta con el ganador de otro partido. Ayer empezamos los partidos, pero como hacía frio muchos jugadores no se presentaron y sus partidos quedaron sin jugar. Por decisión de los organizadores, los jugadores que no se presentan pierden el partido y pasa a la siguiente ronda el jugador que si se presentó. Si no se presenta ninguno de los dos jugadores, no se jugará tampoco el partido de la fase siguiente, clasificándose el otro jugador si lo hubiera. En la primera ronda se juega el primer partido de cada jugador, en la segunda ronda se enfrentan los ganadores de la primera ronda y así sucesivamente. En cada ronda se enfrentan el ganador de la mitad izquierda con el ganador de la mitad derecha. Sobre la lista que teníamos con los partidos que debían jugarse, hemos marcado con ”NP” aquellos jugadores que no se han presentado. Ahora queremos saber cuantos partidos se han jugado realmente hasta la presente ronda. Implementar una función recursiva que reciba un vector con los datos de los partidos y el número de ronda que nos piden y devuelva el número de partidos que se han jugado realmente, es decir que se presentaron los dos jugadores, hasta la ronda que se pide incluida, un booleano indicando si se presentó alguno de los jugadores y la ronda a la que corresponden esos datos.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba tiene 2 líneas. En la primera se indica el número de elementos del vector y la ronda hasta la que se desea obtener información. En la siguiente aparece el nombre de los jugadores o NP si el jugador no se presentó. En la primera ronda los jugadores de las posiciones pares juegan contra el jugador en la posición impar siguiente, es decir el jugador de la posición cero contra el de la posición 1, el de la posición 2 contra el de la posición 3 etc. Los nombres de los jugadores son caracteres alfanuméricos y no contienen blancos. El número de elementos del vector es una potencia de dos y es siempre mayor que 1, de forma que los partidos puedan organizarse correctamente. Se garantiza que el número de ronda es mayor o igual que 1 y menor o igual que el número total de rondas posibles.",
+  "salida": "Para cada caso de prueba se escribe en una línea el número de partidos que se han jugado realmente, es decir aquellos en los que se presentaron los dos jugadores, hasta la ronda que se pide incluida.",
+  "restricciones": "El número de elementos del vector es una potencia de dos y es siempre mayor que 1. El número de ronda es mayor o igual que 1 y menor o igual que el número total de rondas posibles.",
+
+  "ejemplo": {
+    "input": "4 2\nJug1 NP Jug2 NP",
+    "output": "1"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "vector", "torneo", "partidos"],
+
+  "como_reconocerlo": "El problema se centra en un torneo donde los jugadores avanzan en rondas y se requiere contar partidos jugados.",
+  "idea_clave": "Utilizar recursión para dividir el problema en mitades y contar los partidos jugados en cada subproblema.",
+
+  "estrategia": ["Dividir el vector de jugadores en mitades.", "Contar los partidos jugados en cada mitad recursivamente.", "Combinar los resultados de las mitades para obtener el total."],
+
+  "plantilla_codigo": "int contarPartidosJugados(vector<string> jugadores, int ronda) {\n  // Caso base: si ronda es 1, contar partidos jugados en la primera ronda\n  // Dividir el vector en mitades\n  // Llamada recursiva para cada mitad\n  // Combinar resultados\n  return 0; // Cambiar por el resultado correcto\n}",
+
+  "pistas": ["Considera cómo se organizan los partidos en cada ronda.", "Piensa en cómo dividir el vector de jugadores para aplicar recursión."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza recursión para dividir el vector de jugadores en mitades, contando los partidos jugados en cada mitad. La combinación de los resultados de las mitades proporciona el número total de partidos jugados hasta la ronda especificada. La complejidad temporal es O(n log n) debido a la división recursiva del vector.",
+
+  "errores_comunes": ["No manejar correctamente el caso donde ambos jugadores no se presentan.", "Olvidar combinar correctamente los resultados de las mitades."]
+}

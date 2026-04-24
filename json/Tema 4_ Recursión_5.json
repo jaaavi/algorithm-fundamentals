@@ -1,0 +1,121 @@
+[
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "En los algoritmos recursivos en los que se reduce el tamaño del problema por sustracción: T(n) = c0 si 0 ≤ n ≤ n0 T(n) = aT(n − b) + cnk si n > n0 Seleccione una:",
+    "opciones": {
+      "a": "Si a = 1, el coste es lineal.",
+      "b": "Si a>1, es siempre exponencial por muy grande que sea b.",
+      "c": "El coste siempre es polinómico.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Falso. En caso de que a = 1 el coste está en Θ(nk+1). Por tanto si k > 0 no es lineal."
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "La generalización es una técnica que se utiliza para: Seleccione una o más de una:",
+    "opciones": {
+      "a": "Diseñar algoritmos recursivos.",
+      "b": "Disponer de funciones más generales que la que se deseaba.",
+      "c": "Mejorar la eficiencia de los algoritmos recursivos.",
+      "d": "Obtener versiones recursivas finales de funciones recursivas lineales no finales."
+    },
+    "correcta": "a, b, c, d",
+    "explicacion": "Correcta. Añadir parámetros adicionales permite definir recursivamente algunos algoritmos, por ejemplo la búsqueda binaria o los métodos de ordenación quicksort y mergesort en los que se añade como parámetros adicionales los extremos del segmento del vector en que actúa el algoritmo."
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "Indica la menor función f(n) que cumple que T(n) ∈ O(f(n)): T(1) = 1 T(n) = T(n − 1) + n si n > 1 Seleccione una:",
+    "opciones": {
+      "a": "n²",
+      "b": "log n",
+      "c": "n",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Aplicando el teorema de la resta con a=1, b=1 y k=1, tenemos que T(n) ∈ O(n²)."
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "Indica cual de las siguientes recurrencias representa el coste del algoritmo mergesort: Seleccione una:",
+    "opciones": {
+      "a": "T(n) = c si n ≤ 1, T(n) = 2T(n − 1) + c' si n > 1",
+      "b": "T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c' si n > 1",
+      "c": "T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c'n si n > 1",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Falso. La respuesta correcta es: T(n) = c si n ≤ 1, T(n) = 2T(n/2) + c'n si n > 1"
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "Indica cuál es la afirmación correcta acerca de este algoritmo de búsqueda binaria en el que la precondición es 0 ≤ c ≤ f + 1 ≤ longitud(v): Seleccione una:",
+    "opciones": {
+      "a": "Los únicos casos en que no termina son cuando f = c.",
+      "b": "Siempre termina.",
+      "c": "Solo termina si c > f.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "c",
+    "explicacion": "Cierto. El algoritmo no termina en todos aquellos casos en los que c ≤ f. El punto medio cumple c ≤ m ≤ f y por tanto las llamadas recursivas (con c,m y m,f) de nuevo cumplen que c ≤ f. Luego, si inicialmente c ≤ f se llegará a un caso base en el que c = m = f, que repetidamente se invocará a sí mismo, generando una recursión infinita."
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "¿Qué tipo de recursión es la de esta función? Seleccione una:",
+    "opciones": {
+      "a": "Recursión múltiple.",
+      "b": "Recursión lineal.",
+      "c": "Ninguna de las anteriores."
+    },
+    "correcta": "b",
+    "explicacion": "Cierto. Se trata de recursión lineal porque en cada alternativa hay una única llamada recursiva y es final porque el resultado de la llamada recursiva en cada alternativa es el resultado de la función."
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "Indica a qué orden de complejidad pertenece T(n) definida por la recurrencia: T(n) = c0 si n ≤ 1 T(n) = T(n − 1) + T(n − 2) + c1 si n > 1 Seleccione una:",
+    "opciones": {
+      "a": "T(n) ∈ O(n²)",
+      "b": "T(n) ∈ O(n log n)",
+      "c": "T(n) ∈ O(log n)",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Falso. Puesto que T(n) = T(n − 1) + T(n − 2) + c1 ≤ 2T(n − 1) + c1, aplicando el teorema de la división con a=2, b=1, k=0, tenemos que T(n) ∈ O(2ⁿ)."
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "Dada la siguiente recurrencia, indica la respuesta correcta: T(n) = 3n² si n ≤ 1 T(n) = 3T(n/2) + n² si n > 1 Seleccione una:",
+    "opciones": {
+      "a": "T(n) ∈ Θ(n²)",
+      "b": "T(n) ∈ Θ(n² log n)",
+      "c": "T(n) ∈ Θ(n^{log₂ 3})",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "a",
+    "explicacion": "Cierto. Aplicando el teorema de la división con a=3, b=2 y k=2, como 3 < 2² tenemos que T(n) ∈ Θ(n²) ≠ Θ(n)."
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "Indica cuáles son casos peores del algoritmo quicksort que usa el primer elemento del segmento como pivote y que en la fase de partición reparte los elementos en menores, iguales y mayores: Seleccione una o más de una:",
+    "opciones": {
+      "a": "Todos los elementos son iguales.",
+      "b": "Los elementos ya están ordenados de forma estricta.",
+      "c": "Los elementos están ordenados a la inversa de forma estricta.",
+      "d": "El último elemento es la mediana del array."
+    },
+    "correcta": "b, c",
+    "explicacion": "Correcta. El caso en que los elementos ya están ordenados y son distintos es uno de los casos peores porque genera una única llamada recursiva con todos los elementos excepto el pivote, que queda en un extremo. El coste en este caso está en O(n²), siendo n el número de elementos del array."
+  },
+  {
+    "tema": "Tema 4_ Recursión_5",
+    "pregunta": "¿En qué casos no termina este algoritmo recursivo? Seleccione una:",
+    "opciones": {
+      "a": "Solo en los positivos impares.",
+      "b": "Solo en los números negativos.",
+      "c": "No termina en ningún caso.",
+      "d": "Ninguna de las anteriores."
+    },
+    "correcta": "d",
+    "explicacion": "Cierto. La respuesta correcta es: Solamente en los números negativos y en los positivos impares."
+  }
+]

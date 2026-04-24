@@ -1,0 +1,32 @@
+{
+  "id": "rec_cinturon_jun23",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 3,
+
+  "enunciado": "Lucas se acaba de independizar y necesita manejar su presupuesto con cuidado. Sabe que la mayoría de sus gastos se van en la casa y la comida pero quiere asegurarse de que es capaz de reservar lo suficiente como para poder darse algún capricho. ¡Ahorrar en sus hobbies es tan importante que prefiere gastar menos por otro lado antes que no disponer de dinero para ocio! Lucas cuenta con su presupuesto total, la cantidad de dinero que quiere ahorrar por cada uno de los días, y una estimación de los gastos acumulados por cada uno de los días. Su objetivo es encontrar el primer día en el que debe apretarse el cinturón y empezar a gastar menos en comida porque no le queda suficiente dinero para ahorrar en sus caprichos. Se pide: Escribe un algoritmo recursivo eficiente que permita resolver el problema. Escribe la recurrencia que corresponde al coste de la función recursiva. Indica también a qué orden de complejidad asintótica pertenece dicho coste.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba consta de dos líneas. La primera contiene el valor P del presupuesto total; el valor a con la cantidad que se quiere ahorrar por día; y el número n total de días que va a ahorrar (siempre P ≥n · a). La segunda línea contiene una secuencia de tamaño n con la estimación del gasto acumulado día a día (una secuencia estrictamente creciente con saltos de, como poco, el valor a).",
+  "salida": "Para cada caso de prueba el programa escribirá el día en que debe comenzar a apretarse el cinturón (siendo el primer día el día cero) o NO NECESARIO en caso de que no necesite hacerlo.",
+  "restricciones": "P ≥ n · a; la secuencia de gastos es estrictamente creciente con saltos de al menos a.",
+
+  "ejemplo": {
+    "input": "4\n50 10 5\n0 20 30 40 50\n50 7 6\n3 10 18 26 35 45\n32 2 4\n27 29 31 33\n14 2 6\n1 3 6 8 10 12",
+    "output": "1\n5\n0\nNO NECESARIO"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "presupuesto", "gastos", "ahorro"],
+
+  "como_reconocerlo": "El problema busca un punto de cambio en una secuencia bajo ciertas restricciones de presupuesto.",
+  "idea_clave": "Utilizar recursión para dividir el problema en subproblemas más pequeños y encontrar el primer día que cumple la condición.",
+
+  "estrategia": ["Dividir la secuencia de días en mitades.", "Comparar el gasto acumulado con el presupuesto disponible para determinar si es necesario ajustar el gasto.", "Repetir el proceso recursivamente en la mitad relevante."],
+
+  "plantilla_codigo": "int encontrarDia(int P, int a, int n, vector<int>& gastos) {\n    // Implementar la función recursiva\n    // Caso base: si no hay días o se cumple la condición\n    // Dividir el problema en subproblemas\n    // Llamada recursiva en la mitad relevante\n    return 0; // Cambiar por el resultado correcto\n}",
+
+  "pistas": ["Considera cómo dividir la secuencia de días para aplicar recursión.", "Piensa en cómo comparar el gasto acumulado con el presupuesto disponible."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza recursión para dividir la secuencia de días en mitades, buscando el primer día en que el gasto acumulado supera el presupuesto disponible para ahorro. Funciona porque cada llamada recursiva reduce el tamaño del problema a la mitad, lo que lleva a una complejidad logarítmica. La complejidad temporal es O(log n) debido a la división de la secuencia en mitades.",
+  
+  "errores_comunes": ["No manejar correctamente el caso base de la recursión.", "Olvidar comparar correctamente el gasto acumulado con el presupuesto disponible."]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "it_descenso_jun25",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 4,
+
+  "enunciado": "Habu Joji es un alpinista portentoso con una capacidad sobrehumana para ascender y descender montañas en solitario. En la gran comunidad de escaladores (si es que esto es algo que existe) hay constantes y acalorados debates sobre cuál es el récord de Habu a superar. En esta ocasión quieren centrarse en sus impresionantes descensos prolongados, es decir, ¿cuál ha sido el descenso prolongado más largo que ha hecho Habu? Se considera que un tramo t[a..b] de alturas entre los puntos a y b es de descenso prolongado si la altura en a (es decir, t[a]) es mayor o igual que la altura en b (es decir, t[a] →t[b]) y, además, todos los puntos intermedios k tienen una altura estrictamente menor que a (t[k] < t[a]). No es necesario, por lo tanto, que el tramo sea siempre de bajada. Por ejemplo, dados las alturas t = [5,3,4,5,5,1], el tramo 5,3,4,5 (comprendido entre los puntos a = 0 y b = 3) es de descenso prolongado ya que t[0] →t[3] y t[0] cumple que es estrictamente mayor que t[1] y t[2]. Además es el más largo posible. En cambio, el tramo 5,3,4,5,5 (comprendido entre los puntos a = 0 y b = 4) no sería un descenso prolongado ya que t[0] ↑> t[3]. De%ne un predicado auxiliar descenso(t,a,b) que se evalúe a cierto si, y solo si, entre las posiciones a y b (ambas incluidas) hay un tramo de descensp prolongado. Utilizando el predicado auxiliar descenso(t,a,b), especi%ca una función que dado un vector t de enteros no negativos (→0), devuelva la longitud del tramo más largo de descenso prolongado. Diseña e implementa un algoritmo iterativo e%ciente que resuelva el problema propuesto. Escribe el invariante que permita demostrar la corrección de tú algoritmo y proporciona una función de cota. Indica el coste asintótico del algoritmo en el caso peor y justi%ca adecuadamente tu respuesta.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba consta de dos líneas. La primera contendrá el número de elementos del vector n (n ≤ 10^8), y la segunda los elementos del vector.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con la longitud del tramo más largo de descenso prolongado.",
+  "restricciones": "n ≤ 10^8",
+
+  "ejemplo": {
+    "input": "4\n6\n5 3 4 5 5 1\n1\n6\n5\n0 2 3 2 1\n4\n1 2 3 1",
+    "output": "4\n1\n3\n2"
+  },
+
+  "tags": ["vector", "acumulador", "iterativo", "descenso", "algoritmo eficiente"],
+
+  "como_reconocerlo": "El problema busca el tramo más largo que cumple una condición específica sobre los elementos de un vector.",
+  "idea_clave": "Recorrer el vector acumulando la longitud de tramos que cumplen la condición de descenso prolongado y mantener el máximo encontrado.",
+
+  "estrategia": [
+    "Inicializar variables para almacenar la longitud máxima de descenso prolongado.",
+    "Recorrer el vector y verificar para cada par de índices si forman un descenso prolongado.",
+    "Actualizar la longitud máxima si se encuentra un nuevo tramo más largo.",
+    "Devolver la longitud máxima encontrada."
+  ],
+
+  "plantilla_codigo": "int longitudDescensoProlongado(vector<int>& t) {\n  int maxLongitud = 0;\n  // Iterar sobre el vector\n  for (int i = 0; i < t.size(); ++i) {\n    // Comprobar si hay un descenso prolongado desde i\n    for (int j = i + 1; j < t.size(); ++j) {\n      // Verificar condición de descenso prolongado\n      // Actualizar maxLongitud si es necesario\n    }\n  }\n  return maxLongitud;\n}",
+
+  "pistas": ["Considera cómo verificar si un tramo es un descenso prolongado.", "Piensa en cómo actualizar la longitud máxima de manera eficiente."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre el vector de alturas y verifica para cada par de índices si forman un descenso prolongado. Utiliza un acumulador para mantener la longitud máxima encontrada. La complejidad temporal es O(n^2) en el peor caso, ya que se verifica cada par de índices posibles.",
+
+  "errores_comunes": ["No verificar correctamente la condición de descenso prolongado para todos los elementos intermedios.", "No actualizar correctamente la longitud máxima encontrada."]
+}

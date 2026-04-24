@@ -1,0 +1,44 @@
+{
+  "id": "va_eval_f",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "Aplicación Algor-eats Con la reciente pandemia han cambiado los hábitos de consumo, cada vez más personas demandan que les entreguen directamente en casa todo tipo de productos (comidas, la compra semanal, etc). El famosísimo empresario Pepe Rojo, dueño del conglomerado RED, no piensa quedarse de brazos cruzados y perder una buena parte de un pastel empresarial que parece reportar amplios beneficios. Pero, claro, Rojo sabe que la clave para obtener amplios beneficios pasa por abaratar costes. El primer paso es contratarte a ti, estudiante de la Facultad de Informática, para que diseñe la aplicación que gestionará estos envíos. El propio magnate te explica su situación: hay N clientes y M centros logísticos del RED M para hacer los repartos; lo que busca es minimizar el coste por desplazamiento cumpliendo las siguientes condiciones: Ningún cliente puede quedarse sin ser abastecido, eso daría mala imagen de marca al conglomerado RED. Cuando hay que hacer un reparto hay que salir de uno de los M centros, llegar a la casa del cliente y volver al mismo centro. Contarás con ua matriz con las distancias desde cada centro a cada casa de los clientes. Para evitar pagar más impuestos desde cada centro sólo se puede hacer un número máximo de repartos (r1,...,rM). Como decíamos, Pepe Rojo espera que tu aplicación minimice la distancia final de todos los repartos necesarios, es decir, la suma mínima de las distancias de los clientes a los centros logísticos que realizan los repartos. Escribe un algoritmo con la técnica de vuelta atrás. Describe también el espacio de soluciones y los marcadores usados. Indica e implementa una función de poda.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. La primera línea de cada caso de prueba contendrá el valor del número N de clientes y M de centros del conglomerado. A continuación en una línea aparecerán el número máximo de repartos que se puede hacer desde cada uno de los M centros. Y finalmente aparecerá la matriz de distancias D, compuesta por N líneas que contienen las distancias de cada cliente a los M centros.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con la distancia mínima para hacer todos los repartos. Si no es posible hacer el reparto manteniendo las restricciones se escribirá No.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "2\n5 2\n2 5\n1 4\n3 1\n7 9\n6 6\n2 8\n3 2\n1 1\n2 3\n5 2\n4 4",
+    "output": "38\nNo"
+  },
+
+  "tags": ["backtracking", "restricciones", "matriz", "distancias", "optimización"],
+
+  "como_reconocerlo": "El problema requiere asignar recursos cumpliendo restricciones y minimizando un coste.",
+  "idea_clave": "Usar backtracking para explorar todas las asignaciones posibles de clientes a centros, aplicando poda para descartar soluciones inviables.",
+  
+  "estrategia": [
+    "Inicializar las variables necesarias para el backtracking.",
+    "Definir una función recursiva que intente asignar cada cliente a un centro logístico.",
+    "Comprobar las restricciones de capacidad de cada centro antes de realizar una asignación.",
+    "Calcular la distancia total de cada asignación y actualizar el mínimo si es necesario.",
+    "Implementar una función de poda para descartar caminos que no pueden mejorar la solución actual."
+  ],
+
+  "plantilla_codigo": "void resolver(int caso) {\n    // Leer N, M\n    // Leer el número máximo de repartos desde cada centro\n    // Leer la matriz de distancias\n    // Inicializar variables para el backtracking\n    // Llamar a la función de backtracking\n    // Imprimir el resultado\n}\n\nvoid backtrack(int cliente, int distancia_actual) {\n    // Si todos los clientes están asignados, actualizar la distancia mínima\n    // Para cada centro logístico\n        // Comprobar si se puede asignar el cliente al centro\n        // Si es posible, asignar y llamar recursivamente\n        // Deshacer la asignación\n    // Implementar poda para descartar caminos no prometedores\n}",
+
+  "pistas": [
+    "Considera cómo podrías representar el estado actual de las asignaciones.",
+    "Piensa en cómo podrías implementar una función de poda para evitar explorar caminos que no pueden mejorar la solución actual."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las posibles asignaciones de clientes a centros logísticos, respetando las restricciones de capacidad de cada centro. La función de poda ayuda a reducir el espacio de búsqueda al descartar caminos que no pueden mejorar la solución actual. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero la poda ayuda a mejorar el rendimiento en la práctica.",
+
+  "errores_comunes": [
+    "No considerar todas las restricciones al realizar una asignación.",
+    "No implementar una función de poda efectiva, lo que lleva a un tiempo de ejecución excesivo."
+  ]
+}

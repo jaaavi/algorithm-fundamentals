@@ -1,0 +1,36 @@
+{
+  "id": "va_feria_jun24",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 4,
+
+  "enunciado": "La feria del entretenimiento electrónico de Los Ángeles está de capa caída y por ello las compañías están más interesadas en reducir costes mientras que cumplen con sus obligaciones contractuales. En este clima moderno, la compañía Mimtemdo aspira a interesar lo máximo posible al público de la feria manteniendo, eso sí, su ajustado presupuesto. Mimtemdo tiene a su disposición N stands con los que atraer al público. Cada stand tiene asociados tres valores: una estimación del interés que provocará a cada visitante que se pase por el mismo; el número de visitantes que pueden disfrutar con los productos Mimtemdo, es decir, la capacidad de visitantes que tiene ese stand; y el coste que tiene montar ese stand. Este coste se paga sólo la primera vez que se monta. Por la limitación de tiempo y la longitud de las esperas, cada visitante sólo puede ir a uno de los stands, mientras que no es estrictamente necesario que todos los stands de Mimtemdo se usen. Tu tarea como planificador de la feria en Mimtemdo es organizar un reparto de los recursos de forma que ningún visitante se quede sin visitar alguno de los stands, que el montaje de los stands no supere el presupuesto de la compañía, y que maximice el interés total de los visitantes. Se pide que hagas una solución usando la técnica de vuelta atrás, describiendo claramente el espacio de soluciones, los marcadores utilizados y realizando una poda de optimalidad.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá inicialmente el número V de visitantes; el número máximo de stands M y el presupuesto PR total. A continuación, tres líneas de longitud M: el interés por visitante del stand, la capacidad del stand y el coste de montar ese stand.",
+  "salida": "La salida es el valor máximo de interés despertado por todos los stands colocados. En caso de no ser posible de conseguir que los visitantes tengan huecos en algún stand de Mimtemdo manteniendo el presupuesto, la salida será IMPOSIBLE.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "3\n5 3 85\n1 10 7\n10 2 4\n5 50 30\n7 3 60\n10 20 30\n2 2 2\n30 30 30\n7 5 100\n100 1 1 1 100\n2 5 5 5 2\n20 20 20 20 20",
+    "output": "41\nIMPOSIBLE\n403"
+  },
+
+  "tags": ["backtracking", "restricciones", "optimización", "poda", "combinaciones"],
+
+  "como_reconocerlo": "El problema requiere asignar recursos limitados para maximizar un valor bajo restricciones específicas.",
+  "idea_clave": "Utilizar backtracking con poda para explorar combinaciones de stands que maximicen el interés sin exceder el presupuesto.",
+
+  "estrategia": [
+    "Definir el espacio de soluciones como combinaciones de stands.",
+    "Usar backtracking para explorar las combinaciones posibles.",
+    "Implementar poda para descartar combinaciones que excedan el presupuesto o no maximicen el interés."
+  ],
+
+  "plantilla_codigo": "void maximizarInteres(int V, int M, int PR, vector<int> interes, vector<int> capacidad, vector<int> coste) {\n  // Inicializar variables necesarias\n  // Función recursiva de backtracking\n  // Implementar poda para optimizar\n}",
+
+  "pistas": ["Considera cada stand como una opción que puede ser incluida o no.", "Usa poda para evitar explorar combinaciones que excedan el presupuesto."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo explora todas las combinaciones posibles de stands usando backtracking. La poda se utiliza para evitar combinaciones que excedan el presupuesto o no puedan acomodar a todos los visitantes. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": ["No implementar poda, lo que lleva a un tiempo de ejecución excesivo.", "No considerar todas las restricciones, como el presupuesto y la capacidad de los stands."]
+}

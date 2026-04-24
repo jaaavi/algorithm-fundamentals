@@ -1,0 +1,44 @@
+{
+  "id": "va_proteccioncivil_4",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 5,
+
+  "enunciado": "Protección Civil desea organizar m patrullas de personas en una comarca con n ciudades. El número de personas disponibles en cada patrulla viene dado por un vector P. Una patrulla puede ser asignada a lo sumo a una ciudad pero una ciudad puede requerir de varias patrullas para cubrir sus necesidades. Los alcaldes de las ciudades envían dos números: el número de personas que necesitan como mínimo y el mayor número de personas que están dispuestos a admitir en sus instalaciones. Esta información viene dada en dos vectores L y G (se puede asumir G[i] ≥ L[i]). El sueldo de los trabajadores dependerá de la ciudad en la que desempeñarán su labor, y dicha información vendrá dada en un vector de sueldos S (por persona). Aunque el número de personas supere las necesidades de una ciudad, las patrullas se mandan completas así que se pagará el sueldo a todas las personas que conforman las patrullas asignadas según la ciudad en la que se encuentren destinadas, mientras que las no asignadas percibirán un sueldo de reserva r por persona. Se pide diseñar e implementar un algoritmo de vuelta atrás que resuelva el problema de asignar patrullas a ciudades de forma que todas las ciudades tengan sus necesidades cubiertas pero sin pasarse de los máximos admitidos por los alcaldes y se minimice el sueldo a pagar.",
+  "entrada": "El número de casos de prueba. Para cada caso: el número de ciudades n, el número de patrullas m, el sueldo para las personas en reserva r, tres líneas correspondientes a las necesidades y los sueldos de las n ciudades L, G, y S, y una línea correspondiente a las personas de las m patrullas P.",
+  "salida": "El número mínimo de personas a asignar para garantizar que las ciudades están cubiertas en las condiciones descritas, o 'NO' si no es posible realizar dicha asignación.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "2\n2 4 3\n3 5\n5 5\n10 2\n3 2 4 3\n3 4 5\n3 5 2\n5 5 6\n10 2 4\n1 6 1 3",
+    "output": "52\nNO"
+  },
+
+  "tags": ["backtracking", "restricciones", "optimización", "asignación", "poda"],
+
+  "como_reconocerlo": "El problema implica asignar recursos a diferentes entidades bajo restricciones específicas y optimizar un criterio.",
+  "idea_clave": "Utilizar backtracking para explorar todas las posibles asignaciones de patrullas a ciudades, aplicando poda para descartar soluciones subóptimas o inviables.",
+
+  "estrategia": [
+    "Definir el espacio de soluciones como todas las posibles asignaciones de patrullas a ciudades.",
+    "Utilizar backtracking para explorar las asignaciones, comenzando con la primera ciudad.",
+    "Aplicar poda para descartar asignaciones que no cumplan las restricciones de mínimo y máximo de personas.",
+    "Calcular el costo de cada asignación válida y mantener el mínimo encontrado.",
+    "Si se exploran todas las posibilidades sin encontrar una solución válida, devolver 'NO'."
+  ],
+
+  "plantilla_codigo": "void asignarPatrullas(int n, int m, int r, vector<int>& L, vector<int>& G, vector<int>& S, vector<int>& P) {\n    // Inicializar variables para el seguimiento de la mejor solución\n    int mejorCosto = INT_MAX;\n    // Función recursiva de backtracking\n    function<void(int, int)> backtrack = [&](int ciudad, int costoActual) {\n        // Caso base: si todas las ciudades están cubiertas\n        if (ciudad == n) {\n            // Actualizar mejorCosto si es necesario\n            return;\n        }\n        // Intentar asignar patrullas a la ciudad actual\n        for (int i = 0; i < m; ++i) {\n            // Verificar restricciones de L y G\n            // Calcular nuevo costo\n            // Llamar recursivamente a backtrack para la siguiente ciudad\n        }\n    };\n    // Llamar a la función de backtracking inicial\n    backtrack(0, 0);\n    // Imprimir el resultado\n}",
+
+  "pistas": [
+    "Considera cómo podrías representar el estado actual de la asignación de patrullas.",
+    "Piensa en cómo podrías aplicar poda para reducir el espacio de búsqueda."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las posibles asignaciones de patrullas a ciudades, aplicando restricciones para asegurar que las necesidades mínimas y máximas de cada ciudad se cumplen. La poda se utiliza para evitar explorar caminos que no pueden llevar a una solución óptima. La complejidad temporal es alta debido a la naturaleza combinatoria del problema, pero la poda ayuda a reducir el número de soluciones a considerar.",
+
+  "errores_comunes": [
+    "No aplicar correctamente las restricciones de mínimo y máximo de personas para cada ciudad.",
+    "No implementar poda, lo que lleva a un tiempo de ejecución excesivo."
+  ]
+}

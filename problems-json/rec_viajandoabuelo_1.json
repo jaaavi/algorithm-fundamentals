@@ -1,0 +1,42 @@
+{
+  "id": "rec_viajandoabuelo_1",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Viajando con el abuelo\nEn unos días comienzan por fin mis vacaciones. Cargaré las maletas en el coche y emprenderé un largo viaje para alejarme de la ciudad e irme al pueblo. Bueno, antes de coger la carretera pasaré a buscar a mi abuelo, que se viene conmigo para pasar unos días con los pocos amigos de juventud que le quedan vivos. Aunque me encanta viajar con él escuchando todas las historias que me cuenta tiene una pequeña pega. El aguante de su vejiga ya no es el que era y tengo que parar más veces de las que pararía si fuera yo solo. A él le preocupa también bastante el asunto y quiere saber de antemano cuánto tiempo tendrá que esperar como mucho entre parada y parada, para ver si se viene conmigo o se coge el autobús. Yo tengo claro el número máximo de descansos que estoy dispuesto a hacer y tengo una estimación de lo que se tarda en ir desde cada área de descanso de la ruta a la siguiente. Ahora tengo que planificar las paradas para minimizar lo que tiene que aguantarse el abuelo.\nEntrada\nLa entrada está compuesta de distintos casos de prueba cada uno ocupando dos líneas. La primera línea de cada caso contiene dos números: la cantidad n de tramos en los que está dividido el viaje (1 ≤n ≤100.000) y el número máximo de paradas p que estoy dispuesto a hacer antes de llegar al destino (0 ≤p ≤10.000). La segunda línea contiene n números con el tiempo necesario para recorrer cada tramo (un número entre 1 y 10.000). El primer tramo es el que va desde la casa del abuelo a la primera área de descanso, y el último el que va desde la última área de descanso hasta el lugar de destino. La entrada termina con una linea con dos ceros que no debe ser procesada.\nSalida\nPor cada caso de prueba se escribirá una única línea con el tiempo máximo que estará el abuelo aguantando, teniendo en cuenta que como mucho haremos p paradas. No quiero hacer sufrir al abuelo (ni que termine montándome un espectáculo en el coche) por lo que ese tiempo debe ser lo menor posible. Ten en cuenta que lo último que hace el abuelo antes de salir de casa y lo primero que hace al llegar al destino es ir al baño.",
+  "entrada": "Dos números n y p en la primera línea, y n números en la segunda línea representando el tiempo de cada tramo.",
+  "salida": "El tiempo máximo que el abuelo estará aguantando, minimizado.",
+  "restricciones": "1 ≤ n ≤ 100.000, 0 ≤ p ≤ 10.000, tiempo de cada tramo entre 1 y 10.000.",
+
+  "ejemplo": {
+    "input": "2 1\n6 4\n3 0\n3 6 5\n3 1\n3 6 5\n0 0",
+    "output": "6\n14\n9"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "optimización", "búsqueda binaria"],
+
+  "como_reconocerlo": "El problema busca minimizar el tiempo máximo de espera con un número limitado de paradas.",
+  "idea_clave": "Utilizar búsqueda binaria para encontrar el tiempo máximo mínimo que el abuelo puede esperar entre paradas.",
+  
+  "estrategia": [
+    "Definir el rango de búsqueda para el tiempo máximo de espera.",
+    "Utilizar búsqueda binaria para encontrar el menor tiempo máximo posible.",
+    "Verificar si es posible realizar el viaje con el tiempo máximo actual y el número de paradas permitido."
+  ],
+
+  "plantilla_codigo": "int calcularTiempoMaximo(int n, int p, vector<int>& tiempos) {\n    // Definir el rango de búsqueda\n    int low = ...;\n    int high = ...;\n    while (low < high) {\n        int mid = (low + high) / 2;\n        // Verificar si es posible con el tiempo máximo mid\n        if (esPosible(mid, n, p, tiempos)) {\n            high = mid;\n        } else {\n            low = mid + 1;\n        }\n    }\n    return low;\n}\n\nbool esPosible(int tiempoMax, int n, int p, vector<int>& tiempos) {\n    // Implementar la lógica para verificar si es posible\n    return ...;\n}",
+
+  "pistas": [
+    "Considera cómo dividir el problema en subproblemas más pequeños.",
+    "Piensa en cómo la búsqueda binaria puede ayudarte a encontrar el tiempo máximo mínimo."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza búsqueda binaria para encontrar el menor tiempo máximo que el abuelo puede esperar entre paradas. La función esPosible verifica si es factible realizar el viaje con el tiempo máximo actual y el número de paradas permitido. La complejidad temporal es O(n log(max(tiempos))) debido a la búsqueda binaria y la verificación lineal en cada paso.",
+
+  "errores_comunes": [
+    "No considerar correctamente el caso en que no se pueden hacer paradas.",
+    "Olvidar actualizar correctamente los límites en la búsqueda binaria."
+  ]
+}

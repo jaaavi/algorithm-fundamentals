@@ -1,0 +1,44 @@
+{
+  "id": "rec_parcialmenteordenado_3",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 4,
+
+  "enunciado": "Vector parcialmente ordenado Los valores de un vector pueden estar más o menos ordenados. En muchos casos nos conviene saber si un vector está mas o menos ordenado. Por ejemplo, el algoritmo quicksort tiene complejidad cuadrática si el vector está ordenado, mientras que la complejidad del algoritmo de inserción para vectores casi ordenados es casi lineal. En este problema diremos que un vector está parcialmente ordenado, si el valor máximo de su mitad derecha es mayor o igual que todos los valores de la mitad izquierda y el valor mínimo de su mitad izquierda es menor o igual que todos los valores de su mitad derecha. Además tanto la mitad izquierda como la derecha cumplen que están parcialmente ordenados. Dado un vector de números enteros positivos se pide decidir si está parcialmente ordenado. Requisitos de implementación. Indicar la recurrencia utilizada para el cálculo del coste y el coste de la solución obtenida. Entrada La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de los valores del vector terminados con el valor cero que no forma parte del vector. El último caso de prueba consta únicamente del valor cero, y no debe tratarse. El número de valores de cada caso de prueba es una potencia de 2. Salida Para cada caso de prueba se escribe en una línea SI si el vector está parcialmente ordenado y NO si no lo está.",
+  "entrada": "Una serie de casos de prueba, cada uno con valores del vector terminados con el valor cero.",
+  "salida": "Para cada caso de prueba, 'SI' si el vector está parcialmente ordenado, 'NO' si no lo está.",
+  "restricciones": "El número de valores de cada caso de prueba es una potencia de 2.",
+
+  "ejemplo": {
+    "input": "2 6 3 8 0\n6 12 8 18 10 15 16 40 0\n5 5 5 5 0\n2 6 1 8 0\n1 3 2 5 3 1 3 4 0\n0",
+    "output": "SI\nSI\nSI\nNO\nNO"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "vector", "ordenamiento", "máximo/mínimo"],
+
+  "como_reconocerlo": "El problema se centra en verificar una propiedad de orden en subpartes de un vector.",
+  "idea_clave": "Dividir el vector en mitades y verificar la condición de orden en cada mitad recursivamente.",
+
+  "estrategia": [
+    "Dividir el vector en dos mitades.",
+    "Calcular el máximo de la mitad derecha y el mínimo de la mitad izquierda.",
+    "Verificar si el máximo de la derecha es mayor o igual que todos los valores de la izquierda y el mínimo de la izquierda es menor o igual que todos los valores de la derecha.",
+    "Aplicar recursivamente el mismo proceso a cada mitad.",
+    "Combinar los resultados para determinar si el vector completo está parcialmente ordenado."
+  ],
+
+  "plantilla_codigo": "bool estaParcialmenteOrdenado(vector<int>& v, int inicio, int fin) {\n    if (inicio >= fin) return true;\n    int mitad = (inicio + fin) / 2;\n    // Calcular máximo de la mitad derecha\n    // Calcular mínimo de la mitad izquierda\n    // Verificar condiciones de orden\n    // Llamadas recursivas a cada mitad\n    return /* resultado de las condiciones */;\n}",
+
+  "pistas": [
+    "Divide el vector en mitades y verifica las condiciones de orden en cada mitad.",
+    "Utiliza recursión para aplicar el mismo proceso a las subpartes del vector."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo divide el vector en mitades y verifica si cada mitad cumple con las condiciones de orden. Utiliza recursión para aplicar el mismo proceso a las subpartes del vector. La complejidad temporal es O(n log n) debido a la división y combinación de resultados en cada nivel de recursión.",
+
+  "errores_comunes": [
+    "No verificar correctamente las condiciones de orden entre las mitades.",
+    "Olvidar aplicar recursión a las mitades del vector."
+  ]
+}

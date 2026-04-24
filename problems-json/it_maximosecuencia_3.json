@@ -1,0 +1,43 @@
+{
+  "id": "it_maximosecuencia_3",
+  "tema": "Iterativos",
+  "subtipo": "máximo/mínimo",
+  "dificultad": 3,
+
+  "enunciado": "Hemos desarrollado un juego online y tenemos en un fichero las puntuaciones de diversos jugadores. Ahora queremos saber cuál ha sido la puntuación máxima obtenida y cuántos jugadores la han obtenido. Ha de tenerse en cuenta que el juego permite tener puntuaciones negativas cuando el jugador pierde más puntos de los que obtiene, pero ningún jugador termina con cero puntos. El problema es que el juego ha tenido tanto éxito que no es posible cargar todo el fichero en memoria, por lo tanto tendremos que resolver el problema al tiempo que vamos leyendo el fichero.\n\nRequisitos de implementación. No se pueden almacenar los valores de entrada en memoria.\nEntrada\nLa entrada comienza con un valor entero que indica el número de casos de prueba. Cada caso de prueba consta de una línea con las puntuaciones obtenidas por los jugadores. Cada caso termina con el valor 0. El número de puntuaciones es mayor que cero y no puede suponerse un límite superior. Las puntuaciones son números enteros diferentes de cero y se sabe que pueden almacenarse en una variable de tipo int.\nSalida\nPara cada caso de prueba se escribe en una línea el valor máximo y el número de veces que se repite separados por un carácter blanco.",
+  "entrada": "Un entero que indica el número de casos de prueba, seguido de líneas con puntuaciones de jugadores terminadas por 0.",
+  "salida": "Para cada caso de prueba, el valor máximo y el número de veces que se repite, separados por un espacio.",
+  "restricciones": "Las puntuaciones son números enteros diferentes de cero y pueden almacenarse en una variable de tipo int. No se pueden almacenar los valores de entrada en memoria.",
+
+  "ejemplo": {
+    "input": "3\n5 7 -3 4 7 -3 -2 6 5 4 7 1 2 7 3 0\n6 6 6 0\n5 0",
+    "output": "7 4\n6 3\n5 1"
+  },
+
+  "tags": ["máximo", "conteo", "secuencia", "streaming", "iterativo"],
+
+  "como_reconocerlo": "El problema requiere encontrar el máximo y su frecuencia en una secuencia de números leída en streaming.",
+  "idea_clave": "Actualizar el máximo y su conteo mientras se lee cada número, sin almacenar toda la secuencia.",
+
+  "estrategia": [
+    "Leer el número de casos de prueba.",
+    "Para cada caso, inicializar variables para el máximo y su conteo.",
+    "Leer cada puntuación, actualizando el máximo y su conteo según corresponda.",
+    "Imprimir el máximo y su conteo al finalizar cada caso."
+  ],
+
+  "plantilla_codigo": "void procesarPuntuaciones() {\n    int numCasos;\n    std::cin >> numCasos;\n    while (numCasos--) {\n        int maximo = INT_MIN;\n        int conteoMaximo = 0;\n        int puntuacion;\n        while (std::cin >> puntuacion && puntuacion != 0) {\n            // Actualizar máximo y conteo\n        }\n        // Imprimir resultado para el caso actual\n    }\n}",
+
+  "pistas": [
+    "Usa variables para llevar el máximo actual y cuántas veces aparece.",
+    "Recuerda que no puedes almacenar todas las puntuaciones, actualiza sobre la marcha."
+  ],
+
+  "solucion_codigo": "void procesarPuntuaciones() {\n    int numCasos;\n    std::cin >> numCasos;\n    while (numCasos--) {\n        int maximo = INT_MIN;\n        int conteoMaximo = 0;\n        int puntuacion;\n        while (std::cin >> puntuacion && puntuacion != 0) {\n            if (puntuacion > maximo) {\n                maximo = puntuacion;\n                conteoMaximo = 1;\n            } else if (puntuacion == maximo) {\n                conteoMaximo++;\n            }\n        }\n        std::cout << maximo << \" \" << conteoMaximo << std::endl;\n    }\n}",
+  "explicacion": "El algoritmo lee las puntuaciones una a una, manteniendo el máximo encontrado y cuántas veces aparece. Al encontrar un nuevo máximo, se actualiza el conteo. Esto permite procesar secuencias de cualquier longitud sin almacenar todas las puntuaciones. La complejidad temporal es O(n) por caso de prueba, donde n es el número de puntuaciones en el caso.",
+  
+  "errores_comunes": [
+    "Olvidar reiniciar las variables de máximo y conteo para cada caso de prueba.",
+    "No manejar correctamente el caso en que una puntuación iguala al máximo actual."
+  ]
+}

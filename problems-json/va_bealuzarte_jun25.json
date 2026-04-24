@@ -1,0 +1,43 @@
+{
+  "id": "va_bealuzarte_jun25",
+  "tema": "Backtracking",
+  "subtipo": "con restricciones",
+  "dificultad": 5,
+
+  "enunciado": "La Fundación de Arte y Luz (abreviado FAL) quiere inaugurar su nueva sala de exposiciones de la mejor forma posible: una exposición comisariada por Beatriz Algor, la mejor comisaria en arte surrealista de la actualidad. Ante la generosa propuesta de la FAL, Beatriz ha decidido hacer una exposición dedicada a la gran artista Remedios Varo. Por desgracia, el trabajo de comisaria no es una tarea tan sencilla como podría parecernos una vez que la exposición ya está montada, hay muchos detalles y malabares organizativos a tener en cuenta, así que presta atención a los siguientes párrafos. Para empezar, hay C →1 posibles cuadros para pedir prestado a alguna de las galerías de arte. Cada cuadro tiene un coste (lo que cobra la galería por su alquiler, seguro, etc), un tamaño (cuánto ocupa en la pared) y una categoría (el periodo dentro de la obra de Remedios al que pertenece). Para que la exposición mantenga el alto grado de estética y armonía que se espera, la comisaria mantiene una regla: no puede haber más de ! cuadros consecutivos que pertenezcan a la misma categoría. Por otro lado, la sala de exposiciones de la FAL cuenta con H →1 huecos en las paredes. Cada hueco indica el tamaño máximo del cuadro que puede ir allí (e.g., en un espacio de tamaño \" cabe un cuadro de hasta tamaño \", pero no mayor). Además, tras un minucioso estudio tanto de la obra de la autora como de la iluminación de la sala, Beatriz ha hecho un cálculo del impacto que ocasionará cada cuadro según el lugar de la sala en el que vaya colgado. Por último, Beatriz no puede pasarse del presupuesto P que le deja gastar la FAL y, además, debe tener en cuenta que para que la exposición pueda ser un éxito además debe asegurarse de no dejar espacios sin cuadros en las paredes. El objetivo de la avezada comisaria Beatriz Algor es maximizar el impacto total de la exposición cumpliendo con todas las condiciones ya mencionadas. Se pide, Def#ne el espacio de soluciones e indica cómo es el árbol de exploración. Implementa un algoritmo de vuelta atrás que resuelva el problema. Explica claramente los marcadores que has utilizado. Explica e implementa al menos una función de poda de optimalidad.",
+  "entrada": "La entrada comienza con una línea que contiene el número de casos de prueba. Cada caso de prueba contendrá en su primera línea el número C →1 de posibles cuadros, en número H →1 de huecos de la sala de exposiciones y el presupuesto P →0. A continuación, una línea con los H huecos de la exposición (h[i] > 0 representando el tamaño del hueco). Seguidamente, $ líneas de longitud C, donde la primera indica el coste (cos[i] →0) por cuadro, la segunda el tamaño (t[i] > 0) de cada cuadro y, la tercera, la categoría (representada por un número cat[i] →0) de cada cuadro. Por último tenemos la matriz V de impacto (C #las por H columnas) donde V [i][j] →0 indica que el impacto estimado del cuadro i colocado en el hueco j.",
+  "salida": "Por cada caso de prueba el programa escribirá una línea con el interés máximo conseguido en la exposición. En caso de no poder montarse se escribirá IMPOSIBLE.",
+  "restricciones": "C →1, H →1, P →0, h[i] > 0, cos[i] →0, t[i] > 0, cat[i] →0, V[i][j] →0",
+
+  "ejemplo": {
+    "input": "3\n3 2 10\n10 5\n10 3 4\n10 4 7\n1 1 1\n1 1\n5 10\n10 1\n4 3 100\n10 5 5\n10 50 30 20\n3 7 4 2\n1 1 1 2\n1 0 0\n10 20 30\n1 1 10\n2 10 1\n3 3 20\n5 5 5\n5 5 5\n4 4 4\n1 1 1\n3 3 3\n3 3 3\n3 3 3",
+    "output": "20\n30\nIMPOSIBLE"
+  },
+
+  "tags": ["backtracking", "restricciones", "optimización", "impacto", "presupuesto"],
+
+  "como_reconocerlo": "El problema requiere maximizar un valor bajo restricciones complejas de espacio, presupuesto y categorías.",
+  "idea_clave": "Utilizar backtracking para explorar combinaciones de cuadros y aplicar poda para descartar configuraciones subóptimas o inviables.",
+
+  "estrategia": [
+    "Definir el espacio de soluciones considerando todas las combinaciones posibles de cuadros en los huecos.",
+    "Implementar un algoritmo de backtracking que explore estas combinaciones.",
+    "Aplicar poda para eliminar configuraciones que excedan el presupuesto o no cumplan las restricciones de categoría.",
+    "Calcular el impacto total de cada configuración válida y mantener el máximo encontrado."
+  ],
+
+  "plantilla_codigo": "void maximizarImpacto(int C, int H, int P, vector<int>& huecos, vector<int>& costos, vector<int>& tamanos, vector<int>& categorias, vector<vector<int>>& impacto) {\n    // Inicializar variables para el backtracking\n    // Función recursiva para explorar combinaciones\n    // Aplicar poda para configuraciones inviables\n    // Actualizar el máximo impacto encontrado\n}",
+
+  "pistas": [
+    "Considera cómo las restricciones de categoría y presupuesto afectan las decisiones de colocación.",
+    "Implementa poda para evitar explorar configuraciones que ya superan el presupuesto o no cumplen las restricciones de categoría."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para explorar todas las posibles configuraciones de cuadros en los huecos disponibles. Se aplican restricciones de presupuesto y categoría para podar el árbol de búsqueda, asegurando que solo se consideren configuraciones válidas. La complejidad temporal es alta debido al número de combinaciones posibles, pero la poda ayuda a reducir el espacio de búsqueda.",
+  
+  "errores_comunes": [
+    "No aplicar poda adecuadamente, lo que lleva a explorar configuraciones inviables.",
+    "No considerar todas las restricciones simultáneamente, resultando en soluciones incorrectas."
+  ]
+}

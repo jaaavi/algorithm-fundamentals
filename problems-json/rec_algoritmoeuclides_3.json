@@ -1,0 +1,43 @@
+{
+  "id": "rec_algoritmoeuclides_3",
+  "tema": "Recursión",
+  "subtipo": "recursión simple",
+  "dificultad": 2,
+
+  "enunciado": "C´alculo del m´aximo com´un divisor. (M´etodo de Euclides) Euclides fue un matem´atico griego que vivi´o en Alejandr´ıa entre los a˜nos 325 a.C. y 265 a.C. En su obra Los Elementos describe un algoritmo para calcular el m´aximo com´un divisor de dos n´umeros. Este se puede resumir en los siguientes pasos: 1. Dados dos valores a y b, tales que a > b, restamos el segundo del primero tantas veces como sea posible. Si el resultado de la ´ultima resta es cero, hemos obtenido el m´aximo com´un divisor de los dos n´umeros; en otro caso pasamos al paso 2. 2. Restamos el residuo obtenido en el paso anterior tantas veces como sea posible del valor b. Si el resultado de la ´ultima resta es cero, hemos obtenido el m´aximo com´un divisor de los dos n´umeros; en otro caso pasamos al paso 1. Teniendo en cuenta la definici´on de la divisi´on entera el m´etodo se puede expresar como: mcd(a,b) = a if b = 0 mcd(a,b) = mcd(b,a%b) if b > 0 En este problema se pide calcular el m´aximo com´un divisor de dos n´umeros utilizando el m´etodo de Euclides. Observa que debes utilizar las operaciones de divisi´on y m´odulo, en lugar de hacer una resta reiterada, ya que es m´as eficiente. Objetivo del problema. • Aprender el algoritmo que calcula el m´aximo com´un divisor por el m´etodo de Euclides. • Discutir la eficiencia de los dos algoritmos de Euclides (utilizando el m´odulo y utilizando la resta). Entrada La entrada consta de una serie de casos de prueba. Cada caso consta de 2 valores enteros positivos. El final de los casos se marca con dos valores a cero. Los valores pueden almacenarse en una variable de tipo int. Salida Para cada caso de prueba se indica en una l´ınea el valor del m´aximo com´un divisor.",
+  "entrada": "Una serie de casos de prueba, cada uno con 2 valores enteros positivos. El final de los casos se marca con dos valores a cero.",
+  "salida": "Para cada caso de prueba, el valor del m´aximo com´un divisor en una l´ınea.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "5 15\n21 9\n42 36\n10 10\n2 2147483646\n2147483646 2147483645\n0 0",
+    "output": "5\n3\n6\n10\n2\n1"
+  },
+
+  "tags": ["recursión", "módulo", "división", "máximo común divisor", "algoritmo de Euclides"],
+
+  "como_reconocerlo": "El problema pide calcular el máximo común divisor usando el método de Euclides.",
+  "idea_clave": "Utilizar la recursión con el operador módulo para implementar el algoritmo de Euclides de manera eficiente.",
+
+  "estrategia": [
+    "Leer los dos números a y b.",
+    "Si b es cero, devolver a como el máximo común divisor.",
+    "Si no, llamar recursivamente a la función con los parámetros b y a % b."
+  ],
+
+  "plantilla_codigo": "int mcd(int a, int b) {\n    // Caso base\n    if (b == 0) return a;\n    // Llamada recursiva\n    return mcd(b, a % b);\n}\n\nvoid resolverCasos() {\n    int a, b;\n    while (true) {\n        // Leer a y b\n        // Si a y b son cero, salir del bucle\n        // Imprimir el resultado de mcd(a, b)\n    }\n}",
+
+  "pistas": [
+    "Recuerda que el algoritmo de Euclides se basa en el hecho de que el mcd de dos números no cambia si el mayor se reemplaza por su diferencia con el menor.",
+    "Utiliza el operador módulo para evitar restas reiteradas y hacer el algoritmo más eficiente."
+  ],
+
+  "solucion_codigo": "int mcd(int a, int b) {\n    if (b == 0) return a;\n    return mcd(b, a % b);\n}\n\nvoid resolverCasos() {\n    int a, b;\n    while (true) {\n        std::cin >> a >> b;\n        if (a == 0 && b == 0) break;\n        std::cout << mcd(a, b) << std::endl;\n    }\n}",
+
+  "explicacion": "El algoritmo implementa el método de Euclides para calcular el máximo común divisor. Utiliza recursión y el operador módulo para reducir el problema hasta que uno de los números sea cero. La complejidad temporal es O(log(min(a, b))) debido a la reducción rápida del tamaño del problema en cada paso.",
+
+  "errores_comunes": [
+    "No manejar correctamente el caso base cuando b es cero, lo que puede llevar a una recursión infinita.",
+    "Olvidar intercambiar los parámetros en la llamada recursiva, lo que puede causar resultados incorrectos."
+  ]
+}

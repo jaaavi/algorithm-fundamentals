@@ -1,0 +1,42 @@
+{
+  "id": "it_releyendolibrosinpreferida_3",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 3,
+
+  "enunciado": "Releyendo un libro. Versión 1 Cuando tengo un rato libre me gusta coger un libro y releer alguna de las partes que más me gustaron cuando lo leí por primera vez. Normalmente, mientras voy leyendo doy una puntuación entre 0 y 10 a cada página, de forma que cuando quiero volver a leerlo sé que páginas me gustaron más. Cero significa que no tengo interés en volver a leer esa página, mientras que un 10 indica que es una de las mejores partes de la obra. Una vez que empiezo a leer en una página, continuo con las páginas siguientes sin saltarme ninguna. Para asegurarme de que leo la mejor parte he aprendido a estimar el número de páginas que me dará tiempo a leer en el rato que tengo. Siempre busco que las páginas sean lo más interesantes posible. El interés de varias páginas se calcula como la suma del interés de cada página. Si hay varios intervalos igual de interesantes elijo el que esté más avanzado en el libro. Recuerda que las páginas que leo son siempre consecutivas. Requisitos de implementación. La función que resuelve el problema debe tener un coste lineal respecto al número de páginas del libro. Puede implementarse más de un bucle, siempre que el coste sea lineal respecto al número de páginas del libro.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba tiene dos líneas. En la primera se indica el número de páginas del libro (1 < n < 200.000), seguido de la cantidad de páginas que me dará tiempo a leer (1 < L < n). En la segunda línea se indica la puntuación que he dado a cada página del libro (0 <= p <= 10). La entrada finaliza con dos ceros.",
+  "salida": "Para cada caso de prueba se escribe la página en que debo empezar a leer el libro para que al leer L páginas empezando en ella, lea siempre las páginas más interesantes. Si existen dos bloques de páginas cuya suma de puntuaciones es igual, elegiré la que se encuentre más avanzada en el libro.",
+  "restricciones": "1 < n < 200.000, 1 < L < n, 0 <= p <= 10",
+
+  "ejemplo": {
+    "input": "6 3\n0 5 3 4 1 2\n7 2\n6 4 5 6 0 0 8\n5 4\n7 7 7 7 7\n6 2\n5 6 7 6 7 5\n0 0",
+    "output": "1\n2\n1\n3"
+  },
+
+  "tags": ["ventana", "acumulador", "interés", "páginas", "consecutivas"],
+
+  "como_reconocerlo": "El problema busca maximizar una suma de valores en un subarray de tamaño fijo.",
+  "idea_clave": "Usar una técnica de ventana deslizante para calcular la suma máxima de un subarray de tamaño L.",
+  
+  "estrategia": [
+    "Inicializar la suma de las primeras L páginas.",
+    "Deslizar la ventana de tamaño L a través del array de puntuaciones, actualizando la suma.",
+    "Comparar las sumas para encontrar la máxima, priorizando el índice más avanzado en caso de empate."
+  ],
+
+  "plantilla_codigo": "int encontrarPaginaInicio(int n, int L, vector<int>& puntuaciones) {\n    int sumaMaxima = 0;\n    int sumaActual = 0;\n    int indiceInicio = 0;\n    // Inicializar sumaActual con las primeras L páginas\n    for (int i = 0; i < L; ++i) {\n        // Añadir puntuación de la página i a sumaActual\n    }\n    sumaMaxima = sumaActual;\n    // Deslizar la ventana\n    for (int i = L; i < n; ++i) {\n        // Actualizar sumaActual para la nueva ventana\n        // Comparar y actualizar sumaMaxima e indiceInicio si es necesario\n    }\n    return indiceInicio;\n}",
+
+  "pistas": [
+    "Considera cómo actualizar la suma de la ventana al moverla una posición.",
+    "Recuerda que en caso de empate, debes elegir el intervalo más avanzado."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza una ventana deslizante para calcular la suma de puntuaciones de L páginas consecutivas. Al mover la ventana, se actualiza la suma restando la puntuación de la página que sale de la ventana y sumando la de la nueva página que entra. Esto permite mantener el coste lineal. La complejidad temporal es O(n) debido a que cada página se procesa una vez.",
+
+  "errores_comunes": [
+    "No actualizar correctamente la suma al mover la ventana.",
+    "No manejar correctamente el caso de empate en la suma de puntuaciones."
+  ]
+}

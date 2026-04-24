@@ -1,0 +1,44 @@
+{
+  "id": "va_variacionessinrepeticion_3",
+  "tema": "Backtracking",
+  "subtipo": "generación",
+  "dificultad": 3,
+
+  "enunciado": "Generar todas las variaciones sin repetición de un conjunto de elementos. Las variaciones sin repetición de m elementos tomados de n en n son los distintos grupos de n elementos distintos, que podemos formar con los m elementos, de forma que dos grupos se diferencian en alguno de sus elementos o en su colocación. El número de variaciones sin repetición de m elementos tomados de n en n es Vm,n = m! / (m-n)!. Por ejemplo dadas las letras a, b, y c, las variaciones sin repetición de estos tres elementos tomados de dos en dos son ab, ac, ba, bc, ca, cb.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso tiene una línea donde se indica el número de letras que se consideran m y el tamaño de la palabra n. Se consideran únicamente las letras del alfabeto anglosajón, cogiéndose las m primeras. Se garantiza que n <= m.",
+  "salida": "Para cada caso de prueba se muestran todas las posibles palabras que se pueden formar una por línea. Después de cada caso se muestra una línea en blanco.",
+  "restricciones": "n <= m",
+
+  "ejemplo": {
+    "input": "3 2\n1 1",
+    "output": "ab\nac\nba\nbc\nca\ncb\na\n"
+  },
+
+  "tags": ["backtracking", "variaciones", "combinatoria", "alfabeto", "generación"],
+
+  "como_reconocerlo": "El problema pide generar todas las combinaciones posibles de un conjunto de elementos sin repetir.",
+  "idea_clave": "Utilizar backtracking para explorar todas las combinaciones posibles de elementos sin repetir y en diferentes órdenes.",
+
+  "estrategia": [
+    "Definir una función recursiva que construya las variaciones.",
+    "Utilizar un vector para almacenar la variación actual.",
+    "Marcar elementos como usados para evitar repeticiones.",
+    "Alcanzar la longitud deseada y almacenar la variación.",
+    "Retroceder y probar con otros elementos."
+  ],
+
+  "plantilla_codigo": "void generarVariaciones(int m, int n) {\n    // Vector para almacenar la variación actual\n    std::vector<char> variacion;\n    // Vector para marcar elementos usados\n    std::vector<bool> usados(m, false);\n    // Llamar a la función recursiva\n    backtrack(variacion, usados, m, n);\n}\n\nvoid backtrack(std::vector<char>& variacion, std::vector<bool>& usados, int m, int n) {\n    if (variacion.size() == n) {\n        // Imprimir la variación actual\n        return;\n    }\n    for (int i = 0; i < m; ++i) {\n        if (!usados[i]) {\n            // Marcar como usado y añadir a la variación\n            // Llamar recursivamente\n            // Desmarcar y eliminar de la variación\n        }\n    }\n}",
+
+  "pistas": [
+    "Piensa en cómo puedes usar un vector para marcar qué elementos ya están en uso.",
+    "Recuerda que debes desmarcar los elementos al retroceder en la búsqueda."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza backtracking para generar todas las variaciones posibles de un conjunto de elementos. Marca los elementos como usados para evitar repeticiones y retrocede cuando alcanza la longitud deseada. La complejidad temporal es O(m^n) debido a la exploración de todas las combinaciones posibles.",
+  
+  "errores_comunes": [
+    "No desmarcar los elementos al retroceder, lo que lleva a resultados incorrectos.",
+    "No manejar correctamente el caso base cuando la variación alcanza la longitud deseada."
+  ]
+}

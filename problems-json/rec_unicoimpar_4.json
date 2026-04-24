@@ -1,0 +1,43 @@
+{
+  "id": "rec_unicoimpar_4",
+  "tema": "Recursión",
+  "subtipo": "divide y vencerás",
+  "dificultad": 3,
+
+  "enunciado": "Implementa un algoritmo recursivo eﬁciente que dado un vector de n´umeros enteros positivos y consecutivos del que se han eliminado todos los elementos impares menos uno, encuentre cu´al es ese n´umero impar que ha quedado en el vector. Plantea la recurrencia correspondiente al coste de este algoritmo e indica a qu´e orden de complejidad pertenece la soluci´on a la misma.",
+  "entrada": "La entrada consta de una serie de casos de prueba. Cada caso de prueba consta de 2 l´ıneas. En la primera se indica el n´umero de elementos del vector una vez eliminados los elementos impares. En la siguiente se indican los elementos del vector. El ﬁnal de los casos se marca con el valor cero. El vector tiene al menos un elemento. Se garantiza que siempre existe un elemento impar en el vector.",
+  "salida": "Para cada caso de prueba se escribe en una l´ınea el elemento impar del vector.",
+  "restricciones": "No especificadas",
+
+  "ejemplo": {
+    "input": "4\n6 8 9 10\n4\n1 2 4 6\n4\n4 5 6 8\n4\n4 6 8 9\n5\n1 2 4 6 8\n5\n2 3 4 6 8\n1\n3\n2\n5 6\n2\n6 7\n0",
+    "output": "9\n1\n5\n9\n1\n3\n3\n5\n7"
+  },
+
+  "tags": ["recursión", "divide y vencerás", "vector", "números impares"],
+
+  "como_reconocerlo": "El problema requiere encontrar un único elemento impar en un vector de números consecutivos.",
+  "idea_clave": "Utilizar un enfoque recursivo para dividir el problema y encontrar el número impar restante.",
+  
+  "estrategia": [
+    "Dividir el vector en dos mitades.",
+    "Determinar en cuál de las mitades se encuentra el número impar.",
+    "Recursivamente buscar en la mitad que contiene el número impar.",
+    "Retornar el número impar cuando se encuentre."
+  ],
+
+  "plantilla_codigo": "int encontrarImpar(vector<int>& v, int inicio, int fin) {\n    if (inicio == fin) {\n        // Caso base: un solo elemento\n        return v[inicio];\n    }\n    int medio = (inicio + fin) / 2;\n    // Dividir y conquistar\n    // Llamada recursiva a la mitad correspondiente\n    return ...;\n}",
+
+  "pistas": [
+    "Divide el vector en dos partes y verifica en cuál está el impar.",
+    "Usa la propiedad de los números consecutivos para reducir el espacio de búsqueda."
+  ],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo utiliza un enfoque de divide y vencerás para localizar el único número impar en el vector. Al dividir el vector en mitades, se reduce el espacio de búsqueda en cada paso recursivo, lo que lleva a una solución eficiente. La complejidad temporal es O(log n) debido a la división del vector en cada paso.",
+  
+  "errores_comunes": [
+    "No manejar correctamente el caso base de un solo elemento.",
+    "No dividir correctamente el vector, lo que lleva a una búsqueda incorrecta."
+  ]
+}

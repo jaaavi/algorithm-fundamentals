@@ -1,0 +1,33 @@
+{
+  "id": "it_eliminarerroneos_3",
+  "tema": "Iterativos",
+  "subtipo": "acumulador",
+  "dificultad": 3,
+
+  "enunciado": "Sensores defectuosos Ayer compré unos sensores a un precio increíble, sin embargo no funcionan tan bien como yo esperaba. Algunas veces el valor que transmiten es absurdo. He intentado devolverlos, pero me dicen que las ofertas no admiten cambios. Después de mucho estudiar los datos que se producen me he dado cuenta que cuando falla el sensor siempre devuelve el mismo valor erróneo. Siendo así, todavía puedo aprovechar los sensores. Lo único que tengo que hacer es eliminar este valor y quedarme con el resto de los datos. He hecho un programa que elimina todos los valores erróneos, uno por uno. !!Pero que lento es!!. Al comentárselo a mi hermano me ha explicado una forma de implementar la función mucho más eficiente. Aunque debo de tener cuidado de no variar el orden relativo entre los datos correctos. Requisitos de implementación. Debe implementarse una función que reciba un vector con todos los datos tomados por el sensor y el valor del dato erróneo, y lo modifique quitándole todos los datos erróneos. No deben utilizarse vectores auxiliares. El problema se debe resolver sobre el propio vector de entrada a la función. El coste de la función debe ser del orden del número de datos de entrada. Entrada La entrada comienza con un valor entero que indica el número de casos de prueba. Cada caso de prueba consta de dos líneas. En la primera se indica el número de medidas tomadas y el valor erróneo. En la segunda se muestran todos los valores tomados por el sensor. Las medidas tomadas se encuentran en el rango de valores (-263... 263). Salida Para cada caso de prueba se escriben dos líneas. En la primera se muestra el número de datos correctos tomados por el sensor, en la segunda los valores correctos.",
+  "entrada": "Un vector con todos los datos tomados por el sensor y el valor del dato erróneo.",
+  "salida": "El vector modificado quitándole todos los datos erróneos.",
+  "restricciones": "Las medidas tomadas se encuentran en el rango de valores (-263... 263). No deben utilizarse vectores auxiliares. El coste de la función debe ser del orden del número de datos de entrada.",
+
+  "ejemplo": {
+    "input": "4\n8 -1\n5 -1 -1 10 4 -1 10 7\n3 -1\n3 5 7\n4 0\n0 0 0 0\n7 0\n0 10 -23 0 -12 67 0",
+    "output": "5\n5 10 4 10 7\n3\n3 5 7\n0\n4\n10 -23 -12 67"
+  },
+
+  "tags": ["vector", "acumulador", "orden", "eficiencia", "modificación en lugar"],
+
+  "como_reconocerlo": "El problema requiere eliminar elementos específicos de un vector sin usar estructuras auxiliares.",
+  "idea_clave": "Recorrer el vector y desplazar los elementos correctos para sobrescribir los erróneos, manteniendo el orden relativo.",
+  
+  "estrategia": ["Inicializar un índice para el resultado.", "Recorrer el vector original.", "Copiar los elementos correctos al índice de resultado.", "Incrementar el índice de resultado solo para elementos correctos.", "Reducir el tamaño del vector al número de elementos correctos."],
+
+  "plantilla_codigo": "void eliminarErroneos(vector<int>& datos, int valorErroneo) {\n    int j = 0; // Índice para el resultado\n    for (int i = 0; i < datos.size(); ++i) {\n        if (datos[i] != valorErroneo) {\n            datos[j] = datos[i];\n            j++;\n        }\n    }\n    datos.resize(j); // Ajustar el tamaño del vector\n}",
+
+  "pistas": ["Considera cómo podrías sobrescribir los valores erróneos sin usar un vector adicional.", "Piensa en cómo podrías usar un índice para mantener el orden de los elementos correctos."],
+
+  "solucion_codigo": "void eliminarErroneos(vector<int>& datos, int valorErroneo) {\n    int j = 0;\n    for (int i = 0; i < datos.size(); ++i) {\n        if (datos[i] != valorErroneo) {\n            datos[j] = datos[i];\n            j++;\n        }\n    }\n    datos.resize(j);\n}",
+
+  "explicacion": "El algoritmo recorre el vector y copia los elementos que no son erróneos a la posición indicada por un índice acumulador. Este índice se incrementa solo cuando se copia un elemento correcto, asegurando que los elementos erróneos sean sobrescritos. Finalmente, el vector se redimensiona para eliminar los elementos sobrantes. La complejidad temporal es O(n), donde n es el número de elementos en el vector.",
+
+  "errores_comunes": ["Olvidar ajustar el tamaño del vector después de eliminar los elementos erróneos.", "No mantener el orden relativo de los elementos correctos al sobrescribir los erróneos."]
+}

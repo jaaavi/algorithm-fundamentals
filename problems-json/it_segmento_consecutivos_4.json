@@ -1,0 +1,49 @@
+{
+  "id": "it_segmento_consecutivos_4",
+  "tema": "Iterativos",
+  "subtipo": "ventana",
+  "dificultad": 4,
+
+  "enunciado": "Dado un vector de enteros v de tamaño n, encuentra el segmento contiguo de mayor longitud formado por elementos consecutivos (es decir, cada elemento es exactamente uno más que el anterior). Devuelve la posición inicial y la longitud máxima encontrada. Si hay varios segmentos con la misma longitud máxima, devuelve el primero.",
+
+  "entrada": "Un vector v[0..n-1] de enteros y su tamaño n, con n ≥ 1.",
+  "salida": "La posición inicial del segmento más largo y su longitud.",
+  "restricciones": "n ≥ 1. Se considera que un único elemento forma un segmento de longitud 1.",
+
+  "ejemplo": {
+    "input": "v = {1, 2, 3, 1, 5, 6, 7, 8}, n = 8",
+    "output": "inicio = 3, longitud = 4  (segmento: 1,5,6,7,8 — espera, corrección: 4,5,6,7,8 en posiciones 4-7)"
+  },
+
+  "tags": ["vector", "segmento", "consecutivos", "ventana deslizante", "máximo"],
+
+  "como_reconocerlo": "Busca el subarreglo contiguo más largo que cumple una propiedad local entre elementos adyacentes.",
+  "idea_clave": "Recorrer el vector con dos acumuladores: la longitud del segmento actual y la longitud máxima vista hasta ahora. Al romper la condición, reiniciar el contador del segmento actual.",
+
+  "estrategia": [
+    "Inicializar lonActual = 1, lonMax = 1, inicioActual = 0, mejorInicio = 0",
+    "Recorrer desde i = 1 hasta n-1",
+    "Si v[i] == v[i-1] + 1: incrementar lonActual",
+    "Si no: reiniciar lonActual = 1 y actualizar inicioActual = i",
+    "Si lonActual > lonMax: actualizar lonMax y mejorInicio = inicioActual",
+    "Devolver mejorInicio y lonMax"
+  ],
+
+  "plantilla_codigo": "void segmentoConsecutivo(vector<int> v, int n, int &inicio, int &longitud) {\n    int lonActual = 1, lonMax = 1;\n    int inicioActual = 0;\n    inicio = 0;\n    for (int i = 1; i < n; i++) {\n        if (/* los elementos son consecutivos */) {\n            // ampliar segmento actual\n        } else {\n            // rompe la racha — reiniciar\n        }\n        // actualizar máximo si corresponde\n    }\n    longitud = lonMax;\n}",
+
+  "pistas": [
+    "Necesitas dos variables de longitud: la del segmento en curso y la máxima vista.",
+    "Cuando la racha se rompe, el nuevo segmento empieza en la posición actual (i).",
+    "¿Cuándo actualizas el mejor inicio? Solo cuando lonActual supere lonMax."
+  ],
+
+  "solucion_codigo": "void segmentoConsecutivo(vector<int> v, int n, int &inicio, int &longitud) {\n    int lonActual = 1, lonMax = 1;\n    int inicioActual = 0;\n    inicio = 0;\n    for (int i = 1; i < n; i++) {\n        if (v[i] == v[i-1] + 1) {\n            lonActual++;\n        } else {\n            lonActual = 1;\n            inicioActual = i;\n        }\n        if (lonActual > lonMax) {\n            lonMax = lonActual;\n            inicio = inicioActual;\n        }\n    }\n    longitud = lonMax;\n}",
+
+  "explicacion": "Se recorre el vector una sola vez (O(n)) manteniendo el segmento actual y el mejor encontrado. Cuando la condición v[i] == v[i-1]+1 se rompe, reiniciamos el contador. Solo actualizamos el mejor cuando el actual lo supera. El uso de inicioActual permite saber dónde empieza el segmento en progreso.",
+
+  "errores_comunes": [
+    "Actualizar 'inicio' cada vez que lonActual crece, en lugar de solo cuando supera lonMax.",
+    "No reiniciar inicioActual cuando la racha se rompe.",
+    "Inicializar lonMax = 0 en lugar de 1 (un solo elemento ya es un segmento válido)."
+  ]
+}

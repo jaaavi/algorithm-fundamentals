@@ -1,0 +1,32 @@
+{
+  "id": "it_primera_palabra_3",
+  "tema": "Iterativos",
+  "subtipo": "búsqueda",
+  "dificultad": 2,
+
+  "enunciado": "En este problema nos dan una serie de palabras y debemos decir cuál es la primera de todas ellas en orden alfabético. Las palabras se guardarán en un vector y el problema se resolverá con una función que reciba el vector, lo recorra y devuelva la primera palabra en orden alfabético.",
+  "entrada": "La entrada comienza con un valor entero que indica el número de casos de prueba. Cada caso de prueba consta de dos líneas, en la primera se muestra el número de palabras y en la segunda línea se muestran las palabras.",
+  "salida": "Para cada caso de prueba se escribe en una línea la primera palabra en orden alfabético.",
+  "restricciones": "El número de palabras es mayor que cero y cada palabra está formada por caracteres del código ASCII exceptuando el carácter blanco, el tabulador y el salto de línea.",
+
+  "ejemplo": {
+    "input": "3\n5\nrosa amapola clavel margarita hortensia\n1\nMapache\n6\nraqueta rastrillo radio ramo raso radiografia",
+    "output": "amapola\nMapache\nradio"
+  },
+
+  "tags": ["vector", "búsqueda", "orden alfabético", "iteración"],
+
+  "como_reconocerlo": "El problema pide encontrar la primera palabra en orden alfabético de una lista.",
+  "idea_clave": "Recorrer el vector de palabras y comparar alfabéticamente para encontrar la menor.",
+
+  "estrategia": ["Leer el número de casos de prueba.", "Para cada caso, leer el número de palabras y las palabras.", "Recorrer las palabras y encontrar la primera en orden alfabético.", "Imprimir la palabra encontrada para cada caso."],
+
+  "plantilla_codigo": "void encontrarPrimeraPalabra(vector<string> palabras) {\n  // Inicializar la primera palabra como la primera del vector\n  // Recorrer el vector comparando cada palabra con la actual primera\n  // Actualizar la primera palabra si se encuentra una menor\n  // Devolver la primera palabra encontrada\n}",
+
+  "pistas": ["Usa una variable para almacenar la palabra más pequeña encontrada hasta el momento.", "Compara cada palabra con la actual más pequeña usando operadores de comparación de strings."],
+
+  "solucion_codigo": "",
+  "explicacion": "El algoritmo recorre cada lista de palabras y utiliza comparaciones alfabéticas para determinar cuál es la primera palabra. Funciona porque las comparaciones de strings en C++ siguen el orden lexicográfico. La complejidad temporal es O(n) por cada caso de prueba, donde n es el número de palabras en el caso.",
+
+  "errores_comunes": ["No inicializar correctamente la palabra más pequeña con la primera palabra del vector.", "Olvidar comparar las palabras usando el operador de comparación adecuado para strings."]
+}
